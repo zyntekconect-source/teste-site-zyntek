@@ -6,7 +6,7 @@ Bem-vindo ao repositório da landing page oficial da **Zyntek**. Este projeto fo
 
 ## ✨ Preview do Projeto
 
-![Zyntek Preview](assets/capa-zyntek.png)
+![Zyntek Preview](assets/fotos/capa-zyntek.png)
 
 ---
 
