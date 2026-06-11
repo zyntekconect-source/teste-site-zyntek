@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zyntek | Política de Privacidade</title>
+  <link rel="icon" href="assets/fotos/logo z .png" type="image/x-icon">
+
+  <!-- Fontes e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Estilos inline customizados específicos para a formatação do texto de privacidade -->
+  <style>
+    .privacy-hero {
+      position: relative;
+      padding: 160px 8% 80px;
+      text-align: center;
+      background: #000;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .privacy-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      z-index: -3;
+    }
+    .privacy-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .privacy-content-wrapper {
+      padding: 60px 0 120px;
+      background: #000;
+    }
+    .privacy-text-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 50px;
+      backdrop-filter: blur(10px);
+    }
+    .privacy-intro {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+    }
+    .privacy-intro span {
+      color: #cc00ff;
+      font-weight: 600;
+    }
+    .privacy-section {
+      margin-bottom: 45px;
+    }
+    .privacy-section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .privacy-index {
+      color: #a300ff;
+    }
+    .privacy-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 15px;
+    }
+    .privacy-section ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    .privacy-section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 12px;
+      list-style-type: square;
+    }
+    .privacy-section li span {
+      color: #fff;
+      font-weight: 600;
+    }
+    .privacy-link-highlight {
+      color: #cc00ff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .privacy-link-highlight:hover {
+      opacity: 0.8;
+    }
+    .privacy-date {
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .privacy-text-block {
+        padding: 25px;
+      }
+      .privacy-section-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PARTÍCULAS DE FUNDO -->
+  <div class="particles" aria-hidden="true"></div>
+
+  <!-- =====================================================
+       HEADER (Idêntico ao site principal)
+  ====================================================== -->
+  <header id="header">
+
+    <div class="logo">
+      <img src="assets/fotos/logo z .png" alt="Logo Zyntek" width="40" height="40">
+      <video autoplay muted loop playsinline class="logo-video" aria-hidden="true">
+        <source src="assets/videos/logo glitch zyntek.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <nav aria-label="Navegação principal">
+      <a href="index.html#home"     class="nav-link">Home</a>
+      <a href="index.html#sobre"    class="nav-link">Sobre</a>
+      <a href="index.html#servicos" class="nav-link">Serviços</a>
+      <a href="index.html#equipe"   class="nav-link">Equipe</a>
+      <a href="index.html#projetos" class="nav-link">Projetos</a>
+      <a href="index.html#contatos" class="nav-link">Contatos</a>
+    </nav>
+
+    <a href="https://wa.me/554488317870?text=Olá%20equipe%20Zyntek%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20melhor%20a%20empresa%20e%20seus%20serviços."
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn-header btn-zyntek">
+      <span class="btn-code" aria-hidden="true">&lt;/&gt;</span>
+      <span class="btn-label">Falar conosco</span>
+    </a>
+
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu de navegação">
+      <nav class="mobile-nav" aria-label="Navegação mobile">
+        <a href="index.html#home"     class="nav-link">Home</a>
+        <a href="index.html#sobre"    class="nav-link">Sobre</a>
+        <a href="index.html#servicos" class="nav-link">Serviços</a>
+        <a href="index.html#equipe"   class="nav-link">Equipe</a>
+        <a href="index.html#projetos" class="nav-link">Projetos</a>
+        <a href="index.html#contatos" class="nav-link">Contatos</a>
+      </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+  </header>
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+  <main>
+    
+    <!-- HERO DA POLÍTICA -->
+    <section class="privacy-hero">
+      <video class="privacy-bg-video" autoplay loop muted playsinline aria-hidden="true">
+        <source src="assets/videos/fundo roxo geometrico.mp4" type="video/mp4">
+      </video>
+      <div class="privacy-container">
+        <span style="color: var(--primary); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.85rem;">Segurança & Transparência</span>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; color: #fff; margin-top: 15px; letter-spacing: -1px;">
+          Política de <span class="text-purple">Privacidade</span>
+        </h1>
+      </div>
+    </section>
+
+    <!-- CORPO DO TEXTO JURÍDICO -->
+    <section class="privacy-content-wrapper">
+      <div class="privacy-container">
+        <div class="privacy-text-block">
+          
+          <p class="privacy-intro">
+            A <span>Zyntek Conect</span>, pessoa jurídica de direito privado, operando sob ambiente digital focado em desenvolvimento de sistemas, engenharia de software, automações e soluções inteligentes, estabelece este documento para demonstrar seu compromisso inabalável com a proteção, confidencialidade e integridade dos dados coletados de seus usuários, clientes, parceiros e colaboradores em estrita conformidade com a <span>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</span>.
+          </p>
+
+          <div class="privacy-section">
+            <h2 class="privacy-section-title">
+              <span class="privacy-index">1.</span> Coleta de Informações Ativas e Passivas
+            </h2>
+            <p>
+              A Zyntek coleta informações estritamente necessárias para a prestação de serviços de excelência no ecossistema de software. Essa coleta ocorre através dos seguintes métodos e categorias:
+            </p>
+            <ul>
+              <li>
+                <span>Dados Cadastrais em Formulários</span> — Coletamos nome, endereço de e-mail, telefone corporativo e nome da empresa quando você solicita propostas, orçamentos ou simulações de desenvolvimento de software em nosso site.
+              </li>
+              <li>
+                <span>Dados de Interação em Canais de Comunicação</span> — Logs de mensagens iniciadas espontaneamente pelo usuário via APIs do WhatsApp Business, incluindo o número telefônico e dados públicos vinculados à conta.
+              </li>
+              <li>
+                <span>Dados Técnico de Navegação</span> — Endereço IP, cookies analíticos, tipo de navegador, sistema operacional e comportamento de fluxo de tela para auditoria, otimização de UX e prevenção de fraudes ou ataques cibernéticos.
+              </li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h2 class="privacy-section-title">
+              <span class="privacy-index">2.</span> Finalidades Legais do Tratamento de Dados
+            </h2>
+            <p>
+              Todo o tratamento de dados sob a tutela da Zyntek possui bases legais fundamentadas nos Artigos 7º e 11º da LGPD. As finalidades incluem:
+            </p>
+            <ul>
+              <li>
+                <span>Execução de Contratos e Atos Preliminares</span> — Processamento de dados estruturais para confecção de arquitetura de software, orçamentos comerciais sob medida e escopos de projetos.
+              </li>
+              <li>
+                <span>Comunicação e Suporte Técnico</span> — Gerenciamento de filas de atendimento, notificações automáticas de builds, atualizações de sistemas em produção e deploys.
+              </li>
+              <li>
+                <span>Legítimo Interesse</span> — Aperfeiçoamento de nossas ferramentas proprietárias, inteligência de mercado e comunicações de novas soluções e features do ecossistema Zyntek, desde que autorizado.
+              </li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h2 class="privacy-section-title">
+              <span class="privacy-index">3.</span> Protocolos de Segurança da Informação
+            </h2>
+            <p>
+              A segurança e a confidencialidade das suas informações são prioridades corporativas na Zyntek. Aplicamos os seguintes mecanismos técnicos avançados:
+            </p>
+            <ul>
+              <li>Criptografia de dados em trânsito via protocolo HTTPS (SSL/TLS de ponta) e criptografia em repouso nos servidores de banco de dados.</li>
+              <li>Políticas rigorosas de controle de acessos lógico-computacionais (IAM), garantindo que apenas desenvolvedores e analistas autorizados manipulem repositórios e instâncias de dados.</li>
+              <li>Proteção nativa end-to-end nas comunicações integradas de APIs oficiais de chatbots e mensageria instantânea.</li>
+            </ul>
+          </div>
+
+          <div class="privacy-section">
+            <h2 class="privacy-section-title">
+              <span class="privacy-index">4.</span> Política de Não Compartilhamento de Dados
+            </h2>
+            <p>
+              A Zyntek possui uma política rígida de sigilo empresarial: <span class="text-purple">sob nenhuma hipótese vendemos, comercializamos, alugamos ou cedemos dados pessoais</span> para empresas de publicidade terceiras ou corretores de dados.
+            </p>
+            <p>
+              O compartilhamento ocorre de forma minimalista apenas com provedores de infraestrutura cloud (ex: servidores de hospedagem de código e instâncias de processamento) que possuem contratos equivalentes e robustos em compliance com a LGPD e o GDPR, ou sob mandados e ordens judiciais emitidas por autoridades governamentais competentes.
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2 class="privacy-section-title">
+              <span class="privacy-index">5.</span> Direitos Constitucionais do Titular
+            </h2>
+            <p>
+              Em total conformidade com o Artigo 18 da LGPD, os usuários da plataforma Zyntek podem, a qualquer momento, requerer por meio eletrônico oficial:
+            </p>
+            <ul>
+              <li>Confirmação da existência de tratamento e acesso integral aos dados armazenados em nossos bancos de dados.</li>
+              <li>Correção imediata de informações incompletas, inexatas ou que estejam desatualizadas.</li>
+              <li>Revogação do consentimento concedido anteriormente para tratamentos baseados exclusivamente nesta base jurídica.</li>
+              <li>Eliminação, bloqueio ou anonimização de dados considerados excessivos ou tratados em desconformidade.</li>
+            </ul>
+            <p>
+              As requisições serão respondidas sem custos adicionais ao titular no prazo regulamentar de até <span class="text-purple">15 dias úteis</span> através do nosso Data Protection Officer (DPO).
+            </p>
+          </div>
+
+          <div class="privacy-section">
+            <h2 class="privacy-section-title">
+              <span class="privacy-index">6.</span> Governança Corporativa e Canais de Contato
+            </h2>
+            <p>
+              Esta Política poderá passar por revisões para manter-se alinhada com as resoluções da Autoridade Nacional de Proteção de Dados (ANPD). Para exercer seus direitos ou tirar dúvidas sobre o processamento de informações da Zyntek, utilize os pontos de contato centrais abaixo:
+            </p>
+            <ul>
+              <li>
+                <span>Encarregado de Dados (DPO) / WhatsApp:</span> 
+                <a href="https://wa.me/554488317870" target="_blank" rel="noopener noreferrer" class="privacy-link-highlight"> +55 (44) 8831-7870</a>
+              </li>
+              <li>
+                <span>Canal de E-mail Institucional:</span> 
+                <a href="mailto:zyntek.conect@gmail.com" class="privacy-link-highlight"> zyntek.conect@gmail.com</a>
+              </li>
+              <li>
+                <span>Repositório de Versionamento (GitHub):</span> 
+                <a href="https://github.com/zyntekconect-source/zyntekconect-source" target="_blank" rel="noopener noreferrer" class="privacy-link-highlight"> zyntekconect-source</a>
+              </li>
+            </ul>
+
+            <p class="privacy-date">
+              Última atualização global: Junho de 2026.<br>
+              Zyntek Conect — Engenharia de Software & Soluções Digitais.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <!-- =====================================================
+       FOOTER (Idêntico ao site principal)
+  ====================================================== -->
+  <footer class="footer-zyntek">
+
+    <div class="footer-container">
+
+      <!-- Coluna 1: Brand -->
+      <div class="footer-column footer-brand-col">
+        <div class="footer-logo">
+          <img src="assets/fotos/logo z .png" alt="Zyntek" width="44" height="44">
+        </div>
+        <h4 class="footer-brand-name">Zyntek Conect</h4>
+        <p class="footer-brand-desc">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/zyntek.conect/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Zyntek">
+            <i class="ri-instagram-line" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/zyntekconect-source/zyntekconect-source" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Zyntek">
+            <i class="ri-github-line" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Zyntek">
+            <i class="ri-linkedin-line" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/554488317870" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Zyntek">
+            <i class="ri-whatsapp-line" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Institucional -->
+      <div class="footer-column">
+        <h4>Institucional</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#sobre">Sobre a Zyntek</a></li>
+          <li><a href="index.html#contatos">Fale Conosco</a></li>
+          <li><a href="index.html#projetos">Portfólio</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Corporativo -->
+      <div class="footer-column">
+        <h4>Corporativo</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="https://wa.me/554488317870?text=Olá%20equipe%20Zyntek%2C%20tenho%20interesse%20em%20trabalhar%20com%20vocês.%20Como%20funciona%20o%20processo%3F"
+               target="_blank" rel="noopener noreferrer">
+              Trabalhe Conosco
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/554488317870?text=Olá%20equipe%20Zyntek%2C%20gostaria%20de%20conhecer%20o%20programa%20de%20parcerias%20de%20vocês."
+               target="_blank" rel="noopener noreferrer">
+              Seja Parqueiro
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-divider" aria-hidden="true"></div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Zyntek Conect — Todos os direitos reservados.</span>
+      <span class="footer-dev">Desenvolvido por <strong>Zyntek &amp; Levy Andrade</strong></span>
+    </div>
+
+  </footer>
+
+  <!-- =====================================================
+       BOTÃO FLUTUANTE — WHATSAPP
+  ====================================================== -->
+  <a href="https://wa.me/554488317870?text=Olá%20equipe%20Zyntek%2C%20vim%20pelo%20site%20e%20gostaria%20de%20iniciar%20um%20projeto.%20Podemos%20conversar%3F"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="floating-whatsapp"
+     aria-label="Falar com a Zyntek pelo WhatsApp">
+    <i class="ri-whatsapp-line" aria-hidden="true"></i>
+    <span class="floating-text">Vamos programar?</span>
+  </a>
+
+  <!-- SCRIPT COMPARTILHADO -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
