@@ -1061,73 +1061,22 @@
     <span class="zynk-fab-badge" aria-hidden="true">IA</span>
   </button>
 
-  <!-- Janela do Chat -->
-  <div class="zynk-chat-window" id="zynkChatWindow" role="dialog" aria-label="Chat com Zynk IA" aria-hidden="true">
+  <script>
+    (function(){
+      if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+        window.chatbase = (...arguments) => {
+          if(!window.chatbase.q) window.chatbase.q = [];
+          window.chatbase.q.push(arguments);
+        };
+      }
 
-    <!-- Header do chat -->
-    <div class="zynk-chat-header">
-      <div class="zynk-chat-header-info">
-        <div class="zynk-chat-avatar">
-          <img src="assets/fotos/zynk_home-removebg-preview.png" alt="Zynk IA">
-          <span class="zynk-online-dot" aria-hidden="true"></span>
-        </div>
-        <div class="zynk-chat-header-text">
-          <strong>Zynk IA</strong>
-          <span>Assistente Zyntek • Online</span>
-        </div>
-      </div>
-      <button class="zynk-chat-close" id="zynkChatClose" aria-label="Fechar chat">
-        <i class="ri-close-line" aria-hidden="true"></i>
-      </button>
-    </div>
-
-    <!-- Mensagens -->
-    <div class="zynk-chat-messages" id="zynkChatMessages" role="log" aria-live="polite">
-
-      <!-- Mensagem de boas-vindas -->
-      <div class="zynk-msg zynk-msg-bot">
-        <div class="zynk-msg-avatar">
-          <img src="assets/fotos/zynk_home-removebg-preview.png" alt="Zynk">
-        </div>
-        <div class="zynk-msg-bubble">
-          <p>Olá! 👋 Sou o <strong>Zynk</strong>, assistente de IA da Zyntek.</p>
-          <p>Como posso te ajudar hoje?</p>
-          <span class="zynk-msg-time">Agora</span>
-        </div>
-      </div>
-
-      <!-- Sugestões rápidas -->
-      <div class="zynk-suggestions" id="zynkSuggestions">
-        <button class="zynk-suggestion-btn" data-msg="Quais serviços a Zyntek oferece?">🚀 Nossos serviços</button>
-        <button class="zynk-suggestion-btn" data-msg="Como posso solicitar um orçamento?">💬 Solicitar orçamento</button>
-        <button class="zynk-suggestion-btn" data-msg="Quero conhecer os projetos da Zyntek">📂 Ver projetos</button>
-      </div>
-
-    </div>
-
-    <!-- Área de digitação (placeholder — IA será integrada depois) -->
-    <div class="zynk-chat-footer">
-      <div class="zynk-chat-input-row">
-        <input
-          type="text"
-          id="zynkChatInput"
-          class="zynk-chat-input"
-          placeholder="Digite sua mensagem..."
-          autocomplete="off"
-          aria-label="Campo de mensagem"
-          maxlength="500"
-        >
-        <button class="zynk-send-btn" id="zynkSendBtn" aria-label="Enviar mensagem">
-          <i class="ri-send-plane-fill" aria-hidden="true"></i>
-        </button>
-      </div>
-      <p class="zynk-chat-powered">⚡ Powered by <strong>Zyntek IA</strong></p>
-    </div>
-
-  </div>
-
-  <!-- Overlay do chat (mobile) -->
-  <div class="zynk-chat-overlay" id="zynkChatOverlay" aria-hidden="true"></div>
+      const script = document.createElement("script");
+      script.src = "https://www.chatbase.co/embed.min.js";
+      script.id = "NuaLpIb8NY351DciihtQY";
+      script.domain = "www.chatbase.co";
+      document.body.appendChild(script);
+    })();
+  </script>
 
 
   <!-- =====================================================
