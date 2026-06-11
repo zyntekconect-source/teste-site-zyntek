@@ -1129,6 +1129,23 @@
   <!-- Overlay do chat (mobile) -->
   <div class="zynk-chat-overlay" id="zynkChatOverlay" aria-hidden="true"></div>
 
+  <script>
+    (function(){
+      if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+        window.chatbase = (...arguments) => {
+          if(!window.chatbase.q) window.chatbase.q = [];
+          window.chatbase.q.push(arguments);
+        };
+      }
+
+      const script = document.createElement("script");
+      script.src = "https://www.chatbase.co/embed.min.js";
+      script.id = "NuaLpIb8NY351DciihtQY";
+      script.domain = "www.chatbase.co";
+      document.body.appendChild(script);
+    })();
+  </script>
+
 
   <!-- =====================================================
        JAVASCRIPT
