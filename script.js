@@ -876,7 +876,6 @@ window.addEventListener('load', async () => {
 ============================================================= */
 (function () {
   const fab       = document.getElementById('zynkChatFab');
-  const win       = document.getElementById('zynkChatWindow');
   const closeBtn  = document.getElementById('zynkChatClose');
   const messages  = document.getElementById('zynkChatMessages');
   const input     = document.getElementById('zynkChatInput');
