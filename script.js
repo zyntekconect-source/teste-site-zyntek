@@ -900,7 +900,9 @@ window.addEventListener('load', async () => {
     }
   }
 
-  fab.addEventListener('click', toggleChat);
+  fab.addEventListener('click', () => {
+  window.chatbase?.open();
+  });
   closeBtn && closeBtn.addEventListener('click', toggleChat);
   overlay && overlay.addEventListener('click', toggleChat);
 
