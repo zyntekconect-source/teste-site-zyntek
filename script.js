@@ -1,1023 +1,1182 @@
-// =============================================================
-// ZYNTEK — SCRIPT.JS  (Refatorado v2)
-// Correções:
-//  - Links WhatsApp personalizados por membro da equipe
-//  - Modal de projetos com IDs corretos (project-modal-deploy/github/contact)
-//  - Carrossel com setas e dots funcionais
-//  - FAQ com aria-expanded acessível
-//  - Formulário com validação client-side
-//  - Menu mobile fecha ao clicar em link
-//  - Header .scrolled class via scroll
-//  - IntersectionObserver otimizado
-//  - Suporte a teclado nos cards (Enter/Space)
-//  - Glitch loop somente após typing terminar
-// =============================================================
+'use strict';
 
-// =============================================================
-// 1. CONSTANTES & SELETORES
-// =============================================================
+const GOOGLE_TRANSLATE_STORAGE_KEY = 'zyntek-preferred-language';
 
-const sections        = document.querySelectorAll('section[id]');
-const navLinks        = document.querySelectorAll('.nav-link');
-const header          = document.getElementById('header');
-const bgVideo         = document.querySelector('.bg-video');
-const typingElements  = document.querySelectorAll('.typing');
-
-// Modais
-const teamModal          = document.getElementById('team-modal');
-const closeModalBtn      = document.querySelector('.premium-modal-close');
-const projectModal       = document.getElementById('project-modal');
-const closeProjectModalEl = document.querySelector('.close-project-modal');
-
-// Cards
-const teamCards    = document.querySelectorAll('.team-card');
-const projectCards = document.querySelectorAll('.project-card');
-const premiumCards = document.querySelectorAll('.premium-card');
-
-
-// =============================================================
-// 2. BANCO DE DADOS — EQUIPE
-//    Cada membro tem WhatsApp personalizado conforme briefing
-// =============================================================
-
-const zyntekTeam = {
-  levy: {
-    name:      'Levy Andrade',
-    greet:     'Olá, eu me chamo',
-    role:      'COO & CDO | Diretor de Operações, Design e Engenharia de Software',
-    bio:       'Líder estratégico e técnico responsável por capitanear a operação da Zyntek de ponta a ponta. Atuo diretamente na arquitetura de software e engenharia Full-Stack, transformando visões comerciais complexas em sistemas robustos de alta fidelidade. Coordeno desde a concepção da experiência do usuário (UI/UX) até a gestão de projetos e QA.',
-    portfolio: '#',
-    whatsapp:  'https://wa.me/554488317870?text=Olá%20Levy%20Andrade%2C%20vim%20pelo%20site%20da%20Zyntek!%20Gostaria%20de%20conhecer%20melhor%20a%20empresa%20e%20entender%20como%20vocês%20trabalham.',
-    photo:     'assets/fotos/LEVY ANDRADE.png',
-    functions: ['Arquitetura de Software', 'Full-Stack Dev', 'Gestão de Projetos (COO)', 'UI/UX Design & Figma', 'Quality Assurance (QA)']
-  },
-
-  hideki: {
-    name:      'Henrique Hideki',
-    greet:     'Olá, eu me chamo',
-    role:      'CLO & Lead Dev | Diretor Jurídico e Desenvolvimento',
-    bio:       'Responsável pela blindagem contratual e governança de dados da empresa e de nossos parceiros. No ecossistema de desenvolvimento, atua como líder focado na modelagem de bancos de dados relacionais seguros, desenvolvimento de APIs robustas e arquitetura de sistemas escaláveis.',
-    portfolio: '#',
-    whatsapp:  'https://wa.me/554488317870?text=Olá%20Henrique%20Hideki%2C%20vim%20pelo%20site%20da%20Zyntek!%20Gostaria%20de%20conhecer%20melhor%20a%20empresa%20e%20entender%20como%20vocês%20trabalham.',
-    photo:     'assets/fotos/HENRIQUE HIDEKI.png',
-    functions: ['Modelagem de Dados', 'Security & APIs', 'Estrutura Contratual', 'Full-Stack Dev', 'Quality Assurance (QA)']
-  },
-
-  soares: {
-    name:      'Henrique Soares',
-    greet:     'Olá, eu me chamo',
-    role:      'CTO | Diretor de Tecnologia e Infraestrutura',
-    bio:       'Líder técnico focado na espinha dorsal tecnológica das aplicações. Especialista em arquitetura de sistemas, gerenciamento e otimização de servidores, configurações avançadas de infraestrutura de rede (DNS) e implementação de tags estratégicas de rastreamento de dados e analytics.',
-    portfolio: '#',
-    whatsapp:  'https://wa.me/554488317870?text=Olá%20Henrique%20Soares%2C%20vim%20pelo%20site%20da%20Zyntek!%20Gostaria%20de%20conhecer%20melhor%20a%20empresa%20e%20entender%20como%20vocês%20trabalham.',
-    photo:     'assets/fotos/HENRIQUE SOARES.png',
-    functions: ['Arquitetura Back-end', 'Infraestrutura & DNS', 'Servidores / Deploy', 'Data Analytics', 'Quality Assurance (QA)']
-  },
-
-  zynk: {
-    name:      'Zynk AI',
-    greet:     'Saudações, eu sou o',
-    role:      'Núcleo de Inteligência e Automação da Zyntek',
-    bio:       'O motor cognitivo e mascote oficial da Zyntek. Atuo nos bastidores dos sistemas processando dados de alta performance, otimizando arquiteturas de código em tempo real e garantindo que os padrões de qualidade e segurança fiquem sempre no nível máximo de eficiência.',
-    portfolio: '#',
-    whatsapp:  'https://wa.me/554488317870?text=Olá%20equipe%20Zyntek%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.',
-    photo:     'assets/fotos/ZYNK.png',
-    functions: ['Processamento Neural', 'Otimização de Código', 'Automação de Fluxos', 'Guardião de UI/UX']
-  }
+const GOOGLE_LANGUAGE_MAP = {
+    pt: 'pt', en: 'en', es: 'es',
+    PT: 'pt', EN: 'en', ES: 'es'
 };
 
+const DISPLAY_LANGUAGE_MAP = { pt: 'PT', en: 'EN', es: 'ES' };
 
-// =============================================================
-// 3. BANCO DE DADOS — PROJETOS
-// =============================================================
-
-const projectDatabase = {
-  landing: {
-    title:       'Landing Page',
-    description: 'Páginas modernas de alta conversão, desenvolvidas com foco total em performance, branding e geração de leads. Cada elemento é projetado estrategicamente para transformar visitantes em clientes.',
-    video:       'assets/videos/landing-page.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Vi%20o%20projeto%20"Landing%20Page"%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20uma%20solução%20semelhante%20para%20minha%20empresa.%20Como%20funciona%20o%20desenvolvimento%3F'
-  },
-  agenda: {
-    title:       'Sistema de Agendamento',
-    description: 'Sistema inteligente para gestão completa de clientes, horários e serviços. Painel administrativo, notificações automáticas, histórico de atendimentos e relatórios de desempenho.',
-    video:       'assets/videos/agendamento.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Vi%20o%20projeto%20"Sistema%20de%20Agendamento"%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20uma%20solução%20semelhante%20para%20minha%20empresa.%20Como%20funciona%20o%20desenvolvimento%3F'
-  },
-  restaurante: {
-    title:       'Sistema Restaurante',
-    description: 'Gestão financeira completa, controle de pedidos, cardápio digital, dashboards inteligentes e integração com WhatsApp. Solução robusta para restaurantes que querem escalar com tecnologia.',
-    video:       'assets/videos/restaurante.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Vi%20o%20projeto%20"Sistema%20Restaurante"%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20uma%20solução%20semelhante%20para%20minha%20empresa.%20Como%20funciona%20o%20desenvolvimento%3F'
-  },
-  barbearia: {
-    title:       'Sistema Barbearia',
-    description: 'Experiência premium para gestão, agendamento online, fidelização de clientes e controle financeiro. Desenvolvido especialmente para barbearias que buscam profissionalismo e recorrência.',
-    video:       'assets/videos/sistema de barbearia.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Vi%20o%20projeto%20"Sistema%20Barbearia"%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20uma%20solução%20semelhante%20para%20minha%20empresa.%20Como%20funciona%20o%20desenvolvimento%3F'
-  },
-  ecommerce: {
-    title:       'E-commerce',
-    description: 'Lojas virtuais modernas, escaláveis e otimizadas para conversão. Integração com gateways de pagamento, controle de estoque, painel administrativo completo e experiência de compra premium.',
-    video:       'assets/videos/ecommerce.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Vi%20o%20projeto%20"E-commerce"%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20uma%20solução%20semelhante%20para%20minha%20empresa.%20Como%20funciona%20o%20desenvolvimento%3F'
-  },
-  chatbot: {
-    title:       'Chatbot Inteligente',
-    description: 'Automação inteligente de atendimento e vendas via WhatsApp, Instagram e site. Fluxos de conversação otimizados para captura de leads, suporte 24h e qualificação de clientes.',
-    video:       'assets/videos/chatbot.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Vi%20o%20projeto%20"Chatbot%20Inteligente"%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20uma%20solução%20semelhante%20para%20minha%20empresa.%20Como%20funciona%20o%20desenvolvimento%3F'
-  },
-  fitness: {
-    title:       'Gestão Fitness',
-    description: 'Sistema completo para academias e estúdios: controle de alunos, planos de treino, acompanhamento nutricional, financeiro e relatórios de evolução. Uma plataforma que retém e engaja.',
-    video:       'assets/videos/fitness.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Vi%20o%20projeto%20"Gestão%20Fitness"%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20uma%20solução%20semelhante%20para%20minha%20empresa.%20Como%20funciona%20o%20desenvolvimento%3F'
-  },
-  custom: {
-    title:       'Sistemas Personalizados',
-    description: 'Projetos exclusivos desenvolvidos sob demanda para atender necessidades específicas do seu negócio. Arquitetura, design e desenvolvimento 100% customizados para o seu contexto.',
-    video:       'assets/videos/sistemas-personalizados.mp4',
-    deploy:      '#',
-    github:      '#',
-    msgWpp:      'Olá%20Zyntek!%20Tenho%20interesse%20em%20um%20sistema%20personalizado.%20Gostaria%20de%20conversar%20sobre%20minha%20necessidade%20específica.%20Podemos%20agendar%20uma%20reunião%3F'
-  }
+const setGoogleTranslateCookie = (targetLang) => {
+    const domain = location.hostname === 'localhost' ? 'localhost' : location.hostname;
+    if (targetLang === 'pt') {
+        document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+        document.cookie = `googtrans=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+    } else {
+        const val = `/pt/${targetLang}`;
+        document.cookie = `googtrans=${val}; path=/`;
+        document.cookie = `googtrans=${val}; path=/; domain=${domain}`;
+    }
 };
 
-
-// =============================================================
-// 4. SCROLL: nav ativa + header + parallax
-// =============================================================
-
-function handleScroll() {
-  const scrollPos = window.scrollY;
-
-  // Header com classe .scrolled para opacidade
-  if (scrollPos > 60) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-
-  // Nav link ativo baseado na seção visível
-  let currentSection = '';
-
-  sections.forEach((section) => {
-    const top    = section.offsetTop - 120;
-    const height = section.clientHeight;
-
-    if (scrollPos >= top && scrollPos < top + height) {
-      currentSection = section.getAttribute('id');
+const applyGoogleLanguage = (languageCode) => {
+    const normalized = GOOGLE_LANGUAGE_MAP[languageCode] || 'pt';
+    const currentLang = document.getElementById('current-lang');
+    if (currentLang) {
+        currentLang.textContent = DISPLAY_LANGUAGE_MAP[normalized] || normalized.toUpperCase();
     }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + currentSection) {
-      link.classList.add('active');
+    const select = document.querySelector('.goog-te-combo');
+    if (select && select.value !== normalized) {
+        select.value = normalized;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
     }
-  });
+    document.documentElement.lang = normalized === 'pt' ? 'pt-BR' : normalized;
+};
 
-  // Parallax no vídeo hero
-  if (bgVideo) {
-    bgVideo.style.transform = `translateY(${scrollPos * 0.1}px)`;
-  }
+const setPreferredLanguage = (languageCode, options = {}) => {
+    const normalized = GOOGLE_LANGUAGE_MAP[languageCode] || 'pt';
+    localStorage.setItem(GOOGLE_TRANSLATE_STORAGE_KEY, normalized);
+    setGoogleTranslateCookie(normalized);
+    if (options.reloadPage) {
+        setTimeout(() => location.reload(), 180);
+    } else {
+        applyGoogleLanguage(normalized);
+    }
+};
+
+window.googleTranslateElementInit = function () {
+    if (!window.google?.translate?.TranslateElement) return;
+    new window.google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'pt,en,es',
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+    const saved = localStorage.getItem(GOOGLE_TRANSLATE_STORAGE_KEY);
+    setTimeout(() => applyGoogleLanguage(saved || 'pt'), 700);
+};
+
+const savedInitialLanguage = localStorage.getItem(GOOGLE_TRANSLATE_STORAGE_KEY);
+if (savedInitialLanguage) {
+    setGoogleTranslateCookie(savedInitialLanguage);
 }
 
-window.addEventListener('scroll', handleScroll, { passive: true });
+document.addEventListener('DOMContentLoaded', () => {
 
+    /* ==========================================================
+       HELPERS
+    ========================================================== */
 
-// =============================================================
-// 5. REVEAL COM INTERSECTIONOBSERVER
-// =============================================================
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
-const revealElements = document.querySelectorAll(
-  '.reveal, .reveal-left, .reveal-right, .reveal-top, .reveal-bottom, .reveal-card, .zoom-in'
-);
+    /* ==========================================================
+       HEADER SCROLL
+    ========================================================== */
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-active');
-        revealObserver.unobserve(entry.target);
-      }
+    (() => {
+
+        const header = $('#header');
+
+        if (!header) return;
+
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        handleScroll();
+
+        window.addEventListener('scroll', handleScroll, {
+            passive: true
+        });
+
+    })();
+
+/* ==========================================================
+   MENU ATIVO + INDICADOR MAGNÉTICO
+========================================================== */
+
+(() => {
+
+    const navLinks = [...document.querySelectorAll('.nav-link')];
+    const navIndicator = document.querySelector('.nav-indicator');
+    const navContainer = document.querySelector('.main-nav ul');
+    const sections = [...document.querySelectorAll('section[id]')];
+
+    if (!navLinks.length || !navIndicator || !navContainer) return;
+
+    let scrollSpyEnabled = true;
+    let activeLink = navLinks.find(link => link.classList.contains('active')) || navLinks[0];
+
+    const updateIndicator = (element) => {
+        if (!element) return;
+        requestAnimationFrame(() => {
+            const containerRect = navContainer.getBoundingClientRect();
+            const elemRect = element.getBoundingClientRect();
+            navIndicator.style.left   = `${elemRect.left - containerRect.left}px`;
+            navIndicator.style.top    = `${elemRect.top  - containerRect.top}px`;
+            navIndicator.style.width  = `${elemRect.width}px`;
+            navIndicator.style.height = `${elemRect.height}px`;
+        });
+    };
+
+    const setActiveLink = (link) => {
+        if (!link) return;
+        navLinks.forEach(item => item.classList.remove('active'));
+        link.classList.add('active');
+        activeLink = link;
+        updateIndicator(link);
+    };
+
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => updateIndicator(link));
+        link.addEventListener('focus',      () => updateIndicator(link));
+        link.addEventListener('click', () => {
+            setActiveLink(link);
+            scrollSpyEnabled = false;
+            setTimeout(() => { scrollSpyEnabled = true; }, 800);
+        });
     });
-  },
-  { threshold: 0.12 }
-);
 
-revealElements.forEach((el) => {
-  el.classList.add('reveal-init');
-  revealObserver.observe(el);
-});
+    navContainer.addEventListener('mouseleave', () => {
+        if (activeLink) updateIndicator(activeLink);
+    });
 
+    const observer = new IntersectionObserver((entries) => {
+        if (!scrollSpyEnabled) return;
+        const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const match = navLinks.find(l => l.getAttribute('href') === `#${visible.target.id}`);
+        if (match) setActiveLink(match);
+    }, { threshold: [0.3, 0.6], rootMargin: '-10% 0px -20% 0px' });
 
-// =============================================================
-// 6. TYPEWRITER + GLITCH
-// =============================================================
+    sections.forEach(s => observer.observe(s));
 
-const glitchChars = ['@', '#', '%', '&', '¥', '0', '1', '∆', 'Ξ', '>'];
+    const syncIndicator = () => { if (activeLink) updateIndicator(activeLink); };
 
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+    window.addEventListener('resize', syncIndicator, { passive: true });
+    window.addEventListener('load',   syncIndicator);
+    setTimeout(syncIndicator, 150);
+    setTimeout(syncIndicator, 500);
 
-async function typeEffect(element) {
-  const text = element.dataset.text;
-  if (!text) return;
-
-  element.textContent = '';
-
-  for (let i = 0; i < text.length; i++) {
-
-    // Ruído glitch em elementos marcados
-    if (element.classList.contains('glitch-text') && Math.random() > 0.62) {
-      const random = glitchChars[Math.floor(Math.random() * glitchChars.length)];
-      element.textContent += random;
-      await delay(38);
-      element.textContent = element.textContent.slice(0, -1);
-    }
-
-    element.textContent += text[i];
-    await delay(32);
-  }
-}
-
-async function startTypingSequence() {
-  for (const el of typingElements) {
-    await typeEffect(el);
-  }
-}
-
-// Loop de variações do título glitch (só inicia após typing)
-const glitchTitles = [
-  '< futuro digital />',
-  '< futur0 d1gital />',
-  '< fvturo.exe />',
-  '< fvtur0 d!g1tal />',
-  '< future.dll />',
-  '< digital_core />',
-  '< sys.future />',
-  '< corrupted_data />',
-  '< neural_system />',
-  '< AI.exe />',
-  '< protocol_zyntek />',
-  '< access_granted />',
-  '< future404 />',
-  '< quantum.digital />'
-];
-
-function startGlitchLoop() {
-  const heroTitle = document.getElementById('future-text');
-  if (!heroTitle) return;
-
-  const originalText = heroTitle.dataset.text || heroTitle.textContent;
-
-  setInterval(() => {
-    const randomText = glitchTitles[Math.floor(Math.random() * glitchTitles.length)];
-    heroTitle.textContent = randomText;
-
-    setTimeout(() => {
-      heroTitle.textContent = originalText;
-    }, 200);
-  }, 2600);
-}
-
-
-// =============================================================
-// 7. HOLOFOTE NOS CARDS (mousemove)
-// =============================================================
-
-premiumCards.forEach((card) => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(163,0,255,.16), rgba(255,255,255,.03))`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.background = '';
-  });
-});
-
-
-// =============================================================
-// 8. MODAL DE EQUIPE
-// =============================================================
-
-function openTeamModal(memberKey) {
-  const data = zyntekTeam[memberKey];
-  if (!data) return;
-
-  // Foto
-  const img = document.getElementById('modal-member-img');
-  img.src = data.photo;
-  img.alt = data.name;
-
-  // Textos
-  document.getElementById('modal-member-greet').textContent = data.greet;
-  document.getElementById('modal-member-name').textContent  = data.name;
-  document.getElementById('modal-member-role').textContent  = data.role;
-  document.getElementById('modal-member-bio').textContent   = data.bio;
-
-  // Links
-  const portfolioBtn = document.getElementById('modal-btn-portfolio');
-  const contactBtn   = document.getElementById('modal-btn-contact');
-
-  portfolioBtn.href = data.portfolio;
-  contactBtn.href   = data.whatsapp;
-
-  // Desabilita portfólio se não houver link real
-  if (data.portfolio === '#') {
-    portfolioBtn.style.opacity = '0.45';
-    portfolioBtn.style.pointerEvents = 'none';
-    portfolioBtn.setAttribute('aria-disabled', 'true');
-  } else {
-    portfolioBtn.style.opacity = '';
-    portfolioBtn.style.pointerEvents = '';
-    portfolioBtn.removeAttribute('aria-disabled');
-  }
-
-  // Tags
-  const tagsContainer = document.getElementById('modal-member-tags');
-  tagsContainer.innerHTML = '';
-
-  data.functions.forEach((func) => {
-    const span = document.createElement('span');
-    span.classList.add('tag-item');
-    span.textContent = func;
-    tagsContainer.appendChild(span);
-  });
-
-  // Abre modal
-  teamModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeTeamModal() {
-  teamModal.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// Eventos dos cards de equipe (click + teclado)
-teamCards.forEach((card) => {
-  card.addEventListener('click', () => {
-    const key = card.getAttribute('data-member');
-    openTeamModal(key);
-  });
-
-  card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      const key = card.getAttribute('data-member');
-      openTeamModal(key);
-    }
-  });
-});
-
-if (closeModalBtn) {
-  closeModalBtn.addEventListener('click', closeTeamModal);
-}
-
-// Fecha ao clicar no backdrop ou ESC
-teamModal.addEventListener('click', (e) => {
-  if (e.target === teamModal) closeTeamModal();
-});
-
-
-// =============================================================
-// 9. MODAL DE PROJETOS
-// =============================================================
-
-function openProjectModal(projectKey) {
-  const data = projectDatabase[projectKey];
-  if (!data) return;
-
-  // Títulos e textos
-  document.getElementById('project-modal-title').textContent       = data.title;
-  document.getElementById('project-modal-description').textContent = data.description;
-
-  // Links
-  document.getElementById('project-modal-deploy').href  = data.deploy;
-  document.getElementById('project-modal-github').href  = data.github;
-  document.getElementById('project-modal-contact').href = `https://wa.me/554488317870?text=${data.msgWpp}`;
-
-  // Deploy — desabilita se não houver link real
-  const deployBtn = document.getElementById('project-modal-deploy');
-  if (data.deploy === '#') {
-    deployBtn.style.opacity = '0.45';
-    deployBtn.style.pointerEvents = 'none';
-    deployBtn.setAttribute('aria-disabled', 'true');
-  } else {
-    deployBtn.style.opacity = '';
-    deployBtn.style.pointerEvents = '';
-    deployBtn.removeAttribute('aria-disabled');
-  }
-
-  // GitHub — desabilita se não houver link real
-  const githubBtn = document.getElementById('project-modal-github');
-  if (data.github === '#') {
-    githubBtn.style.opacity = '0.45';
-    githubBtn.style.pointerEvents = 'none';
-    githubBtn.setAttribute('aria-disabled', 'true');
-  } else {
-    githubBtn.style.opacity = '';
-    githubBtn.style.pointerEvents = '';
-    githubBtn.removeAttribute('aria-disabled');
-  }
-
-  // Vídeo
-  const videoPlayer = document.getElementById('project-modal-video-player');
-  if (videoPlayer) {
-    const source = videoPlayer.querySelector('source');
-    if (source) source.src = data.video;
-    videoPlayer.load();
-  }
-
-  // Abre modal
-  projectModal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeProjectModalFn() {
-  projectModal.style.display = 'none';
-  document.body.style.overflow = '';
-
-  const videoPlayer = document.getElementById('project-modal-video-player');
-  if (videoPlayer) videoPlayer.pause();
-}
-
-// Eventos dos cards de projeto (click + teclado)
-projectCards.forEach((card) => {
-  card.addEventListener('click', () => {
-    openProjectModal(card.getAttribute('data-project'));
-  });
-
-  card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openProjectModal(card.getAttribute('data-project'));
-    }
-  });
-});
-
-if (closeProjectModalEl) {
-  closeProjectModalEl.addEventListener('click', closeProjectModalFn);
-}
-
-projectModal.addEventListener('click', (e) => {
-  if (e.target === projectModal) closeProjectModalFn();
-});
-
-
-// =============================================================
-// 10. FECHAR MODAIS COM ESC
-// =============================================================
-
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeTeamModal();
-    closeProjectModalFn();
-  }
-});
-
-
-// =============================================================
-// 11. SMOOTH SCROLL (links âncora)
-// =============================================================
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', (e) => {
-    const href = anchor.getAttribute('href');
-    if (href === '#') return;
-
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 80;
-      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
-    }
-  });
-});
-
-
-// =============================================================
-// 12. MENU MOBILE
-// =============================================================
-
-(function initMobileMenu() {
-  const toggle  = document.getElementById('mobileMenuToggle');
-  const menu    = document.getElementById('mobileMenu');
-  const overlay = document.getElementById('mobileOverlay');
-
-  if (!toggle || !menu || !overlay) return;
-
-  function openMenu() {
-    toggle.classList.add('active');
-    menu.classList.add('active');
-    overlay.classList.add('active');
-    toggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu() {
-    toggle.classList.remove('active');
-    menu.classList.remove('active');
-    overlay.classList.remove('active');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  toggle.addEventListener('click', () => {
-    toggle.classList.contains('active') ? closeMenu() : openMenu();
-  });
-
-  overlay.addEventListener('click', closeMenu);
-
-  document.querySelectorAll('.mobile-nav a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Fecha com ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menu.classList.contains('active')) {
-      closeMenu();
-    }
-  });
 })();
 
 
-// =============================================================
-// 13. EQUIPE ZYNTEK
-// =============================================================
+/* ==========================================================
+   THEME + LANG DROPDOWN
+========================================================== */
 
-(function initTeamCards() {
+(() => {
 
-  const cards = document.querySelectorAll('.team-card');
+    const STORAGE_KEY = 'zyntek-theme';
 
-  if (!cards.length) return;
+    const themeToggle =
+        $('#theme-toggle') ||
+        $('.theme-toggle');
 
-  cards.forEach((card) => {
+    const moonIcon = $('#moon-icon');
+    const sunIcon = $('#sun-icon');
 
-    card.addEventListener('click', () => {
+    const langBtn = $('#lang-btn');
+    const langMenu = $('#lang-menu');
+    const langDropdown = $('.lang-dropdown');
 
-      const member = card.dataset.member;
+    const applyTheme = (theme) => {
+        const isLight = theme === 'light';
 
-      if(member){
-        openTeamModal(member);
-      }
+        document.body.classList.toggle('light-mode', isLight);
 
-    });
-
-    card.addEventListener('keydown', (e) => {
-
-      if(e.key === 'Enter' || e.key === ' ') {
-
-        e.preventDefault();
-
-        const member = card.dataset.member;
-
-        if(member){
-          openTeamModal(member);
+        if (themeToggle) {
+            themeToggle.classList.toggle('is-light', isLight);
+            themeToggle.setAttribute('aria-pressed', String(isLight));
+            themeToggle.setAttribute(
+                'aria-label',
+                isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro'
+            );
         }
-      }
-    });
 
-  });
+        if (moonIcon) {
+            moonIcon.style.opacity = isLight ? '0' : '1';
+            moonIcon.style.transform = isLight
+                ? 'rotate(-90deg) scale(0.4)'
+                : 'rotate(0deg) scale(1)';
+        }
+
+        if (sunIcon) {
+            sunIcon.style.opacity = isLight ? '1' : '0';
+            sunIcon.style.transform = isLight
+                ? 'rotate(360deg) scale(1)'
+                : 'rotate(-90deg) scale(0.4)';
+        }
+    };
+
+    const savedTheme = localStorage.getItem(STORAGE_KEY);
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        applyTheme(prefersLight ? 'light' : 'dark');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light-mode');
+            const nextTheme = isLight ? 'dark' : 'light';
+
+            localStorage.setItem(STORAGE_KEY, nextTheme);
+            applyTheme(nextTheme);
+        });
+    }
+
+    if (langBtn && langMenu && langDropdown) {
+        const openMenu = () => {
+            langMenu.classList.add('active');
+            langDropdown.classList.add('open');
+            langBtn.setAttribute('aria-expanded', 'true');
+            langMenu.setAttribute('aria-hidden', 'false');
+        };
+
+        const closeMenu = () => {
+            langMenu.classList.remove('active');
+            langDropdown.classList.remove('open');
+            langBtn.setAttribute('aria-expanded', 'false');
+            langMenu.setAttribute('aria-hidden', 'true');
+        };
+
+        langBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+
+            const isOpen = langMenu.classList.contains('active');
+
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        langMenu.querySelectorAll('a').forEach((item) => {
+            item.addEventListener('click', (event) => {
+                event.preventDefault();
+                const language = item.dataset.lang || item.textContent.trim();
+                const normalized = GOOGLE_LANGUAGE_MAP[language] || 'pt';
+                const currentLangEl = document.getElementById('current-lang');
+                if (currentLangEl) currentLangEl.textContent = DISPLAY_LANGUAGE_MAP[normalized] || normalized.toUpperCase();
+                closeMenu();
+                setPreferredLanguage(language, { reloadPage: true });
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!langDropdown.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeMenu();
+            }
+        });
+    }
 
 })();
 
-// =============================================================
-// 14. FAQ ACCORDION
-// =============================================================
-
-document.querySelectorAll('.faq-question').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('active');
-
-    // Fecha todos os outros
-    document.querySelectorAll('.faq-item').forEach((other) => {
-      other.classList.remove('active');
-      other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-    });
-
-    // Abre o clicado (se estava fechado)
-    if (!isOpen) {
-      item.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
-
-
-// =============================================================
-// 15. FORMULÁRIO DE ORÇAMENTO (com validação)
-// =============================================================
-
-(function initForm() {
-  const form = document.getElementById('budgetForm');
-  if (!form) return;
-
-  function showError(fieldId, errorId, message) {
-    const field = document.getElementById(fieldId);
-    const error = document.getElementById(errorId);
-    if (field) field.classList.add('invalid');
-    if (error) error.textContent = message;
-  }
-
-  function clearError(fieldId, errorId) {
-    const field = document.getElementById(fieldId);
-    const error = document.getElementById(errorId);
-    if (field) field.classList.remove('invalid');
-    if (error) error.textContent = '';
-  }
-
-  // Limpa erros ao digitar
-  ['nome', 'telefone', 'projeto'].forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', () => clearError(id, `error-${id}`));
-    }
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const nome     = document.getElementById('nome')?.value.trim();
-    const empresa  = document.getElementById('empresa')?.value.trim();
-    const telefone = document.getElementById('telefone')?.value.trim();
-    const projeto  = document.getElementById('projeto')?.value.trim();
-
-    let valid = true;
-
-    // Validações
-    if (!nome || nome.length < 2) {
-      showError('nome', 'error-nome', 'Por favor, informe seu nome completo.');
-      valid = false;
-    } else {
-      clearError('nome', 'error-nome');
-    }
 
-    if (!telefone || telefone.replace(/\D/g, '').length < 10) {
-      showError('telefone', 'error-telefone', 'Informe um WhatsApp válido com DDD.');
-      valid = false;
-    } else {
-      clearError('telefone', 'error-telefone');
-    }
-
-    if (!projeto || projeto.length < 10) {
-      showError('projeto', 'error-projeto', 'Descreva seu projeto em pelo menos 10 caracteres.');
-      valid = false;
-    } else {
-      clearError('projeto', 'error-projeto');
-    }
-
-    if (!valid) return;
-
-    // Monta mensagem WhatsApp
-    const mensagem =
-`Olá equipe Zyntek! 👋
-
-Meu nome é ${nome}
-Empresa: ${empresa || 'Não informado'}
-Telefone: ${telefone}
-
-Projeto:
-${projeto}
-
-Gostaria de solicitar um orçamento.`;
-
-    window.open(
-      `https://wa.me/554488317870?text=${encodeURIComponent(mensagem)}`,
-      '_blank',
-      'noopener,noreferrer'
-    );
-
-    // Reset do formulário
-    form.reset();
-  });
-})();
-
-
-// =============================================================
-// 16. INICIALIZAÇÃO
-// =============================================================
-
-window.addEventListener('load', async () => {
-  document.body.classList.add('loaded');
-
-  // Dispara scroll para ativar header state
-  handleScroll();
-
-  // Typing sequence e depois glitch loop
-  await startTypingSequence();
-  startGlitchLoop();
-});
-
-// =============================================================
-// REDE NEURAL EQUIPE
-// =============================================================
-
-(function(){
-
-    const hidekiCard =
-        document.querySelector('[data-member="hideki"]');
-
-    const levyCard =
-        document.querySelector('[data-member="levy"]');
-
-    const soaresCard =
-        document.querySelector('[data-member="soares"]');
-
-    const lineHideki =
-        document.querySelector('.line-hideki');
-
-    const lineLevy =
-        document.querySelector('.line-levy');
-
-    const lineSoares =
-        document.querySelector('.line-soares');
-
-    function clearLines(){
-
-        lineHideki?.classList.remove('line-active');
-        lineLevy?.classList.remove('line-active');
-        lineSoares?.classList.remove('line-active');
-
-    }
-
-    hidekiCard?.addEventListener('mouseenter',()=>{
-
-        clearLines();
-
-        lineHideki?.classList.add('line-active');
-
-    });
-
-    levyCard?.addEventListener('mouseenter',()=>{
-
-        clearLines();
-
-        lineLevy?.classList.add('line-active');
-
-    });
-
-    soaresCard?.addEventListener('mouseenter',()=>{
-
-        clearLines();
-
-        lineSoares?.classList.add('line-active');
-
-    });
-
-    document
-    .querySelector('.council-bottom')
-    ?.addEventListener('mouseleave',clearLines);
-
-})();
-
-// =============================================================
-// PULSO NEURAL
-// =============================================================
-
-(function(){
-
-    const dot =
-        document.querySelector('.energy-dot');
-
-    if(!dot) return;
-
-    function animateDot(x,y){
-
-        dot.style.opacity = '1';
-
-        dot.setAttribute('cx','500');
-        dot.setAttribute('cy','250');
-
-        let startX = 500;
-        let startY = 250;
-
-        let progress = 0;
-
-        const duration = 700;
-
-        function frame(){
-
-            progress += 16 / duration;
-
-            if(progress >= 1){
-
-                dot.style.opacity = '0';
-
-                return;
+    /* ==========================================================
+       SIDEBAR MOBILE
+    ========================================================== */
+
+    (() => {
+
+        const sidebar = $('#sidebar-lateral');
+        const overlay = $('#sidebar-overlay');
+        const menuToggle = $('#menu-toggle') || $('.menu-toggle');
+        const closeSidebar = $('#close-sidebar') || $('.close-sidebar') || $('#close-sidebar-lateral') || $('.close-sidebar-lateral');
+
+        if (!sidebar || !overlay || !menuToggle) return;
+
+        const setBodyScroll = (locked) => {
+            document.body.style.overflow = locked ? 'hidden' : '';
+            document.documentElement.style.overflow = locked ? 'hidden' : '';
+            document.body.classList.toggle('sidebar-open', locked);
+        };
+
+        const openSidebar = () => {
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            menuToggle.classList.add('is-open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            sidebar.setAttribute('aria-hidden', 'false');
+            overlay.setAttribute('aria-hidden', 'false');
+            setBodyScroll(true);
+        };
+
+        const hideSidebar = () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            menuToggle.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            sidebar.setAttribute('aria-hidden', 'true');
+            overlay.setAttribute('aria-hidden', 'true');
+            setBodyScroll(false);
+        };
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = sidebar.classList.contains('open');
+
+            if (isOpen) {
+                hideSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        if (closeSidebar) {
+            closeSidebar.addEventListener('click', hideSidebar);
+        }
+
+        overlay.addEventListener('click', hideSidebar);
+
+        const sidebarLinks = $$('a', sidebar);
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hideSidebar();
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                hideSidebar();
+            }
+        });
+
+    })();
+
+
+    /* ==========================================================
+       VÍDEO HERO
+    ========================================================== */
+
+    (() => {
+
+        const video =
+            $('#hero-video') ||
+            $('.hero-video') ||
+            $('video');
+
+        if (!video) return;
+
+        const pauseBtn =
+            $('#pause-video') ||
+            $('.pause-btn');
+
+        const playVideo = () => {
+
+            const promise = video.play();
+
+            if (promise !== undefined) {
+                promise.catch(() => {});
             }
 
-            const currentX =
-                startX + ((x - startX) * progress);
+            updateButton();
+        };
 
-            const currentY =
-                startY + ((y - startY) * progress);
+        const pauseVideo = () => {
 
-            dot.setAttribute('cx', currentX);
-            dot.setAttribute('cy', currentY);
+            video.pause();
+            updateButton();
+        };
 
-            requestAnimationFrame(frame);
+        const toggleVideo = () => {
+
+            if (video.paused) {
+                playVideo();
+            } else {
+                pauseVideo();
+            }
+        };
+
+        const updateButton = () => {
+
+            if (!pauseBtn) return;
+
+            pauseBtn.innerHTML = video.paused
+                ? '▶'
+                : '❚❚';
+        };
+
+        if (pauseBtn) {
+            pauseBtn.addEventListener('click', toggleVideo);
         }
 
-        requestAnimationFrame(frame);
-    }
+        video.addEventListener('click', toggleVideo);
 
-    document
-        .querySelector('[data-member="hideki"]')
-        ?.addEventListener('mouseenter',()=>{
+        video.addEventListener('play', updateButton);
+        video.addEventListener('pause', updateButton);
+        video.addEventListener('loadeddata', updateButton);
 
-            animateDot(250,450);
+        updateButton();
+
+    })();
+
+    /* ==========================================================
+       SCROLL SUAVE PARA ÂNCORAS
+    ========================================================== */
+
+    (() => {
+
+        const anchorLinks =
+            $$('a[href^="#"]');
+
+        anchorLinks.forEach(link => {
+
+            link.addEventListener('click', (event) => {
+
+                const targetId =
+                    link.getAttribute('href');
+
+                if (
+                    !targetId ||
+                    targetId === '#'
+                ) return;
+
+                const target =
+                    document.querySelector(targetId);
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                const header =
+                    $('#header');
+
+                const headerHeight =
+                    header
+                        ? header.offsetHeight
+                        : 80;
+
+                const offsetTop =
+                    target.offsetTop -
+                    headerHeight;
+
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+
+            });
 
         });
 
-    document
-        .querySelector('[data-member="levy"]')
-        ?.addEventListener('mouseenter',()=>{
+    })();
 
-            animateDot(500,390);
+    /* ==========================================================
+       REVEAL ON SCROLL
+    ========================================================== */
+
+    (() => {
+
+        const elements = $$(
+            '.service-card, .step-card, .project-card, .team-member-btn'
+        );
+
+        if (!elements.length) return;
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform =
+                                'translateY(0)';
+
+                            observer.unobserve(
+                                entry.target
+                            );
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+        elements.forEach(element => {
+
+            element.style.opacity = '0';
+            element.style.transform =
+                'translateY(30px)';
+
+            element.style.transition =
+                'opacity .6s ease, transform .6s ease';
+
+            observer.observe(element);
 
         });
 
-    document
-        .querySelector('[data-member="soares"]')
-        ?.addEventListener('mouseenter',()=>{
+    })();
 
-            animateDot(750,450);
+    /* ==========================================================
+       PREVENÇÃO DE ERROS GLOBAIS
+    ========================================================== */
 
-        });
-
-})();
-
-/* ============================================================
-   ZYNK IA — CHAT FLUTUANTE
-============================================================= */
-(function () {
-  const fab       = document.getElementById('zynkChatFab');
-  const win       = document.getElementById('zynkChatWindow');
-  const closeBtn  = document.getElementById('zynkChatClose');
-  const messages  = document.getElementById('zynkChatMessages');
-  const input     = document.getElementById('zynkChatInput');
-  const sendBtn   = document.getElementById('zynkSendBtn');
-  const overlay   = document.getElementById('zynkChatOverlay');
-  const suggestions = document.getElementById('zynkSuggestions');
-
-  if (!fab || !win) return;
-
-  let isOpen = false;
-
-  /* Abre / fecha */
-  function toggleChat() {
-    isOpen = !isOpen;
-    win.classList.toggle('zynk-chat-open', isOpen);
-    win.setAttribute('aria-hidden', String(!isOpen));
-    if (overlay) overlay.classList.toggle('zynk-overlay-active', isOpen);
-    if (isOpen) {
-      setTimeout(() => input && input.focus(), 350);
-      scrollMessages();
-    }
-  }
-
-  fab.addEventListener('click', toggleChat);
-  closeBtn && closeBtn.addEventListener('click', toggleChat);
-  overlay && overlay.addEventListener('click', toggleChat);
-
-  /* Fecha com ESC */
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isOpen) toggleChat();
-  });
-
-  /* Scroll automático */
-  function scrollMessages() {
-    if (messages) messages.scrollTop = messages.scrollHeight;
-  }
-
-  /* Cria bolha de mensagem */
-  function createMsg(text, type) {
-    const wrap = document.createElement('div');
-    wrap.className = `zynk-msg zynk-msg-${type}`;
-
-    const now = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-
-    if (type === 'bot') {
-      wrap.innerHTML = `
-        <div class="zynk-msg-avatar">
-          <img src="assets/fotos/zynk_home-removebg-preview.png" alt="Zynk">
-        </div>
-        <div class="zynk-msg-bubble">
-          <p>${text}</p>
-          <span class="zynk-msg-time">${now}</span>
-        </div>`;
-    } else {
-      wrap.innerHTML = `
-        <div class="zynk-msg-bubble">
-          <p>${escapeHtml(text)}</p>
-          <span class="zynk-msg-time">${now}</span>
-        </div>`;
-    }
-
-    return wrap;
-  }
-
-  /* Typing indicator */
-  function showTyping() {
-    const t = document.createElement('div');
-    t.className = 'zynk-msg zynk-msg-bot zynk-typing';
-    t.id = 'zynkTyping';
-    t.innerHTML = `
-      <div class="zynk-msg-avatar">
-        <img src="assets/fotos/zynk_home-removebg-preview.png" alt="Zynk">
-      </div>
-      <div class="zynk-msg-bubble">
-        <span class="zynk-typing-dot"></span>
-        <span class="zynk-typing-dot"></span>
-        <span class="zynk-typing-dot"></span>
-      </div>`;
-    messages.appendChild(t);
-    scrollMessages();
-    return t;
-  }
-
-  /* Resposta placeholder — será substituída pela IA depois */
-  const botReplies = {
-    default: 'Em breve terei a IA completa para te ajudar! Por enquanto, fale com a gente pelo WhatsApp. 🚀',
-    servicos: 'A Zyntek oferece: <strong>desenvolvimento de sistemas</strong>, automações, landing pages, dashboards e soluções de IA sob medida. Quer saber mais sobre algum serviço específico?',
-    orcamento: 'Para um orçamento personalizado, entre em contato pelo WhatsApp! <a href="https://wa.me/554488317870" target="_blank" style="color:#a020f0">Clique aqui</a> e converse com nossa equipe. 💜',
-    projetos: 'Nossos projetos ficam na seção <strong>Projetos</strong> aqui do site! Role a página para conferir tudo que já desenvolvemos. 👇'
-  };
-
-  function getBotReply(text) {
-    const t = text.toLowerCase();
-    if (t.includes('servi')) return botReplies.servicos;
-    if (t.includes('orça') || t.includes('preco') || t.includes('preço') || t.includes('valor') || t.includes('custo')) return botReplies.orcamento;
-    if (t.includes('projeto') || t.includes('portfólio') || t.includes('portfolio')) return botReplies.projetos;
-    return botReplies.default;
-  }
-
-  /* Envia mensagem */
-  function sendMessage(text) {
-    if (!text.trim()) return;
-
-    /* Remove sugestões na primeira mensagem */
-    if (suggestions) suggestions.style.display = 'none';
-
-    /* Msg do usuário */
-    messages.appendChild(createMsg(text, 'user'));
-    scrollMessages();
-    input.value = '';
-
-    /* Typing + resposta */
-    const typing = showTyping();
-    setTimeout(() => {
-      typing.remove();
-      messages.appendChild(createMsg(getBotReply(text), 'bot'));
-      scrollMessages();
-    }, 1000 + Math.random() * 600);
-  }
-
-  sendBtn && sendBtn.addEventListener('click', () => sendMessage(input.value));
-  input && input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage(input.value);
-    }
-  });
-
-  /* Sugestões rápidas */
-  document.querySelectorAll('.zynk-suggestion-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      sendMessage(btn.dataset.msg || btn.textContent);
+    window.addEventListener('error', (event) => {
+        console.warn('Zyntek Error:', event.message);
     });
-  });
 
-  /* XSS escape simples */
-  function escapeHtml(str) {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-})();
+    window.addEventListener(
+        'unhandledrejection',
+        (event) => {
+            console.warn(
+                'Zyntek Promise:',
+                event.reason
+            );
+        }
+    );
+
+});
+
+// Inicializa o fundo animado sem alterar o HTML estrutural
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+
+    // Cria o container principal do fundo
+    const cubeWrapper = document.createElement("div");
+    cubeWrapper.className = "zyntek-bg-animation";
+    cubeWrapper.setAttribute("aria-hidden", "true");
+
+    // Cria a lista que conterá os cubos/partículas
+    const cubeList = document.createElement("ul");
+    cubeList.className = "zyntek-floating-cubes";
+
+    // Define a quantidade de shapes tecnológicos flutuantes
+    const totalCubes = 28;
+
+    // Tipos de shape: cube, diamond, ring, cross, triangle
+    const shapeTypes = ['cube', 'diamond', 'ring', 'cross', 'triangle'];
+
+    for (let i = 0; i < totalCubes; i++) {
+        const li = document.createElement("li");
+
+        const size     = Math.floor(Math.random() * 55) + 14; // 14px → 69px
+        const left     = Math.random() * 100;
+        const delay    = Math.random() * 8;                   // delay máx 8s (era 15s)
+        const duration = Math.floor(Math.random() * 10) + 7;  // 7s → 17s (era 15-35s)
+        const shape    = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+
+        li.style.width           = `${size}px`;
+        li.style.height          = `${size}px`;
+        li.style.left            = `${left}%`;
+        li.style.animationDelay  = `${delay}s`;
+        li.style.animationDuration = `${duration}s`;
+        li.dataset.shape         = shape;
+
+        // Estilos por tipo de shape
+        if (shape === 'diamond') {
+            li.style.borderRadius = '0';
+            li.style.transform    = 'rotate(45deg)';
+        } else if (shape === 'ring') {
+            li.style.background   = 'transparent';
+            li.style.borderWidth  = '2px';
+            li.style.borderRadius = '50%';
+        } else if (shape === 'cross') {
+            li.style.background   = 'transparent';
+            li.style.border       = 'none';
+            li.style.width        = `${size * 0.18}px`;
+            li.style.height       = `${size}px`;
+            li.style.boxShadow    = `${size * 0.41}px 0 0 ${size * 0.18}px var(--cube-border)`;
+        } else if (shape === 'triangle') {
+            li.style.background   = 'transparent';
+            li.style.border       = 'none';
+            li.style.width        = '0';
+            li.style.height       = '0';
+            const half = Math.floor(size / 2);
+            li.style.borderLeft   = `${half}px solid transparent`;
+            li.style.borderRight  = `${half}px solid transparent`;
+            li.style.borderBottom = `${size}px solid rgba(109,40,217,0.18)`;
+            li.style.boxShadow    = 'none';
+        }
+        // 'cube' usa os estilos padrão do CSS (.zyntek-floating-cubes li)
+
+        cubeList.appendChild(li);
+    }
+
+    cubeWrapper.appendChild(cubeList);
+    body.appendChild(cubeWrapper);
+});
+
+/**
+ * bg-animation.js — Zyntek Background System
+ * Módulo: Mesh Gradient Animado + Partículas Canvas
+ * Inclua ANTES do script.js: <script src="bg-animation.js" defer></script>
+ */
+
+'use strict';
+
+/* ─── 1. UTILITÁRIOS ──────────────────────────────────────── */
+
+const rand = (min, max) => Math.random() * (max - min) + min;
+const lerp = (a, b, t)  => a + (b - a) * t;
+
+/* ─── 2. AURORA + DOT-GRID SYSTEM (startup, não gaming) ──── */
+
+function initMeshGradient() {
+    const canvas = document.getElementById('zyntek-mesh-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let W, H, rafId, t = 0;
+
+    const isLight = () => document.body.classList.contains('light-mode');
+
+    /* ── Configuração das auroras (glows suaves, sem blobs pesados) ── */
+    const AURORAS = [
+        /* cx_frac, cy_frac, rx_frac, ry_frac, hue, orbitX, orbitY, speed, phase */
+        { cx: 0.75, cy: 0.18, rx: 0.55, ry: 0.35, hue: 258, ox: 0.04, oy: 0.03, spd: 0.00018, ph: 0.00 },
+        { cx: 0.15, cy: 0.70, rx: 0.50, ry: 0.38, hue: 278, ox: 0.03, oy: 0.04, spd: 0.00022, ph: 2.10 },
+        { cx: 0.85, cy: 0.80, rx: 0.38, ry: 0.30, hue: 240, ox: 0.025, oy: 0.03, spd: 0.00015, ph: 1.05 },
+    ];
+
+    /* ── Configuração da grade de circuito (circuit board) ── */
+    const CIRCUIT_GAP  = 52;   /* espaçamento entre nós em px */
+    const NODE_R       = 1.6;  /* raio base do nó */
+
+    /* Semente de segmentos de linha — gerada uma vez no resize */
+    let circuitLines = [];
+
+    function buildCircuit() {
+        circuitLines = [];
+        const cols = Math.ceil(W / CIRCUIT_GAP) + 2;
+        const rows = Math.ceil(H / CIRCUIT_GAP) + 2;
+        const offX = (W % CIRCUIT_GAP) / 2;
+        const offY = (H % CIRCUIT_GAP) / 2;
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x = offX + c * CIRCUIT_GAP;
+                const y = offY + r * CIRCUIT_GAP;
+
+                /* Cada nó tem ~45% de chance de gerar um segmento para direita e/ou baixo */
+                if (Math.random() < 0.45 && c < cols - 1) {
+                    circuitLines.push({ x1: x, y1: y, x2: x + CIRCUIT_GAP, y2: y });
+                }
+                if (Math.random() < 0.45 && r < rows - 1) {
+                    circuitLines.push({ x1: x, y1: y, x2: x, y2: y + CIRCUIT_GAP });
+                }
+            }
+        }
+    }
+
+    function drawCircuit() {
+        const light      = isLight();
+        const lineAlpha  = light ? 0.055 : 0.10;
+        const nodeAlpha  = light ? 0.10  : 0.20;
+        const glowAlpha  = light ? 0.04  : 0.10;
+
+        /* Centro do glow principal */
+        const gcx = W * 0.72;
+        const gcy = H * 0.22;
+
+        const breathe = Math.sin(t * 0.0004) * 0.3 + 0.7;
+
+        /* Desenha linhas do circuito */
+        circuitLines.forEach(seg => {
+            const mx   = (seg.x1 + seg.x2) / 2;
+            const my   = (seg.y1 + seg.y2) / 2;
+            const dist = Math.hypot(mx - gcx, my - gcy);
+            const prox = Math.max(0, 1 - dist / 420);
+            const a    = lineAlpha + prox * glowAlpha * breathe;
+            if (a < 0.005) return;
+
+            const hue = 262 + prox * 20;
+            const sat = 15  + prox * 65;
+            const lig = light ? 35 : 72;
+
+            ctx.beginPath();
+            ctx.moveTo(seg.x1, seg.y1);
+            ctx.lineTo(seg.x2, seg.y2);
+            ctx.strokeStyle = `hsla(${hue}, ${sat}%, ${lig}%, ${a})`;
+            ctx.lineWidth   = 0.8 + prox * 0.6;
+            ctx.stroke();
+        });
+
+        /* Desenha nós nos cruzamentos */
+        const cols = Math.ceil(W / CIRCUIT_GAP) + 2;
+        const rows = Math.ceil(H / CIRCUIT_GAP) + 2;
+        const offX = (W % CIRCUIT_GAP) / 2;
+        const offY = (H % CIRCUIT_GAP) / 2;
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x    = offX + c * CIRCUIT_GAP;
+                const y    = offY + r * CIRCUIT_GAP;
+                const dist = Math.hypot(x - gcx, y - gcy);
+                const prox = Math.max(0, 1 - dist / 420);
+                const a    = nodeAlpha + prox * glowAlpha * breathe;
+                if (a < 0.01) continue;
+
+                const radius = NODE_R + prox * 1.6 * breathe;
+                const hue    = 262 + prox * 20;
+                const sat    = 20  + prox * 70;
+                const lig    = light ? 35 : 70;
+
+                /* Nós próximos ao glow ganham um anel extra */
+                if (prox > 0.45) {
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius * 2.2, 0, Math.PI * 2);
+                    ctx.strokeStyle = `hsla(${hue}, 80%, 65%, ${a * 0.35})`;
+                    ctx.lineWidth   = 0.6;
+                    ctx.stroke();
+                }
+
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${hue}, ${sat}%, ${lig}%, ${a})`;
+                ctx.fill();
+            }
+        }
+    }
+
+    function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        buildCircuit(); /* reconstrói o grafo ao redimensionar */
+    }
+
+    function drawAuroras() {
+        const alpha = isLight() ? 0.13 : 0.28;
+
+        ctx.globalCompositeOperation = 'screen';
+
+        AURORAS.forEach(a => {
+            const cx = (a.cx + Math.sin(t * a.spd * 1000 + a.ph) * a.ox) * W;
+            const cy = (a.cy + Math.cos(t * a.spd * 1000 * 0.8 + a.ph) * a.oy) * H;
+            const rx = a.rx * W;
+            const ry = a.ry * H;
+
+            /* Elipse via transformação do ctx */
+            ctx.save();
+            ctx.scale(1, ry / rx);
+            const grad = ctx.createRadialGradient(cx, cy * (rx / ry), 0, cx, cy * (rx / ry), rx);
+            const hue = a.hue + Math.sin(t * 0.0003) * 10;
+            grad.addColorStop(0,    `hsla(${hue}, 85%, 62%, ${alpha})`);
+            grad.addColorStop(0.45, `hsla(${hue}, 75%, 50%, ${alpha * 0.25})`);
+            grad.addColorStop(1,    `hsla(${hue}, 70%, 40%, 0)`);
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(cx, cy * (rx / ry), rx, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        });
+
+        ctx.globalCompositeOperation = 'source-over';
+    }
+
+    function drawDotGrid() {
+        const light     = isLight();
+        const dotAlpha  = light ? 0.12 : 0.18;
+        const glowAlpha = light ? 0.07 : 0.14;
+
+        /* Centro do glow (canto superior direito — composição hero) */
+        const gcx = W * 0.72;
+        const gcy = H * 0.22;
+
+        /* Offset de tempo muito suave para os pontos "respira" ligeiramente */
+        const breathe = Math.sin(t * 0.0004) * 0.3 + 0.7; /* 0.4 → 1.0 */
+
+        const cols = Math.ceil(W / DOT_GAP) + 2;
+        const rows = Math.ceil(H / DOT_GAP) + 2;
+        const offX = (W % DOT_GAP) / 2;
+        const offY = (H % DOT_GAP) / 2;
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x = offX + c * DOT_GAP;
+                const y = offY + r * DOT_GAP;
+
+                /* Distância ao centro do glow */
+                const dist = Math.hypot(x - gcx, y - gcy);
+                const proximity = Math.max(0, 1 - dist / DOT_PROX); /* 0 → 1 */
+
+                /* Tamanho e opacidade variam com proximidade */
+                const radius  = DOT_R + proximity * 1.2 * breathe;
+                const opacity = dotAlpha + proximity * glowAlpha * breathe;
+
+                if (opacity < 0.01) continue;
+
+                /* Cor: roxo próximo ao centro, neutro longe */
+                const hue = 262 + proximity * 20;
+                const sat = 20  + proximity * 70;
+                const lig = light ? 35 : 70;
+
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${hue}, ${sat}%, ${lig}%, ${opacity})`;
+                ctx.fill();
+            }
+        }
+    }
+
+    function draw(ts = 0) {
+        t = ts;
+        rafId = requestAnimationFrame(draw);
+        ctx.clearRect(0, 0, W, H);
+
+        drawCircuit();
+        drawAuroras();
+    }
+
+    window.addEventListener('resize', () => {
+        cancelAnimationFrame(rafId);
+        resize();
+        rafId = requestAnimationFrame(draw);
+    }, { passive: true });
+
+    resize();
+    rafId = requestAnimationFrame(draw);
+}
+
+/* ─── 3. PARTÍCULAS SUTIS (startup — sem losangos girando) ── */
+
+function initParticles() {
+    const canvas = document.getElementById('zyntek-particles-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let W, H, particles, rafId;
+
+    const COUNT = window.innerWidth < 600 ? 22 : 40;
+    const isLight = () => document.body.classList.contains('light-mode');
+
+    class Dot {
+        constructor() { this.reset(true); }
+
+        reset(initial = false) {
+            this.x     = rand(0, W);
+            this.y     = initial ? rand(0, H) : H + rand(10, 40);
+            this.r     = rand(0.8, 1.8);
+            this.speed = rand(0.12, 0.35);
+            this.drift = rand(-0.06, 0.06);
+            this.alpha = rand(0.04, 0.18);
+            this.hue   = rand(255, 285);
+        }
+
+        update() {
+            this.y -= this.speed;
+            this.x += this.drift;
+            if (this.y < -10 || this.x < -20 || this.x > W + 20) this.reset();
+        }
+
+        draw() {
+            const a = isLight() ? this.alpha * 0.45 : this.alpha;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${this.hue}, 75%, ${isLight() ? 40 : 75}%, ${a})`;
+            ctx.fill();
+        }
+    }
+
+    function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        if (!particles || particles.length !== COUNT) {
+            particles = Array.from({ length: COUNT }, () => new Dot());
+        }
+    }
+
+    function draw() {
+        rafId = requestAnimationFrame(draw);
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => { p.update(); p.draw(); });
+    }
+
+    window.addEventListener('resize', () => {
+        cancelAnimationFrame(rafId);
+        resize();
+        draw();
+    }, { passive: true });
+
+    resize();
+    draw();
+}
+
+/* ─── 4. INJEÇÃO DO HTML ESTRUTURAL ─────────────────────── */
+
+function injectBackgroundDOM() {
+    /* Evita duplicação se chamar 2x */
+    if (document.getElementById('zyntek-bg-root')) return;
+
+    const root = document.createElement('div');
+    root.id = 'zyntek-bg-root';
+    root.setAttribute('aria-hidden', 'true');
+    root.innerHTML = `
+        <!-- Canvas do Mesh Gradient (camada inferior) -->
+        <canvas id="zyntek-mesh-canvas"></canvas>
+
+        <!-- Canvas das partículas flutuantes (camada superior) -->
+        <canvas id="zyntek-particles-canvas"></canvas>
+
+        <!-- Vinheta suave nas bordas -->
+        <div id="zyntek-vignette"></div>
+    `;
+
+    /* Insere como primeiro filho do body */
+    document.body.insertBefore(root, document.body.firstChild);
+}
+
+/* ─── 5. NAV: ENTRADA PROFISSIONAL ESCALONADA ──────────────── */
+
+function initNavEntrance() {
+    const header = document.querySelector('.zyntek-header');
+    if (!header) return;
+
+    /* Header: fade + slide suave de cima */
+    header.style.transform  = 'translateY(-100%)';
+    header.style.opacity    = '0';
+    header.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease';
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                header.style.transform = 'translateY(0)';
+                header.style.opacity   = '1';
+            }, 80);
+        });
+    });
+
+    /* Nav links: fade + sobe com delay escalonado elegante */
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach((link, i) => {
+        link.style.opacity   = '0';
+        link.style.transform = 'translateY(-6px)';
+        link.style.transition =
+            `opacity 0.38s ease ${250 + i * 55}ms, ` +
+            `transform 0.38s cubic-bezier(0.16, 1, 0.3, 1) ${250 + i * 55}ms`;
+
+        setTimeout(() => {
+            link.style.opacity   = '1';
+            link.style.transform = 'translateY(0)';
+        }, 250 + i * 55);
+    });
+
+    /* Logo: fade-in levemente atrasado */
+    const logo = document.querySelector('.logo-container');
+    if (logo) {
+        logo.style.opacity   = '0';
+        logo.style.transform = 'translateX(-8px)';
+        logo.style.transition = 'opacity 0.45s ease 180ms, transform 0.45s cubic-bezier(0.16,1,0.3,1) 180ms';
+        setTimeout(() => {
+            logo.style.opacity   = '1';
+            logo.style.transform = 'translateX(0)';
+        }, 180);
+    }
+
+    /* Header actions (idioma, tema, CTA): fade da direita */
+    const actions = document.querySelector('.header-actions');
+    if (actions) {
+        actions.style.opacity   = '0';
+        actions.style.transform = 'translateX(10px)';
+        actions.style.transition = 'opacity 0.42s ease 320ms, transform 0.42s cubic-bezier(0.16,1,0.3,1) 320ms';
+        setTimeout(() => {
+            actions.style.opacity   = '1';
+            actions.style.transform = 'translateX(0)';
+        }, 320);
+    }
+}
+
+/* ─── 6. RESPOSTA AO TOGGLE DE TEMA ─────────────────────── */
+
+function watchThemeChanges() {
+    /* Observa mudança de classe no body para reotimizar opacidades */
+    const observer = new MutationObserver(() => {
+        /* Os canvas já leem isLight() em runtime — nada a fazer aqui.
+           Apenas dispara um resize suave para re-renderizar imediatamente. */
+        window.dispatchEvent(new Event('resize'));
+    });
+
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+}
+
+/* ─── 7. REDUÇÃO DE MOVIMENTO (a11y) ────────────────────── */
+
+function respectReducedMotion() {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const applyReducedMotion = (reduced) => {
+        const root = document.getElementById('zyntek-bg-root');
+        if (!root) return;
+        root.style.display = reduced ? 'none' : '';
+    };
+
+    applyReducedMotion(mq.matches);
+    mq.addEventListener('change', e => applyReducedMotion(e.matches));
+}
+
+/* ─── 8. HERO TYPING / GLITCH ANIMATION ─────────────────── */
+
+function initHeroTyping() {
+
+    /* ── Elementos ── */
+    const glitchEl  = document.getElementById('hero-typing');   /* linha 2: glitch */
+    const miniTitle = document.getElementById('hero-mini-title'); /* subtítulo */
+    const line1     = document.querySelector('.title-line-1');  /* "Construindo o" */
+    const line3     = document.querySelector('.title-line-3');  /* "das empresas" */
+
+    if (!glitchEl) return;
+
+    /* ── Variantes do texto glitch (linha 2) ── */
+    const PHRASES = [
+        { text: '< futuro digital />',  glitch: false },
+        { text: 'futuro.exe',            glitch: true  },
+        { text: 'F̷u̷t̷u̷r̷o̸ d1g1tal',      glitch: true  },
+        { text: '< futuro digital />',  glitch: false },
+        { text: 'Futur0_D!g!tal',        glitch: true  },
+        { text: '> futuro --now',        glitch: true  },
+        { text: '< futuro digital />',  glitch: false },
+        { text: 'Futur) d1g!ta!',        glitch: true  },
+        { text: '01100110 01110101',     glitch: true  },
+        { text: '< futuro digital />',  glitch: false },
+    ];
+
+    const SCRAMBLE = '!@#$%^&*<>?/\\|{}[]01';
+
+    const SPEED = {
+        mini:       28,   /* ms/char para o mini-título */
+        type:       52,   /* ms/char digitando */
+        del:        28,   /* ms/char apagando */
+        pause:    2400,   /* pausa frase normal */
+        pauseG:    650,   /* pausa frase glitch */
+        glitchF:     5,   /* frames scramble final */
+    };
+
+    const heroTitle = glitchEl.closest('.hero-title');
+    const setGlitch = (on) => heroTitle && heroTitle.classList.toggle('is-glitching', on);
+    const rand      = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const scramble  = (s) => s.split('').map(c => c === ' ' ? ' ' : rand(SCRAMBLE.split(''))).join('');
+
+    /* ── Reduced motion: mostra tudo estático ── */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if (miniTitle) miniTitle.textContent = 'SOFTWARE HOUSE • AUTOMAÇÕES • IA • LANDING PAGES';
+        glitchEl.textContent = '< futuro digital />';
+        [line1, line3].forEach(el => el && el.classList.add('visible'));
+        return;
+    }
+
+    /* ───────────────────────────────────────────
+       FASE 1: digita o mini-título (subtítulo)
+    ─────────────────────────────────────────── */
+    const MINI_TEXT = 'SOFTWARE HOUSE • AUTOMAÇÕES • IA • LANDING PAGES';
+
+    function typeMini(i) {
+        if (!miniTitle) { startLines(); return; }
+        if (i <= MINI_TEXT.length) {
+            miniTitle.textContent = MINI_TEXT.slice(0, i);
+            setTimeout(() => typeMini(i + 1), SPEED.mini);
+        } else {
+            /* Mini-título completo → inicia linhas 1 e 3 com fade */
+            setTimeout(startLines, 300);
+        }
+    }
+
+    /* ───────────────────────────────────────────
+       FASE 2: fade-in de "Construindo o" e "das empresas"
+    ─────────────────────────────────────────── */
+    function startLines() {
+        if (line1) line1.classList.add('visible');
+        /* Linha 3 aparece com 200ms de atraso adicional */
+        setTimeout(() => {
+            if (line3) line3.classList.add('visible');
+            /* Após ambas visíveis, inicia loop de glitch na linha 2 */
+            setTimeout(startGlitchLoop, 350);
+        }, 200);
+    }
+
+    /* ───────────────────────────────────────────
+       FASE 3: loop de glitch na linha 2
+    ─────────────────────────────────────────── */
+    let pIdx = 0, cIdx = 0, deleting = false, gCount = 0;
+
+    function tick() {
+        const phrase = PHRASES[pIdx];
+        const full   = phrase.text;
+
+        /* --- apagando --- */
+        if (deleting) {
+            cIdx--;
+            glitchEl.textContent = full.slice(0, cIdx);
+            if (cIdx <= 0) {
+                deleting = false; gCount = 0;
+                setGlitch(false);
+                pIdx = (pIdx + 1) % PHRASES.length;
+                setTimeout(tick, 380);
+            } else {
+                setTimeout(tick, SPEED.del);
+            }
+            return;
+        }
+
+        /* --- digitando --- */
+        cIdx++;
+        glitchEl.textContent = full.slice(0, cIdx);
+
+        /* scramble inline durante digitação de frases glitch */
+        if (phrase.glitch && cIdx > 2 && Math.random() < 0.22) {
+            const stable = glitchEl.textContent;
+            glitchEl.textContent = scramble(stable);
+            setGlitch(true);
+            setTimeout(() => { glitchEl.textContent = stable; setGlitch(false); }, 75);
+        }
+
+        if (cIdx < full.length) {
+            setTimeout(tick, SPEED.type);
+            return;
+        }
+
+        /* --- texto completo: scramble final --- */
+        if (phrase.glitch && gCount < SPEED.glitchF) {
+            gCount++;
+            setGlitch(true);
+            const stable = full;
+            glitchEl.textContent = scramble(stable);
+            setTimeout(() => { glitchEl.textContent = stable; tick(); }, 85);
+            return;
+        }
+
+        setGlitch(false); gCount = 0;
+        const pause = phrase.glitch ? SPEED.pauseG : SPEED.pause;
+        setTimeout(() => { deleting = true; tick(); }, pause);
+    }
+
+    function startGlitchLoop() { tick(); }
+
+    /* ── Arranca tudo ── */
+    setTimeout(() => typeMini(0), 700);
+}
+
+/* ─── 9. BOOTSTRAP ─────────────────────────────────────── */
+
+document.addEventListener('DOMContentLoaded', () => {
+    injectBackgroundDOM();
+    initMeshGradient();
+    initParticles();
+    initNavEntrance();
+    watchThemeChanges();
+    respectReducedMotion();
+    initHeroTyping();        /* ← typing/glitch do hero */
+});

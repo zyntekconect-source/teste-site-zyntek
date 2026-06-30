@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#120f2f"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="40" fill="url(#bg)"/>
+  <rect x="90" y="90" width="620" height="620" rx="30" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)" stroke-width="3"/>
+  <circle cx="400" cy="330" r="140" fill="rgba(255,255,255,0.14)"/>
+  <path d="M260 565c30-110 120-170 220-170 60 0 130 20 180 60" stroke="#fff" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <text x="400" y="690" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="46" font-weight="700">ZYNTEK</text>
+</svg>

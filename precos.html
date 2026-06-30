@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zyntek | Modelos de Contratação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="precos.css">
+</head>
+<body>
+
+  <div class="bg-grid-lines" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <header class="zyntek-header" id="header" role="banner">
+    <a href="#inicio" class="logo-container" aria-label="Zyntek — Ir para o início">
+      <img src="assets/icones/logo z .png" alt="Logo Zyntek" class="logo-image">
+      <span class="logo-text">Zyntek</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul role="list">
+        <div class="nav-indicator"></div>
+        <li><a href="index.html" class="nav-link active" aria-current="page">Início</a></li>
+        <li><a href="#planos" class="nav-link">Planos</a></li>
+        <li><a href="#recomendacao" class="nav-link">Recomendação</a></li>
+        <li><a href="#avaliacoes" class="nav-link">Avaliações</a></li>
+        <li><a href="#contatos" class="nav-link">Contatos</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-dropdown">
+          <button id="lang-btn" class="lang-btn" aria-controls="lang-menu" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang">PT</span>
+              <svg id="lang-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul id="lang-menu" class="lang-menu" aria-hidden="true">
+              <li><a href="#" data-lang="PT">🇧🇷 Português</a></li>
+              <li><a href="#" data-lang="EN">🇺🇸 English</a></li>
+              <li><a href="#" data-lang="ES">🇪🇸 Español</a></li>
+          </ul>
+      </div>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+
+      <button id="menu-toggle" class="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="#contatos" class="cta-btn"><span class="code-symbol">&lt;/&gt;</span> Fale Conosco</a>
+    </div>
+  </header>
+
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <main id="main-content">
+    
+    <section id="inicio" class="pricing-section hero-pricing-flow">
+      <div class="video-background-container">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+          <source src="assets/videos/line-glow-bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay-mask"></div>
+      </div>
+
+      <div class="pricing-container">
+        <div class="hero-split-header">
+          <div class="hero-text-content">
+            <span class="eyebrow">ARQUITETURA DE ALTO DESEMPENHO</span>
+            <h2>Explore Nossos Modelos de Investimento Estratégico</h2>
+            <p>Na Zyntek, nós não apenas escrevemos código; nós construímos o ecossistema digital que impulsiona seus resultados de forma escalável. Descubra a estrutura comercial ideal para o seu momento, projetada para proteger seu fluxo de caixa e acelerar a sua inovação.</p>
+          </div>
+          <div class="hero-image-content">
+            <img src="zynk-glitch.gif" alt="Zynk AI" class="zynk-hero-img">
+          </div>
+        </div>
+
+        <div id="planos" class="pricing-cards-grid">
+          
+          <div class="payment-card" id="card-fechada" data-model="Venda Fechada">
+            <div class="card-badge">ESCOPO DEFINIDO</div>
+            <div class="card-top">
+              <h3>Escopo Fechado</h3>
+              <p class="card-pricing-meta">Previsibilidade Total & Entrega Homologada</p>
+            </div>
+            
+            <ul class="card-features">
+              <!-- Itens Inclusos (Check) -->
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Prototipagem em Figma:</strong> Layout de interface totalmente desenhado e validado antes do início do código.</span>
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Alinhamento Estruturado:</strong> Duas reuniões estratégicas inclusas (Briefing inicial e homologação de ajustes).</span>
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Entrega Chave na Mão:</strong> Upload em ambiente de produção com domínio configurado e pronto para faturar.</span>
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Propriedade Intelectual:</strong> Código-fonte 100% seu e livre de amarras contratuais ou mensalidades obrigatórias.</span>
+              </li>
+
+              <!-- Itens Não Inclusos (Cross / Indisponíveis) -->
+              <li class="item-unavailable">
+                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>Hospedagem Inclusa:</strong> Custos de servidor e manutenção do ambiente ficam por conta do cliente pós-entrega.</span>
+              </li>
+              <li class="item-unavailable">
+                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>Suporte Técnico Mensal:</strong> Atualizações críticas ou correções após a garantia são orçadas como horas avulsas.</span>
+              </li>
+              <li class="item-unavailable">
+                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>Evolução de Design Gratuita:</strong> Mudanças visuais solicitadas após o deploy final geram nova taxa de serviço.</span>
+              </li>
+              <li class="item-unavailable">
+                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>Desconto em Upgrades:</strong> Novas aplicações ou funcionalidades complexas são cobradas pelo valor integral.</span>
+              </li>
+            </ul>
+            <a href="#contatos" class="card-action-btn">Orçar Escopo Fechado</a>
+          </div>
+
+          <div class="payment-card" id="card-hibrida" data-model="Squad & Evolução Contínua">
+            <div class="card-badge neon-badge">Parceria Estratégica</div>
+            <div class="card-top">
+              <h3>Operação Contínua</h3>
+              <p class="card-pricing-meta">Setup Inicial + Sprint Mensal (24 Meses)</p>
+            </div>
+            
+            <ul class="card-features">
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Prototipagem em Figma:</strong> Design de interface desenhado e alinhado sob medida para a sua marca.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Acompanhamento Mensal:</strong> Reuniões periódicas para analisar métricas, evolução do produto e feedbacks.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Entrega Chave na Mão:</strong> Publicação do ecossistema e configuração técnica do seu domínio.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Propriedade Intelectual:</strong> Código-fonte 100% da sua empresa após o período de vigência contratual.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Hospedagem Premium:</strong> Infraestrutura de servidor inclusa no plano por todo o período do contrato.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Suporte Técnico Dedicado:</strong> Monitoramento ativo contra quedas e correção prioritária de bugs de sistema.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Evolução de Layout Inclusa:</strong> Atualizações de texto, banners e ajustes visuais cobertos na mensalidade.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>50% OFF em Novas Features:</strong> Projetos complexos ou novos módulos desenvolvidos com metade do custo avulso.</span>
+              </li>
+            </ul>
+            <a href="#contatos" class="card-action-btn high-contrast">Contratar Operação Contínua</a>
+          </div>
+
+        </div>
+
+          <div id="recomendacao" class="services-recommendation-area">
+  <div class="pricing-header compact">
+    <span class="eyebrow">ENGENHARIA DE PRODUTO</span>
+    <h3>Descubra o Modelo Ideal para o seu Projeto</h3>
+    <p>Selecione a vertical da sua necessidade na coluna lateral e nossa inteligência apontará a estrutura comercial ideal.</p>
+  </div>
+
+  <div class="recommendation-split-layout">
+    <aside class="services-sidebar-tabs" role="tablist">
+      <button class="tab-sidebar-btn active" data-service="lp">
+        <img src="assets/icones/lp.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Landing Pages de Alta Conversão</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="portfolio">
+        <img src="assets/icones/portfolio.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Portfólios & Vitrines Digitais</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="agendamento">
+        <img src="assets/icones/agendamento.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Plataformas de Agendamento</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="restaurante">
+        <img src="assets/icones/restaurante.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Sistemas para Food Service</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="barbearia">
+        <img src="assets/icones/barbearia.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Sistemas para Barbearias</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="ecommerce">
+        <img src="assets/icones/ecommerce.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>E-commerce & Lojas Virtuais</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="ia">
+        <img src="assets/icones/ia.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Atendimento Automatizado via IA</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="academia">
+        <img src="assets/icones/academia.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Sistemas para Academias</span>
+      </button>
+      <button class="tab-sidebar-btn" data-service="sobmedida">
+        <img src="assets/icones/sobmedida.png" class="tab-btn-icon" alt="" onerror="this.style.display='none'">
+        <span>Soluções Corporativas Sob Medida</span>
+      </button>
+    </aside>
+
+            <div class="tabs-content-pane">
+              <div id="dynamic-panel-content" class="tab-panel-details">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avaliacoes" class="testimonials-section">
+      <!-- Container expandido via CSS para 1440px -->
+      <div class="pricing-container wide-testimonials">
+        <div class="pricing-header text-center">
+          <span class="eyebrow">ENGENHARIA HOMOLOGADA</span>
+          <h2>O Que Dizem Nossos Parceiros</h2>
+          <p>A validação técnica e o retorno estratégico de quem já teve sua operação otimizada pelas soluções da Zyntek.</p>
+        </div>
+
+        <div class="carousel-wrapper clean-edge">
+          <div class="carousel-track" id="testimonial-track">
+            
+            <!-- Card 1 -->
+            <div class="testi-card">
+              <div class="card-meta-row">
+                <div class="stars">★★★★★</div>
+                <span class="verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Homologado
+                </span>
+              </div>
+              <p class="testi-text">"A Zyntek materializou nossa estratégia de conversão em uma infraestrutura impecável. O desempenho de carregamento e a nova arquitetura visual dobraram nossa captação de leads qualificados logo nas primeiras semanas de tráfego pago."</p>
+              <div class="testi-profile">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Marcos T." class="testi-avatar">
+                <div class="testi-author-info">
+                  <span class="testi-author">Marcos T.</span>
+                  <span class="testi-role">Diretor Comercial</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testi-card">
+              <div class="card-meta-row">
+                <div class="stars">★★★★★</div>
+                <span class="verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Homologado
+                </span>
+              </div>
+              <p class="testi-text">"O software sob medida desenvolvido eliminou gargalos logísticos críticos da nossa operação. A escolha pelo modelo de Operação Contínua foi indispensável para mantermos a evolução da plataforma alinhada à nossa proteção de fluxo de caixa."</p>
+              <div class="testi-profile">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80" alt="Camila R." class="testi-avatar">
+                <div class="testi-author-info">
+                  <span class="testi-author">Camila R.</span>
+                  <span class="testi-role">Diretora de Tecnologia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testi-card">
+              <div class="card-meta-row">
+                <div class="stars">★★★★★</div>
+                <span class="verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Homologado
+                </span>
+              </div>
+              <p class="testi-text">"A integração da Inteligência Artificial ao nosso canal de atendimento mudou o patamar do negócio. Conseguimos estruturar uma qualificação automática 24/7 de alta precisão. Engenharia de software séria e extremamente assertiva."</p>
+              <div class="testi-profile">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Roberto F." class="testi-avatar">
+                <div class="testi-author-info">
+                  <span class="testi-author">Roberto F.</span>
+                  <span class="testi-role">CEO / Founder</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="testi-card">
+              <div class="card-meta-row">
+                <div class="stars">★★★★★</div>
+                <span class="verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Homologado
+                </span>
+              </div>
+              <p class="testi-text">"Profissionalismo exemplar desde o mapeamento técnico de requisitos. Entregaram a nossa plataforma de agendamentos complexos rigorosamente antes do prazo acordado, demonstrando total domínio e maturidade de projeto."</p>
+              <div class="testi-profile">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80" alt="Dra. Amanda L." class="testi-avatar">
+                <div class="testi-author-info">
+                  <span class="testi-author">Dra. Amanda L.</span>
+                  <span class="testi-role">Gestora de Unidade de Saúde</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="testi-card">
+              <div class="card-meta-row">
+                <div class="stars">★★★★★</div>
+                <span class="verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Homologado
+                </span>
+              </div>
+              <p class="testi-text">"O sistema de comanda digital e roteamento interno de pedidos mitigou as falhas operacionais e elevou a eficiência da nossa operação em 40%. A Zyntek entende profundamente tanto de arquitetura de código quanto de regras de negócio."</p>
+              <div class="testi-profile">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="João P." class="testi-avatar">
+                <div class="testi-author-info">
+                  <span class="testi-author">João P.</span>
+                  <span class="testi-role">Diretor de Operações</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="testi-card">
+              <div class="card-meta-row">
+                <div class="stars">★★★★★</div>
+                <span class="verified-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Homologado
+                </span>
+              </div>
+              <p class="testi-text">"O desenvolvimento do nosso ecossistema institucional corporativo foi executado sob o modelo de Escopo Fechado com maestria. O design e o alinhamento técnico nos posicionaram com autoridade e abriram portas para contratos corporativos robustos."</p>
+              <div class="testi-profile">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80" alt="Lucas S." class="testi-avatar">
+                <div class="testi-author-info">
+                  <span class="testi-author">Lucas S.</span>
+                  <span class="testi-role">Arquiteto & Diretor de Projetos</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================
+         CONTATO
+         =========================================== -->
+    <section id="contatos" class="contact-section" aria-labelledby="contatos-heading">
+      <div class="contact-header">
+        <span class="eyebrow">— CONTATO —</span>
+        <h2 id="contatos-heading">Vamos estruturar o futuro do seu negócio</h2>
+        <p>Agende uma consultoria <span class="highlight">estratégica</span> e descubra como a tecnologia pode acelerar seu crescimento.</p>
+      </div>
+
+      <div class="contact-container">
+
+        <!-- Card: Formulário -->
+        <div class="contact-card form-card">
+          <div class="card-header">
+            <h3><span aria-hidden="true">&lt;/&gt;</span> Vamos dar vida à sua ideia</h3>
+            <p>Detalhe suas necessidades e nossa equipe entrará em contato para uma consultoria inicial.</p>
+          </div>
+
+          <form id="zyntekForm" novalidate aria-label="Formulário de contato Zyntek">
+            <div class="input-group">
+              <label for="nome">Nome Completo <abbr title="obrigatório">*</abbr></label>
+              <div class="input-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="empresa">Nome da Empresa</label>
+              <div class="input-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa (opcional)" autocomplete="organization">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório">*</abbr></label>
+              <div class="input-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="mensagem">Descrição da Ideia do Projeto <abbr title="obrigatório">*</abbr></label>
+              <div class="input-wrapper textarea-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .34 2.02 1.5 3.5.76.75 1.23 1.51 1.41 2.5"/></svg>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o desafio do seu negócio ou a solução que deseja desenvolver..." required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <span aria-hidden="true">&lt;/&gt;</span> Inicie seu Projeto
+            </button>
+          </form>
+        </div>
+
+        <!-- Card: Hub Digital -->
+        <div class="contact-card hub-card">
+          <div class="card-header center">
+            <h3>
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5"  r="3"/>
+                <circle cx="6"  cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Hub Digital
+            </h3>
+          </div>
+
+          <nav class="social-grid" aria-label="Redes sociais da Zyntek">
+            <a href="#" class="social-btn" aria-label="WhatsApp da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="" aria-hidden="true" width="24" height="24">
+              WhatsApp
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="" aria-hidden="true" width="24" height="24">
+              Instagram
+            </a>
+            <a href="#" class="social-btn" aria-label="GitHub da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" aria-hidden="true" width="24" height="24" style="filter:invert(1)">
+              GitHub
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" aria-hidden="true" width="24" height="24">
+              LinkedIn
+            </a>
+            <a href="#" class="social-btn" aria-label="E-mail da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" aria-hidden="true" width="24" height="24">
+              E-mail
+            </a>
+          </nav>
+
+          <div class="hub-zynk-image">
+            <img src="zynk-glitch.gif" alt="Zynk AI — mascote da Zyntek"
+                 onerror="this.parentElement.style.display='none'">
+          </div>
+
+          <div class="hub-footer">
+            <p>Consultoria estratégica em sistemas, automações e soluções digitais de alto impacto.</p>
+            <a href="#sobre" class="btn-submit outline">
+              <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="main-footer" role="contentinfo">
+  <div class="footer-container">
+
+    <!-- Coluna 1: Logo, Descrição e Redes Sociais -->
+    <div class="footer-col">
+      <img src="logo-zyntek.svg" alt="Logotipo Zyntek" class="footer-logo" width="120" height="40">
+      <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+      <div class="footer-social">
+        <h4>Nos acompanhe</h4>
+        <nav class="social-icons" aria-label="Redes sociais no rodapé">
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <!-- GitHub -->
+          <a href="#" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Coluna 2: Explore -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul role="list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre a Zyntek</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contatos">Contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3: Soluções -->
+    <div class="footer-col">
+      <h4>Soluções</h4>
+      <ul role="list">
+        <li><a href="#">Para Empresas</a></li>
+        <li><a href="#">Para Autônomos</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 4: O que desenvolvemos -->
+    <div class="footer-col">
+      <h4>O que desenvolvemos</h4>
+      <ul role="list">
+        <li><a href="projeto-landing-pages.html">Páginas de Alta Conversão</a></li>
+        <li><a href="projeto-agendamento.html">Plataforma de Agendamento</a></li>
+        <li><a href="projeto-restaurantes.html">Sistemas para Restaurantes</a></li>
+        <li><a href="projeto-barbearias.html">Sistemas para Barbearias</a></li>
+        <li><a href="projeto-ecommerce.html">Lojas Virtuais Completas</a></li>
+        <li><a href="projeto-ia.html">Atendimento Automático IA</a></li>
+        <li><a href="projeto-academias.html">Sistemas para Academias</a></li>
+        <li><a href="projeto-sob-medida.html">Sistemas Sob Medida</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 5: Informações -->
+    <div class="footer-col">
+      <h4>Informações</h4>
+      <ul role="list">
+        <li><a href="precos.html">Preços</a></li>
+        <li><a href="#">Opiniões dos Clientes</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Trabalhe Conosco</a></li>
+        <li><a href="#">Seja Parceiro</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 6: Fundadores (Agora com links para portfólio) -->
+    <div class="footer-col">
+    <h4>Fundadores</h4>
+    <ul role="list" class="founders-list">
+        <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer">Levy Andrade</a></li>
+        <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Soares</a></li>
+        <li><a href="https://portifolio-henrique-hideki.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Hideki</a></li>
+    </ul>
+    </div>
+
+  </div>
+
+  <!-- Faixa Inferior Animada Altamente Visível -->
+  <div class="footer-bottom">
+    <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+    <p>Desenvolvido por Zyntek</p>
+  </div>
+</footer>
+
+  <!-- =============================================
+       SCRIPT
+       ============================================= -->
+  <script src="script.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tab-sidebar-btn');
+      const panelContainer = document.getElementById('dynamic-panel-content');
+
+const servicesData = {
+  'lp': { 
+    title: 'Landing Pages de Alta Conversão', 
+    desc: 'Arquitetura visual inteiramente focada em capturar leads qualificados e maximizar vendas através de tráfego pago. Recomendamos o modelo de **Escopo Fechado** porque Landing Pages costumam ter uma estrutura direta. No entanto, se sua operação exige testes de cópia constantes e alterações semanais de ofertas para otimizar anúncios, nossa **Operação Contínua** pode ser integrada.', 
+    model: 'Escopo Fechado', 
+    cssClass: 'static-fechada' 
+  },
+  'portfolio': { 
+    title: 'Portfólios & Vitrines Digitais', 
+    desc: 'Sua autoridade consolidada em um ecossistema digital premium. Indicamos o formato de **Escopo Fechado** pois, uma vez estruturada a sua vitrine institucional e biografia profissional, o sistema exige pouca manutenção interna, protegendo seu fluxo de caixa de custos fixos desnecessários.', 
+    model: 'Escopo Fechado', 
+    cssClass: 'static-fechada' 
+  },
+  'agendamento': { 
+    title: 'Plataformas de Agendamento', 
+    desc: 'Automação inteligente de horários, lembretes automáticos e pagamentos antecipados. Exige o modelo de **Operação Contínua** devido à integração constante com APIs de mensageria (como WhatsApp) e gateways de pagamento, que passam por atualizações técnicas frequentes e necessitam de monitoramento.', 
+    model: 'Operação Contínua', 
+    cssClass: 'static-hibrida' 
+  },
+  'restaurante': { 
+    title: 'Sistemas para Food Service', 
+    desc: 'Gestão integrada de mesas, painéis de cozinha e cardápios interativos em tempo real. A dinâmica do setor exige o modelo de **Operação Contínua**: cardápios mudam, preços atualizam e a operação não pode parar por instabilidade. Ter engenharia dedicada garante que seu faturamento nunca sofra interrupções.', 
+    model: 'Operação Contínua', 
+    cssClass: 'static-hibrida' 
+  },
+  'barbearia': { 
+    title: 'Sistemas para Barbearias', 
+    desc: 'Plataforma corporativa com regras de fidelidade, controle de comissões e reservas. Indicamos a **Operação Contínua** porque, conforme sua equipe cresce ou novas rotinas de atendimento surgem, o sistema precisa se moldar ao feedback dos clientes e barbeiros, mantendo o ecossistema sempre atualizado.', 
+    model: 'Operação Contínua', 
+    cssClass: 'static-hibrida' 
+  },
+  'ecommerce': { 
+    title: 'E-commerce & Lojas Virtuais', 
+    desc: 'Estrutura robusta integrada a estoques e operadores logísticos. Recomendamos o modelo de **Escopo Fechado** para o desenvolvimento da engenharia inicial da loja. Contudo, para marcas que necessitam de monitoramento de servidores de alta performance na Black Friday, cupons dinâmicos semanais e melhorias contínuas de checkout, a migração para a **Operação Contínua** é altamente sugerida.', 
+    model: 'Escopo Fechado', 
+    cssClass: 'static-fechada' 
+  },
+  'ia': { 
+    title: 'Atendimento Automatizado via IA', 
+    desc: 'Integração de Inteligência Artificial contextualizada para qualificar leads 24/7. Exige obrigatoriamente a **Operação Contínua** porque os modelos de linguagem e APIs de IA evoluem semanalmente. A manutenção garante ajustes de prompts, refinamento do comportamento da IA com base nos chats reais e estabilidade.', 
+    model: 'Operação Contínua', 
+    cssClass: 'static-hibrida' 
+  },
+  'academia': { 
+    title: 'Sistemas para Academias', 
+    desc: 'Gerenciamento de acessos, treinos dinâmicos e cobranças recorrentes no cartão. O formato de **Operação Contínua** é o ideal para blindar sua operação contra falhas de cobrança, garantir que integrações com catracas ou aplicativos de treino sigam funcionando sem bugs e adaptar o sistema à retenção de alunos.', 
+    model: 'Operação Contínua', 
+    cssClass: 'static-hibrida' 
+  },
+  'sobmedida': { 
+    title: 'Soluções Corporativas Sob Medida', 
+    desc: 'Sistemas construídos do absoluto zero para sanar gargalos logísticos ou operacionais únicos. Por se tratar de um software proprietário complexo, o modelo de **Operação Contínua** é indispensável para acompanhar o crescimento da sua empresa, permitindo implementar novas ferramentas e monitorar o banco de dados ativamente.', 
+    model: 'Operação Contínua', 
+    cssClass: 'static-hibrida' 
+  }
+};
+      function renderPanel(dataKey) {
+        const data = servicesData[dataKey];
+        
+        // Remove animação anterior se houver para reiniciar o fluxo de subida
+        panelContainer.style.animation = 'none';
+        panelContainer.offsetHeight; // Trigger reflow
+        panelContainer.style.animation = 'slideUpContent 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards';
+
+        panelContainer.innerHTML = `
+          <div class="panel-info-group">
+            <h4>${data.title}</h4>
+            <p class="panel-desc-text">${data.desc}</p>
+          </div>
+          
+          <div class="recommended-model-card ${data.cssClass}">
+            <div class="rec-card-header">
+              <svg class="rec-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="rec-card-label">Modelo Recomendado para o Projeto</span>
+            </div>
+            <div class="rec-card-value">${data.model}</div>
+            <p class="rec-card-footer-tip">Este formato comercial oferece a melhor proteção ao seu fluxo de caixa e o maior ROI para este tipo de arquitetura digital.</p>
+          </div>
+        `;
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderPanel(tab.getAttribute('data-service'));
+        });
+      });
+
+      // Inicializa a primeira vertical
+      renderPanel('lp');
+
+      /* CARROSSEL AUTOMÁTICO */
+      const track = document.getElementById('testimonial-track');
+      let scrollInterval;
+      
+      const startCarousel = () => {
+        scrollInterval = setInterval(() => {
+          const card = track.querySelector('.testi-card');
+          const cardWidth = card.offsetWidth + 24;
+          
+          if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+            track.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+          }
+        }, 4000);
+      };
+
+      startCarousel();
+      track.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+      track.addEventListener('mouseleave', startCarousel);
+    });
+  </script>
+</body>
+</html>
