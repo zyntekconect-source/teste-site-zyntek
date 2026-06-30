@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zyntek | Perguntas Frequentes (FAQ)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="faq.css">
+</head>
+<body>
+
+  <div class="bg-grid-lines" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <header class="zyntek-header scrolled" id="header" role="banner">
+    <a href="index.html" class="logo-container" aria-label="Zyntek — Voltar para o início">
+      <img src="assets/icones/logo z .png" alt="Logo Zyntek" class="logo-image">
+      <span class="logo-text">Zyntek</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação da central de ajuda">
+      <ul role="list">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="precos.html" class="nav-link">Modelos & Preços</a></li>
+        <li><a href="politica-privacidade.html" class="nav-link">Privacidade</a></li>
+        <li><a href="#categorias" class="nav-link">Categorias</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#contatos" class="cta-btn"><span class="code-symbol">&lt;/&gt;</span> Fale Conosco</a>
+    </div>
+  </header>
+
+  <main id="main-content" class="faq-main">
+
+    <!-- Barra de progresso de leitura -->
+    <div class="policy-progress-track" aria-hidden="true">
+      <div class="policy-progress-fill" id="faqProgressFill"></div>
+    </div>
+
+    <section class="faq-hero">
+      <div class="faq-hero-container">
+        <span class="eyebrow">Central de Ajuda</span>
+        <h1>Perguntas Frequentes</h1>
+        <p class="faq-lead">
+          Reunimos as dúvidas mais comuns sobre orçamentos, prazos, pagamentos, suporte e segurança de dados. Não encontrou o que precisa? Fale direto com a nossa equipe.
+        </p>
+
+        <!-- Barra de busca -->
+        <div class="faq-search-wrapper">
+          <svg class="faq-search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="faqSearchInput" class="faq-search-input" placeholder="Busque por uma palavra-chave, ex: prazo, pagamento, suporte..." aria-label="Buscar nas perguntas frequentes">
+        </div>
+
+        <!-- Selos de Confiança -->
+        <ul class="policy-trust-badges" role="list">
+          <li class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            Suporte Dedicado
+          </li>
+          <li class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Atendimento via WhatsApp
+          </li>
+          <li class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Transparência Total
+          </li>
+          <li class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Atendimento em PT-BR
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Painel HUD — Índice da Central de Ajuda -->
+    <section class="policy-content-section" style="padding-top:0; padding-bottom:0;">
+      <div class="policy-hud-wrapper">
+        <div class="cyber-scanline" aria-hidden="true"></div>
+        <div class="tech-corner tl" aria-hidden="true"></div>
+        <div class="tech-corner tr" aria-hidden="true"></div>
+        <div class="tech-corner bl" aria-hidden="true"></div>
+        <div class="tech-corner br" aria-hidden="true"></div>
+
+        <div class="hud-header">
+          <div class="hud-title-group">
+            <span class="hud-glitch-title">ZYNTEK_FAQ_INDEX.LOG</span>
+          </div>
+          <div class="hud-stats">
+            <span class="hud-ping">CENTRAL DE AJUDA // ONLINE</span>
+            <span class="hud-pulse"></span>
+          </div>
+        </div>
+
+        <div class="hud-data-grid">
+          <div class="hud-data-item">
+            <span class="hud-data-label">Categorias</span>
+            <span class="hud-data-value">6 áreas cobertas</span>
+          </div>
+          <div class="hud-data-item">
+            <span class="hud-data-label">Canais de Contato</span>
+            <span class="hud-data-value">WhatsApp & Formulário</span>
+          </div>
+          <div class="hud-data-item">
+            <span class="hud-data-label">Idioma</span>
+            <span class="hud-data-value">PT-BR / EN / ES</span>
+          </div>
+          <div class="hud-data-item">
+            <span class="hud-data-label">Atualização</span>
+            <span class="hud-data-value">Conforme novidades</span>
+          </div>
+        </div>
+
+        <div class="hud-footer">
+          <div class="hud-terminal-line">&gt;&gt; SUPPORT_KNOWLEDGE_BASE: SYNCED</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="policy-content-section" id="categorias">
+      <div class="policy-grid-container">
+
+        <aside class="policy-sidebar">
+          <nav class="policy-toc">
+            <h4>Categorias</h4>
+            <ul>
+              <li><a href="#cat-sobre" class="toc-link">1. Sobre a Zyntek</a></li>
+              <li><a href="#cat-orcamento" class="toc-link">2. Orçamento e Contratação</a></li>
+              <li><a href="#cat-desenvolvimento" class="toc-link">3. Desenvolvimento e Prazos</a></li>
+              <li><a href="#cat-pagamento" class="toc-link">4. Pagamento e Planos</a></li>
+              <li><a href="#cat-suporte" class="toc-link">5. Suporte e Manutenção</a></li>
+              <li><a href="#cat-seguranca" class="toc-link">6. Segurança e Dados</a></li>
+            </ul>
+          </nav>
+          <button type="button" class="policy-print-btn" id="faqToggleAllBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
+            <span id="faqToggleAllLabel">Expandir tudo</span>
+          </button>
+        </aside>
+
+        <div class="policy-text-block faq-results-block">
+
+          <p class="faq-no-results" id="faqNoResults" hidden>Nenhuma pergunta encontrada para essa busca. Tente outra palavra-chave ou <a href="index.html#contatos">fale com a gente</a>.</p>
+
+          <!-- 1. Sobre a Zyntek -->
+          <div id="cat-sobre" class="policy-section-item faq-category">
+            <h2><svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>1. Sobre a Zyntek</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">O que a Zyntek faz?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Somos uma software house focada em desenvolvimento de sistemas web, automações com inteligência artificial e landing pages de alta conversão. Atuamos do planejamento de arquitetura até o deploy em produção, sempre com squads dedicadas a cada projeto.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Quem está por trás da Zyntek?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>A Zyntek é conduzida por um time fundador com áreas complementares: operações, tecnologia e jurídico. Essa combinação garante que cada projeto seja entregue com qualidade técnica, previsibilidade de prazos e segurança contratual.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Em quais tipos de negócio vocês já atuaram?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Já desenvolvemos soluções para restaurantes, barbearias, academias, e-commerces, plataformas de agendamento e atendimento automatizado via IA, além de landing pages e sistemas sob medida para negócios com necessidades específicas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Orçamento e Contratação -->
+          <div id="cat-orcamento" class="policy-section-item faq-category">
+            <h2><svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>2. Orçamento e Contratação</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Como funciona o processo de orçamento?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Tudo começa com o preenchimento do formulário de contato ou uma mensagem via WhatsApp contando sobre o seu negócio e a ideia do projeto. A partir daí, nossa equipe avalia o escopo e retorna com uma proposta personalizada.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Qual a diferença entre Escopo Fechado e Operação Contínua?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>O <strong>Escopo Fechado</strong> é indicado para projetos com requisitos bem definidos, com valor e prazo fixados desde o início. Já a <strong>Operação Contínua</strong> funciona como um time dedicado ao seu negócio, evoluindo o sistema de forma recorrente, ideal para quem está em constante crescimento.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Preciso ter um projeto totalmente definido para pedir um orçamento?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Não. Muitos clientes chegam até nós apenas com um problema de negócio em mente. Nossa fase de Estratégia existe justamente para ajudar a estruturar a arquitetura de dados, a jornada do usuário e o protótipo navegável antes de qualquer linha de código.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Vocês atendem autônomos e pequenas empresas, ou só grandes corporações?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Atendemos os dois perfis. Temos soluções pensadas para profissionais autônomos que precisam de autoridade e agendamento automático, e estruturas mais robustas para PMEs e grandes corporações com integrações de CRM e dashboards executivos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Desenvolvimento e Prazos -->
+          <div id="cat-desenvolvimento" class="policy-section-item faq-category">
+            <h2><svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3. Desenvolvimento e Prazos</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Quanto tempo leva para desenvolver um projeto?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>O prazo varia conforme a complexidade e o escopo definido na fase de Estratégia. Projetos menores, como landing pages, tendem a ser mais rápidos; sistemas sob medida com múltiplas integrações naturalmente exigem mais ciclos de desenvolvimento. O prazo estimado é sempre informado na proposta.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Como acompanho o andamento do meu projeto?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Trabalhamos com ciclos iterativos e comunicação direta sobre prazos de entrega de sprints e marcos do projeto, para que você acompanhe cada etapa sem surpresas.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Posso ver o projeto antes de ele ir ao ar?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Sim. Disponibilizamos prototipações visuais no Figma e ambientes de teste com deploys temporários (Vercel, Netlify ou servidores dedicados) para validação antes da publicação definitiva.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Quais tecnologias vocês utilizam?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Escolhemos a stack conforme a necessidade de cada projeto, priorizando frameworks modernos, código limpo, testes automatizados e infraestrutura em nuvem escalável. O objetivo é sempre performance, segurança e facilidade de manutenção a longo prazo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Pagamento e Planos -->
+          <div id="cat-pagamento" class="policy-section-item faq-category">
+            <h2><svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>4. Pagamento e Planos</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Quais são as formas de pagamento aceitas?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>As condições de pagamento são definidas na proposta comercial, de acordo com o modelo contratado (Escopo Fechado ou Operação Contínua). Fale com nossa equipe para conhecer as opções disponíveis para o seu caso.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Existe algum custo de manutenção mensal?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Depende do modelo escolhido. No Escopo Fechado, o projeto é entregue e o suporte segue conforme acordado em contrato. Na Operação Contínua, a manutenção e evolução fazem parte do plano recorrente.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">O que acontece se eu precisar de ajustes após a entrega?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Pequenos ajustes e correções costumam estar previstos no período pós-entrega definido em contrato. Para novas funcionalidades ou mudanças maiores de escopo, propomos um novo ciclo de desenvolvimento ou a migração para o plano de Operação Contínua.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Suporte e Manutenção -->
+          <div id="cat-suporte" class="policy-section-item faq-category">
+            <h2><svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>5. Suporte e Manutenção</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Como funciona o suporte após o lançamento?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Após o deploy em produção, implementamos painéis de monitoramento e acompanhamos a estabilidade do sistema com os primeiros usuários, direcionando melhorias com base em dados reais de uso.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">O que fazer se eu identificar um bug ou instabilidade?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Basta nos avisar pelo WhatsApp ou pelo formulário de contato descrevendo o que aconteceu. Nossa equipe técnica analisa o caso e dá prioridade a questões que afetam a estabilidade do sistema.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Vocês oferecem treinamento para minha equipe usar o sistema?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Sim, conseguimos incluir uma etapa de orientação para que sua equipe entenda como operar o sistema entregue. Esse ponto pode ser combinado já na fase de proposta.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Segurança e Dados -->
+          <div id="cat-seguranca" class="policy-section-item faq-category">
+            <h2><svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>6. Segurança e Dados</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Meus dados e os dados dos meus clientes estão seguros?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Sim. Toda comunicação é criptografada via SSL/TLS e seguimos os princípios da LGPD no tratamento de informações. Você pode ver todos os detalhes na nossa <a href="politica-privacidade.html">Política de Privacidade</a>.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Onde fica hospedado o meu sistema?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Utilizamos provedores de nuvem reconhecidos no mercado, como Vercel, Netlify ou servidores dedicados, conforme a necessidade técnica de cada projeto, sempre com instâncias isoladas e firewalls de borda.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span class="faq-question-text">Posso solicitar a exclusão dos meus dados?</span>
+                  <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Sim, esse é um dos seus direitos garantidos pela LGPD. Basta solicitar a remoção dos seus dados do nosso CRM e lista de contatos através dos nossos canais de atendimento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Final -->
+          <div class="policy-cta-card">
+            <div class="policy-cta-text">
+              <h3>Não encontrou a resposta que procurava?</h3>
+              <p>Nossa equipe está pronta para esclarecer qualquer dúvida sobre o seu projeto.</p>
+            </div>
+            <a href="index.html#contatos" class="policy-cta-btn">
+              <span class="code-symbol">&lt;/&gt;</span> Falar com a Zyntek
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <button type="button" class="policy-back-top" id="faqBackTop" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <footer class="main-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <div class="footer-logo-box">
+          <img src="assets/icones/logo z .png" alt="Logotipo Zyntek" class="footer-logo" width="36" height="36">
+          <span class="logo-text">Zyntek</span>
+        </div>
+        <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+        <div class="footer-social">
+          <h4>Nos acompanhe</h4>
+          <nav class="social-icons" aria-label="Redes sociais no rodapé">
+            <a href="#" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul role="list">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#sobre">Sobre a Zyntek</a></li>
+          <li><a href="index.html#projetos">Projetos</a></li>
+          <li><a href="index.html#contatos">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <ul role="list">
+          <li><a href="#">Para Empresas</a></li>
+          <li><a href="#">Para Autônomos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>O que desenvolvemos</h4>
+        <ul role="list">
+          <li><a href="projeto-landing-pages.html">Páginas de Alta Conversão</a></li>
+          <li><a href="projeto-agendamento.html">Plataforma de Agendamento</a></li>
+          <li><a href="projeto-restaurantes.html">Sistemas para Restaurantes</a></li>
+          <li><a href="projeto-barbearias.html">Sistemas para Barbearias</a></li>
+          <li><a href="projeto-ecommerce.html">Lojas Virtuais Completas</a></li>
+          <li><a href="projeto-ia.html">Atendimento Automático IA</a></li>
+          <li><a href="projeto-academias.html">Sistemas para Academias</a></li>
+          <li><a href="projeto-sob-medida.html">Sistemas Sob Medida</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <ul role="list">
+          <li><a href="precos.html">Preços</a></li>
+          <li><a href="#">Opiniões dos Clientes</a></li>
+          <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#">Trabalhe Conosco</a></li>
+          <li><a href="#">Seja Parceiro</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Fundadores</h4>
+        <ul role="list" class="founders-list">
+          <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer">Levy Andrade</a></li>
+          <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Soares</a></li>
+          <li><a href="https://portifolio-henrique-hideki.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Hideki</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+      <p>Desenvolvido por Zyntek</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'light' || body.classList.contains('light-mode')) {
+      body.classList.add('light-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      const isLight = body.classList.contains('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+
+  <script>
+    (function () {
+      const progressFill = document.getElementById('faqProgressFill');
+      const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+      const categories = Array.from(document.querySelectorAll('.faq-category'));
+      const backTopBtn = document.getElementById('faqBackTop');
+      const searchInput = document.getElementById('faqSearchInput');
+      const noResults = document.getElementById('faqNoResults');
+      const toggleAllBtn = document.getElementById('faqToggleAllBtn');
+      const toggleAllLabel = document.getElementById('faqToggleAllLabel');
+      const allItems = Array.from(document.querySelectorAll('.faq-item'));
+      let allExpanded = false;
+
+      // Acordeão
+      allItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        question.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          item.classList.toggle('open', !isOpen);
+          question.setAttribute('aria-expanded', String(!isOpen));
+          answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
+        });
+      });
+
+      // Expandir/recolher tudo
+      if (toggleAllBtn) {
+        toggleAllBtn.addEventListener('click', () => {
+          allExpanded = !allExpanded;
+          allItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            item.classList.toggle('open', allExpanded);
+            question.setAttribute('aria-expanded', String(allExpanded));
+            answer.style.maxHeight = allExpanded ? answer.scrollHeight + 'px' : null;
+          });
+          toggleAllLabel.textContent = allExpanded ? 'Recolher tudo' : 'Expandir tudo';
+        });
+      }
+
+      // Busca
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const term = searchInput.value.trim().toLowerCase();
+          let totalVisible = 0;
+
+          categories.forEach(category => {
+            let visibleInCategory = 0;
+            category.querySelectorAll('.faq-item').forEach(item => {
+              const text = item.textContent.toLowerCase();
+              const match = term === '' || text.includes(term);
+              item.hidden = !match;
+              if (match) visibleInCategory++;
+            });
+            category.hidden = visibleInCategory === 0;
+            totalVisible += visibleInCategory;
+          });
+
+          noResults.hidden = totalVisible !== 0;
+        });
+      }
+
+      // Barra de progresso + scrollspy + voltar ao topo
+      function onScroll() {
+        const main = document.getElementById('main-content');
+        const scrollTop = window.scrollY;
+        const docHeight = main.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+        if (progressFill) progressFill.style.width = progress + '%';
+
+        let currentId = null;
+        categories.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 140) currentId = section.id;
+        });
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+        });
+
+        if (backTopBtn) backTopBtn.classList.toggle('visible', scrollTop > 600);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      if (backTopBtn) {
+        backTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

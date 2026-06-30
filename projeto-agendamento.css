@@ -1,0 +1,248 @@
+/* ==============================================================
+   ZYNTEK — projeto-agendamento.css
+   Herda tokens de style.css e precos.css
+   Ajustes específicos para a exibição de Projetos - Agendamento
+   ============================================================== */
+
+/* ============== APRIMORAMENTOS NA SEÇÃO DE PROJETO ============== */
+.pricing-header.text-center p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted, #a1a1aa);
+  max-width: 850px;
+  margin: 1rem auto;
+}
+
+.pricing-header.text-center p strong {
+  color: var(--accent-color, #7c3aed);
+  font-weight: 700;
+}
+
+.subheader-secondary {
+  font-size: 1rem !important;
+  color: var(--text-muted, #a1a1aa) !important;
+  font-style: italic;
+  margin-top: 1rem;
+  opacity: 0.9;
+  border-left: 3px solid var(--accent-color, #7c3aed);
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+/* Hero da página de projeto */
+.hero-project-flow {
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 2rem;
+  z-index: 2;
+}
+
+.project-hero-text {
+  max-width: 760px;
+  margin: 0 auto 3rem auto;
+}
+
+.project-hero-text h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.project-hero-text p {
+  font-size: 1.1rem;
+  color: var(--text-muted, #a1a1aa);
+  line-height: 1.7;
+}
+
+/* Expansão da Moldura Cyber para o Vídeo Centralizado */
+.zynk-cyber-wrapper.large-center {
+  max-width: 900px;
+  margin: 0 auto;
+  flex: none; /* Remove o flex do layout de precos.css para centralizar */
+  background: rgba(14, 11, 24, 0.65);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(124, 58, 237, 0.15),
+    inset 0 0 30px rgba(124, 58, 237, 0.05);
+}
+
+.zynk-cyber-wrapper.large-center .hud-video-element {
+  max-height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Modificadores de Cards Prós e Contras */
+.pros-cons-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+/* Aprimoramentos visuais dos cards de prós/contras */
+.card-pros,
+.card-cons {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pros::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #059669, #10b981);
+}
+
+.card-cons::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.green-badge {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.30) !important;
+  color: #fff !important;
+}
+
+.red-badge {
+  background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.30) !important;
+  color: #fff !important;
+}
+
+.card-pros:hover {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 30px rgba(16, 185, 129, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+.card-cons:hover {
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 30px rgba(239, 68, 68, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+/* Melhorar visual dos card-features */
+.card-features li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-features li span {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted, #a1a1aa);
+}
+
+.card-features li strong {
+  color: #ffffff;
+}
+
+.check-icon,
+.cross-icon {
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Responsividade específica da página de Projetos */
+@media (max-width: 992px) {
+  .pros-cons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .zynk-cyber-wrapper.large-center .hud-video-element {
+    max-height: 300px;
+  }
+  .project-hero-text h2 {
+    font-size: 2rem;
+  }
+  .subheader-secondary {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Container de Ação dos Botões */
+.action-buttons-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Base dos botões */
+.btn-zynk-action {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+}
+
+/* Botão Primário (Solicitar Projeto) */
+.btn-primary-glow {
+  background: var(--accent-color, #7c3aed);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.btn-primary-glow:hover {
+  background: #6d28d9;
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Botão Secundário (Ver Demo) */
+.btn-secondary-outline {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.lang-toggle {
+  background: transparent !important; /* Remove qualquer fundo padrão */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent-color);
+  color: #fff;
+}

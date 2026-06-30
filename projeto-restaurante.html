@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zyntek | Projetos: Sistema para Restaurante que Vende Mais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="precos.css">
+  <link rel="stylesheet" href="projeto-restaurante.css">
+</head>
+<body>
+
+  <!-- Fundo global mantido -->
+  <div class="bg-grid-lines" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <!-- ================= HEADER (Idêntico) ================= -->
+  <header class="zyntek-header" id="header" role="banner">
+    <a href="index.html" class="logo-container" aria-label="Zyntek — Ir para o início">
+      <img src="assets/icones/logo z .png" alt="Logo Zyntek" class="logo-image">
+      <span class="logo-text">Zyntek</span>
+    </a>
+    
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul role="list">
+        <div class="nav-indicator"></div>
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="precos.html" class="nav-link">Planos</a></li>
+        <li><a href="#" class="nav-link active" aria-current="page">Projetos</a></li>
+        <li><a href="#contatos" class="nav-link">Contatos</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Botão de Idioma -->
+      <div class="language-dropdown">
+        <button class="icon-btn lang-toggle" aria-label="Mudar idioma" title="Mudar Idioma">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="lang-text">PT</span>
+        </button>
+      </div>
+
+      <!-- Botão de Tema -->
+      <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Alternar tema" title="Alternar Tema">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Botão Fale Conosco -->
+      <a href="#contatos" class="cta-btn">
+        <span class="code-symbol">&lt;/&gt;</span> Fale Conosco
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- ================= HERO: VÍDEO CENTRALIZADO ================= -->
+    <section class="pricing-section hero-project-flow">
+      <div class="video-background-container">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+          <source src="assets/videos/line-glow-bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay-mask"></div>
+      </div>
+
+      <div class="pricing-container text-center">
+        <div class="project-hero-text">
+          <span class="eyebrow">GESTÃO INTELIGENTE DE PEDIDOS</span>
+          <h2>Sistema para Restaurante que Aumenta Vendas 50%</h2>
+          <p>Pedidos chegando de Ifood, 99Comidas, WhatsApp e SMS em um único lugar. Cozinha recebe automático, cliente recebe notificação em tempo real. Sem atrasos, sem pedidos perdidos, sem caos.</p>
+        </div>
+
+        <!-- Vídeo HUD Zyntek (Centralizado e Expandido) -->
+        <div class="zynk-cyber-wrapper large-center">
+          <div class="cyber-scanline"></div>
+          <div class="tech-corner tl"></div>
+          <div class="tech-corner tr"></div>
+          <div class="tech-corner bl"></div>
+          <div class="tech-corner br"></div>
+          
+          <div class="hud-header">
+            <div class="hud-title-group">
+              <span class="hud-glitch-title">ZYNK_RESTAURANT_v3.0</span>
+            </div>
+            <div class="hud-stats">
+              <span class="hud-ping">PEDIDOS_PROCESSADOS // 500+/dia</span>
+              <span class="hud-pulse"></span>
+            </div>
+          </div>
+          
+          <div class="hud-video-container">
+            <!-- Insira o vídeo do sistema de restaurante aqui -->
+            <video autoplay muted loop playsinline class="hud-video-element">
+              <source src="assets/videos/demo-restaurante.mp4" type="video/mp4">
+            </video>
+          </div>
+          
+          <div class="hud-footer">
+            <div class="hud-terminal-line">&gt;&gt; PEDIDOS_INTEGRADOS: ATIVO</div>
+            <div class="hud-geo-shape"></div>
+            <div class="action-buttons-wrapper">
+  <a href="#contatos" class="btn-zynk-action btn-secondary-outline">
+    Ver Demonstração
+  </a>
+  <a href="https://wa.me/SEUNUMERO?text=Olá!%20Vi%20o%20Sistema%20para%20Restaurante%20no%20site%20da%20Zyntek%20e%20fiquei%20interessado.%20Gostaria%20de%20saber%20mais%20e%20solicitar%20um%20orçamento%20para%20meu%20estabelecimento." 
+     target="_blank" 
+     class="btn-zynk-action btn-primary-glow">
+    Solicitar Orçamento
+  </a>
+</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPLICAÇÃO, PRÓS E CONTRAS ================= -->
+    <section class="project-details-section">
+      <div class="pricing-container">
+        
+        <div class="pricing-header text-center">
+          <span class="eyebrow">TRANSFORMAÇÃO DE NEGÓCIO</span>
+          <h2>O Sistema que Elimina Caos e Multiplica Receita</h2>
+          <p><strong>Pedidos chegam por Ifood, 99Comidas, WhatsApp e SMS.</strong> Cada plataforma uma bagunça, a cozinha fica confusa, clientes reclamam de atraso, você perde receita.</p>
+          <p class="subheader-secondary">Um sistema inteligente centraliza tudo. Pedido chega automaticamente na cozinha, cliente recebe notificação em tempo real, estoque é atualizado sozinho, equipe produz 50% mais sem stress. Resultado: +R$ 20k-40k/mês em vendas extras.</p>
+        </div>
+
+        <!-- Cards Animados: Benefícios vs Prejuízos -->
+        <div class="pricing-cards-grid pros-cons-grid">
+          
+          <!-- Card de Benefícios (Prós) -->
+          <div class="payment-card card-pros">
+            <div class="card-badge neon-badge green-badge">CENÁRIO IDEAL</div>
+            <div class="card-top">
+              <h3>Com o Sistema de Gestão</h3>
+              <p class="card-pricing-meta">Transformação imediata do seu negócio</p>
+            </div>
+            <ul class="card-features">
+              <li>
+                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>+50% Mais Pedidos:</strong> Integração automática com Ifood, 99Comidas, Delivery App, WhatsApp. Nenhum pedido cai.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>-90% Atrasos:</strong> Pedido chega direto na cozinha + timer automático. Cliente sabe exatamente quando fica pronto.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>+R$ 20k-40k/mês:</strong> Redução de atrasos + redução de pedidos perdidos = receita extra garantida.</span>
+              </li>
+              <li>
+                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Estoque Zero:</strong> Integração automática com menu. Falta ingrediente? Sistema marca como indisponível em todas plataformas.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card de Riscos (Contras) -->
+          <div class="payment-card card-cons">
+            <div class="card-badge red-badge">CENÁRIO DE RISCO</div>
+            <div class="card-top">
+              <h3>Sem o Sistema Integrado</h3>
+              <p class="card-pricing-meta" style="color: var(--p-red);">Perdas que está tendo agora</p>
+            </div>
+            <ul class="card-features">
+              <li>
+                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>60% Pedidos Perdidos:</strong> Pedido chega por Ifood, você não vê, cozinha não recebe, cliente cancela. Receita perdida.</span>
+              </li>
+              <li>
+                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>Atendimento Caótico:</strong> Gerente gastando 3-4h/dia anotando pedidos. Cozinha recebe pedido atrasado, comida queima, cliente furioso.</span>
+              </li>
+              <li>
+                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>-R$ 12k-25k/mês Perdidos:</strong> Cada pedido perdido = R$ 50-150 de prejuízo. 3-4 pedidos perdidos/dia = R$ 15k/mês.</span>
+              </li>
+              <li>
+                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span><strong>Avaliações Ruins:</strong> Atrasos + pedidos errados = 3-4 estrelas no Ifood. Clientes novos não pedem de você.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= PARA QUEM É (PÚBLICO-ALVO) ================= -->
+    <section class="target-audience-section services-recommendation-area" style="margin: 4rem auto; max-width: 1200px;">
+      <div class="pricing-header compact text-center" style="margin-bottom: 3rem; text-align: center;">
+        <span class="eyebrow">VERSATILIDADE DE ESCALA</span>
+        <h3>Qual Tipo de Restaurante Precisa Disso?</h3>
+        <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.75rem;">Se você atende pedidos por delivery, ifood ou múltiplos canais, este sistema pode multiplicar sua receita e eliminar o caos. Veja onde você se encaixa.</p>
+      </div>
+
+      <div class="pricing-cards-grid" style="gap: 1.5rem;">
+        
+        <div class="recommended-model-card static-fechada">
+          <div class="rec-card-header">
+            <svg class="rec-card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            <span class="rec-card-label">Pizzarias & Sushi</span>
+          </div>
+          <h4 class="rec-card-value" style="font-size: 1.4rem;">+R$ 20k/mês (Redução de Atrasos)</h4>
+          <p class="panel-desc-text"><strong>Crescimento:</strong> Pizzaria com 30 pedidos/dia = 2-3 pedidos salvos/dia (R$ 500-750/dia = R$ 15k-22k/mês). Reduz atrasos de 60% → 10%, aumenta avaliação de 3.8 → 4.7 estrelas.</p>
+        </div>
+
+        <div class="recommended-model-card static-hibrida">
+          <div class="rec-card-header">
+            <svg class="rec-card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <span class="rec-card-label">Restaurantes Delivery</span>
+          </div>
+          <h4 class="rec-card-value" style="font-size: 1.4rem; color: var(--p-magenta);">+R$ 40k/mês (Integração + Velocidade)</h4>
+          <p class="panel-desc-text"><strong>Impacto:</strong> Restaurante médio com 100 pedidos/dia em múltiplas plataformas = 10-15 pedidos salvos/dia (R$ 1.5k-2.5k/dia = R$ 45k-75k/mês). Operação 90% mais rápida.</p>
+        </div>
+
+        <div class="recommended-model-card static-fechada" style="border-left-color: var(--p-green);">
+          <div class="rec-card-header">
+            <svg class="rec-card-icon" style="color: var(--p-green);" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M3 21v-5h5"></path></svg>
+            <span class="rec-card-label">Lanchonetes & Lanches Rápidos</span>
+          </div>
+          <h4 class="rec-card-value" style="font-size: 1.4rem; color: var(--p-green);">Produtividade +50% (Velocidade)</h4>
+          <p class="panel-desc-text"><strong>Ganho Principal:</strong> Lanchonete com 50 pedidos/dia = Sistema reduz tempo de atendimento de 8min → 3min por pedido. Mesmo espaço, 50% mais vendas no horário de pico. Equipe menos estressada.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SEÇÃO DE CONTATOS ================= -->
+    <section id="contatos" class="contact-section">
+      <div class="pricing-container">
+
+        <div class="contact-hub">
+          <div class="card-header center">
+            <h3>
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5"  r="3"/>
+                <circle cx="6"  cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Hub Digital
+            </h3>
+          </div>
+
+          <nav class="social-grid" aria-label="Redes sociais da Zyntek">
+            <a href="#" class="social-btn" aria-label="WhatsApp da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="" aria-hidden="true" width="24" height="24">
+              WhatsApp
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="" aria-hidden="true" width="24" height="24">
+              Instagram
+            </a>
+            <a href="#" class="social-btn" aria-label="GitHub da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" aria-hidden="true" width="24" height="24" style="filter:invert(1)">
+              GitHub
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" aria-hidden="true" width="24" height="24">
+              LinkedIn
+            </a>
+            <a href="#" class="social-btn" aria-label="E-mail da Zyntek">
+              <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" aria-hidden="true" width="24" height="24">
+              E-mail
+            </a>
+          </nav>
+
+          <div class="hub-zynk-image">
+            <img src="zynk-glitch.gif" alt="Zynk AI — mascote da Zyntek"
+                 onerror="this.parentElement.style.display='none'">
+          </div>
+
+          <div class="hub-footer">
+            <p>Consultoria estratégica em sistemas, automações e soluções digitais de alto impacto.</p>
+            <a href="#sobre" class="btn-submit outline">
+              <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="main-footer" role="contentinfo">
+  <div class="footer-container">
+
+    <!-- Coluna 1: Logo, Descrição e Redes Sociais -->
+    <div class="footer-col">
+      <img src="logo-zyntek.svg" alt="Logotipo Zyntek" class="footer-logo" width="120" height="40">
+      <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+      <div class="footer-social">
+        <h4>Nos acompanhe</h4>
+        <nav class="social-icons" aria-label="Redes sociais no rodapé">
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <!-- GitHub -->
+          <a href="#" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Coluna 2: Explore -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul role="list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre a Zyntek</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contatos">Contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3: Soluções -->
+    <div class="footer-col">
+      <h4>Soluções</h4>
+      <ul role="list">
+        <li><a href="#">Para Empresas</a></li>
+        <li><a href="#">Para Autônomos</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 4: O que desenvolvemos -->
+    <div class="footer-col">
+      <h4>O que desenvolvemos</h4>
+      <ul role="list">
+        <li><a href="projeto-landing-pages.html">Páginas de Alta Conversão</a></li>
+        <li><a href="projeto-agendamento.html">Plataforma de Agendamento</a></li>
+        <li><a href="projeto-restaurante.html">Sistemas para Restaurantes</a></li>
+        <li><a href="projeto-barbearias.html">Sistemas para Barbearias</a></li>
+        <li><a href="projeto-ecommerce.html">Lojas Virtuais Completas</a></li>
+        <li><a href="projeto-ia.html">Atendimento Automático IA</a></li>
+        <li><a href="projeto-academias.html">Sistemas para Academias</a></li>
+        <li><a href="projeto-sob-medida.html">Sistemas Sob Medida</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 5: Informações -->
+    <div class="footer-col">
+      <h4>Informações</h4>
+      <ul role="list">
+        <li><a href="precos.html">Preços</a></li>
+        <li><a href="#">Opiniões dos Clientes</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Trabalhe Conosco</a></li>
+        <li><a href="#">Seja Parceiro</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 6: Fundadores -->
+    <div class="footer-col">
+    <h4>Fundadores</h4>
+    <ul role="list" class="founders-list">
+        <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer">Levy Andrade</a></li>
+        <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Soares</a></li>
+        <li><a href="https://portifolio-henrique-hideki.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Hideki</a></li>
+    </ul>
+    </div>
+
+  </div>
+
+  <!-- Faixa Inferior Animada -->
+  <div class="footer-bottom">
+    <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+    <p>Desenvolvido por Zyntek</p>
+  </div>
+</footer>
+
+    <script src="script.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

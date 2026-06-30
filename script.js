@@ -1,4 +1,34 @@
+/* ============================================================
+   ZYNTEK — script.js
+   Índice das áreas:
+     1.  Google Translate (config + cookie + idioma)
+     2.  Helpers
+     3.  Header scroll
+     4.  Menu ativo + indicador magnético
+     5.  Theme + lang dropdown
+     6.  Sidebar mobile
+     7.  Vídeo hero
+     8.  Scroll suave para âncoras
+     9.  Reveal on scroll
+     10. Prevenção de erros globais
+     11. Injeção de cubos flutuantes (background decorativo)
+     12. Utilitários (sistema de fundo — mesh/partículas)
+     13. Mesh gradient — aurora + dot-grid system
+     14. Partículas sutis
+     15. Injeção do HTML estrutural do fundo
+     16. Nav: entrada profissional escalonada
+     17. Resposta ao toggle de tema
+     18. Redução de movimento (a11y)
+     19. Hero typing / glitch animation
+     20. Equipe — troca de painel por membro
+     21. Bootstrap
+   ============================================================ */
+
 'use strict';
+
+/* ==========================================================
+   1. GOOGLE TRANSLATE (CONFIGURAÇÃO + COOKIE + IDIOMA)
+========================================================== */
 
 const GOOGLE_TRANSLATE_STORAGE_KEY = 'zyntek-preferred-language';
 
@@ -66,14 +96,14 @@ if (savedInitialLanguage) {
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================
-       HELPERS
+       2. HELPERS
     ========================================================== */
 
     const $ = (selector, scope = document) => scope.querySelector(selector);
     const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
     /* ==========================================================
-       HEADER SCROLL
+       3. HEADER SCROLL
     ========================================================== */
 
     (() => {
@@ -99,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
 /* ==========================================================
-   MENU ATIVO + INDICADOR MAGNÉTICO
+   4. MENU ATIVO + INDICADOR MAGNÉTICO
 ========================================================== */
 
 (() => {
@@ -171,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ==========================================================
-   THEME + LANG DROPDOWN
+   5. THEME + LANG DROPDOWN
 ========================================================== */
 
 (() => {
@@ -293,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================
-       SIDEBAR MOBILE
+       6. SIDEBAR MOBILE
     ========================================================== */
 
     (() => {
@@ -364,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================
-       VÍDEO HERO
+       7. VÍDEO HERO
     ========================================================== */
 
     (() => {
@@ -430,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     /* ==========================================================
-       SCROLL SUAVE PARA ÂNCORAS
+       8. SCROLL SUAVE PARA ÂNCORAS
     ========================================================== */
 
     (() => {
@@ -481,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     /* ==========================================================
-       REVEAL ON SCROLL
+       9. REVEAL ON SCROLL
     ========================================================== */
 
     (() => {
@@ -533,7 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     /* ==========================================================
-       PREVENÇÃO DE ERROS GLOBAIS
+       10. PREVENÇÃO DE ERROS GLOBAIS
     ========================================================== */
 
     window.addEventListener('error', (event) => {
@@ -551,6 +581,10 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
 });
+
+/* ==========================================================
+   11. INJEÇÃO DE CUBOS FLUTUANTES (BACKGROUND DECORATIVO)
+========================================================== */
 
 // Inicializa o fundo animado sem alterar o HTML estrutural
 document.addEventListener("DOMContentLoaded", () => {
@@ -621,20 +655,16 @@ document.addEventListener("DOMContentLoaded", () => {
     body.appendChild(cubeWrapper);
 });
 
-/**
- * bg-animation.js — Zyntek Background System
- * Módulo: Mesh Gradient Animado + Partículas Canvas
- * Inclua ANTES do script.js: <script src="bg-animation.js" defer></script>
- */
-
-'use strict';
-
-/* ─── 1. UTILITÁRIOS ──────────────────────────────────────── */
+/* ==========================================================
+   12. UTILITÁRIOS (SISTEMA DE FUNDO — MESH/PARTÍCULAS)
+========================================================== */
 
 const rand = (min, max) => Math.random() * (max - min) + min;
 const lerp = (a, b, t)  => a + (b - a) * t;
 
-/* ─── 2. AURORA + DOT-GRID SYSTEM (startup, não gaming) ──── */
+/* ==========================================================
+   13. MESH GRADIENT — AURORA + DOT-GRID SYSTEM
+========================================================== */
 
 function initMeshGradient() {
     const canvas = document.getElementById('zyntek-mesh-canvas');
@@ -852,7 +882,9 @@ function initMeshGradient() {
     rafId = requestAnimationFrame(draw);
 }
 
-/* ─── 3. PARTÍCULAS SUTIS (startup — sem losangos girando) ── */
+/* ==========================================================
+   14. PARTÍCULAS SUTIS
+========================================================== */
 
 function initParticles() {
     const canvas = document.getElementById('zyntek-particles-canvas');
@@ -916,7 +948,9 @@ function initParticles() {
     draw();
 }
 
-/* ─── 4. INJEÇÃO DO HTML ESTRUTURAL ─────────────────────── */
+/* ==========================================================
+   15. INJEÇÃO DO HTML ESTRUTURAL DO FUNDO
+========================================================== */
 
 function injectBackgroundDOM() {
     /* Evita duplicação se chamar 2x */
@@ -940,7 +974,9 @@ function injectBackgroundDOM() {
     document.body.insertBefore(root, document.body.firstChild);
 }
 
-/* ─── 5. NAV: ENTRADA PROFISSIONAL ESCALONADA ──────────────── */
+/* ==========================================================
+   16. NAV: ENTRADA PROFISSIONAL ESCALONADA
+========================================================== */
 
 function initNavEntrance() {
     const header = document.querySelector('.zyntek-header');
@@ -1000,7 +1036,9 @@ function initNavEntrance() {
     }
 }
 
-/* ─── 6. RESPOSTA AO TOGGLE DE TEMA ─────────────────────── */
+/* ==========================================================
+   17. RESPOSTA AO TOGGLE DE TEMA
+========================================================== */
 
 function watchThemeChanges() {
     /* Observa mudança de classe no body para reotimizar opacidades */
@@ -1013,7 +1051,9 @@ function watchThemeChanges() {
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 }
 
-/* ─── 7. REDUÇÃO DE MOVIMENTO (a11y) ────────────────────── */
+/* ==========================================================
+   18. REDUÇÃO DE MOVIMENTO (A11Y)
+========================================================== */
 
 function respectReducedMotion() {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -1028,7 +1068,9 @@ function respectReducedMotion() {
     mq.addEventListener('change', e => applyReducedMotion(e.matches));
 }
 
-/* ─── 8. HERO TYPING / GLITCH ANIMATION ─────────────────── */
+/* ==========================================================
+   19. HERO TYPING / GLITCH ANIMATION
+========================================================== */
 
 function initHeroTyping() {
 
@@ -1040,18 +1082,17 @@ function initHeroTyping() {
 
     if (!glitchEl) return;
 
-    /* ── Variantes do texto glitch (linha 2) ── */
+    /* ── Variantes do texto glitch (linha 2) — "bug proposital" ── */
     const PHRASES = [
-        { text: '< futuro digital />',  glitch: false },
-        { text: 'futuro.exe',            glitch: true  },
-        { text: 'F̷u̷t̷u̷r̷o̸ d1g1tal',      glitch: true  },
-        { text: '< futuro digital />',  glitch: false },
-        { text: 'Futur0_D!g!tal',        glitch: true  },
-        { text: '> futuro --now',        glitch: true  },
-        { text: '< futuro digital />',  glitch: false },
-        { text: 'Futur) d1g!ta!',        glitch: true  },
-        { text: '01100110 01110101',     glitch: true  },
-        { text: '< futuro digital />',  glitch: false },
+        { text: 'futuro digital',   glitch: false },
+        { text: 'futuro.exe',       glitch: true  },
+        { text: 'futuro.window',    glitch: true  },
+        { text: 'futu!u d1g!ta!',   glitch: true  },
+        { text: '01001110011',      glitch: true  },
+        { text: 'futuro digital',   glitch: false },
+        { text: 'fu7uro_d1g1t4l',   glitch: true  },
+        { text: 'futuro.exe',       glitch: true  },
+        { text: 'futuro digital',   glitch: false },
     ];
 
     const SCRAMBLE = '!@#$%^&*<>?/\\|{}[]01';
@@ -1073,7 +1114,7 @@ function initHeroTyping() {
     /* ── Reduced motion: mostra tudo estático ── */
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         if (miniTitle) miniTitle.textContent = 'SOFTWARE HOUSE • AUTOMAÇÕES • IA • LANDING PAGES';
-        glitchEl.textContent = '< futuro digital />';
+        glitchEl.textContent = 'futuro digital';
         [line1, line3].forEach(el => el && el.classList.add('visible'));
         return;
     }
@@ -1089,7 +1130,6 @@ function initHeroTyping() {
             miniTitle.textContent = MINI_TEXT.slice(0, i);
             setTimeout(() => typeMini(i + 1), SPEED.mini);
         } else {
-            /* Mini-título completo → inicia linhas 1 e 3 com fade */
             setTimeout(startLines, 300);
         }
     }
@@ -1099,16 +1139,14 @@ function initHeroTyping() {
     ─────────────────────────────────────────── */
     function startLines() {
         if (line1) line1.classList.add('visible');
-        /* Linha 3 aparece com 200ms de atraso adicional */
         setTimeout(() => {
             if (line3) line3.classList.add('visible');
-            /* Após ambas visíveis, inicia loop de glitch na linha 2 */
             setTimeout(startGlitchLoop, 350);
         }, 200);
     }
 
     /* ───────────────────────────────────────────
-       FASE 3: loop de glitch na linha 2
+       FASE 3: loop de digitação + glitch na linha 2
     ─────────────────────────────────────────── */
     let pIdx = 0, cIdx = 0, deleting = false, gCount = 0;
 
@@ -1135,7 +1173,7 @@ function initHeroTyping() {
         cIdx++;
         glitchEl.textContent = full.slice(0, cIdx);
 
-        /* scramble inline durante digitação de frases glitch */
+        /* scramble inline durante digitação de frases com bug */
         if (phrase.glitch && cIdx > 2 && Math.random() < 0.22) {
             const stable = glitchEl.textContent;
             glitchEl.textContent = scramble(stable);
@@ -1169,7 +1207,52 @@ function initHeroTyping() {
     setTimeout(() => typeMini(0), 700);
 }
 
-/* ─── 9. BOOTSTRAP ─────────────────────────────────────── */
+/* ==========================================================
+   20. EQUIPE — TROCA DE PAINEL POR MEMBRO
+========================================================== */
+
+function initTeamMembers() {
+    const buttons    = document.querySelectorAll('.team-member-btn');
+    const defaultPanel = document.getElementById('content-default');
+    if (!buttons.length || !defaultPanel) return;
+
+    function showPanel(targetId) {
+        document.querySelectorAll('.team-panel').forEach(panel => {
+            const isTarget = panel.id === targetId;
+            panel.classList.toggle('active', isTarget);
+            panel.hidden = !isTarget;
+        });
+    }
+
+    function resetToDefault() {
+        buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        showPanel('content-default');
+    }
+
+    /* Estado inicial: painel padrão visível */
+    showPanel('content-default');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isActive = btn.classList.contains('active');
+
+            if (isActive) {
+                /* Clicou de novo no mesmo membro já selecionado → volta ao texto original */
+                resetToDefault();
+                return;
+            }
+
+            buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+            btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
+            showPanel(btn.getAttribute('data-target'));
+        });
+    });
+}
+
+/* ==========================================================
+   21. BOOTSTRAP
+========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     injectBackgroundDOM();
@@ -1179,4 +1262,5 @@ document.addEventListener('DOMContentLoaded', () => {
     watchThemeChanges();
     respectReducedMotion();
     initHeroTyping();        /* ← typing/glitch do hero */
+    initTeamMembers();       /* ← troca de painel da equipe */
 });

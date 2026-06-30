@@ -181,12 +181,8 @@ body.light-mode .zyntek-floating-cubes li[data-shape="ring"] {
 .video-overlay-mask {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(9, 9, 15, 0.30) 0%,
-    rgba(9, 9, 15, 0.70) 60%,
-    #09090f 100%
-  );
+  /* Aplica apenas uma camada transparente por igual, sem criar a sombra no final */
+  background: rgba(9, 9, 15, 0.30); 
 }
 
 /* Layout do hero: texto + mascote */
@@ -1036,6 +1032,189 @@ body.light-mode .logo-text {
   border-color: rgba(124,58,237,0.40);
   box-shadow: 0 0 20px rgba(124,58,237,0.25);
   animation: ctaPulse 1.5s ease infinite;
+}
+
+/* ── MOLDURA CYBER EXPANDIDA (ZYNK PREMIUM HUD v4.2) ───────────────── */
+
+.hero-image-content {
+  flex: 0 1 460px; /* Expandido para dar muito mais imponência ao elemento visual */
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.zynk-cyber-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px; /* Largura ideal para o vídeo se destacar perfeitamente */
+  background: rgba(14, 11, 24, 0.55);
+  border: 1px solid rgba(217, 70, 239, 0.15); /* Usando o magenta sutil do seu projeto */
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 
+    0 25px 60px rgba(124, 58, 237, 0.25),
+    inset 0 0 30px rgba(217, 70, 239, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: heroFloat 6s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* Linha de Scanner que simula leitura de tela cibernética */
+.cyber-scanline {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(
+    rgba(217, 70, 239, 0) 96%, 
+    rgba(217, 70, 239, 0.06) 98%, 
+    rgba(217, 70, 239, 0) 100%
+  );
+  background-size: 100% 45px;
+  animation: scanlineAnim 10s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Header do HUD */
+.hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 0 4px 10px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hud-glitch-title {
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #e9d5ff;
+  letter-spacing: 2px;
+}
+
+.hud-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hud-ping {
+  font-family: 'Courier New', monospace;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.hud-pulse {
+  width: 6px;
+  height: 6px;
+  background: var(--p-green, #10b981);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--p-green, #10b981);
+  animation: pulseGlow 2s infinite;
+}
+
+/* Container de Mídia Expandido */
+.hud-video-container {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #06040a;
+}
+
+.hud-video-element {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.01); /* Previne linhas brancas fantasmas nas bordas renderizadas */
+  mix-blend-mode: screen; /* Deixa o fundo preto do vídeo perfeitamente mesclado */
+}
+
+/* Rodapé do HUD */
+.hud-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding: 0 4px;
+}
+
+.hud-terminal-line {
+  font-family: 'Courier New', monospace;
+  font-size: 0.68rem;
+  color: var(--p-magenta, #d946ef);
+  opacity: 0.85;
+  letter-spacing: 1px;
+}
+
+.hud-geo-shape {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--p-magenta, #d946ef));
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* Cantoneiras Estilizadas (Ficam levemente fora das bordas do card) */
+.tech-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--p-magenta, #d946ef);
+  pointer-events: none;
+  z-index: 2;
+}
+.tech-corner.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; border-top-left-radius: 4px; }
+.tech-corner.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; border-top-right-radius: 4px; }
+.tech-corner.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; border-bottom-left-radius: 4px; }
+.tech-corner.br { bottom: -2px; right: -2px; border-left: none; border-top: none; border-bottom-right-radius: 4px; }
+
+/* Coloque a classe correta da sua seção de contato ou da caixa do formulário */
+.contact-section {
+  position: relative;
+  z-index: 10; /* Garante que fique à frente das animações */
+}
+
+/* Se a div do formulário em si for separada, aplique nela também */
+.form-container {
+  position: relative;
+  z-index: 10;
+  /* Dica: se quiser que a forma "suma" ao passar pelo formulário, 
+     adicione uma cor de fundo sólida aqui, ex: background: #06040a; */
+}
+
+footer {
+  position: relative;
+  z-index: 20; /* Maior que as animações e que o resto do site */
+  background-color: #06040a; /* IMPORTANTE: Coloque aqui a cor exata do fundo escuro do seu site */
+}
+
+/* Animações Exclusivas do HUD */
+@keyframes scanlineAnim {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.9); }
+}
+
+/* Responsividade Ajustada */
+@media (max-width: 992px) {
+  .hero-image-content {
+    justify-content: center;
+    margin-top: 3rem;
+    flex: 1 1 100%;
+  }
+  .zynk-cyber-wrapper {
+    max-width: 480px; /* Em telas médias, ele se expande um pouco mais antes do quebrar para mobile total */
+  }
 }
 
 @keyframes ctaPulse {
