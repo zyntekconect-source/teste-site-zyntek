@@ -319,6 +319,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* Seletor de idioma dentro do menu lateral (mobile) —
+       usa a mesma lógica de troca de idioma do dropdown do header. */
+    const langMenuMobile = $('#lang-menu-mobile');
+    if (langMenuMobile) {
+        langMenuMobile.querySelectorAll('a[data-lang]').forEach((item) => {
+            item.addEventListener('click', (event) => {
+                event.preventDefault();
+                const language = item.dataset.lang;
+                const normalized = GOOGLE_LANGUAGE_MAP[language] || 'pt';
+                const currentLangEl = document.getElementById('current-lang');
+                if (currentLangEl) currentLangEl.textContent = DISPLAY_LANGUAGE_MAP[normalized] || normalized.toUpperCase();
+                setPreferredLanguage(language, { reloadPage: true });
+            });
+        });
+
+        const savedLangMobile = GOOGLE_LANGUAGE_MAP[localStorage.getItem(GOOGLE_TRANSLATE_STORAGE_KEY)] || 'pt';
+        langMenuMobile.querySelectorAll('a[data-lang]').forEach((item) => {
+            const isActive = (GOOGLE_LANGUAGE_MAP[item.dataset.lang] || 'pt') === savedLangMobile;
+            item.classList.toggle('active', isActive);
+        });
+    }
+
 })();
 
 
@@ -517,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (() => {
 
         const elements = $$(
-            '.service-card, .step-card, .project-card, .team-member-btn'
+            '.service-card, .step-card, .project-card, .team-member-btn, .cta-container, .contact-card'
         );
 
         if (!elements.length) return;
@@ -533,6 +555,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             entry.target.style.opacity = '1';
                             entry.target.style.transform =
                                 'translateY(0)';
+
+                            entry.target.classList.add('in-view');
 
                             observer.unobserve(
                                 entry.target
@@ -559,6 +583,51 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(element);
 
         });
+
+    })();
+
+    /* ==========================================================
+       9.1 PARALLAX DO VÍDEO NO CTA
+       O vídeo se move dentro da moldura conforme a página rola,
+       um efeito tipo "keyframe" amarrado ao scroll.
+    ========================================================== */
+
+    (() => {
+
+        const stage = document.querySelector('.cta-video-stage');
+        const video = document.querySelector('.cta-holo-video');
+
+        if (!stage || !video) return;
+
+        const RANGE = 34; // deslocamento máximo em px, pra cima e pra baixo
+        let ticking = false;
+
+        function updateParallax() {
+
+            const rect = stage.getBoundingClientRect();
+            const viewportH = window.innerHeight || document.documentElement.clientHeight;
+
+            // progresso de -1 (seção acima da tela) a 1 (seção abaixo da tela), 0 = centralizada
+            const centerOffset = (rect.top + rect.height / 2) - viewportH / 2;
+            const progress = Math.max(-1, Math.min(1, centerOffset / viewportH));
+            const offset = (-progress * RANGE).toFixed(1);
+
+            video.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+
+        updateParallax();
 
     })();
 
@@ -987,6 +1056,20 @@ function initNavEntrance() {
     header.style.opacity    = '0';
     header.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease';
 
+    /* Ao terminar a transição, removemos o transform residual.
+       Um header com position:fixed que mantém um transform aplicado
+       (mesmo translateY(0)) cria um novo "containing block"/stacking
+       context e quebra o comportamento de "fixed" em navegadores mobile
+       (principalmente iOS Safari) — foi isso que fazia o seletor de
+       idioma renderizar atrás do vídeo do hero. */
+    const clearHeaderTransform = (e) => {
+        if (e.propertyName === 'transform') {
+            header.style.transform = '';
+            header.removeEventListener('transitionend', clearHeaderTransform);
+        }
+    };
+    header.addEventListener('transitionend', clearHeaderTransform);
+
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             setTimeout(() => {
@@ -1264,3 +1347,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroTyping();        /* ← typing/glitch do hero */
     initTeamMembers();       /* ← troca de painel da equipe */
 });
+

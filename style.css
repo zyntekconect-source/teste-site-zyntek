@@ -245,6 +245,7 @@ button { font-family: var(--font-main); cursor: pointer; }
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+  isolation: isolate;
   overflow: visible;
   background: transparent;
   border-bottom: 1px solid transparent;
@@ -685,6 +686,38 @@ body.light-mode .menu-toggle span { background: #52525B; }
   margin: 0.5rem 0;
 }
 
+/* Idioma dentro do menu lateral (mobile) */
+.sidebar-lang-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.sidebar-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--t-base) ease, background var(--t-base) ease, transform var(--t-base) ease;
+}
+
+.sidebar-lang-btn:hover,
+.sidebar-lang-btn:focus-visible {
+  color: var(--text-primary);
+  background: var(--border-subtle);
+  transform: translateX(4px);
+}
+
+.sidebar-lang-btn.active {
+  color: var(--primary-light);
+  background: var(--primary-10);
+}
+
 .sidebar-social-icons {
   display: flex;
   gap: 0.6rem;
@@ -768,6 +801,72 @@ body.light-mode .cta-btn.sidebar-cta { background: var(--primary); border-color:
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
 }
 
+/* ==============================================================
+   MOLDURA ESTILO "APP WINDOW" DO HERO
+   (mesma linguagem visual da moldura de Serviços — .zynk-frame —
+   adaptada para a área cheia/inicial do site)
+   ============================================================== */
+.hero-frame {
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+.hero-frame::before,
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: rgba(139, 92, 246, 0.75);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-frame::before { top: 12px; left: 12px; border-top: 2px solid; border-left: 2px solid; }
+.hero-frame::after  { bottom: 12px; right: 12px; border-bottom: 2px solid; border-right: 2px solid; }
+
+.hero-frame-header,
+.hero-frame-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem clamp(1.25rem, 4vw, 2rem);
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  pointer-events: none;
+}
+
+.hero-frame-header {
+  top: 0;
+  background: linear-gradient(180deg, rgba(9, 9, 11, 0.7) 0%, rgba(9, 9, 11, 0) 100%);
+}
+
+.hero-frame-footer {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(9, 9, 11, 0.7) 0%, rgba(9, 9, 11, 0) 100%);
+  pointer-events: none;
+}
+
+.hero-frame-footer .pause-btn { pointer-events: auto; }
+
+.hero-frame-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--primary-light);
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.hero-frame-status-text {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  flex: 1;
+}
+
 .hero-video {
   position: absolute;
   top: 50%; left: 50%;
@@ -791,9 +890,9 @@ body.light-mode .cta-btn.sidebar-cta { background: var(--primary); border-color:
 }
 
 .pause-btn {
-  position: absolute;
-  bottom: 20px; right: 20px;
-  z-index: 10;
+  position: static;
+  margin-left: auto;
+  z-index: 4;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: rgba(255,255,255,0.7);
@@ -975,7 +1074,7 @@ body.light-mode .cta-btn.sidebar-cta { background: var(--primary); border-color:
    8. SOBRE / PROCESSO
    ============================================================== */
 .process-section {
-  padding: 8rem clamp(1.5rem, 4vw, 3rem) 3rem;
+  padding: 4.5rem clamp(1.5rem, 4vw, 3rem) 3rem;
   background: transparent;
   position: relative;
   overflow: hidden;
@@ -1009,7 +1108,7 @@ body.light-mode .code-watermark { color: rgba(0, 0, 0, 0.65); }
   max-width: 580px;
   position: relative;
   z-index: 2;
-  margin-bottom: 4.5rem;
+  margin-bottom: 3rem;
 }
 
 .process-header h2 {
@@ -1036,7 +1135,7 @@ body.light-mode .code-watermark { color: rgba(0, 0, 0, 0.65); }
   position: relative;
   z-index: 2;
   align-items: start;
-  padding-bottom: 80px;
+  padding-bottom: 32px;
 }
 
 .step-card {
@@ -1093,12 +1192,12 @@ body.light-mode .step-card {
 body.light-mode .step-card::before { background: linear-gradient(90deg, transparent, rgba(109,40,217,.22), transparent); }
 
 .step-icon {
-  width: 44px; height: 44px;
-  background: var(--primary-10);
-  border: 1px solid var(--primary-20);
-  border-radius: var(--radius-md);
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   color: var(--primary-light);
   margin-bottom: 1.5rem;
@@ -1108,8 +1207,8 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
 .step-card:hover .step-icon { transform: scale(1.08) rotate(-4deg); }
 
 .step-icon img {
-  width: 24px;
-  height: 24px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
 }
 
@@ -1183,37 +1282,38 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
 .tech-icon {
   font-size: 40px;
   vertical-align: middle;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease, color 0.28s ease;
   cursor: default;
   display: inline-block;
   opacity: 0.92;
+  color: #52525B;
 }
 
 .tech-icon:hover { transform: scale(1.18) translateY(-5px); opacity: 1; }
 
-/* Tech icon — cores originais sempre visíveis */
-.devicon-html5-plain        { color: #e44d26; }
-.devicon-css3-plain         { color: #264de4; }
-.devicon-javascript-plain   { color: #f7df1e; }
-.devicon-react-original     { color: #61dafb; }
-.devicon-figma-plain        { color: #f24e1e; }
-.devicon-nodejs-plain       { color: #3c873a; }
-.devicon-typescript-plain   { color: #3178c6; }
-.devicon-linux-plain        { color: #f8c300; }
-.devicon-csharp-plain       { color: #9b4993; }
-.devicon-cplusplus-plain    { color: #00599c; }
-.devicon-php-plain          { color: #777bb4; }
-.devicon-mysql-plain        { color: #00758f; }
-.devicon-python-plain       { color: #3776ab; }
-.devicon-spring-original    { color: #6db33f; }
-.devicon-java-plain         { color: #f89820; }
-.devicon-go-plain           { color: #00acd7; }
-.devicon-docker-plain       { color: #2496ed; }
-.devicon-postgresql-plain   { color: #336791; }
-.devicon-angular-plain      { color: #dd0031; }
-.devicon-tailwindcss-plain  { color: #38bdf8; }
-.devicon-rust-original      { color: #ce422b; }
-.devicon-ruby-plain         { color: #cc342d; }
+/* Tech icon — cinza por padrão, cor original da marca só no hover */
+.devicon-html5-plain:hover        { color: #e44d26; }
+.devicon-css3-plain:hover         { color: #264de4; }
+.devicon-javascript-plain:hover   { color: #f7df1e; }
+.devicon-react-original:hover     { color: #61dafb; }
+.devicon-figma-plain:hover        { color: #f24e1e; }
+.devicon-nodejs-plain:hover       { color: #3c873a; }
+.devicon-typescript-plain:hover   { color: #3178c6; }
+.devicon-linux-plain:hover        { color: #f8c300; }
+.devicon-csharp-plain:hover       { color: #9b4993; }
+.devicon-cplusplus-plain:hover    { color: #00599c; }
+.devicon-php-plain:hover          { color: #777bb4; }
+.devicon-mysql-plain:hover        { color: #00758f; }
+.devicon-python-plain:hover       { color: #3776ab; }
+.devicon-spring-original:hover    { color: #6db33f; }
+.devicon-java-plain:hover         { color: #f89820; }
+.devicon-go-plain:hover           { color: #00acd7; }
+.devicon-docker-plain:hover       { color: #2496ed; }
+.devicon-postgresql-plain:hover   { color: #336791; }
+.devicon-angular-plain:hover      { color: #dd0031; }
+.devicon-tailwindcss-plain:hover  { color: #38bdf8; }
+.devicon-rust-original:hover      { color: #ce422b; }
+.devicon-ruby-plain:hover         { color: #cc342d; }
 
 .tech-marquee-content > span { color: #3F3F46; font-size: 20px; vertical-align: middle; }
 
@@ -1221,7 +1321,7 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
    9. SERVIÇOS
    ============================================================== */
 .services-section {
-  padding: 8rem clamp(1.5rem, 4vw, 3rem);
+  padding: 4.5rem clamp(1.5rem, 4vw, 3rem);
   background: transparent;
 }
 
@@ -1230,7 +1330,7 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
+  gap: 3rem;
 }
 
 .services-intro {
@@ -1240,14 +1340,24 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
   align-items: center;
 }
 
-.services-image-wrapper {
+.services-image-wrapper,
+.projects-image-wrapper {
   width: 100%;
-  height: 380px;
+  aspect-ratio: 16 / 9; /* mesma proporção para serviços e projetos */
+  max-height: 640px; /* limite máximo para desktop (ajustável)	*/
+  height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-xl);
+  background: var(--primary-10);
+  border: 1px dashed rgba(139, 92, 246, 0.3);
+  overflow: hidden;
 }
 
-.services-image-wrapper .zynnk-placeholder {
+.services-image-wrapper .zynnk-placeholder,
+.projects-image-wrapper .zynnk-placeholder {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -1256,10 +1366,13 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
   overflow: hidden;
 }
 
-.services-video {
+.services-video,
+.projects-image-wrapper .services-video,
+.projects-image-wrapper video,
+.services-image-wrapper video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* mostra o vídeo inteiro sem cortes em ambas as áreas */
   display: block;
 }
 
@@ -1321,12 +1434,11 @@ body.light-mode .service-card { background: rgba(255,255,255,0.85); border-color
 
 .service-icon {
   width: 48px; height: 48px;
-  background: var(--primary-10);
-  border: 1px solid var(--primary-20);
+  background: transparent;
+  border: none;
   color: var(--primary-light);
-  border-radius: var(--radius-md);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 1.5rem;
   transition: transform var(--t-slow) var(--ease-spring);
@@ -1335,8 +1447,8 @@ body.light-mode .service-card { background: rgba(255,255,255,0.85); border-color
 .service-card:hover .service-icon { transform: scale(1.08) rotate(-4deg); }
 
 .service-icon img {
-  width: 26px;
-  height: 26px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
@@ -1379,7 +1491,7 @@ body.light-mode .service-card { background: rgba(255,255,255,0.85); border-color
    10. EQUIPE
    ============================================================== */
 .team-section {
-  padding: 8rem clamp(1.5rem, 4vw, 3rem);
+  padding: 4.5rem clamp(1.5rem, 4vw, 3rem);
   background: transparent;
 }
 
@@ -1401,11 +1513,11 @@ body.light-mode .service-card { background: rgba(255,255,255,0.85); border-color
 .team-member-btn {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
-  gap: 0.6rem;
-  padding: 1.1rem 0.8rem;
+  text-align: left;
+  gap: 0.9rem;
+  padding: 0.9rem 0.9rem;
   border-radius: var(--radius-lg);
   background: rgba(20, 10, 35, 0.35);
   border: 1px solid rgba(139, 92, 246, 0.25);
@@ -1457,12 +1569,13 @@ body.light-mode .service-card { background: rgba(255,255,255,0.85); border-color
 }
 
 .member-avatar {
-  width: 64px; height: 64px;
-  border-radius: var(--radius-pill);
+  width: 84px; height: 84px;
+  min-width: 84px;
+  border-radius: 12px;
   overflow: hidden;
   border: 2px solid transparent;
   flex-shrink: 0;
-  transition: border-color var(--t-base) ease, box-shadow var(--t-base) ease;
+  transition: border-color var(--t-base) ease, box-shadow var(--t-base) ease, transform var(--t-base) ease;
 }
 
 .team-member-btn.active .member-avatar {
@@ -1472,10 +1585,10 @@ body.light-mode .service-card { background: rgba(255,255,255,0.85); border-color
 
 .member-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-.member-info-short { text-align: center; }
+.member-info-short { text-align: left; min-width: 0; flex: 1; }
 
-.member-info-short h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text-primary); letter-spacing: -0.01em; }
-.member-info-short span { font-size: 0.74rem; color: var(--text-muted); font-weight: 500; }
+.member-info-short h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.1rem; color: var(--text-primary); letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.member-info-short span { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .team-member-btn.active .member-info-short h4 { color: var(--primary-light); }
 
@@ -1639,7 +1752,7 @@ body.light-mode .member-info-short span { color: #52525B; }
    11. PROJETOS
    ============================================================== */
 .projects-section {
-  padding: 8rem clamp(1.5rem, 4vw, 3rem);
+  padding: 4.5rem clamp(1.5rem, 4vw, 3rem);
   background: transparent;
 }
 
@@ -1648,26 +1761,45 @@ body.light-mode .member-info-short span { color: #52525B; }
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
+  gap: 3rem;
 }
 
 .projects-intro {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.65fr 0.35fr;
   gap: 4rem;
   align-items: center;
 }
 
 .projects-image-wrapper {
   width: 100%;
-  height: 380px;
+  height: 640px; /* aumentado para mostrar vídeo em tamanho maior */
   border-radius: var(--radius-xl);
   background: var(--primary-10);
   border: 1px dashed rgba(139, 92, 246, 0.3);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.projects-image-wrapper .zynnk-placeholder {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-10);
+  overflow: hidden;
+}
+
+/* Garantir que o vídeo dentro da wrapper preencha e mantenha sua proporção original */
+.projects-image-wrapper .services-video,
+.projects-image-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mostra o vídeo inteiro sem cortes */
+  display: block;
 }
 
 .projects-content h2 {
@@ -1706,10 +1838,25 @@ body.light-mode .member-info-short span { color: #52525B; }
 
 body.light-mode .project-card { background: rgba(255,255,255,0.85); border-color: rgba(0,0,0,0.07); }
 
-.project-image { width: 100%; height: 160px; overflow: hidden; border-bottom: 1px solid var(--border-subtle); }
+.project-image {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  background: #0d0d12;
+}
 
-.project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease-out); }
-.project-card:hover .project-image img { transform: scale(1.06); }
+.project-image img,
+.project-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease-out);
+}
+.project-card:hover .project-image img,
+.project-card:hover .project-image video { transform: scale(1.06); }
 
 .project-info {
   padding: 1.4rem 1.25rem;
@@ -1723,10 +1870,49 @@ body.light-mode .project-card { background: rgba(255,255,255,0.85); border-color
 .project-info .btn-learn-more { margin-top: auto; }
 
 /* ==============================================================
-   12. CTA SECTION
+   11.1 MOLDURAS ANIMADAS — Sobre / Serviços / Projetos / CTA /
+        Formulário / Hub Digital
+   Uma linha de destaque em degradê no topo e na base de cada card,
+   ecoando a linguagem do .zynk-frame. A moldura "acende" quando o
+   card entra na viewport (classe .in-view via IntersectionObserver).
    ============================================================== */
+.step-card,
+.service-card,
+.project-card,
+.cta-container,
+.contact-card {
+  position: relative;
+}
+
+.step-card::after,
+.service-card::after,
+.project-card::after,
+.cta-container::after,
+.contact-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.85), transparent) top left / 100% 2px no-repeat,
+    linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.85), transparent) bottom left / 100% 2px no-repeat;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out) 0.15s;
+}
+
+.step-card.in-view::after,
+.service-card.in-view::after,
+.project-card.in-view::after,
+.cta-container.in-view::after,
+.contact-card.in-view::after {
+  opacity: 1;
+}
+
+
 .cta-section {
-  padding: 8rem clamp(1.5rem, 4vw, 3rem);
+  padding: 4.5rem clamp(1.5rem, 4vw, 3rem);
   display: flex;
   justify-content: center;
 }
@@ -1791,23 +1977,34 @@ body.light-mode .cta-container { background: rgba(255,255,255,0.85); border-colo
 .btn-primary-large svg { transition: transform var(--t-base) var(--ease-spring); }
 .btn-primary-large:hover svg { transform: translateX(4px); }
 
-.cta-video-wrapper {
-  position: relative;
+.cta-video-wrapper.zynk-frame {
   width: 100%;
   height: 100%;
   min-height: 380px;
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radius-xl);
   z-index: 2;
 }
 
+.cta-video-stage {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: #05050a;
+}
+
 .cta-video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius-xl);
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  border: 1px solid var(--border-subtle);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 132%;
+  min-height: 132%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  display: block;
 }
 
 .video-glow {
@@ -1820,13 +2017,14 @@ body.light-mode .cta-container { background: rgba(255,255,255,0.85); border-colo
   opacity: 0.2;
   z-index: 1;
   border-radius: 50%;
+  pointer-events: none;
 }
 
 /* ==============================================================
    13. CONTATO
    ============================================================== */
 .contact-section {
-  padding: 8rem clamp(1.5rem, 4vw, 3rem);
+  padding: 4.5rem clamp(1.5rem, 4vw, 3rem);
   background: transparent;
 }
 /* Substitua pela classe exata do seu título de contato */
@@ -1857,6 +2055,8 @@ body.light-mode .cta-container { background: rgba(255,255,255,0.85); border-colo
 }
 
 .contact-card {
+  position: relative;
+  overflow: hidden;
   background: rgba(18, 18, 22, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -2274,6 +2474,9 @@ body.light-mode .footer-col ul li a:hover { color: #FAFAFA; }
   .menu-toggle { display: flex; }
   .cta-btn { display: none; }
 
+  /* O seletor de idioma foi removido do header — agora vive
+     apenas dentro do menu lateral (ver #lang-menu-mobile). */
+
   .hero-rectangle { padding: 2.75rem 2rem; }
   .hero-title { font-size: 2.4rem; }
   .btn-ghost { display: none; }
@@ -2287,7 +2490,7 @@ body.light-mode .footer-col ul li a:hover { color: #FAFAFA; }
   .code-watermark { display: none; }
 
   .services-intro { grid-template-columns: 1fr; gap: 2rem; }
-  .services-image-wrapper { height: 220px; order: 2; }
+  .services-image-wrapper { max-height: 220px; order: 2; }
   .services-content { order: 1; }
   .services-grid { grid-template-columns: 1fr; }
 
@@ -2298,7 +2501,7 @@ body.light-mode .footer-col ul li a:hover { color: #FAFAFA; }
   .member-info-short { text-align: center; }
 
   .projects-intro { grid-template-columns: 1fr; gap: 2rem; }
-  .projects-image-wrapper { height: 220px; order: 2; }
+  .projects-image-wrapper { max-height: 220px; order: 2; }
   .projects-content { order: 1; }
 
   .cta-container { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 2rem; }
@@ -2316,11 +2519,12 @@ body.light-mode .footer-col ul li a:hover { color: #FAFAFA; }
 
 @media (max-width: 580px) {
   .hero-section { padding-top: 64px; }
-  .hero-rectangle { border-radius: var(--radius-lg); padding: 2rem 1.5rem; }
+  .hero-rectangle { border-radius: var(--radius-lg); padding: 2.75rem 1.5rem 2rem; }
   .hero-title { font-size: 1.75rem; }
   .hero-description { font-size: 0.95rem; }
   .team-member-btn { width: 100%; flex-direction: row; }
   .member-info-short { text-align: left; }
+  .hero-frame-title { font-size: 0.6rem; }
 }
 
 @media (max-width: 480px) {
@@ -2482,4 +2686,9 @@ html {
 /* Ajuste fino no light mode para a borda do thumb acompanhar o fundo claro */
 body.light-mode ::-webkit-scrollbar-thumb {
   border-color: var(--bg-light);
+}
+
+.text-purple {
+  color: #a855f7; /* Substitua pelo código hexadecimal exato do roxo do seu site */
+  font-weight: 600; /* Dá um leve destaque na espessura da letra também */
 }

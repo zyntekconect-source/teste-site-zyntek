@@ -1,0 +1,267 @@
+/* ==============================================================
+   ZYNTEK — projeto-software.css
+   Herda tokens de style.css, precos.css e projeto-lp.css
+   Ajustes específicos para a página de Desenvolvimento de Software
+   ============================================================== */
+
+/* ---------- Hero (sem botões abaixo do vídeo) ---------- */
+.hero-project-flow.software-hero .hud-footer {
+  justify-content: center;
+}
+
+/* ---------- Bloco: O que é Desenvolvimento de Software ---------- */
+.software-intro-section {
+  padding: 5rem 0 2rem;
+}
+
+.usecase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2.5rem auto 0;
+  max-width: 920px;
+}
+
+.usecase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  background: rgba(124, 58, 237, 0.08);
+  color: #e4e4e7;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.usecase-tag:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  background: rgba(124, 58, 237, 0.14);
+  transform: translateY(-2px);
+}
+
+.usecase-tag svg {
+  width: 15px;
+  height: 15px;
+  color: var(--accent-color, #7c3aed);
+  flex-shrink: 0;
+}
+
+/* ---------- Bloco: Como é feito (Processo) ---------- */
+.software-process-section {
+  padding: 4rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.process-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  counter-reset: process-step;
+  position: relative;
+}
+
+.process-track::before {
+  content: "";
+  position: absolute;
+  top: 27px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.4) 15%, rgba(124, 58, 237, 0.4) 85%, transparent);
+  z-index: 0;
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  counter-increment: process-step;
+}
+
+.process-step-number {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e0b18;
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  color: var(--accent-color, #7c3aed);
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+.process-step-number::before {
+  content: counter(process-step, decimal-leading-zero);
+}
+
+.process-step h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.process-step p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted, #a1a1aa);
+}
+
+/* ---------- Bloco: ROI / Benefícios (Estatísticas) ---------- */
+.software-stats-section {
+  padding: 3rem 0 4rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+
+.stat-block {
+  background: rgba(14, 11, 24, 0.75);
+  padding: 2rem 1.25rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--accent-color, #7c3aed);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted, #a1a1aa);
+  line-height: 1.4;
+}
+
+/* ---------- Bloco: Crescimento & Localização (texto + moldura) ---------- */
+.software-growth-section {
+  padding: 4rem 0;
+}
+
+.growth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.growth-text .eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.growth-text h3 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.1rem;
+  line-height: 1.2;
+}
+
+.growth-text > p {
+  color: var(--text-muted, #a1a1aa);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.growth-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.growth-list li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: #e4e4e7;
+  line-height: 1.6;
+}
+
+.growth-list li svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--accent-color, #7c3aed);
+  margin-top: 2px;
+}
+
+.growth-list li strong {
+  color: #fff;
+}
+
+/* Moldura de mídia (versão média, para foto ou vídeo) */
+.zynk-cyber-wrapper.media-frame {
+  max-width: 100%;
+  flex: none;
+  background: rgba(14, 11, 24, 0.65);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(124, 58, 237, 0.12),
+    inset 0 0 25px rgba(124, 58, 237, 0.04);
+}
+
+.zynk-cyber-wrapper.media-frame .hud-video-element,
+.zynk-cyber-wrapper.media-frame .hud-media-image {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .growth-layout {
+    grid-template-columns: 1fr;
+  }
+  .process-track {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.5rem;
+  }
+  .process-track::before {
+    display: none;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .process-track {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .zynk-cyber-wrapper.media-frame .hud-video-element,
+  .zynk-cyber-wrapper.media-frame .hud-media-image {
+    min-height: 220px;
+    max-height: 280px;
+  }
+}

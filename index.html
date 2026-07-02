@@ -69,24 +69,6 @@
 
     <div class="header-actions">
 
- <!--  ==========================================================
-    SELETOR DE IDIOMA
-========================================================== -->
-      <div class="lang-dropdown">
-        <button id="lang-btn" class="lang-btn" aria-controls="lang-menu" aria-expanded="false" aria-haspopup="true">
-          🌐 <span id="current-lang">PT</span>
-          <svg id="lang-chevron" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </button>
-        <ul id="lang-menu" class="lang-menu" aria-hidden="true" aria-label="Selecionar idioma">
-          <li><a href="#" data-lang="PT">🇧🇷 Português</a></li>
-          <li><a href="#" data-lang="EN">🇺🇸 English</a></li>
-          <li><a href="#" data-lang="ES">🇪🇸 Español</a></li>
-        </ul>
-      </div>
-
       <!-- Alternador de Tema -->
       <button id="theme-toggle" class="theme-toggle" aria-label="Alternar para modo claro" aria-pressed="false">
         <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -153,11 +135,18 @@
         <li><a href="#contatos" class="sidebar-lateral-link">Contato</a></li>
       </ul>
 
+      <span class="sidebar-lateral-divider-label">Idioma</span>
+      <ul id="lang-menu-mobile" class="sidebar-lang-group" aria-label="Selecionar idioma">
+        <li><a href="#" data-lang="PT" class="sidebar-lang-btn">🇧🇷 Português</a></li>
+        <li><a href="#" data-lang="EN" class="sidebar-lang-btn">🇺🇸 English</a></li>
+        <li><a href="#" data-lang="ES" class="sidebar-lang-btn">🇪🇸 Español</a></li>
+      </ul>
+
       <span class="sidebar-lateral-divider-label">Institucional</span>
       <ul class="sidebar-links">
-        <li><a href="precos.html" class="sidebar-lateral-link">Planos</a></li>
-        <li><a href="politica-privacidade.html" class="sidebar-lateral-link">Política de Privacidade</a></li>
-        <li><a href="#" class="sidebar-lateral-link">FAQ</a></li>
+        <li><a href="pages/precos.html" class="sidebar-lateral-link">Planos</a></li>
+        <li><a href="pages/politica-privacidade.html" class="sidebar-lateral-link">Política de Privacidade</a></li>
+        <li><a href="pages/faq.html" class="sidebar-lateral-link">FAQ</a></li>
       </ul>
 
       <span class="sidebar-lateral-divider-label">Fundadores</span>
@@ -197,24 +186,33 @@
 
     <!-- HERO -->
     <section id="home" class="hero-section" aria-label="Hero principal">
-      <div class="hero-rectangle">
+      <div class="hero-rectangle hero-frame">
+
+        <div class="hero-frame-header" aria-hidden="true">
+          <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+          <span class="hero-frame-title">ZYNTEK_HOME.exe — ONLINE</span>
+        </div>
 
         <video id="hero-video" class="hero-video" autoplay loop muted playsinline
                aria-hidden="true" preload="metadata">
-          <source src="assets/videos/vecteezy_two-women-sitting-on-a-couch-with-their-laptops_55658837.MOV" type="video/mp4">
+          <source src="assets/videos//video-capa-hero.mp4" type="video/mp4">
         </video>
 
         <div class="video-overlay" aria-hidden="true"></div>
 
-        <button id="pause-video-btn" class="pause-btn" aria-label="Pausar vídeo" title="Pausar/Reproduzir vídeo de fundo">
-          <svg id="pause-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <rect x="6"  y="4" width="4" height="16"/>
-            <rect x="14" y="4" width="4" height="16"/>
-          </svg>
-          <svg id="play-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"/>
-          </svg>
-        </button>
+        <div class="hero-frame-footer" aria-hidden="true">
+          <span class="zynk-frame-status"></span>
+          <span class="hero-frame-status-text">Sistema ativo</span>
+          <button id="pause-video-btn" class="pause-btn" aria-label="Pausar vídeo" title="Pausar/Reproduzir vídeo de fundo">
+            <svg id="pause-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6"  y="4" width="4" height="16"/>
+              <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+            <svg id="play-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </button>
+        </div>
 
         <div class="hero-content hero-text-block">
 
@@ -268,42 +266,52 @@ const ZyntekAI = () => {
           </pre>
         </div>
 
-        <div class="process-header">
+<div class="process-header">
           <span class="eyebrow">COMO ESTRUTURAMOS SUA SOLUÇÃO</span>
-          <h2 id="sobre-heading">Estratégia, engenharia de dados e inteligência artificial.</h2>
-          <p>Com metodologias ágeis e foco absoluto em conversão, desenvolvemos plataformas robustas para ajudar nossos clientes a transformarem suas ideias em automações e produtos digitais escaláveis.</p>
-          <p>E fazemos isso dividindo nosso trabalho em 3 fases estruturais:</p>
+          <h2 id="sobre-heading">A Engenharia por trás do Crescimento da sua Empresa</h2>
+          <p>
+            Ideias não mudam o mercado; 
+            <span class="text-purple">plataformas robustas</span> e 
+            <span class="text-purple">processos inteligentes</span> sim. 
+            Desenvolvemos <span class="text-purple">produtos digitais escaláveis</span> e 
+            integrações de <span class="text-purple">Inteligência Artificial</span> sob medida, focando sempre no que mais importa: 
+            <span class="text-purple">o seu resultado financeiro</span>.
+          </p>
+
+          <p>
+            Dividimos nossa engenharia de elite em 3 pilares estruturais para garantir o sucesso do seu projeto:
+          </p>
         </div>
 
         <div class="cards-wrapper">
           <article class="step-card card-1">
             <div class="step-icon" aria-hidden="true">
-              <img src="assets/icones/step-estrategia.png" alt=""
+              <img src="assets/icones/foguete.png" alt=""
                    onerror="this.style.display='none'">
             </div>
             <span class="step-num" aria-label="Etapa 1">STEP 1</span>
-            <h3>Estratégia</h3>
-            <p>Todo projeto parte da identificação de um problema real. Definimos a arquitetura de dados, integração de IA, jornada do usuário (UX) e o protótipo navegável antes de escrever a primeira linha de código.</p>
+            <h3>Missão</h3>
+            <p>Desenvolver <span class="text-purple">sistemas de alta performance</span> e automações inteligentes que aceleram o crescimento e <span class="text-purple">escalam o faturamento</span> de grandes negócios. Transformamos tecnologia complexa em resultados práticos.</p>
           </article>
 
           <article class="step-card card-2">
             <div class="step-icon" aria-hidden="true">
-              <img src="assets/icones/step-construcao.png" alt=""
+              <img src="assets/icones/diamante.png" alt=""
                    onerror="this.style.display='none'">
             </div>
             <span class="step-num" aria-label="Etapa 2">STEP 2</span>
-            <h3>Construção</h3>
-            <p>Com o escopo definido, nossa squad de engenharia entra em ação. Código limpo, testes automatizados e ciclos iterativos garantem que a plataforma seja rápida, segura e totalmente escalável na nuvem.</p>
+            <h3>Valores</h3>
+            <p>Garantir <span class="text-purple">engenharia de elite</span>, transparência radical e evolução contínua. Entregamos <span class="text-purple">código limpo</span> e testes rigorosos para que sua plataforma seja rápida, segura e estável.</p>
           </article>
 
           <article class="step-card card-3">
             <div class="step-icon" aria-hidden="true">
-              <img src="assets/icones/step-lancamento.png" alt=""
+              <img src="assets/icones/binoculos.png" alt=""
                    onerror="this.style.display='none'">
             </div>
             <span class="step-num" aria-label="Etapa 3">STEP 3</span>
-            <h3>Lançamento</h3>
-            <p>Conduzimos o deploy para o ambiente de produção. Implementamos painéis de monitoramento, garantimos a estabilidade com os primeiros usuários e direcionamos a evolução do software baseada em dados reais.</p>
+            <h3>Visão</h3>
+            <p>Consolidar a Zyntek como a <span class="text-purple">autoridade máxima</span> em disrupção tecnológica e IA. Conduzimos cada deploy focando em dados reais para direcionar a <span class="text-purple">evolução contínua do seu software</span>.</p>
           </article>
         </div>
 
@@ -380,19 +388,21 @@ const ZyntekAI = () => {
             </div>
             <div class="zynnk-placeholder">
               <video class="services-video" autoplay muted loop playsinline preload="metadata"
-                     poster="assets/videos/servicos-poster.jpg">
-                <source src="assets/videos/servicos.mp4" type="video/mp4">
+                     poster="assets/videos/Video Project 3.mp4">
+                <source src="assets/videos/Video Project 3.mp4" type="video/mp4">
                 <span>[ Vídeo dos serviços aqui ]</span>
               </video>
             </div>
             <div class="zynk-frame-footer">
-              <span class="zynk-frame-status"></span> PRONTO PARA RECEBER VÍDEO
+              <span class="zynk-frame-status"></span> STATUS: EXECUÇÃO COMPLETA // SISTEMA ONLINE
             </div>
           </div>
           <div class="services-content">
             <span class="eyebrow">NOSSOS SERVIÇOS</span>
-            <h2 id="servicos-heading">Soluções sob medida para a sua escala.</h2>
-            <p>Combinamos engenharia de software de alta performance, automações inteligentes e design focado em conversão para resolver os desafios mais complexos do seu negócio.</p>
+            <h2 id="servicos-heading">Soluções digitais para empresas modernas</h2>
+            <p>
+              Não criamos apenas sistemas, desenvolvemos <span class="text-purple">ecossistemas tecnológicos sob medida</span> e integrações de elite para redefinir o seu negócio. Projetamos <span class="text-purple">experiências digitais de altíssimo impacto</span> focadas em performance extrema, segurança e lucratividade real.
+            </p>
           </div>
         </div>
 
@@ -400,48 +410,50 @@ const ZyntekAI = () => {
 
           <article class="service-card" role="listitem">
             <div class="service-icon" aria-hidden="true">
-              <img src="assets/icones/servico-dev.png" alt=""
+              <img src="assets/icones/sistema.png" alt=""
                    onerror="this.style.display='none'">
             </div>
             <h3>Desenvolvimento de Software</h3>
-            <p>Criamos plataformas web, sistemas SaaS e aplicativos móveis com arquiteturas robustas, garantindo segurança e escalabilidade desde o primeiro dia.</p>
-            <a href="#dev" class="btn-learn-more" aria-label="Saiba mais sobre Desenvolvimento de Software">
-              Saiba mais
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
+            <p>Construção de <span class="text-purple">plataformas exclusivas</span>, sistemas SaaS e ERPs com arquiteturas robustas. Garantimos APIs seguras e <span class="text-purple">escalabilidade absoluta</span> desde o primeiro dia de produção.</p>
+
+          <a href="pages/projeto-desenvolvimento-software.html" class="btn-learn-more" aria-label="Saiba mais sobre Desenvolvimento de Software">
+            Saiba Mais
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
           </article>
 
           <article class="service-card" role="listitem">
             <div class="service-icon" aria-hidden="true">
-              <img src="assets/icones/servico-ia.png" alt=""
+              <img src="assets/icones/automaçao.png" alt=""
                    onerror="this.style.display='none'">
             </div>
             <h3>Inteligência Artificial &amp; Automações</h3>
-            <p>Transformamos fluxos de trabalho manuais em processos automatizados e integramos agentes de IA para otimizar operações e reduzir custos.</p>
-            <a href="#ia" class="btn-learn-more" aria-label="Saiba mais sobre IA e Automações">
-              Saiba mais
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
+            <p>Desenvolvimento de <span class="text-purple">chatbots avançados</span> e fluxos autônomos. Integramos agentes de IA para eliminar tarefas manuais repetitivas, otimizar operações e <span class="text-purple">reduzir custos drasticamente</span>.</p>
+
+          <a href="pages/projeto-ia-automacoes.html" class="btn-learn-more" aria-label="Saiba mais sobre IA e Automações">
+            Saiba mais
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
           </article>
 
           <article class="service-card" role="listitem">
             <div class="service-icon" aria-hidden="true">
-              <img src="assets/icones/servico-lp.png" alt=""
+              <img src="assets/icones/desenvolvimento.png" alt=""
                    onerror="this.style.display='none'">
             </div>
             <h3>Landing Pages &amp; UI/UX</h3>
-            <p>Páginas de altíssima conversão desenhadas metodicamente para atrair, reter e converter visitantes em clientes fiéis para a sua empresa.</p>
-            <a href="#lp" class="btn-learn-more" aria-label="Saiba mais sobre Landing Pages e UI/UX">
+            <p>Criação de <span class="text-purple">landing pages de alta conversão</span> e e-commerces de elite. Desenvolvemos interfaces estrategicamente desenhadas para atrair, reter e <span class="text-purple">converter visitantes em clientes fiéis</span>.</p>
+            <a href="pages/projeto-landing-pages-uiux.html" class="btn-learn-more" aria-label="Saiba mais sobre Landing Pages e UI/UX">
               Saiba mais
               <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -451,7 +463,6 @@ const ZyntekAI = () => {
               </svg>
             </a>
           </article>
-
         </div>
       </div>
     </section>
@@ -465,8 +476,13 @@ const ZyntekAI = () => {
 
           <div id="content-default" class="team-panel active" tabindex="-1">
             <span class="eyebrow">A MENTE POR TRÁS DA ZYNTEK</span>
-            <h2 id="equipe-heading">Nossa equipe de especialistas.</h2>
-            <p>Unimos estratégia de negócios, engenharia de software de alta fidelidade e infraestrutura legal para criar produtos que não apenas funcionam, mas escalam com segurança.</p>
+            <h2 id="equipe-heading">Da Garagem ao Topo: Nossa equipe de especialistas.</h2>
+            <p>
+              A Zyntek nasceu da união de <span class="text-purple">mentes obcecadas por tecnologia</span>, conectadas pelo propósito de transformar visões audaciosas em potências de mercado através de engenharia de elite. Mais que código, criamos o **Zynk**, nosso guardião tecnológico, para simbolizar a entrega de arquiteturas robustas e inovações constantes.
+            </p>
+            <p>
+              Unimos estratégia de negócios, engenharia de software de alta fidelidade e infraestrutura legal para garantir que o seu negócio lidere o ecossistema digital com <span class="text-purple">autoridade, segurança e escalabilidade absoluta</span>.
+            </p>
             <p><strong>Selecione um membro ao lado</strong> para conhecer as mentes e os motores que impulsionam nossas soluções.</p>
           </div>
 
@@ -486,49 +502,58 @@ const ZyntekAI = () => {
               <img class="member-watermark" src="assets/icones/logo z .png" alt="" aria-hidden="true">
               <div class="member-panel-heading">
                 <h2>Levy Andrade</h2>
-                <span class="eyebrow">COO | Diretor de Operações</span>
+                <span class="eyebrow">COO &amp; CDO | Diretor de Operações, Design e Engenharia de Software</span>
               </div>
-              <p>Sou o líder estratégico e técnico responsável por capitanear a operação da Zyntek de ponta a ponta. Atuo diretamente na arquitetura de software e engenharia Full-Stack, transformando visões comerciais complexas em sistemas robustos de alta fidelidade.</p>
+              <p>Sou o líder estratégico e técnico responsável por capitanear a operação da Zyntek de ponta a ponta. Atuo diretamente na <span class="text-purple">arquitetura de software e engenharia Full-Stack</span>, transformando visões comerciais complexas em sistemas robustos de alta fidelidade. Coordeno desde a concepção da <span class="text-purple">experiência do usuário (UI/UX)</span> até a engenharia de produto, gestão de projetos e garantia de qualidade.</p>
               <div class="skills-tags" aria-label="Habilidades de Levy Andrade">
                 <span>Arquitetura Software</span>
                 <span>Engenharia Full-Stack</span>
                 <span>Gestão Executiva (COO)</span>
-                <span>Design & UI/UX</span>
+                <span>Design &amp; UI/UX</span>
+                <span>Quality Assurance (QA)</span>
               </div>
               <div class="member-panel-actions">
-                <a href="#contatos" class="btn-cta btn-primary">Entrar em Contato</a>
+                <a href="https://wa.me/5544984271446?text=Ol%C3%A1%2C%20Levy!%20Vim%20pelo%20site%20da%20Zyntek%20e%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto%20para%20a%20minha%20empresa." class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">Falar com Levy</a>
                 <a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-cta btn-outline">Acessar Portfólio</a>
               </div>
             </div>
           </div>
 
-          <div id="content-henrique" class="team-panel team-panel-member" tabindex="-1" hidden>
+<div id="content-henrique" class="team-panel team-panel-member" tabindex="-1" hidden>
             <div class="member-photo-frame zynk-frame">
               <div class="zynk-frame-header">
                 <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
                 <span class="zynk-frame-title">HENRIQUE_SOARES.exe — ONLINE</span>
               </div>
-              <img src="placeholder-henrique.jpg" alt="Foto de Henrique Soares"
+              
+              <!-- Caminho da imagem corrigido para o padrão web (sem espaços) -->
+              <img src="assets/fotos/HENRIQUE SOARES.png" alt="Foto de Henrique Soares"
                    onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%236D28D9%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>'">
+              
               <div class="zynk-frame-footer">
                 <span class="zynk-frame-status"></span> SISTEMA ATIVO
               </div>
             </div>
+            
             <div class="member-panel-text">
+              <!-- Dica extra: O "logo z .png" também tem espaço, recomendo renomear na pasta para "logo-z.png" e ajustar aqui para evitar futuros bugs -->
               <img class="member-watermark" src="assets/icones/logo z .png" alt="" aria-hidden="true">
               <div class="member-panel-heading">
                 <h2>Henrique Soares</h2>
-                <span class="eyebrow">CTO | Diretor de Tecnologia</span>
+                <span class="eyebrow">CTO | Diretor de Tecnologia e Infraestrutura</span>
               </div>
-              <p>Sou o líder técnico focado na espinha dorsal e estabilidade das nossas aplicações. Especialista em arquitetura de sistemas complexos, gerenciamento de servidores de alta performance e infraestrutura de rede.</p>
+              <p>Sou o líder técnico focado na espinha dorsal e estabilidade das nossas aplicações. Especialista em <span class="text-purple">arquitetura de sistemas complexos</span>, gerenciamento e otimização de servidores de alta performance, configurações avançadas de infraestrutura de rede (DNS) e implementação de tags estratégicas para <span class="text-purple">rastreamento de dados e analytics</span>.</p>
+              
               <div class="skills-tags" aria-label="Habilidades de Henrique Soares">
                 <span>Arquitetura Back-end</span>
                 <span>Infraestrutura de Redes</span>
                 <span>Performance de Servidores</span>
+                <span>Data Analytics &amp; Tags</span>
                 <span>Quality Assurance (QA)</span>
               </div>
+              
               <div class="member-panel-actions">
-                <a href="#contatos" class="btn-cta btn-primary">Entrar em Contato</a>
+                <a href="https://wa.me/5544991768313?text=Ol%C3%A1%2C%20Henrique!%20Vim%20pelo%20site%20da%20Zyntek%20e%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto%20para%20a%20minha%20empresa." class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">Falar com Henrique</a>
                 <a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-cta btn-outline">Acessar Portfólio</a>
               </div>
             </div>
@@ -540,27 +565,34 @@ const ZyntekAI = () => {
                 <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
                 <span class="zynk-frame-title">HENRIQUE_HIDEKI.exe — ONLINE</span>
               </div>
-              <img src="placeholder-hideki.jpg" alt="Foto de Henrique Hideki"
+              
+              <!-- Caminho corrigido para evitar erro de carregamento -->
+              <img src="assets/fotos/HENRIQUE HIDEKI.png" alt="Foto de Henrique Hideki"
                    onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%236D28D9%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>'">
+              
               <div class="zynk-frame-footer">
                 <span class="zynk-frame-status"></span> SISTEMA ATIVO
               </div>
             </div>
+            
             <div class="member-panel-text">
-              <img class="member-watermark" src="assets/icones/logo z .png" alt="" aria-hidden="true">
+              <img class="member-watermark" src="assets/icones/logo-z.png" alt="" aria-hidden="true">
               <div class="member-panel-heading">
                 <h2>Henrique Hideki</h2>
-                <span class="eyebrow">CLO | Diretor Jurídico</span>
+                <span class="eyebrow">CLO &amp; Lead Dev | Diretor Jurídico e Engenharia de Sistemas</span>
               </div>
-              <p>Especialista na estruturação jurídica e no compliance dos nossos projetos tecnológicos. Garanto que cada solução desenvolvida obedeça rigorosamente às normativas de proteção de dados e propicie segurança contratual absoluta.</p>
+              <p>Atuo na intersecção entre <span class="text-purple">engenharia de software e compliance legal</span>. Sou responsável pela blindagem contratual, governança avançada e segurança cibernética da Zyntek. No dia a dia, lidero a modelagem de <span class="text-purple">bancos de dados relacionais inviáveis</span> e o desenvolvimento de APIs robustas de alta segurança.</p>
+              
               <div class="skills-tags" aria-label="Habilidades de Henrique Hideki">
-                <span>Direito Digital</span>
+                <span>Arquitetura de Dados</span>
+                <span>Security &amp; APIs Robustas</span>
                 <span>Compliance / LGPD</span>
-                <span>Contratos Tecnológicos</span>
-                <span>Segurança Jurídica</span>
+                <span>Engenharia Full-Stack</span>
+                <span>Quality Assurance (QA)</span>
               </div>
+              
               <div class="member-panel-actions">
-                <a href="#contatos" class="btn-cta btn-primary">Entrar em Contato</a>
+                <a href="https://wa.me/5544997639873?text=Ol%C3%A1%2C%20Henrique!%20Vim%20pelo%20site%20da%20Zyntek%20e%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto%20para%20a%20minha%20empresa." class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">Falar com Henrique</a>
                 <a href="https://portifolio-henrique-hideki.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-cta btn-outline">Acessar Portfólio</a>
               </div>
             </div>
@@ -572,7 +604,7 @@ const ZyntekAI = () => {
                 <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
                 <span class="zynk-frame-title">ZYNK_CORE.exe — ONLINE</span>
               </div>
-              <img src="zynk-glitch.gif" alt="Zynk AI — mascote da Zyntek"
+              <img src="assets/fotos/zynkcard.png" alt="Zynk AI — mascote da Zyntek"
                    onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%236D28D9%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>'">
               <div class="zynk-frame-footer">
                 <span class="zynk-frame-status"></span> SISTEMA ATIVO
@@ -592,8 +624,7 @@ const ZyntekAI = () => {
                 <span>Estabilidade Absoluta</span>
               </div>
               <div class="member-panel-actions">
-                <a href="#contatos" class="btn-cta btn-primary">Entrar em Contato</a>
-                <a href="#sobre" class="btn-cta btn-outline">Conhecer a Zyntek</a>
+                <a href="https://wa.me/554488317870?text=Ol%C3%A1%20Zynk%20tudo%20bem%2C%20tenho%20uma%20ideia%20para%20um%20projeto%20ou%20gostaria%20de%20tirar%20algumas%20duvidas%20pode%20me%20ajudar%3F" class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">Falar com Zynk</a>
               </div>
             </div>
           </div>
@@ -617,7 +648,7 @@ const ZyntekAI = () => {
           <button class="team-member-btn" data-target="content-henrique"
                   role="listitem" aria-pressed="false" aria-controls="content-henrique">
             <div class="member-avatar">
-              <img src="placeholder-henrique.jpg" alt="Foto de Henrique Soares"
+              <img src="assets/fotos/HENRIQUE SOARES.png" alt="Foto de Henrique Soares"
                    onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%236D28D9%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>'">
             </div>
             <div class="member-info-short">
@@ -629,12 +660,24 @@ const ZyntekAI = () => {
           <button class="team-member-btn" data-target="content-hideki"
                   role="listitem" aria-pressed="false" aria-controls="content-hideki">
             <div class="member-avatar">
-              <img src="placeholder-hideki.jpg" alt="Foto de Henrique Hideki"
+              <img src="assets/fotos/HENRIQUE HIDEKI.png" alt="Foto de Henrique Hideki"
                    onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%236D28D9%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>'">
             </div>
             <div class="member-info-short">
               <h4>Henrique Hideki</h4>
               <span>CLO | Diretor Jurídico</span>
+            </div>
+          </button>
+
+          <button class="team-member-btn" data-target="content-zynk"
+                  role="listitem" aria-pressed="false" aria-controls="content-zynk">
+            <div class="member-avatar">
+              <img src="assets/fotos/zynkcard.png" alt="Zynk AI — mascote da Zyntek"
+                   onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%236D28D9%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>'">
+            </div>
+            <div class="member-info-short">
+              <h4>Zynk AI</h4>
+              <span>Núcleo de Inteligência</span>
             </div>
           </button>
 
@@ -650,8 +693,20 @@ const ZyntekAI = () => {
       <div class="projects-container">
 
         <div class="projects-intro">
-          <div class="projects-image-wrapper" aria-hidden="true">
-            <div class="zynnk-placeholder"><span>[ Imagem do Zynk aqui ]</span></div>
+          <div class="projects-image-wrapper zynk-frame" aria-hidden="true">
+            <div class="zynk-frame-header">
+              <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+              <span class="zynk-frame-title">ZYNTEK_PROJETOS.exe</span>
+            </div>
+            <div class="zynnk-placeholder">
+              <video class="services-video" autoplay muted loop playsinline preload="metadata">
+                <source src="assets/videos/kling_20260621_VIDEO_The_purple_576_0.mp4" type="video/mp4">
+                <span>[ Vídeo do portfólio aqui ]</span>
+              </video>
+            </div>
+            <div class="zynk-frame-footer">
+              <span class="zynk-frame-status"></span> PRONTO PARA RECEBER VÍDEO
+            </div>
           </div>
           <div class="projects-content">
             <span class="eyebrow">NOSSO PORTFÓLIO</span>
@@ -660,6 +715,14 @@ const ZyntekAI = () => {
           </div>
         </div>
 
+        <!--
+          Cada .project-image aceita <img> OU <video> no lugar da imagem,
+          o CSS já trata os dois igual (mesmo recorte, mesmo hover-zoom).
+          Para usar vídeo em algum card, troque o <img> por:
+          <video autoplay muted loop playsinline preload="metadata" poster="capa-projeto.jpg">
+            <source src="assets/videos/nome-do-video.mp4" type="video/mp4">
+          </video>
+        -->
         <div class="projects-grid" role="list">
 
           <article class="project-card" role="listitem">
@@ -805,11 +868,20 @@ const ZyntekAI = () => {
             </svg>
           </a>
         </div>
-        <div class="cta-video-wrapper">
-          <video autoplay loop muted playsinline class="cta-video" aria-hidden="true" preload="metadata">
-            <source src="seu-video-zyntek.mp4" type="video/mp4">
-          </video>
-          <div class="video-glow" aria-hidden="true"></div>
+        <div class="cta-video-wrapper zynk-frame">
+          <div class="zynk-frame-header">
+            <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+            <span class="zynk-frame-title">ZYNTEK_CTA.exe — ONLINE</span>
+          </div>
+          <div class="cta-video-stage">
+            <video autoplay loop muted playsinline class="cta-video cta-holo-video" aria-hidden="true" preload="metadata">
+              <source src="assets/videos/cta-hologram.mp4" type="video/mp4">
+            </video>
+            <div class="video-glow" aria-hidden="true"></div>
+          </div>
+          <div class="zynk-frame-footer">
+            <span class="zynk-frame-status"></span> SISTEMA ATIVO
+          </div>
         </div>
       </div>
     </section>
@@ -932,6 +1004,53 @@ const ZyntekAI = () => {
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- =============================================
+         PÁGINAS EMBED (conteúdo da pasta /pages)
+         ============================================= -->
+    <section id="pages-collection" class="pages-collection" aria-label="Páginas internas">
+      <div class="projects-container">
+        <h2 style="margin-bottom:1rem; color:var(--text-primary);">Páginas internas</h2>
+        <div class="pages-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1rem;">
+          <div class="page-embed">
+            <h3>Landing Page</h3>
+            <iframe src="pages/projeto-lp.html" title="Projeto Landing Page" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>Restaurante</h3>
+            <iframe src="pages/projeto-restaurante.html" title="Projeto Restaurante" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>Agendamento</h3>
+            <iframe src="pages/projeto-agendamento.html" title="Projeto Agendamento" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>IA & Automações</h3>
+            <iframe src="pages/projeto-ia-automacoes.html" title="Projeto IA" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>LP UI/UX</h3>
+            <iframe src="pages/projeto-landing-pages-uiux.html" title="Projeto LP UI/UX" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>Preços</h3>
+            <iframe src="pages/precos.html" title="Preços" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>FAQ</h3>
+            <iframe src="pages/faq.html" title="FAQ" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>Política de Privacidade</h3>
+            <iframe src="pages/politica-privacidade.html" title="Política de Privacidade" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+          <div class="page-embed">
+            <h3>Software</h3>
+            <iframe src="pages/projeto-desenvolvimento-software.html" title="Desenvolvimento de Software" loading="lazy" style="width:100%; height:480px; border:0; border-radius:12px; overflow:hidden;"></iframe>
+          </div>
+        </div>
       </div>
     </section>
 
