@@ -1349,7 +1349,7 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   border-radius: var(--radius-xl);
   background: var(--primary-10);
   border: 1px dashed rgba(139, 92, 246, 0.3);
@@ -1372,8 +1372,28 @@ body.light-mode .step-card::before { background: linear-gradient(90deg, transpar
 .services-image-wrapper video {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* mostra o vídeo inteiro sem cortes em ambas as áreas */
+  object-fit: cover; /* vídeo preenche a moldura de lado a lado, sem faixas nas laterais */
   display: block;
+}
+
+/* Vídeo com apenas uma borda, na parte de cima (onde fica o texto do cabeçalho) */
+.services-image-wrapper .zynk-frame-footer,
+.projects-image-wrapper .zynk-frame-footer {
+  border-top: none;
+}
+
+/* Moldura no mesmo estilo do vídeo do CTA: borda apenas em cima e embaixo, sem laterais */
+.services-image-wrapper.zynk-frame,
+.projects-image-wrapper.zynk-frame {
+  border-left: none;
+  border-right: none;
+}
+
+.services-image-wrapper.zynk-frame::before,
+.services-image-wrapper.zynk-frame::after,
+.projects-image-wrapper.zynk-frame::before,
+.projects-image-wrapper.zynk-frame::after {
+  display: none;
 }
 
 .zynnk-placeholder span { color: var(--text-subtle); font-family: monospace; font-size: 1rem; }
@@ -1766,40 +1786,9 @@ body.light-mode .member-info-short span { color: #52525B; }
 
 .projects-intro {
   display: grid;
-  grid-template-columns: 0.65fr 0.35fr;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-}
-
-.projects-image-wrapper {
-  width: 100%;
-  height: 640px; /* aumentado para mostrar vídeo em tamanho maior */
-  border-radius: var(--radius-xl);
-  background: var(--primary-10);
-  border: 1px dashed rgba(139, 92, 246, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.projects-image-wrapper .zynnk-placeholder {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--primary-10);
-  overflow: hidden;
-}
-
-/* Garantir que o vídeo dentro da wrapper preencha e mantenha sua proporção original */
-.projects-image-wrapper .services-video,
-.projects-image-wrapper video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* mostra o vídeo inteiro sem cortes */
-  display: block;
 }
 
 .projects-content h2 {
@@ -1815,7 +1804,7 @@ body.light-mode .member-info-short span { color: #52525B; }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
 }
 
@@ -2099,6 +2088,14 @@ body.light-mode .contact-card { background: rgba(255,255,255,0.9); border-color:
   letter-spacing: -0.01em;
 }
 
+/* Asterisco de campo obrigatório em roxo */
+.input-group label abbr {
+  color: var(--primary-light);
+  font-weight: 800;
+  text-decoration: none;
+  margin-left: 2px;
+}
+
 .input-wrapper {
   position: relative;
   display: flex;
@@ -2106,12 +2103,34 @@ body.light-mode .contact-card { background: rgba(255,255,255,0.9); border-color:
   background: rgba(27, 27, 32, 0.7);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
-  transition: border-color var(--t-base) ease, box-shadow var(--t-base) ease;
+  transition: border-color var(--t-base) ease, box-shadow var(--t-base) ease, background var(--t-base) ease;
 }
 
 .input-wrapper:focus-within {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+}
+
+/* Estado inválido: campo obrigatório não preenchido ao tentar enviar */
+.input-wrapper.invalid {
+  border-color: var(--primary-light);
+  background: rgba(139, 92, 246, 0.08);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+  animation: input-shake 0.35s ease;
+}
+
+.input-wrapper.invalid svg { color: var(--primary-light); }
+
+.input-group.invalid label { color: var(--primary-light); }
+
+body.light-mode .input-wrapper.invalid { background: rgba(139, 92, 246, 0.08); }
+
+@keyframes input-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
 }
 
 body.light-mode .input-wrapper { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.1); }
@@ -2174,6 +2193,90 @@ body.light-mode .input-wrapper svg { color: #A1A1AA; }
 .btn-submit:hover span { color: rgba(255,255,255,0.7); }
 .btn-submit.outline { text-decoration: none; }
 
+/* Tipo de Solicitação — Orçamento / Reajuste / Urgente */
+.urgency-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--t-base) ease;
+}
+
+.urgency-group.invalid {
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+  border-radius: var(--radius-md);
+  animation: input-shake 0.35s ease;
+}
+
+.urgency-option { position: relative; flex: 1 1 150px; }
+
+.urgency-option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.urgency-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: rgba(27, 27, 32, 0.7);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color var(--t-base) ease, background var(--t-base) ease, transform var(--t-base) var(--ease-spring), box-shadow var(--t-base) ease;
+}
+
+body.light-mode .urgency-pill { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.1); color: #111827; }
+
+.urgency-pill:hover { border-color: var(--primary-light); transform: translateY(-1px); }
+
+.urgency-option input:checked + .urgency-pill {
+  border-color: var(--primary);
+  background: rgba(109, 40, 217, 0.14);
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.14);
+}
+
+.urgency-option input:focus-visible + .urgency-pill {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+.urgency-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-orcamento { background: #22C55E; }
+.dot-reajuste  { background: #F59E0B; }
+.dot-urgente   { background: #EF4444; }
+
+.urgency-pill-urgent .dot-urgente {
+  animation: pulse-urgent 1.6s infinite;
+}
+
+@keyframes pulse-urgent {
+  0%   { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+@media (max-width: 480px) {
+  .urgency-option { flex: 1 1 100%; }
+}
+
 /* Social grid */
 .social-grid {
   display: flex;
@@ -2215,7 +2318,7 @@ body.light-mode .input-wrapper svg { color: #A1A1AA; }
 
 body.light-mode .social-btn { background: rgba(255,255,255,0.8); border-color: rgba(0,0,0,0.08); }
 
-.hub-zynk-image { display: flex; justify-content: center; margin-bottom: 2.5rem; }
+.hub-zynk-image { display: flex; justify-content: center; margin-top: 1.75rem; margin-bottom: 2.5rem; }
 
 .zynk-frame {
   position: relative;
@@ -2227,7 +2330,8 @@ body.light-mode .social-btn { background: rgba(255,255,255,0.8); border-color: r
   box-shadow: 0 0 24px rgba(109, 40, 217, 0.25);
 }
 
-.services-image-wrapper.zynk-frame { width: 100%; }
+.services-image-wrapper.zynk-frame,
+.projects-image-wrapper.zynk-frame { width: 100%; }
 
 .zynk-frame::before,
 .zynk-frame::after {
@@ -2266,10 +2370,12 @@ body.light-mode .social-btn { background: rgba(255,255,255,0.8); border-color: r
   text-transform: uppercase;
 }
 
-.hub-zynk-image img {
+.hub-zynk-image video {
   display: block;
   width: 100%;
+  height: 200px;
   max-width: none;
+  object-fit: cover;
   border-radius: 0;
   filter: none;
 }

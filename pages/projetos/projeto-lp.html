@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zyntek — Landing Pages, Catálogos e Portfólios de alta conversão. Design exclusivo, copywriting estratégico e infraestrutura sob medida.">
+<meta name="theme-color" content="#7c3aed">
+<title>Landing Pages, Catálogos & Portfólios | Zyntek</title>
+<link rel="icon" type="image/png" href="../../assets/icones/logo-z.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/projeto-lp.css">
+</head>
+<body data-theme="dark">
+
+  <!-- ================= FUNDO ANIMADO ================= -->
+  <div class="bg-system" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="zyntek-header" id="header">
+    <a href="../../index.html" class="logo-container" aria-label="Zyntek — Ir para a página inicial do site">
+      <span class="logo-mark">Z</span>
+      <span class="logo-text">Zyntek</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul role="list">
+        <li><a href="#home" class="nav-link active" aria-current="page">Início</a></li>
+        <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
+        <li><a href="#planos" class="nav-link">Planos</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false">
+        <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="sidebar-lateral" aria-expanded="false" type="button">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20Landing%20Page." target="_blank" rel="noopener noreferrer" class="cta-btn">
+        <span class="code-symbol" aria-hidden="true">&lt;/&gt;</span>
+        <span class="cta-label">Fale Conosco</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= SIDEBAR LATERAL ================= -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <aside id="sidebar-lateral" class="sidebar-lateral" role="dialog" aria-modal="true" aria-label="Menu lateral" aria-hidden="true">
+    <div class="sidebar-lateral-header">
+      <div>
+        <span class="sidebar-lateral-eyebrow">Navegação</span>
+        <h3>Zyntek</h3>
+      </div>
+      <button id="close-sidebar" class="close-sidebar" aria-label="Fechar menu" type="button">×</button>
+    </div>
+    <nav aria-label="Menu lateral">
+      <a href="#home" class="sidebar-lateral-link">Início</a>
+      <a href="#beneficios" class="sidebar-lateral-link">Benefícios</a>
+      <a href="#planos" class="sidebar-lateral-link">Planos</a>
+      <a href="#contato" class="sidebar-lateral-link">Contato</a>
+    </nav>
+    <a href="https://wa.me/554488317870" target="_blank" rel="noopener noreferrer" class="cta-btn btn-full sidebar-cta" style="justify-content:center;">Fale Conosco</a>
+  </aside>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <div class="section-inner hero-grid">
+
+        <div class="hero-frame-wrap">
+          <div class="hero-frame">
+            <div class="hero-frame-bar">
+              <span class="frame-dots"><i></i><i></i><i></i></span>
+              <span>ZYNTEK_LP_DEMO.mp4</span>
+              <span class="frame-status">ao vivo</span>
+            </div>
+            <div class="hero-video-box">
+              <video autoplay muted loop playsinline poster="../../assets/icones/hero-poster.jpg">
+                <source src="../../assets/videos/demo-landing-page.mp4" type="video/mp4">
+              </video>
+              <div class="video-placeholder-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              </div>
+            </div>
+            <p class="hero-frame-caption">&gt;&gt; visualização em tempo real do projeto entregue</p>
+          </div>
+          <div class="hero-floating-tag">
+            <span>Performance</span> <strong>99%</strong>
+          </div>
+        </div>
+
+        <div class="hero-text">
+          <span class="eyebrow">Arquitetura de conversão</span>
+          <h1>Sites que <span class="accent-text">vendem</span>, não apenas existem.</h1>
+          <p class="lead">Desenvolvemos Landing Pages, Catálogos e Portfólios exclusivos — projetados com um único objetivo: transformar visitantes em clientes e resultado em faturamento previsível.</p>
+          <div class="hero-actions">
+            <a href="#planos" class="btn btn-primary">Ver planos e valores</a>
+            <a href="#contato" class="btn btn-outline">Solicitar orçamento</a>
+          </div>
+          <p style="margin-bottom:2rem;">
+            <a href="../card-landingpage%20&%20UIUX.html" style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim);">&larr; Voltar ao card do projeto</a>
+          </p>
+          <div class="hero-stats">
+            <div><div class="stat-value">+3s</div><div class="stat-label">tempo de carregamento evitado</div></div>
+            <div><div class="stat-value">100%</div><div class="stat-label">design exclusivo, sem templates</div></div>
+            <div><div class="stat-value">24h</div><div class="stat-label">retorno inicial de contato</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= BENEFÍCIOS ================= -->
+    <section class="benefits-section" id="beneficios">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Desejo e dor</span>
+          <h2>O impacto real no seu resultado</h2>
+          <p>Uma Landing Page, Catálogo ou Portfólio bem construído não é estética — é uma ferramenta de negócio. Veja o que muda de um lado e do outro dessa decisão.</p>
+        </div>
+
+        <div class="benefits-audience">
+          <span class="audience-pill">🏢 Para empresas</span>
+          <span class="audience-pill">🚀 Para autônomos</span>
+          <span class="audience-pill">🎓 Para desenvolvimento pessoal</span>
+        </div>
+
+        <div class="pros-cons-grid">
+
+          <div class="impact-card card-risk">
+            <span class="impact-badge badge-risk">O gargalo digital</span>
+            <h3>Sem uma presença estruturada</h3>
+            <p class="impact-meta">O que isso custa para você, hoje</p>
+            <ul class="impact-list">
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Tráfego desperdiçado:</strong> anúncios pagos direcionam para perfis genéricos ou links soltos, gerando confusão e abandono imediato.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Credibilidade baixa:</strong> sem um portfólio ou catálogo profissional, clientes e recrutadores comparam você a quem já tem presença digital sólida.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Cegueira de dados:</strong> sem rastreamento, você não sabe de onde vêm os contatos nem em qual etapa a pessoa desiste.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Dependência de terceiros:</strong> perfis em redes sociais ou marketplaces não são seus — mudanças de algoritmo afetam diretamente sua visibilidade.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="impact-card card-gain">
+            <span class="impact-badge badge-gain">A máquina de conversão</span>
+            <h3>Com a estrutura Zyntek</h3>
+            <p class="impact-meta">Escala previsível e rastreável</p>
+            <ul class="impact-list">
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Velocidade extrema:</strong> código limpo, sem excessos, carregando quase instantaneamente — o que reduz o custo por clique em mídia paga.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Copywriting estratégico:</strong> arquitetura de informação pensada para guiar o visitante até a decisão de contato ou compra.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Rastreamento inteligente:</strong> Pixel e Analytics configurados para você enxergar exatamente o retorno de cada canal.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Ativo próprio:</strong> um domínio e um site seus, funcionando como carta de apresentação 24h — para negócios ou carreira.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <p class="benefits-footnote">Faz diferença tanto para <strong>empresas</strong> que precisam vender quanto para <strong>profissionais</strong> construindo autoridade e portfólio.</p>
+      </div>
+    </section>
+
+    <!-- ================= PLANOS ================= -->
+    <section class="investment-section" id="planos">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Engenharia sob medida</span>
+          <h2>Modelos de investimento</h2>
+          <p>Cada negócio tem um fluxo de caixa diferente. Escolha entre pagar o projeto uma vez ou diluir o investimento com benefícios contínuos.</p>
+        </div>
+
+        <div class="model-switcher-wrapper">
+          <div class="model-switcher" role="tablist" aria-label="Modelo de contratação">
+            <button class="switcher-btn active" id="btn-fechada" role="tab" aria-selected="true" aria-controls="grid-fechada">Venda Fechada</button>
+            <button class="switcher-btn" id="btn-hibrida" role="tab" aria-selected="false" aria-controls="grid-hibrida">Venda Híbrida</button>
+          </div>
+        </div>
+
+        <!-- Venda Fechada -->
+        <div class="cards-container" id="grid-fechada" role="tabpanel">
+          <div class="investment-card">
+            <h4>START</h4>
+            <div class="price">R$ 1.500<span class="price-suffix">/único</span></div>
+            <p class="card-desc">Ideal para validar sua presença digital com qualidade profissional.</p>
+            <ul class="card-features-list">
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Design responsivo exclusivo</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Formulário de contato integrado</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Integração com WhatsApp</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Configuração de SSL</li>
+              <li class="disabled">Copywriting persuasivo</li>
+            </ul>
+            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
+              Entrada (20%): <strong style="color:var(--text)">R$ 300</strong><br>
+              Saldo na entrega: <strong style="color:var(--text)">R$ 1.200</strong><br>
+              1 ano de hospedagem grátis inclusa.
+            </div>
+            <a href="#contato" class="btn btn-outline mt-auto">Selecionar Start</a>
+          </div>
+
+          <div class="investment-card popular-card">
+            <div class="popular-badge">Mais escolhido</div>
+            <h4>PERFORMANCE</h4>
+            <div class="price highlight-price">R$ 2.500<span class="price-suffix">/único</span></div>
+            <p class="card-desc">A estrutura completa para quem já investe em tráfego e quer converter mais.</p>
+            <ul class="card-features-list">
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do plano Start</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Copywriting persuasivo</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Pixel de rastreamento (Meta/Google Ads)</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Otimização de velocidade</li>
+            </ul>
+            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
+              Entrada (20%): <strong style="color:var(--text)">R$ 500</strong><br>
+              Saldo na entrega: <strong style="color:var(--text)">R$ 2.000</strong><br>
+              1 ano de hospedagem grátis inclusa.
+            </div>
+            <a href="#contato" class="btn btn-primary mt-auto">Garantir Performance</a>
+          </div>
+
+          <div class="investment-card">
+            <h4>GROWTH</h4>
+            <div class="price">R$ 3.500+<span class="price-suffix">/único</span></div>
+            <p class="card-desc">Estrutura avançada para operações que já escalam e testam continuamente.</p>
+            <ul class="card-features-list">
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do plano Performance</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Testes A/B para conversão</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Automações de e-mail/CRM</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Painel de análise (Hotjar)</li>
+            </ul>
+            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
+              Entrada (20%): <strong style="color:var(--text)">R$ 700</strong><br>
+              Saldo na entrega: <strong style="color:var(--text)">R$ 2.800</strong><br>
+              1 ano de hospedagem grátis inclusa.
+            </div>
+            <a href="#contato" class="btn btn-outline mt-auto">Consultar escopo</a>
+          </div>
+        </div>
+
+        <!-- Venda Híbrida -->
+        <div class="cards-container" id="grid-hibrida" hidden role="tabpanel">
+          <div class="investment-card">
+            <h4>START HÍBRIDO</h4>
+            <div class="price">R$ 300<span class="price-suffix">/setup</span></div>
+            <div class="recurrency">+ R$ 129/mês</div>
+            <p class="card-desc">Baixo custo inicial com suporte e evolução contínua.</p>
+            <ul class="card-features-list">
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Design responsivo exclusivo</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Domínio anual pago pela Zyntek</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>50% de desconto na Tabela de Serviços</li>
+            </ul>
+            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
+              Setup inicial (20%): <strong style="color:var(--text)">R$ 300</strong><br>
+              Mensalidade infinita enquanto ativo.
+            </div>
+            <a href="#contato" class="btn btn-outline mt-auto">Assinar Start</a>
+          </div>
+
+          <div class="investment-card popular-card">
+            <div class="popular-badge">Mais escolhido</div>
+            <h4>PERFORMANCE HÍBRIDO</h4>
+            <div class="price highlight-price">R$ 500<span class="price-suffix">/setup</span></div>
+            <div class="recurrency highlight-recurrency">+ R$ 199/mês</div>
+            <p class="card-desc">Acompanhamento contínuo e evolução constante da sua conversão.</p>
+            <ul class="card-features-list">
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do Start Híbrido</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Copywriting persuasivo incluso</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Pixel de rastreamento (Meta/Google Ads)</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Domínio pago pela Zyntek</li>
+            </ul>
+            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
+              Setup inicial (20%): <strong style="color:var(--text)">R$ 500</strong><br>
+              Mensalidade infinita enquanto ativo.
+            </div>
+            <a href="#contato" class="btn btn-primary mt-auto">Assinar Performance</a>
+          </div>
+
+          <div class="investment-card">
+            <h4>GROWTH HÍBRIDO</h4>
+            <div class="price">R$ 700<span class="price-suffix">/setup</span></div>
+            <div class="recurrency">+ R$ 299/mês</div>
+            <p class="card-desc">Consultoria e estrutura contínua para operações em escala agressiva.</p>
+            <ul class="card-features-list">
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do Performance Híbrido</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Testes A/B mensais programados</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Automações avançadas de e-mail/CRM</li>
+              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Domínio pago pela Zyntek</li>
+            </ul>
+            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
+              Setup inicial (20%): <strong style="color:var(--text)">R$ 700</strong><br>
+              Mensalidade infinita enquanto ativo.
+            </div>
+            <a href="#contato" class="btn btn-outline mt-auto">Agendar call</a>
+          </div>
+        </div>
+
+        <p class="plans-note">Em ambos os modelos: atualizações avulsas fora do combinado pagam conforme a Tabela de Serviços vigente (100% na Venda Fechada, com 50% de desconto na Venda Híbrida). Após o 1º ano, a Venda Fechada exige renovação de hospedagem e domínio por conta do cliente.</p>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="contact-section" id="contato">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Contato</span>
+          <h2>Vamos estruturar o seu próximo projeto</h2>
+          <p>Detalhe sua ideia e nossa equipe retorna com uma proposta clara, sem enrolação.</p>
+        </div>
+
+        <div class="contact-container">
+
+          <div class="contact-card form-card">
+            <div class="card-header">
+              <h3><span aria-hidden="true">&lt;/&gt;</span> Dê vida à sua ideia</h3>
+              <p>Preencha os campos abaixo para receber um retorno inicial da nossa equipe.</p>
+            </div>
+
+            <form id="zyntekForm" novalidate aria-label="Formulário de contato Zyntek">
+              <div class="input-group">
+                <label for="nome">Nome completo <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="empresa">Nome da empresa</label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/></svg>
+                  <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa (opcional)" autocomplete="organization">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="mensagem">Descrição da ideia do projeto <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper textarea-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .34 2.02 1.5 3.5.76.75 1.23 1.51 1.41 2.5"/></svg>
+                  <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o desafio do seu negócio ou a solução que deseja desenvolver..." required></textarea>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label id="tipoSolicitacaoLabel">Tipo de solicitação <abbr title="obrigatório">*</abbr></label>
+                <div class="urgency-group" role="radiogroup" aria-labelledby="tipoSolicitacaoLabel">
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Orçamento de novo projeto" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-orcamento"></span>Orçamento</span>
+                  </label>
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Reajuste em site já existente" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-reajuste"></span>Reajuste no site</span>
+                  </label>
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Urgente / Prioridade alta" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-urgente"></span>Urgente</span>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <span aria-hidden="true">&lt;/&gt;</span> Iniciar meu projeto
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-card hub-card">
+            <div class="card-header center">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Hub Digital
+              </h3>
+            </div>
+
+            <div class="social-grid">
+              <a href="https://wa.me/554488317870" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp
+              </a>
+              <a href="https://www.instagram.com/zyntek.conect/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                Instagram
+              </a>
+              <a href="https://github.com/zyntekconect-source/zyntekconect-source" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+            </div>
+
+            <div class="hub-footer">
+              <p>Consultoria estratégica em Landing Pages, Catálogos, Portfólios e soluções digitais de alto impacto.</p>
+              <a href="https://wa.me/554488317870?text=Gostaria%20de%20conhecer%20melhor%20sobre%20o%20servi%C3%A7o%20da%20Zyntek" class="btn-submit outline" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
+              </a>
+
+              <div class="hub-zynk-image">
+                <div class="zynk-frame">
+                  <div class="zynk-frame-header">
+                    <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+                    <span>ZYNK_CORE.exe — online</span>
+                  </div>
+                  <video class="hub-zynk-video" autoplay muted loop playsinline preload="metadata">
+                    <source src="../../assets/videos/zynk-linha.mp4" type="video/mp4">
+                  </video>
+                  <div class="zynk-frame-footer">
+                    <span class="zynk-frame-status"></span> Sistema ativo
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <div class="footer-logo-row">
+          <span class="logo-mark">Z</span>
+          <span class="logo-text">Zyntek</span>
+        </div>
+        <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+        <div class="footer-social">
+          <h4>Nos acompanhe</h4>
+          <nav class="social-icons" aria-label="Redes sociais no rodapé">
+            <a href="https://www.instagram.com/zyntek.conect/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="https://github.com/zyntekconect-source/zyntekconect-source" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+            <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://wa.me/554488317870" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+            <a href="mailto:zyntek.conect@gmail.com" aria-label="E-mail"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#">Para empresas</a></li>
+          <li><a href="#">Para autônomos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>O que desenvolvemos</h4>
+        <ul>
+          <li><a href="#planos">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="#">Plataforma de Agendamento</a></li>
+          <li><a href="#">Sistemas para Restaurantes</a></li>
+          <li><a href="#">Lojas Virtuais Completas</a></li>
+          <li><a href="#">Chatbot de Fluxo Inteligente</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <ul>
+          <li><a href="#planos">Preços</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20integrar%20a%20equipe%20Zyntek." target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+      <p>Desenvolvido por Zyntek</p>
+    </div>
+  </footer>
+
+  <script src="../../javascript/projeto.landingpage.js"></script>
+</body>
+</html>

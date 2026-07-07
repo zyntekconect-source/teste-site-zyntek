@@ -1334,6 +1334,136 @@ function initTeamMembers() {
 }
 
 /* ==========================================================
+   22. FORMULÁRIO DE CONTATO -> WHATSAPP
+========================================================== */
+
+function initContactForm() {
+    const form = document.getElementById('zyntekForm');
+    if (!form) return;
+
+    const WHATSAPP_NUMBER = '554488317870';
+
+    const nomeInput     = document.getElementById('nome');
+    const empresaInput  = document.getElementById('empresa');
+    const telefoneInput = document.getElementById('telefone');
+    const mensagemInput = document.getElementById('mensagem');
+
+    const requiredFields = [nomeInput, telefoneInput, mensagemInput].filter(Boolean);
+    const tipoRadios = Array.from(form.querySelectorAll('input[name="tipo_solicitacao"]'));
+    const tipoGroupEl = document.getElementById('tipoSolicitacaoGroup');
+
+    function setFieldInvalid(field, invalid) {
+        const wrapper = field.closest('.input-wrapper');
+        const group   = field.closest('.input-group');
+        if (wrapper) wrapper.classList.toggle('invalid', invalid);
+        if (group)   group.classList.toggle('invalid', invalid);
+    }
+
+    function validateField(field) {
+        const isEmpty = field.value.trim().length === 0;
+        setFieldInvalid(field, isEmpty);
+        return !isEmpty;
+    }
+
+    function validateTipoSolicitacao() {
+        const algumSelecionado = tipoRadios.some((radio) => radio.checked);
+        if (tipoGroupEl) tipoGroupEl.classList.toggle('invalid', !algumSelecionado);
+        return algumSelecionado;
+    }
+
+    /* Remove o estado de erro assim que a pessoa começa a corrigir */
+    requiredFields.forEach((field) => {
+        field.addEventListener('input', () => {
+            if (field.value.trim().length > 0) setFieldInvalid(field, false);
+        });
+        field.addEventListener('blur', () => validateField(field));
+    });
+
+    tipoRadios.forEach((radio) => {
+        radio.addEventListener('change', () => validateTipoSolicitacao());
+    });
+
+    /* Ícones em escape Unicode (\u{codigo}) — evitam o caractere "�" que pode
+       aparecer quando emojis são salvos/lidos com uma codificação incorreta */
+    const ICONES = {
+        pessoa:   '\u{1F464}', // 👤
+        empresa:  '\u{1F3E2}', // 🏢
+        telefone: '\u{1F4F1}', // 📱
+        descricao:'\u{1F4DD}', // 📝
+        check:    '\u{2705}',  // ✅
+        verde:    '\u{1F7E2}', // 🟢
+        amarelo:  '\u{1F7E1}', // 🟡
+        vermelho: '\u{1F534}'  // 🔴
+    };
+
+    const ICONE_POR_TIPO = {
+        'Orçamento de novo projeto':      ICONES.verde,
+        'Reajuste em site já existente':  ICONES.amarelo,
+        'Urgente / Prioridade Alta':      ICONES.vermelho
+    };
+
+    function montarMensagemWhatsApp() {
+        const nome     = nomeInput.value.trim();
+        const empresa  = empresaInput && empresaInput.value.trim() ? empresaInput.value.trim() : 'Não informado';
+        const telefone = telefoneInput.value.trim();
+        const mensagem = mensagemInput.value.trim();
+
+        const tipoSelecionado = tipoRadios.find((radio) => radio.checked);
+        const tipo = tipoSelecionado ? tipoSelecionado.value : 'Não especificado';
+        const iconeTipo = ICONE_POR_TIPO[tipo] || '\u{26AA}';
+
+        const linhas = [
+            '┏━━━━━━━━━━━━━━━━━━━━━┓',
+            '        ZYNTEK.CONNECT',
+            '┗━━━━━━━━━━━━━━━━━━━━━┛',
+            '',
+            `${ICONES.pessoa} *NOME:* ${nome}`,
+            `${ICONES.empresa} *EMPRESA:* ${empresa}`,
+            `${ICONES.telefone} *TELEFONE:* ${telefone}`,
+            `${iconeTipo} *TIPO DE SOLICITAÇÃO:* ${tipo}`,
+            '━━━━━━━━━━━━━━━━━━━━━━━',
+            `${ICONES.descricao} *DESCRIÇÃO DO PROJETO*`,
+            mensagem,
+            '━━━━━━━━━━━━━━━━━━━━━━━',
+            `${ICONES.check} _Novo lead recebido através do site_`
+        ];
+
+        return linhas.join('\n');
+    }
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        let formValido = true;
+        requiredFields.forEach((field) => {
+            if (!validateField(field)) formValido = false;
+        });
+        if (!validateTipoSolicitacao()) formValido = false;
+
+        if (!formValido) {
+            const primeiroInvalido =
+                requiredFields.find((field) => field.closest('.input-wrapper')?.classList.contains('invalid')) ||
+                (tipoGroupEl && tipoGroupEl.classList.contains('invalid') ? tipoGroupEl : null);
+
+            if (primeiroInvalido) {
+                if (typeof primeiroInvalido.focus === 'function') primeiroInvalido.focus();
+                primeiroInvalido.closest('.contact-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
+        const texto = montarMensagemWhatsApp();
+        const url   = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, '_blank', 'noopener,noreferrer');
+
+        form.reset();
+        requiredFields.forEach((field) => setFieldInvalid(field, false));
+        if (tipoGroupEl) tipoGroupEl.classList.remove('invalid');
+    });
+}
+
+/* ==========================================================
    21. BOOTSTRAP
 ========================================================== */
 
@@ -1346,5 +1476,5 @@ document.addEventListener('DOMContentLoaded', () => {
     respectReducedMotion();
     initHeroTyping();        /* ← typing/glitch do hero */
     initTeamMembers();       /* ← troca de painel da equipe */
+    initContactForm();       /* ← validação + envio do formulário via WhatsApp */
 });
-
