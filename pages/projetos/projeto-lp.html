@@ -18,9 +18,17 @@
   <!-- ================= FUNDO ANIMADO ================= -->
   <div class="bg-system" aria-hidden="true">
     <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
+    <canvas id="bg-particles"></canvas>
+    <div class="bg-shapes">
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+    </div>
     <div class="bg-noise"></div>
   </div>
 
@@ -35,7 +43,7 @@
       <ul role="list">
         <li><a href="#home" class="nav-link active" aria-current="page">Início</a></li>
         <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
-        <li><a href="#planos" class="nav-link">Planos</a></li>
+        <li><a href="#formatos" class="nav-link">Formatos</a></li>
         <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
     </nav>
@@ -70,7 +78,7 @@
     <nav aria-label="Menu lateral">
       <a href="#home" class="sidebar-lateral-link">Início</a>
       <a href="#beneficios" class="sidebar-lateral-link">Benefícios</a>
-      <a href="#planos" class="sidebar-lateral-link">Planos</a>
+      <a href="#formatos" class="sidebar-lateral-link">Formatos</a>
       <a href="#contato" class="sidebar-lateral-link">Contato</a>
     </nav>
     <a href="https://wa.me/554488317870" target="_blank" rel="noopener noreferrer" class="cta-btn btn-full sidebar-cta" style="justify-content:center;">Fale Conosco</a>
@@ -108,7 +116,7 @@
           <h1>Sites que <span class="accent-text">vendem</span>, não apenas existem.</h1>
           <p class="lead">Desenvolvemos Landing Pages, Catálogos e Portfólios exclusivos — projetados com um único objetivo: transformar visitantes em clientes e resultado em faturamento previsível.</p>
           <div class="hero-actions">
-            <a href="#planos" class="btn btn-primary">Ver planos e valores</a>
+            <a href="#formatos" class="btn btn-primary">Ver formatos e diferenciais</a>
             <a href="#contato" class="btn btn-outline">Solicitar orçamento</a>
           </div>
           <p style="margin-bottom:2rem;">
@@ -162,6 +170,14 @@
                 <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
                 <span><strong>Dependência de terceiros:</strong> perfis em redes sociais ou marketplaces não são seus — mudanças de algoritmo afetam diretamente sua visibilidade.</span>
               </li>
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Primeira impressão fraca:</strong> um link do WhatsApp ou um PDF desatualizado passa a imagem de negócio amador, mesmo quando o serviço entregue é excelente.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Custo de oportunidade:</strong> cada dia sem uma presença própria é um dia inteiro de buscas no Google e indicações indo para o concorrente que já tem site.</span>
+              </li>
             </ul>
           </div>
 
@@ -186,6 +202,14 @@
                 <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
                 <span><strong>Ativo próprio:</strong> um domínio e um site seus, funcionando como carta de apresentação 24h — para negócios ou carreira.</span>
               </li>
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Credibilidade instantânea:</strong> design profissional sinaliza, em segundos, que quem está do outro lado leva o próprio trabalho a sério.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Escala sem esforço extra:</strong> uma vez no ar, o site trabalha por você 24 horas, atendendo e qualificando visitantes mesmo enquanto você dorme.</span>
+              </li>
             </ul>
           </div>
 
@@ -195,139 +219,54 @@
       </div>
     </section>
 
-    <!-- ================= PLANOS ================= -->
-    <section class="investment-section" id="planos">
+    <!-- ================= FORMATOS ================= -->
+    <section class="formats-section" id="formatos">
       <div class="section-inner">
         <div class="section-head">
-          <span class="eyebrow">Engenharia sob medida</span>
-          <h2>Modelos de investimento</h2>
-          <p>Cada negócio tem um fluxo de caixa diferente. Escolha entre pagar o projeto uma vez ou diluir o investimento com benefícios contínuos.</p>
+          <span class="eyebrow">Qual formato é o seu</span>
+          <h2>Landing Page, Catálogo ou Portfólio?</h2>
+          <p>São três ferramentas diferentes, para objetivos diferentes. Entenda qual delas resolve o seu problema — ou se você precisa das três.</p>
         </div>
 
-        <div class="model-switcher-wrapper">
-          <div class="model-switcher" role="tablist" aria-label="Modelo de contratação">
-            <button class="switcher-btn active" id="btn-fechada" role="tab" aria-selected="true" aria-controls="grid-fechada">Venda Fechada</button>
-            <button class="switcher-btn" id="btn-hibrida" role="tab" aria-selected="false" aria-controls="grid-hibrida">Venda Híbrida</button>
+        <div class="formats-grid">
+
+          <div class="format-card">
+            <div class="format-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Landing Page</h3>
+            <p>Uma única página construída em volta de <strong style="color:var(--text)">uma ação só</strong>: vender um produto, marcar uma reunião, captar um lead. Sem menus para explorar, sem distração — o visitante entra e sabe exatamente qual é o próximo passo.</p>
+            <div class="format-audience">
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Ideal para campanhas de tráfego pago: cada real investido em anúncio é direcionado a uma página feita para converter, não para uma home genérica.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Pessoa</span><span>Perfeita para lançar um curso, um e-book ou um serviço específico sem precisar de um site inteiro por trás.</span></div>
+            </div>
           </div>
+
+          <div class="format-card">
+            <div class="format-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Catálogo Digital</h3>
+            <p>Uma vitrine organizada dos seus produtos ou serviços, com fotos, descrições, preços e categorias — <strong style="color:var(--text)">sem o custo e a complexidade</strong> de um e-commerce completo com carrinho e checkout.</p>
+            <div class="format-audience">
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Substitui o PDF desatualizado enviado no WhatsApp por um catálogo sempre online, fácil de atualizar e de compartilhar com um link.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Pessoa</span><span>Ótimo para quem vende por encomenda (doces, artesanato, roupas) e precisa mostrar o que tem disponível de forma profissional.</span></div>
+            </div>
+          </div>
+
+          <div class="format-card">
+            <div class="format-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3>Portfólio</h3>
+            <p>Uma apresentação curada de trabalhos, cases e resultados já entregues — a prova concreta de que você (ou sua empresa) <strong style="color:var(--text)">sabe fazer o que promete</strong>.</p>
+            <div class="format-audience">
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Mostra cases reais de clientes atendidos, reforçando credibilidade antes mesmo do primeiro contato comercial.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Pessoa</span><span>Essencial para freelancers, designers, devs e criativos — funciona como currículo vivo para recrutadores e clientes.</span></div>
+            </div>
+          </div>
+
         </div>
-
-        <!-- Venda Fechada -->
-        <div class="cards-container" id="grid-fechada" role="tabpanel">
-          <div class="investment-card">
-            <h4>START</h4>
-            <div class="price">R$ 1.500<span class="price-suffix">/único</span></div>
-            <p class="card-desc">Ideal para validar sua presença digital com qualidade profissional.</p>
-            <ul class="card-features-list">
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Design responsivo exclusivo</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Formulário de contato integrado</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Integração com WhatsApp</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Configuração de SSL</li>
-              <li class="disabled">Copywriting persuasivo</li>
-            </ul>
-            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
-              Entrada (20%): <strong style="color:var(--text)">R$ 300</strong><br>
-              Saldo na entrega: <strong style="color:var(--text)">R$ 1.200</strong><br>
-              1 ano de hospedagem grátis inclusa.
-            </div>
-            <a href="#contato" class="btn btn-outline mt-auto">Selecionar Start</a>
-          </div>
-
-          <div class="investment-card popular-card">
-            <div class="popular-badge">Mais escolhido</div>
-            <h4>PERFORMANCE</h4>
-            <div class="price highlight-price">R$ 2.500<span class="price-suffix">/único</span></div>
-            <p class="card-desc">A estrutura completa para quem já investe em tráfego e quer converter mais.</p>
-            <ul class="card-features-list">
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do plano Start</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Copywriting persuasivo</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Pixel de rastreamento (Meta/Google Ads)</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Otimização de velocidade</li>
-            </ul>
-            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
-              Entrada (20%): <strong style="color:var(--text)">R$ 500</strong><br>
-              Saldo na entrega: <strong style="color:var(--text)">R$ 2.000</strong><br>
-              1 ano de hospedagem grátis inclusa.
-            </div>
-            <a href="#contato" class="btn btn-primary mt-auto">Garantir Performance</a>
-          </div>
-
-          <div class="investment-card">
-            <h4>GROWTH</h4>
-            <div class="price">R$ 3.500+<span class="price-suffix">/único</span></div>
-            <p class="card-desc">Estrutura avançada para operações que já escalam e testam continuamente.</p>
-            <ul class="card-features-list">
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do plano Performance</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Testes A/B para conversão</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Automações de e-mail/CRM</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Painel de análise (Hotjar)</li>
-            </ul>
-            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
-              Entrada (20%): <strong style="color:var(--text)">R$ 700</strong><br>
-              Saldo na entrega: <strong style="color:var(--text)">R$ 2.800</strong><br>
-              1 ano de hospedagem grátis inclusa.
-            </div>
-            <a href="#contato" class="btn btn-outline mt-auto">Consultar escopo</a>
-          </div>
-        </div>
-
-        <!-- Venda Híbrida -->
-        <div class="cards-container" id="grid-hibrida" hidden role="tabpanel">
-          <div class="investment-card">
-            <h4>START HÍBRIDO</h4>
-            <div class="price">R$ 300<span class="price-suffix">/setup</span></div>
-            <div class="recurrency">+ R$ 129/mês</div>
-            <p class="card-desc">Baixo custo inicial com suporte e evolução contínua.</p>
-            <ul class="card-features-list">
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Design responsivo exclusivo</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Domínio anual pago pela Zyntek</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>50% de desconto na Tabela de Serviços</li>
-            </ul>
-            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
-              Setup inicial (20%): <strong style="color:var(--text)">R$ 300</strong><br>
-              Mensalidade infinita enquanto ativo.
-            </div>
-            <a href="#contato" class="btn btn-outline mt-auto">Assinar Start</a>
-          </div>
-
-          <div class="investment-card popular-card">
-            <div class="popular-badge">Mais escolhido</div>
-            <h4>PERFORMANCE HÍBRIDO</h4>
-            <div class="price highlight-price">R$ 500<span class="price-suffix">/setup</span></div>
-            <div class="recurrency highlight-recurrency">+ R$ 199/mês</div>
-            <p class="card-desc">Acompanhamento contínuo e evolução constante da sua conversão.</p>
-            <ul class="card-features-list">
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do Start Híbrido</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Copywriting persuasivo incluso</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Pixel de rastreamento (Meta/Google Ads)</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Domínio pago pela Zyntek</li>
-            </ul>
-            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
-              Setup inicial (20%): <strong style="color:var(--text)">R$ 500</strong><br>
-              Mensalidade infinita enquanto ativo.
-            </div>
-            <a href="#contato" class="btn btn-primary mt-auto">Assinar Performance</a>
-          </div>
-
-          <div class="investment-card">
-            <h4>GROWTH HÍBRIDO</h4>
-            <div class="price">R$ 700<span class="price-suffix">/setup</span></div>
-            <div class="recurrency">+ R$ 299/mês</div>
-            <p class="card-desc">Consultoria e estrutura contínua para operações em escala agressiva.</p>
-            <ul class="card-features-list">
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Tudo do Performance Híbrido</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Testes A/B mensais programados</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Automações avançadas de e-mail/CRM</li>
-              <li><span class="li-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Domínio pago pela Zyntek</li>
-            </ul>
-            <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim); margin-bottom:1.2rem; line-height:1.6;">
-              Setup inicial (20%): <strong style="color:var(--text)">R$ 700</strong><br>
-              Mensalidade infinita enquanto ativo.
-            </div>
-            <a href="#contato" class="btn btn-outline mt-auto">Agendar call</a>
-          </div>
-        </div>
-
-        <p class="plans-note">Em ambos os modelos: atualizações avulsas fora do combinado pagam conforme a Tabela de Serviços vigente (100% na Venda Fechada, com 50% de desconto na Venda Híbrida). Após o 1º ano, a Venda Fechada exige renovação de hospedagem e domínio por conta do cliente.</p>
       </div>
     </section>
 
@@ -487,7 +426,7 @@
         <ul>
           <li><a href="#home">Início</a></li>
           <li><a href="#beneficios">Benefícios</a></li>
-          <li><a href="#planos">Planos</a></li>
+          <li><a href="#formatos">Formatos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
@@ -503,7 +442,7 @@
       <div class="footer-col">
         <h4>O que desenvolvemos</h4>
         <ul>
-          <li><a href="#planos">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="#formatos">Landing Pages, Catálogos & Portfólios</a></li>
           <li><a href="#">Plataforma de Agendamento</a></li>
           <li><a href="#">Sistemas para Restaurantes</a></li>
           <li><a href="#">Lojas Virtuais Completas</a></li>
@@ -514,7 +453,7 @@
       <div class="footer-col">
         <h4>Informações</h4>
         <ul>
-          <li><a href="#planos">Preços</a></li>
+          <li><a href="../precos.html">Preços</a></li>
           <li><a href="#">Política de Privacidade</a></li>
           <li><a href="#">FAQ</a></li>
           <li><a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20integrar%20a%20equipe%20Zyntek." target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a></li>

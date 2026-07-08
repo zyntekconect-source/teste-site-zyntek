@@ -1,416 +1,474 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zyntek | Projetos: Plataforma de Agendamento Inteligente</title>
-  <base href="../">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../css/precos.css">
-  <link rel="stylesheet" href="../css/projeto-agendamento.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zyntek — Sistemas de Agendamento sob medida para empresas. Clientes marcam horários sozinhos, lembretes automáticos e painel completo de gestão da agenda.">
+<meta name="theme-color" content="#7c3aed">
+<title>Sistema de Agendamento para Empresas | Zyntek</title>
+<link rel="icon" type="image/png" href="../../assets/icones/logo-z.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/projeto-agendamento.css">
 </head>
-<body>
+<body data-theme="dark">
 
-  <!-- Fundo global mantido -->
-  <div class="bg-grid-lines" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
-  <div class="bg-noise" aria-hidden="true"></div>
+  <!-- ================= FUNDO ANIMADO ================= -->
+  <div class="bg-system" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <canvas id="bg-particles"></canvas>
+    <div class="bg-shapes">
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+    </div>
+    <div class="bg-noise"></div>
+  </div>
 
-  <!-- ================= HEADER (Idêntico) ================= -->
-  <header class="zyntek-header" id="header" role="banner">
-    <a href="index.html" class="logo-container" aria-label="Zyntek — Ir para o início">
-      <img src="assets/icones/logo z .png" alt="Logo Zyntek" class="logo-image">
+  <!-- ================= HEADER ================= -->
+  <header class="zyntek-header" id="header">
+    <a href="../../index.html" class="logo-container" aria-label="Zyntek — Ir para a página inicial do site">
+      <span class="logo-mark">Z</span>
       <span class="logo-text">Zyntek</span>
     </a>
-    
+
     <nav class="main-nav" aria-label="Navegação principal">
       <ul role="list">
-        <div class="nav-indicator"></div>
-        <li><a href="index.html" class="nav-link">Início</a></li>
-        <li><a href="precos.html" class="nav-link">Planos</a></li>
-        <li><a href="#" class="nav-link active" aria-current="page">Projetos</a></li>
-        <li><a href="#contatos" class="nav-link">Contatos</a></li>
+        <li><a href="#home" class="nav-link active" aria-current="page">Início</a></li>
+        <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
+        <li><a href="#formatos" class="nav-link">Como funciona</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
-      <!-- Botão de Idioma -->
-      <div class="language-dropdown">
-        <button class="icon-btn lang-toggle" aria-label="Mudar idioma" title="Mudar Idioma">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-          <span class="lang-text">PT</span>
-        </button>
-      </div>
-
-      <!-- Botão de Tema -->
-      <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Alternar tema" title="Alternar Tema">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false">
+        <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
 
-      <!-- Botão Fale Conosco -->
-      <a href="#contatos" class="cta-btn">
-        <span class="code-symbol">&lt;/&gt;</span> Fale Conosco
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="sidebar-lateral" aria-expanded="false" type="button">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20Sistema%20de%20Agendamento." target="_blank" rel="noopener noreferrer" class="cta-btn">
+        <span class="code-symbol" aria-hidden="true">&lt;/&gt;</span>
+        <span class="cta-label">Fale Conosco</span>
       </a>
     </div>
   </header>
 
-  <main id="main-content">
-    
-    <!-- ================= HERO: VÍDEO CENTRALIZADO ================= -->
-    <section class="pricing-section hero-project-flow">
-      <div class="video-background-container">
-        <video autoplay muted loop playsinline class="hero-video-bg">
-          <source src="assets/videos/line-glow-bg.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay-mask"></div>
+  <!-- ================= SIDEBAR LATERAL ================= -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <aside id="sidebar-lateral" class="sidebar-lateral" role="dialog" aria-modal="true" aria-label="Menu lateral" aria-hidden="true">
+    <div class="sidebar-lateral-header">
+      <div>
+        <span class="sidebar-lateral-eyebrow">Navegação</span>
+        <h3>Zyntek</h3>
       </div>
+      <button id="close-sidebar" class="close-sidebar" aria-label="Fechar menu" type="button">×</button>
+    </div>
+    <nav aria-label="Menu lateral">
+      <a href="#home" class="sidebar-lateral-link">Início</a>
+      <a href="#beneficios" class="sidebar-lateral-link">Benefícios</a>
+      <a href="#formatos" class="sidebar-lateral-link">Como funciona</a>
+      <a href="#contato" class="sidebar-lateral-link">Contato</a>
+    </nav>
+    <a href="https://wa.me/554488317870" target="_blank" rel="noopener noreferrer" class="cta-btn btn-full sidebar-cta" style="justify-content:center;">Fale Conosco</a>
+  </aside>
 
-      <div class="pricing-container text-center">
-        <div class="project-hero-text">
-          <span class="eyebrow">AUTOMAÇÃO INTELIGENTE</span>
-          <h2>Plataforma de Agendamento que Funciona 24/7</h2>
-          <p>Clientes agendando automaticamente no seu WhatsApp, e-mail ou SMS. Sem perder nenhum agendamento, sem double-booking, sem confusão. Uma máquina de produtividade que fatura enquanto você dorme.</p>
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <div class="section-inner hero-grid">
+
+        <div class="hero-frame-wrap">
+          <div class="hero-frame">
+            <div class="hero-frame-bar">
+              <span class="frame-dots"><i></i><i></i><i></i></span>
+              <span>ZYNTEK_AGENDA_DEMO.mp4</span>
+              <span class="frame-status">ao vivo</span>
+            </div>
+            <div class="hero-video-box">
+              <video autoplay muted loop playsinline poster="../../assets/icones/hero-poster-agendamento.jpg">
+                <source src="../../assets/videos/demo-agendamento.mp4" type="video/mp4">
+              </video>
+              <div class="video-placeholder-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              </div>
+            </div>
+            <p class="hero-frame-caption">&gt;&gt; visualização em tempo real da agenda em funcionamento</p>
+          </div>
+          <div class="hero-floating-tag">
+            <span>Disponibilidade</span> <strong>24/7</strong>
+          </div>
         </div>
 
-        <!-- Vídeo HUD Zyntek (Centralizado e Expandido) -->
-        <div class="zynk-cyber-wrapper large-center">
-          <div class="cyber-scanline"></div>
-          <div class="tech-corner tl"></div>
-          <div class="tech-corner tr"></div>
-          <div class="tech-corner bl"></div>
-          <div class="tech-corner br"></div>
-          
-          <div class="hud-header">
-            <div class="hud-title-group">
-              <span class="hud-glitch-title">ZYNK_AGENDAMENTO_v2.0</span>
-            </div>
-            <div class="hud-stats">
-              <span class="hud-ping">UPTIME // 99.9%</span>
-              <span class="hud-pulse"></span>
-            </div>
+        <div class="hero-text">
+          <span class="eyebrow">Sistema de agendamento inteligente</span>
+          <h1>Sua agenda <span class="accent-text">cheia</span>, sem uma ligação sequer.</h1>
+          <p class="lead">Desenvolvemos sistemas de agendamento sob medida para empresas — o cliente escolhe o serviço e o horário sozinho, recebe lembretes automáticos, e a sua equipe nunca mais perde tempo organizando a agenda no WhatsApp.</p>
+          <div class="hero-actions">
+            <a href="#formatos" class="btn btn-primary">Ver como funciona</a>
+            <a href="#contato" class="btn btn-outline">Solicitar orçamento</a>
           </div>
-          
-          <div class="hud-video-container">
-            <!-- Insira o vídeo da plataforma rodando aqui -->
-            <video autoplay muted loop playsinline class="hud-video-element">
-              <source src="assets/videos/demo-agendamento.mp4" type="video/mp4">
-            </video>
-          </div>
-          
-          <div class="hud-footer">
-            <div class="hud-terminal-line">&gt;&gt; AGENDAMENTO_AUTOMÁTICO: ONLINE</div>
-            <div class="hud-geo-shape"></div>
-            <div class="action-buttons-wrapper">
-  <a href="#contatos" class="btn-zynk-action btn-secondary-outline">
-    Ver Demonstração
-  </a>
-  <a href="https://wa.me/SEUNUMERO?text=Olá!%20Vi%20a%20Plataforma%20de%20Agendamento%20no%20site%20da%20Zyntek%20e%20fiquei%20interessado.%20Gostaria%20de%20saber%20mais%20e%20solicitar%20um%20orçamento%20para%20meu%20negócio." 
-     target="_blank" 
-     class="btn-zynk-action btn-primary-glow">
-    Solicitar Demonstração
-  </a>
-</div>
+          <p style="margin-bottom:2rem;">
+            <a href="../../index.html" style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim);">&larr; Voltar à página inicial</a>
+          </p>
+          <div class="hero-stats">
+            <div><div class="stat-value">-70%</div><div class="stat-label">faltas e cancelamentos de última hora</div></div>
+            <div><div class="stat-value">24/7</div><div class="stat-label">agenda aberta para novos horários</div></div>
+            <div><div class="stat-value">0</div><div class="stat-label">conflitos de horário na agenda</div></div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- ================= EXPLICAÇÃO, PRÓS E CONTRAS ================= -->
-    <section class="project-details-section">
-      <div class="pricing-container">
-        
-        <div class="pricing-header text-center">
-          <span class="eyebrow">TRANSFORMAÇÃO DE NEGÓCIO</span>
-          <h2>O Sistema de Agendamento que Multiplica sua Receita</h2>
-          <p><strong>Seus clientes ligam, você perde a chamada.</strong> Mandam WhatsApp, você demora a responder. Resultado: <strong>40% dos potenciais clientes desistem</strong> e vão para a concorrência.</p>
-          <p class="subheader-secondary">Uma plataforma de agendamento não é apenas um calendário bonito — é um gerente de negócios trabalhando 24 horas por dia. Confirmando agendamentos automaticamente, enviando lembretes, recebendo pagamentos, liberando sua equipe para focar no que importa: atender bem e multiplicar a receita.</p>
+    <!-- ================= BENEFÍCIOS ================= -->
+    <section class="benefits-section" id="beneficios">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Desejo e dor</span>
+          <h2>O impacto real na sua rotina</h2>
+          <p>Um sistema de agendamento bem construído não é só uma "agenda online" — é uma ferramenta que organiza sua operação e evita prejuízo. Veja o que muda de um lado e do outro dessa decisão.</p>
         </div>
 
-        <!-- Cards Animados: Benefícios vs Prejuízos -->
-        <div class="pricing-cards-grid pros-cons-grid">
-          
-          <!-- Card de Benefícios (Prós) -->
-          <div class="payment-card card-pros">
-            <div class="card-badge neon-badge green-badge">CENÁRIO IDEAL</div>
-            <div class="card-top">
-              <h3>Com a Plataforma de Agendamento</h3>
-              <p class="card-pricing-meta">Ganhos imediatos para seu negócio</p>
-            </div>
-            <ul class="card-features">
+        <div class="benefits-audience">
+          <span class="audience-pill">🏥 Para clínicas e consultórios</span>
+          <span class="audience-pill">💈 Para salões e barbearias</span>
+          <span class="audience-pill">🔧 Para prestadores de serviço</span>
+        </div>
+
+        <div class="pros-cons-grid">
+
+          <div class="impact-card card-risk">
+            <span class="impact-badge badge-risk">O caos da agenda manual</span>
+            <h3>Sem um sistema estruturado</h3>
+            <p class="impact-meta">O que isso custa para você, hoje</p>
+            <ul class="impact-list">
               <li>
-                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>40% Mais Agendamentos:</strong> Clientes agendando sozinhos 24/7 via WhatsApp, SMS ou seu site. Enquanto você dorme, o sistema agenda.</span>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Agenda dividida:</strong> horários anotados no papel, no caderno e no WhatsApp ao mesmo tempo — até dois clientes marcarem o mesmo horário sem ninguém perceber.</span>
               </li>
               <li>
-                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>80% Menos Faltas:</strong> Lembretes automáticos 24h antes via WhatsApp = cliente não esquece + você não perde receita.</span>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Tempo perdido respondendo mensagens:</strong> cada agendamento manual consome minutos que poderiam ser usados para atender quem já está na cadeira.</span>
               </li>
               <li>
-                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Pagamento na Hora:</strong> Receba antecipado com integração Pix, Crédito ou Débito. Sem boleto, sem esperar, sem devedor.</span>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Faltas sem aviso:</strong> sem lembrete automático, o cliente esquece o horário e você perde a receita daquele espaço na agenda.</span>
               </li>
               <li>
-                <svg class="check-icon neon-check" style="color: var(--p-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Sua Equipe Produz Mais:</strong> Sem recados, sem telefone tocando, sem bagunça. Todos focados no cliente + agendamentos confirmados.</span>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Sem histórico de clientes:</strong> não dá pra saber quem volta sempre, quem sumiu, ou qual serviço realmente vende mais.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Atendimento limitado ao expediente:</strong> se o cliente só marca horário enquanto alguém responde, você perde agendamentos à noite, no fim de semana e em feriados.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                <span><strong>Imagem amadora:</strong> negociar horário mensagem por mensagem passa a impressão de operação pequena, mesmo quando o serviço entregue é excelente.</span>
               </li>
             </ul>
           </div>
 
-          <!-- Card de Riscos (Contras) -->
-          <div class="payment-card card-cons">
-            <div class="card-badge red-badge">CENÁRIO DE RISCO</div>
-            <div class="card-top">
-              <h3>Sem a Plataforma de Agendamento</h3>
-              <p class="card-pricing-meta" style="color: var(--p-red);">Perdas que você está tendo agora</p>
-            </div>
-            <ul class="card-features">
+          <div class="impact-card card-gain">
+            <span class="impact-badge badge-gain">A agenda que trabalha sozinha</span>
+            <h3>Com o sistema Zyntek</h3>
+            <p class="impact-meta">Organização e previsibilidade</p>
+            <ul class="impact-list">
               <li>
-                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                <span><strong>40% de Clientes Perdidos:</strong> Ligam, ninguém atende. Mandam mensagem, você vê tarde. Eles vão para o concorrente que responde rápido.</span>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Agendamento 100% automático:</strong> o cliente escolhe o serviço, o profissional e o horário disponível sozinho, sem trocar uma única mensagem com você.</span>
               </li>
               <li>
-                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                <span><strong>30% De Taxa de Falta:</strong> Clientes esquecem agendamento = cadeira vazia = receita perdida (R$ 100? R$ 1.000? x 4 vezes por semana = R$ 16k/mês perdido).</span>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Lembretes automáticos:</strong> notificações por WhatsApp confirmando o horário e avisando antes do atendimento, reduzindo faltas de última hora.</span>
               </li>
               <li>
-                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                <span><strong>Caos Administrativo:</strong> Agenda em papel, Google Sheets, anotações soltas, double-booking (dois clientes no mesmo horário), equipe desmotivada.</span>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Painel de controle completo:</strong> toda a agenda, todos os profissionais e todos os horários em uma única tela, de qualquer dispositivo.</span>
               </li>
               <li>
-                <svg class="cross-icon" style="color: var(--p-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                <span><strong>Seu Negócio Não Escala:</strong> Cada novo cliente = mais caos. Você fica refém do WhatsApp, recados e telefone. Impossível crescer.</span>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Histórico de clientes:</strong> cada agendamento fica registrado — você enxerga recorrência, preferências e oportunidades de retorno.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Disponibilidade 24 horas:</strong> a agenda fica aberta para novos horários mesmo enquanto você dorme ou está atendendo outro cliente.</span>
+              </li>
+              <li>
+                <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span><strong>Imagem profissional:</strong> um sistema próprio, com a cara do seu negócio, transmite organização e credibilidade desde o primeiro agendamento.</span>
               </li>
             </ul>
           </div>
 
         </div>
 
+        <p class="benefits-footnote">Faz diferença tanto para <strong>clínicas e salões</strong> que atendem por hora marcada quanto para <strong>prestadores de serviço</strong> que precisam otimizar cada horário da agenda.</p>
       </div>
     </section>
 
-    <!-- ================= PARA QUEM É (PÚBLICO-ALVO) ================= -->
-    <section class="target-audience-section services-recommendation-area" style="margin: 4rem auto; max-width: 1200px;">
-      <div class="pricing-header compact text-center" style="margin-bottom: 3rem; text-align: center;">
-        <span class="eyebrow">VERSATILIDADE DE ESCALA</span>
-        <h3>Que Tipo de Negócio Precisa Disso?</h3>
-        <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.75rem;">Se você atende clientes por agendamento, esta plataforma pode multiplicar sua receita e liberar seu tempo. Veja onde você se encaixa.</p>
-      </div>
-
-      <div class="pricing-cards-grid" style="gap: 1.5rem;">
-        
-        <div class="recommended-model-card static-fechada">
-          <div class="rec-card-header">
-            <svg class="rec-card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-            <span class="rec-card-label">Consultores, Advogados & Médicos</span>
-          </div>
-          <h4 class="rec-card-value" style="font-size: 1.4rem;">+60% Agendamentos Automáticos</h4>
-          <p class="panel-desc-text"><strong>Ticket médio: +25%</strong> porque você não perde clientes. Integração com calendário, lembretes automáticos em tempo real, recebimento de pagamento de consulta inicial. Cada consultor/profissional pode atender 60% mais sem contratar ninguém.</p>
+    <!-- ================= COMO FUNCIONA ================= -->
+    <section class="formats-section" id="formatos">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Um sistema, três frentes de controle</h2>
+          <p>O sistema de agendamento Zyntek é construído em três camadas que trabalham juntas — para o seu cliente marcar sozinho e para você nunca perder o controle da agenda.</p>
         </div>
 
-        <div class="recommended-model-card static-hibrida">
-          <div class="rec-card-header">
-            <svg class="rec-card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9a6 6 0 1 0 12 0A6 6 0 0 0 6 9z"></path><path d="M12 15v6"></path><path d="M9 18h6"></path></svg>
-            <span class="rec-card-label">Barbearias, Salões & Estética</span>
+        <div class="formats-grid">
+
+          <div class="format-card">
+            <div class="format-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Página de Agendamento</h3>
+            <p>Uma página exclusiva onde o cliente escolhe o serviço, o profissional (quando há mais de um) e o horário disponível — em poucos cliques, <strong style="color:var(--text)">sem precisar te chamar</strong> no WhatsApp.</p>
+            <div class="format-audience">
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Reduz o tempo gasto respondendo mensagens e organiza a fila de atendimento automaticamente.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Autônomo</span><span>Ideal para quem atende sozinho e precisa de uma agenda que funcione mesmo sem estar disponível para responder.</span></div>
+            </div>
           </div>
-          <h4 class="rec-card-value" style="font-size: 1.4rem; color: var(--p-magenta);">+R$ 15k-30k/mês (Redução de Faltas)</h4>
-          <p class="panel-desc-text"><strong>Sem falta = sem cadeira vazia.</strong> Lembretes 24h antes + confirmação automática + pagamento antecipado. Reduz taxa de falta de 30% para 5%. Em uma barbearia com 20 atendimentos/semana = R$ 2k/semana recuperados.</p>
+
+          <div class="format-card">
+            <div class="format-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+            </div>
+            <h3>Painel de Gestão</h3>
+            <p>Um painel administrativo onde você acompanha todos os agendamentos do dia, cancela, remarca e cadastra novos horários e serviços — <strong style="color:var(--text)">tudo em um só lugar</strong>.</p>
+            <div class="format-audience">
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Visão completa de todos os profissionais e horários da equipe, sem depender de planilhas soltas.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Autônomo</span><span>Controle total da própria agenda, direto do celular, sem cadernos ou anotações espalhadas.</span></div>
+            </div>
+          </div>
+
+          <div class="format-card">
+            <div class="format-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <h3>Lembretes Automáticos</h3>
+            <p>Notificações automáticas por WhatsApp confirmando o agendamento e lembrando o cliente antes do horário marcado — <strong style="color:var(--text)">reduzindo faltas</strong> e cancelamentos de última hora.</p>
+            <div class="format-audience">
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Menos horários vagos na agenda por esquecimento do cliente, mais previsibilidade de receita.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Autônomo</span><span>Menos tempo perdido cobrando confirmação manualmente, um a um, todos os dias.</span></div>
+            </div>
+          </div>
+
         </div>
-
-        <div class="recommended-model-card static-fechada" style="border-left-color: var(--p-green);">
-          <div class="rec-card-header">
-            <svg class="rec-card-icon" style="color: var(--p-green);" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 9l3 3L20 5"></path><path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"></path></svg>
-            <span class="rec-card-label">Personal Trainers & Academias</span>
-          </div>
-          <h4 class="rec-card-value" style="font-size: 1.4rem; color: var(--p-green);">Taxa de Presença: 85% → 95%</h4>
-          <p class="panel-desc-text"><strong>Cliente que lembra = cliente que aparece.</strong> Lembretes automáticos 24h antes reduz cancelamentos. Integra com WhatsApp, e-mail, SMS. Seu personal trainer pode gerenciar 50+ clientes simultâneos sem confusão.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SEÇÃO DE CONTATOS ================= -->
-    <section id="contatos" class="contact-section">
-      <div class="pricing-container">
-
-        <div class="contact-hub">
-          <div class="card-header center">
-            <h3>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="18" cy="5"  r="3"/>
-                <circle cx="6"  cy="12" r="3"/>
-                <circle cx="18" cy="19" r="3"/>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-              </svg>
-              Hub Digital
-            </h3>
-          </div>
-
-          <nav class="social-grid" aria-label="Redes sociais da Zyntek">
-            <a href="#" class="social-btn" aria-label="WhatsApp da Zyntek">
-              <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="" aria-hidden="true" width="24" height="24">
-              WhatsApp
-            </a>
-            <a href="#" class="social-btn" aria-label="Instagram da Zyntek">
-              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="" aria-hidden="true" width="24" height="24">
-              Instagram
-            </a>
-            <a href="#" class="social-btn" aria-label="GitHub da Zyntek">
-              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" aria-hidden="true" width="24" height="24" style="filter:invert(1)">
-              GitHub
-            </a>
-            <a href="#" class="social-btn" aria-label="LinkedIn da Zyntek">
-              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" aria-hidden="true" width="24" height="24">
-              LinkedIn
-            </a>
-            <a href="#" class="social-btn" aria-label="E-mail da Zyntek">
-              <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" aria-hidden="true" width="24" height="24">
-              E-mail
-            </a>
-          </nav>
-
-          <div class="hub-zynk-image">
-            <img src="zynk-glitch.gif" alt="Zynk AI — mascote da Zyntek"
-                 onerror="this.parentElement.style.display='none'">
-          </div>
-
-          <div class="hub-footer">
-            <p>Consultoria estratégica em sistemas, automações e soluções digitais de alto impacto.</p>
-            <a href="#sobre" class="btn-submit outline">
-              <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
-            </a>
-          </div>
-        </div>
-
       </div>
     </section>
 
+    <!-- ================= CONTATO ================= -->
+    <section class="contact-section" id="contato">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Contato</span>
+          <h2>Vamos estruturar a agenda do seu negócio</h2>
+          <p>Detalhe como funciona seu atendimento hoje e nossa equipe retorna com uma proposta clara, sem enrolação.</p>
+        </div>
+
+        <div class="contact-container">
+
+          <div class="contact-card form-card">
+            <div class="card-header">
+              <h3><span aria-hidden="true">&lt;/&gt;</span> Dê vida ao seu sistema de agendamento</h3>
+              <p>Preencha os campos abaixo para receber um retorno inicial da nossa equipe.</p>
+            </div>
+
+            <form id="zyntekForm" novalidate aria-label="Formulário de contato Zyntek">
+              <div class="input-group">
+                <label for="nome">Nome completo <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="empresa">Nome da empresa</label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/></svg>
+                  <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa (opcional)" autocomplete="organization">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="mensagem">Descrição da sua necessidade de agendamento <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper textarea-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .34 2.02 1.5 3.5.76.75 1.23 1.51 1.41 2.5"/></svg>
+                  <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva quantos profissionais atendem, quantos horários por dia e como funciona seu atendimento hoje..." required></textarea>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label id="tipoSolicitacaoLabel">Tipo de solicitação <abbr title="obrigatório">*</abbr></label>
+                <div class="urgency-group" role="radiogroup" aria-labelledby="tipoSolicitacaoLabel">
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Orçamento de novo sistema de agendamento" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-orcamento"></span>Orçamento</span>
+                  </label>
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Ajuste em sistema já existente" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-reajuste"></span>Ajuste no sistema</span>
+                  </label>
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Urgente / Prioridade alta" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-urgente"></span>Urgente</span>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <span aria-hidden="true">&lt;/&gt;</span> Iniciar meu projeto
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-card hub-card">
+            <div class="card-header center">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Hub Digital
+              </h3>
+            </div>
+
+            <div class="social-grid">
+              <a href="https://wa.me/554488317870" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp
+              </a>
+              <a href="https://www.instagram.com/zyntek.conect/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                Instagram
+              </a>
+              <a href="https://github.com/zyntekconect-source/zyntekconect-source" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+            </div>
+
+            <div class="hub-footer">
+              <p>Consultoria estratégica em Sistemas de Agendamento, Landing Pages e soluções digitais de alto impacto.</p>
+              <a href="https://wa.me/554488317870?text=Gostaria%20de%20conhecer%20melhor%20sobre%20o%20servi%C3%A7o%20da%20Zyntek" class="btn-submit outline" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
+              </a>
+
+              <div class="hub-zynk-image">
+                <div class="zynk-frame">
+                  <div class="zynk-frame-header">
+                    <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+                    <span>ZYNK_CORE.exe — online</span>
+                  </div>
+                  <video class="hub-zynk-video" autoplay muted loop playsinline preload="metadata">
+                    <source src="../../assets/videos/zynk-linha.mp4" type="video/mp4">
+                  </video>
+                  <div class="zynk-frame-footer">
+                    <span class="zynk-frame-status"></span> Sistema ativo
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   </main>
 
-<!-- =============================================
-     FOOTER
-     ============================================= -->
-<footer class="main-footer" role="contentinfo">
-  <div class="footer-container">
+  <!-- ================= FOOTER ================= -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="footer-container">
 
-    <!-- Coluna 1: Logo, Descrição e Redes Sociais -->
-    <div class="footer-col">
-      <img src="logo-zyntek.svg" alt="Logotipo Zyntek" class="footer-logo" width="120" height="40">
-      <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
-      <div class="footer-social">
-        <h4>Nos acompanhe</h4>
-        <nav class="social-icons" aria-label="Redes sociais no rodapé">
-          <!-- Instagram -->
-          <a href="#" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-          </a>
-          <!-- GitHub -->
-          <a href="#" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          </a>
-          <!-- LinkedIn -->
-          <a href="#" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <!-- WhatsApp -->
-          <a href="#" aria-label="WhatsApp">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </a>
-        </nav>
+      <div class="footer-col">
+        <div class="footer-logo-row">
+          <span class="logo-mark">Z</span>
+          <span class="logo-text">Zyntek</span>
+        </div>
+        <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+        <div class="footer-social">
+          <h4>Nos acompanhe</h4>
+          <nav class="social-icons" aria-label="Redes sociais no rodapé">
+            <a href="https://www.instagram.com/zyntek.conect/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="https://github.com/zyntekconect-source/zyntekconect-source" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+            <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://wa.me/554488317870" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+            <a href="mailto:zyntek.conect@gmail.com" aria-label="E-mail"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+          </nav>
+        </div>
       </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+          <li><a href="#formatos">Como funciona</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#">Para clínicas e consultórios</a></li>
+          <li><a href="#">Para salões e barbearias</a></li>
+          <li><a href="#">Para prestadores de serviço</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>O que desenvolvemos</h4>
+        <ul>
+          <li><a href="#formatos">Plataforma de Agendamento</a></li>
+          <li><a href="../projeto-lp.html">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="../projeto-restaurante.html">Sistemas para Restaurantes</a></li>
+          <li><a href="#">Lojas Virtuais Completas</a></li>
+          <li><a href="#">Chatbot de Fluxo Inteligente</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <ul>
+          <li><a href="../precos.html">Preços</a></li>
+          <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20integrar%20a%20equipe%20Zyntek." target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a></li>
+        </ul>
+      </div>
+
     </div>
 
-    <!-- Coluna 2: Explore -->
-    <div class="footer-col">
-      <h4>Explore</h4>
-      <ul role="list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#sobre">Sobre a Zyntek</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#contatos">Contato</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+      <p>Desenvolvido por Zyntek</p>
     </div>
+  </footer>
 
-    <!-- Coluna 3: Soluções -->
-    <div class="footer-col">
-      <h4>Soluções</h4>
-      <ul role="list">
-        <li><a href="#">Para Empresas</a></li>
-        <li><a href="#">Para Autônomos</a></li>
-      </ul>
-    </div>
-
-    <!-- Coluna 4: O que desenvolvemos -->
-    <div class="footer-col">
-      <h4>O que desenvolvemos</h4>
-      <ul role="list">
-        <li><a href="projeto-landing-pages.html">Páginas de Alta Conversão</a></li>
-        <li><a href="projeto-agendamento.html">Plataforma de Agendamento</a></li>
-        <li><a href="projeto-restaurantes.html">Sistemas para Restaurantes</a></li>
-        <li><a href="projeto-barbearias.html">Sistemas para Barbearias</a></li>
-        <li><a href="projeto-ecommerce.html">Lojas Virtuais Completas</a></li>
-        <li><a href="projeto-ia.html">Atendimento Automático IA</a></li>
-        <li><a href="projeto-academias.html">Sistemas para Academias</a></li>
-        <li><a href="projeto-sob-medida.html">Sistemas Sob Medida</a></li>
-      </ul>
-    </div>
-
-    <!-- Coluna 5: Informações -->
-    <div class="footer-col">
-      <h4>Informações</h4>
-      <ul role="list">
-        <li><a href="precos.html">Preços</a></li>
-        <li><a href="#">Opiniões dos Clientes</a></li>
-        <li><a href="#">Política de Privacidade</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Trabalhe Conosco</a></li>
-        <li><a href="#">Seja Parceiro</a></li>
-      </ul>
-    </div>
-
-    <!-- Coluna 6: Fundadores -->
-    <div class="footer-col">
-    <h4>Fundadores</h4>
-    <ul role="list" class="founders-list">
-        <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer">Levy Andrade</a></li>
-        <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Soares</a></li>
-        <li><a href="https://portifolio-henrique-hideki.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Hideki</a></li>
-    </ul>
-    </div>
-
-  </div>
-
-  <!-- Faixa Inferior Animada -->
-  <div class="footer-bottom">
-    <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
-    <p>Desenvolvido por Zyntek</p>
-  </div>
-</footer>
-
-    <script src="script.js"></script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="../../javascript/projeto.agendamento.js"></script>
 </body>
 </html>

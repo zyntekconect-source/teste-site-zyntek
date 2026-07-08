@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------------------------------------------------
      NAV ATIVO CONFORME SCROLL
   --------------------------------------------------------- */
-  const sections = ['home', 'beneficios', 'formatos', 'contato']
+  const sections = ['home', 'oferecemos', 'porque', 'contato']
     .map(id => document.getElementById(id))
     .filter(Boolean);
   const navLinks = document.querySelectorAll('.nav-link');
@@ -113,6 +113,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
+  });
+
+  /* ---------------------------------------------------------
+     ABAS — O QUE OFERECEMOS
+  --------------------------------------------------------- */
+  const offerTabs = document.querySelectorAll('.offer-tab');
+  const offerPanels = document.querySelectorAll('.offer-panel');
+
+  offerTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-target');
+
+      offerTabs.forEach(t => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+
+      offerPanels.forEach(panel => {
+        panel.classList.toggle('is-active', panel.id === targetId);
+      });
+    });
   });
 
   /* ---------------------------------------------------------

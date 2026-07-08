@@ -720,6 +720,35 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text); letter-sp
 .tag-pessoa  { background: rgba(16, 185, 129, 0.12); color: #6ee7b7; }
 
 /* --------------------------------------------------------------------------
+   7B. CASOS DE USO SOB MEDIDA
+   -------------------------------------------------------------------------- */
+.custom-cases {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.custom-case {
+  padding: 1.6rem 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.custom-case:hover { border-color: var(--accent); transform: translateY(-4px); }
+.custom-case-icon { display: block; font-size: 1.8rem; margin-bottom: 0.7rem; }
+.custom-case h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+.custom-case p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+
+@media (max-width: 860px) {
+  .custom-cases { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .custom-cases { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
    8. CONTATO
    -------------------------------------------------------------------------- */
 .contact-section { padding: clamp(3rem, 7vw, 6rem) 0; }

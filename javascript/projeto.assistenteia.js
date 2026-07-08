@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------------------------------------------------
      NAV ATIVO CONFORME SCROLL
   --------------------------------------------------------- */
-  const sections = ['home', 'beneficios', 'formatos', 'contato']
+  const sections = ['home', 'beneficios', 'recursos', 'contato']
     .map(id => document.getElementById(id))
     .filter(Boolean);
   const navLinks = document.querySelectorAll('.nav-link');

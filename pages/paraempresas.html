@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zyntek para empresas — Landing Pages, sistemas de agendamento, lojas virtuais, chatbots e sistemas sob medida para acelerar o seu negócio.">
+<meta name="theme-color" content="#7c3aed">
+<title>Para Empresas | Zyntek</title>
+<link rel="icon" type="image/png" href="../../assets/icones/logo-z.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/paraempresas.css">
+</head>
+<body data-theme="dark">
+
+  <!-- ================= FUNDO ANIMADO ================= -->
+  <div class="bg-system" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <canvas id="bg-particles"></canvas>
+    <div class="bg-shapes">
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+    </div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="zyntek-header" id="header">
+    <a href="../../index.html" class="logo-container" aria-label="Zyntek — Ir para a página inicial do site">
+      <span class="logo-mark">Z</span>
+      <span class="logo-text">Zyntek</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul role="list">
+        <li><a href="#home" class="nav-link active" aria-current="page">Início</a></li>
+        <li><a href="#oferecemos" class="nav-link">O que oferecemos</a></li>
+        <li><a href="#porque" class="nav-link">Por que a Zyntek</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false">
+        <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="sidebar-lateral" aria-expanded="false" type="button">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Quero%20entender%20o%20que%20a%20Zyntek%20pode%20fazer%20pela%20minha%20empresa." target="_blank" rel="noopener noreferrer" class="cta-btn">
+        <span class="code-symbol" aria-hidden="true">&lt;/&gt;</span>
+        <span class="cta-label">Fale Conosco</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= SIDEBAR LATERAL ================= -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <aside id="sidebar-lateral" class="sidebar-lateral" role="dialog" aria-modal="true" aria-label="Menu lateral" aria-hidden="true">
+    <div class="sidebar-lateral-header">
+      <div>
+        <span class="sidebar-lateral-eyebrow">Navegação</span>
+        <h3>Zyntek</h3>
+      </div>
+      <button id="close-sidebar" class="close-sidebar" aria-label="Fechar menu" type="button">×</button>
+    </div>
+    <nav aria-label="Menu lateral">
+      <a href="#home" class="sidebar-lateral-link">Início</a>
+      <a href="#oferecemos" class="sidebar-lateral-link">O que oferecemos</a>
+      <a href="#porque" class="sidebar-lateral-link">Por que a Zyntek</a>
+      <a href="#contato" class="sidebar-lateral-link">Contato</a>
+    </nav>
+    <a href="https://wa.me/554488317870" target="_blank" rel="noopener noreferrer" class="cta-btn btn-full sidebar-cta" style="justify-content:center;">Fale Conosco</a>
+  </aside>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="company-hero" id="home">
+      <div class="section-inner company-hero-inner">
+        <span class="eyebrow">Zyntek para empresas</span>
+        <h1>Tecnologia sob medida para <span class="accent-text">empresas que querem crescer</span></h1>
+        <p class="lead">De uma landing page que converte a um sistema completo de gestão: a Zyntek reúne, em um só time, tudo que a sua empresa precisa para operar melhor e vender mais no digital.</p>
+        <div class="hero-actions">
+          <a href="#oferecemos" class="btn btn-primary">Ver o que oferecemos</a>
+          <a href="#contato" class="btn btn-outline">Falar com o time</a>
+        </div>
+
+        <div class="company-metrics">
+          <div class="company-metric"><span class="metric-value">7+</span><span class="metric-label">soluções digitais</span></div>
+          <div class="company-metric"><span class="metric-value">100%</span><span class="metric-label">projetos exclusivos</span></div>
+          <div class="company-metric"><span class="metric-value">1</span><span class="metric-label">time do início ao suporte</span></div>
+          <div class="company-metric"><span class="metric-value">24h</span><span class="metric-label">retorno inicial</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= O QUE OFERECEMOS ================= -->
+    <section class="offer-section" id="oferecemos">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Portfólio de soluções</span>
+          <h2>O que a Zyntek tem para oferecer</h2>
+          <p>Cada empresa tem uma necessidade diferente. Escolha a área abaixo e veja como resolvemos.</p>
+        </div>
+
+        <div class="offer-layout">
+          <div class="offer-tabs" role="tablist" aria-label="Soluções para empresas">
+            <button class="offer-tab is-active" data-target="panel-lp" role="tab" aria-selected="true">
+              <span class="offer-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+              Landing Pages & Catálogos
+            </button>
+            <button class="offer-tab" data-target="panel-agendamento" role="tab" aria-selected="false">
+              <span class="offer-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+              Sistema de Agendamento
+            </button>
+            <button class="offer-tab" data-target="panel-restaurante" role="tab" aria-selected="false">
+              <span class="offer-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></span>
+              Sistema para Restaurantes
+            </button>
+            <button class="offer-tab" data-target="panel-loja" role="tab" aria-selected="false">
+              <span class="offer-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
+              Loja Virtual Completa
+            </button>
+            <button class="offer-tab" data-target="panel-chatbot" role="tab" aria-selected="false">
+              <span class="offer-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></span>
+              Chatbot de Fluxo Inteligente
+            </button>
+            <button class="offer-tab" data-target="panel-sob-medida" role="tab" aria-selected="false">
+              <span class="offer-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+              Sistema Sob Medida
+            </button>
+            <button class="offer-tab" data-target="panel-automacoes" role="tab" aria-selected="false">
+              <span class="offer-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
+              Automações & Integrações
+            </button>
+          </div>
+
+          <div class="offer-panels">
+
+            <div class="offer-panel is-active" id="panel-lp">
+              <span class="offer-panel-tag">Presença digital</span>
+              <h3>Landing Pages, Catálogos & Portfólios</h3>
+              <p>Uma página exclusiva, rápida e construída em volta de um objetivo só: converter visitante em cliente. Ideal para campanhas, lançamentos e para dar credibilidade imediata à sua empresa.</p>
+              <div class="offer-panel-grid">
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Design exclusivo</strong> — sem templates, feito para a sua marca.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Copywriting estratégico</strong> — texto pensado para guiar até o contato.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Carregamento rápido</strong> — reduz custo de anúncios pagos.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Rastreamento integrado</strong> — Pixel e Analytics configurados.</span></div>
+              </div>
+            </div>
+
+            <div class="offer-panel" id="panel-agendamento">
+              <span class="offer-panel-tag">Operação</span>
+              <h3>Sistema de Agendamento</h3>
+              <p>Plataforma para clientes marcarem horários sozinhos, 24h por dia, com sua equipe organizada em uma agenda única — sem trocas intermináveis de mensagem para fechar um horário.</p>
+              <div class="offer-panel-grid">
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Agenda online</strong> — clientes marcam sem precisar ligar.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Lembretes automáticos</strong> — menos faltas e cancelamentos.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Gestão de equipe</strong> — cada profissional com sua própria agenda.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Painel de controle</strong> — visão completa dos horários do dia.</span></div>
+              </div>
+            </div>
+
+            <div class="offer-panel" id="panel-restaurante">
+              <span class="offer-panel-tag">Operação</span>
+              <h3>Sistema para Restaurantes</h3>
+              <p>Cardápio digital, pedidos online e organização de mesas ou delivery em um só sistema, feito para o ritmo de um restaurante de verdade.</p>
+              <div class="offer-panel-grid">
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Cardápio digital</strong> — sempre atualizado, sem reimprimir nada.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Pedidos online</strong> — direto para a cozinha, sem intermediário.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Controle de mesas</strong> — visão clara do salão em tempo real.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Relatórios de vendas</strong> — saiba o que mais vende e quando.</span></div>
+              </div>
+            </div>
+
+            <div class="offer-panel" id="panel-loja">
+              <span class="offer-panel-tag">Vendas</span>
+              <h3>Loja Virtual Completa</h3>
+              <p>E-commerce próprio, com catálogo, carrinho, checkout e pagamento integrado — sua empresa vendendo online sem depender de marketplaces ou taxas abusivas.</p>
+              <div class="offer-panel-grid">
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Catálogo completo</strong> — categorias, variações e estoque.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Checkout próprio</strong> — pagamento integrado, sem taxa de marketplace.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Painel de pedidos</strong> — acompanhe vendas em tempo real.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Marca própria</strong> — loja com a cara do seu negócio, não de um template.</span></div>
+              </div>
+            </div>
+
+            <div class="offer-panel" id="panel-chatbot">
+              <span class="offer-panel-tag">Atendimento</span>
+              <h3>Chatbot de Fluxo Inteligente</h3>
+              <p>Atendimento automático no WhatsApp ou site, guiando o cliente por um fluxo de perguntas até a resposta certa ou o encaminhamento para um atendente humano.</p>
+              <div class="offer-panel-grid">
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Atendimento 24h</strong> — respostas imediatas a qualquer hora.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Fluxo personalizado</strong> — perguntas e respostas feitas para o seu negócio.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Qualificação de leads</strong> — filtra quem está pronto para comprar.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Transferência humana</strong> — passa para sua equipe no momento certo.</span></div>
+              </div>
+            </div>
+
+            <div class="offer-panel" id="panel-sob-medida">
+              <span class="offer-panel-tag">Exclusivo</span>
+              <h3>Sistema Sob Medida</h3>
+              <p>Quando nenhuma solução pronta resolve, construímos do zero: painéis, automações e plataformas desenhadas em volta do seu processo real de trabalho.</p>
+              <div class="offer-panel-grid">
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>100% exclusivo</strong> — nenhuma outra empresa tem o mesmo sistema.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Código é seu</strong> — liberdade total para evoluir quando quiser.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Cresce com a empresa</strong> — arquitetura pronta para novos módulos.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Do papel ao código</strong> — sua ideia estruturada por um time técnico.</span></div>
+              </div>
+            </div>
+
+            <div class="offer-panel" id="panel-automacoes">
+              <span class="offer-panel-tag">Eficiência</span>
+              <h3>Automações & Integrações</h3>
+              <p>Conectamos as ferramentas que sua empresa já usa — planilhas, formulários, WhatsApp, sistemas internos — para eliminar tarefas manuais e repetitivas.</p>
+              <div class="offer-panel-grid">
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Menos trabalho manual</strong> — tarefas repetitivas resolvidas automaticamente.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Ferramentas conectadas</strong> — seus sistemas conversando entre si.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Menos erro humano</strong> — processos padronizados de ponta a ponta.</span></div>
+                <div class="offer-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Tempo de volta</strong> — sua equipe focada no que realmente importa.</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= POR QUE A ZYNTEK ================= -->
+    <section class="why-section" id="porque">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Por que empresas escolhem a Zyntek</span>
+          <h2>Como funciona trabalhar com a gente</h2>
+          <p>Do primeiro contato ao suporte contínuo, um caminho direto e transparente.</p>
+        </div>
+
+        <div class="why-timeline">
+          <div class="why-step">
+            <span class="why-step-num">1</span>
+            <h4>Entendimento do negócio</h4>
+            <p>Conversamos com você para entender o momento da sua empresa, o problema real e o resultado que espera alcançar — antes de falar de qualquer tecnologia.</p>
+          </div>
+          <div class="why-step">
+            <span class="why-step-num">2</span>
+            <h4>Proposta clara e sem enrolação</h4>
+            <p>Você recebe um escopo objetivo do que será entregue, sem termos técnicos escondendo o que realmente importa: prazo, resultado e investimento.</p>
+          </div>
+          <div class="why-step">
+            <span class="why-step-num">3</span>
+            <h4>Desenvolvimento acompanhado</h4>
+            <p>Seu projeto é construído com atualizações periódicas — você acompanha o andamento, não recebe só um resultado final de surpresa.</p>
+          </div>
+          <div class="why-step">
+            <span class="why-step-num">4</span>
+            <h4>Entrega e suporte contínuo</h4>
+            <p>Após o lançamento, seguimos disponíveis para ajustes, dúvidas e novas etapas — a relação não termina na entrega.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="contact-section" id="contato">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">Contato</span>
+          <h2>Vamos estruturar o seu próximo projeto</h2>
+          <p>Detalhe sua ideia e nossa equipe retorna com uma proposta clara, sem enrolação.</p>
+        </div>
+
+        <div class="contact-container">
+
+          <div class="contact-card form-card">
+            <div class="card-header">
+              <h3><span aria-hidden="true">&lt;/&gt;</span> Dê vida à sua ideia</h3>
+              <p>Preencha os campos abaixo para receber um retorno inicial da nossa equipe.</p>
+            </div>
+
+            <form id="zyntekForm" novalidate aria-label="Formulário de contato Zyntek">
+              <div class="input-group">
+                <label for="nome">Nome completo <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="empresa">Nome da empresa</label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/></svg>
+                  <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa (opcional)" autocomplete="organization">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="mensagem">Descrição da ideia do projeto <abbr title="obrigatório">*</abbr></label>
+                <div class="input-wrapper textarea-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .34 2.02 1.5 3.5.76.75 1.23 1.51 1.41 2.5"/></svg>
+                  <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o desafio do seu negócio ou a solução que deseja desenvolver..." required></textarea>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label id="tipoSolicitacaoLabel">Tipo de solicitação <abbr title="obrigatório">*</abbr></label>
+                <div class="urgency-group" role="radiogroup" aria-labelledby="tipoSolicitacaoLabel">
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Orçamento de novo projeto" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-orcamento"></span>Orçamento</span>
+                  </label>
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Reajuste em site já existente" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-reajuste"></span>Reajuste no site</span>
+                  </label>
+                  <label class="urgency-option">
+                    <input type="radio" name="tipo_solicitacao" value="Urgente / Prioridade alta" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-urgente"></span>Urgente</span>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <span aria-hidden="true">&lt;/&gt;</span> Iniciar meu projeto
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-card hub-card">
+            <div class="card-header center">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Hub Digital
+              </h3>
+            </div>
+
+            <div class="social-grid">
+              <a href="https://wa.me/554488317870" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp
+              </a>
+              <a href="https://www.instagram.com/zyntek.conect/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                Instagram
+              </a>
+              <a href="https://github.com/zyntekconect-source/zyntekconect-source" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+            </div>
+
+            <div class="hub-footer">
+              <p>Consultoria estratégica em Landing Pages, Catálogos, Portfólios e soluções digitais de alto impacto.</p>
+              <a href="https://wa.me/554488317870?text=Gostaria%20de%20conhecer%20melhor%20sobre%20o%20servi%C3%A7o%20da%20Zyntek" class="btn-submit outline" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
+              </a>
+
+              <div class="hub-zynk-image">
+                <div class="zynk-frame">
+                  <div class="zynk-frame-header">
+                    <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+                    <span>ZYNK_CORE.exe — online</span>
+                  </div>
+                  <video class="hub-zynk-video" autoplay muted loop playsinline preload="metadata">
+                    <source src="../../assets/videos/zynk-linha.mp4" type="video/mp4">
+                  </video>
+                  <div class="zynk-frame-footer">
+                    <span class="zynk-frame-status"></span> Sistema ativo
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <div class="footer-logo-row">
+          <span class="logo-mark">Z</span>
+          <span class="logo-text">Zyntek</span>
+        </div>
+        <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+        <div class="footer-social">
+          <h4>Nos acompanhe</h4>
+          <nav class="social-icons" aria-label="Redes sociais no rodapé">
+            <a href="https://www.instagram.com/zyntek.conect/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="https://github.com/zyntekconect-source/zyntekconect-source" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+            <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://wa.me/554488317870" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+            <a href="mailto:zyntek.conect@gmail.com" aria-label="E-mail"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#oferecemos">O que oferecemos</a></li>
+          <li><a href="#porque">Por que a Zyntek</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#oferecemos">Para empresas</a></li>
+          <li><a href="#">Para autônomos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>O que desenvolvemos</h4>
+        <ul>
+          <li><a href="#">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="#">Plataforma de Agendamento</a></li>
+          <li><a href="#">Sistemas para Restaurantes</a></li>
+          <li><a href="#">Lojas Virtuais Completas</a></li>
+          <li><a href="#">Chatbot de Fluxo Inteligente</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <ul>
+          <li><a href="../precos.html">Preços</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20integrar%20a%20equipe%20Zyntek." target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+      <p>Desenvolvido por Zyntek</p>
+    </div>
+  </footer>
+
+  <script src="../../javascript/paraempresas.js"></script>
+</body>
+</html>

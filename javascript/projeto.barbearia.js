@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------------------------------------------------
      NAV ATIVO CONFORME SCROLL
   --------------------------------------------------------- */
-  const sections = ['home', 'beneficios', 'formatos', 'contato']
+  const sections = ['home', 'beneficios', 'formatos', 'cortes', 'loja', 'contato']
     .map(id => document.getElementById(id))
     .filter(Boolean);
   const navLinks = document.querySelectorAll('.nav-link');
@@ -104,7 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const mensagem = form.mensagem.value.trim();
     const tipo = form.tipo_solicitacao.value;
 
-    let texto = `Olá, equipe Zyntek! 🚀\n\n`;
+    let texto = `Olá, equipe Zyntek! 📅\n\n`;
+    texto += `Tenho interesse em um *Sistema de Agendamento*.\n\n`;
     texto += `*Nome:* ${nome}\n`;
     if (empresa) texto += `*Empresa:* ${empresa}\n`;
     texto += `*Telefone:* ${telefone}\n`;

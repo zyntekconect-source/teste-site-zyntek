@@ -1,6 +1,8 @@
 /* ==========================================================================
-   ZYNTEK — LANDING PAGE "LANDING PAGES, CATÁLOGOS & PORTFÓLIOS"
+   ZYNTEK — LANDING PAGE "SISTEMA PARA BARBEARIAS"
    Stylesheet único. Organizado por seções. Mobile-first breakpoints no fim.
+   Mesmo design system (tokens, cores, tipografia) usado nas demais páginas
+   de projeto do site — garante consistência visual entre landing pages.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -939,4 +941,134 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text); letter-sp
   .footer-container { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .hero-floating-tag { position: static; margin-top: 1rem; width: fit-content; margin-left: auto; margin-right: auto; }
+}
+/* --------------------------------------------------------------------------
+   11. CATÁLOGO DE CORTES
+   -------------------------------------------------------------------------- */
+.cuts-section { padding: clamp(2rem, 6vw, 4rem) 0; }
+
+.cuts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+}
+
+.cut-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.cut-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.cut-photo {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(155deg, var(--panel-alt), #0b0814);
+  overflow: hidden;
+}
+.cut-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.cut-info { padding: 1.1rem 1.2rem 1.3rem; }
+.cut-info h3 { font-size: 1.02rem; margin-bottom: 0.35rem; }
+.cut-info p { color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; }
+
+.cuts-note {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+}
+.cuts-note code {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. LOJA / MINI E-COMMERCE
+   -------------------------------------------------------------------------- */
+.shop-section { padding: clamp(2rem, 6vw, 4rem) 0 clamp(3rem, 7vw, 6rem); }
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+}
+
+.product-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.product-photo {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(155deg, var(--panel-alt), #0b0814);
+  overflow: hidden;
+}
+.product-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.product-info { padding: 1.1rem 1.2rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
+.product-info h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+.product-info p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; flex: 1; margin-bottom: 1rem; }
+
+.product-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
+.product-price { font-family: var(--font-mono); font-weight: 700; color: var(--accent-soft); font-size: 0.95rem; }
+
+.buy-btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+.buy-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(124, 58, 237, 0.5); }
+
+.shop-note {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+}
+.shop-note code {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVO — CORTES E LOJA
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .cuts-grid { grid-template-columns: repeat(2, 1fr); }
+  .shop-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .cuts-grid { grid-template-columns: 1fr; }
+  .shop-grid { grid-template-columns: 1fr; }
 }

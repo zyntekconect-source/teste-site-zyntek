@@ -104,7 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const mensagem = form.mensagem.value.trim();
     const tipo = form.tipo_solicitacao.value;
 
-    let texto = `Olá, equipe Zyntek! 🚀\n\n`;
+    let texto = `Olá, equipe Zyntek! 📅\n\n`;
+    texto += `Tenho interesse em um *Sistema de Agendamento*.\n\n`;
     texto += `*Nome:* ${nome}\n`;
     if (empresa) texto += `*Empresa:* ${empresa}\n`;
     texto += `*Telefone:* ${telefone}\n`;

@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Zyntek — Sistemas de Gestão para Restaurantes. Dashboard, relatórios, controle de mesas e estoque em uma única plataforma.">
+<meta name="description" content="Zyntek — Sistemas sob medida. Sua ideia sai do papel e vira código, feito exatamente do jeito que você imaginou.">
 <meta name="theme-color" content="#7c3aed">
-<title>Sistema de Gestão para Restaurantes | Zyntek</title>
+<title>Sistemas Sob Medida | Zyntek</title>
 <link rel="icon" type="image/png" href="../../assets/icones/logo-z.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../css/projeto-restaurante.css">
+<link rel="stylesheet" href="../../css/projeto-sistemasobmedida.css">
 </head>
 <body data-theme="dark">
 
+  <!-- ================= FUNDO ANIMADO ================= -->
   <div class="bg-system" aria-hidden="true">
     <div class="bg-grid"></div>
     <canvas id="bg-particles"></canvas>
@@ -31,6 +32,7 @@
     <div class="bg-noise"></div>
   </div>
 
+  <!-- ================= HEADER ================= -->
   <header class="zyntek-header" id="header">
     <a href="../../index.html" class="logo-container" aria-label="Zyntek — Ir para a página inicial do site">
       <span class="logo-mark">Z</span>
@@ -41,7 +43,7 @@
       <ul role="list">
         <li><a href="#home" class="nav-link active" aria-current="page">Início</a></li>
         <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
-        <li><a href="#formatos" class="nav-link">Módulos</a></li>
+        <li><a href="#formatos" class="nav-link">Formatos</a></li>
         <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
     </nav>
@@ -56,13 +58,14 @@
         <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
 
-      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20Sistema%20para%20Restaurante." target="_blank" rel="noopener noreferrer" class="cta-btn">
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Tenho%20uma%20ideia%20de%20sistema%20sob%20medida%20e%20quero%20saber%20mais." target="_blank" rel="noopener noreferrer" class="cta-btn">
         <span class="code-symbol" aria-hidden="true">&lt;/&gt;</span>
         <span class="cta-label">Fale Conosco</span>
       </a>
     </div>
   </header>
 
+  <!-- ================= SIDEBAR LATERAL ================= -->
   <div id="sidebar-overlay" class="sidebar-overlay"></div>
   <aside id="sidebar-lateral" class="sidebar-lateral" role="dialog" aria-modal="true" aria-label="Menu lateral" aria-hidden="true">
     <div class="sidebar-lateral-header">
@@ -75,13 +78,14 @@
     <nav aria-label="Menu lateral">
       <a href="#home" class="sidebar-lateral-link">Início</a>
       <a href="#beneficios" class="sidebar-lateral-link">Benefícios</a>
-      <a href="#formatos" class="sidebar-lateral-link">Módulos</a>
+      <a href="#formatos" class="sidebar-lateral-link">Formatos</a>
       <a href="#contato" class="sidebar-lateral-link">Contato</a>
     </nav>
     <a href="https://wa.me/554488317870" target="_blank" rel="noopener noreferrer" class="cta-btn btn-full sidebar-cta" style="justify-content:center;">Fale Conosco</a>
   </aside>
 
   <main>
+    <!-- ================= HERO ================= -->
     <section class="hero" id="home">
       <div class="section-inner hero-grid">
 
@@ -89,206 +93,220 @@
           <div class="hero-frame">
             <div class="hero-frame-bar">
               <span class="frame-dots"><i></i><i></i><i></i></span>
-              <span>ZYNTEK_RESTAURANTE_DEMO.mp4</span>
+              <span>ZYNTEK_SISTEMA_CUSTOM.exe</span>
               <span class="frame-status">ao vivo</span>
             </div>
             <div class="hero-video-box">
-              <video autoplay muted loop playsinline poster="../../assets/icones/hero-poster-restaurante.jpg">
-                <source src="../../assets/videos/demo-restaurante.mp4" type="video/mp4">
+              <video autoplay muted loop playsinline poster="../../assets/icones/hero-poster.jpg">
+                <source src="../../assets/videos/demo-landing-page.mp4" type="video/mp4">
               </video>
               <div class="video-placeholder-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
               </div>
             </div>
-            <p class="hero-frame-caption">&gt;&gt; visualização em tempo real do dashboard do restaurante</p>
+            <p class="hero-frame-caption">&gt;&gt; sua ideia, transformada em sistema real</p>
           </div>
           <div class="hero-floating-tag">
-            <span>Controle</span> <strong>100%</strong>
+            <span>Sob medida</span> <strong>100%</strong>
           </div>
         </div>
 
         <div class="hero-text">
-          <span class="eyebrow">Gestão completa de restaurante</span>
-          <h1>Cozinha, salão e <span class="accent-text">estoque</span> em um só lugar.</h1>
-          <p class="lead">Desenvolvemos sistemas de gestão sob medida para restaurantes — dashboard com métricas em tempo real, controle de mesas, comandas, estoque e relatórios que mostram exatamente onde está o lucro (ou o prejuízo) do seu negócio.</p>
+          <span class="eyebrow">Desenvolvimento sob medida</span>
+          <h1>Sua ideia <span class="accent-text">do jeito que você imaginou</span>, do papel ao código.</h1>
+          <p class="lead">Nem todo negócio cabe em um sistema pronto. Quando o que você precisa é diferente do padrão, a Zyntek projeta e constrói um sistema exclusivo — pensado, desenhado e programado em volta da sua ideia, não o contrário.</p>
           <div class="hero-actions">
-            <a href="#formatos" class="btn btn-primary">Ver módulos do sistema</a>
-            <a href="#contato" class="btn btn-outline">Solicitar orçamento</a>
+            <a href="#formatos" class="btn btn-primary">Ver como funciona</a>
+            <a href="#contato" class="btn btn-outline">Enviar minha ideia</a>
           </div>
           <p style="margin-bottom:2rem;">
-            <a href="../../index.html" style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim);">&larr; Voltar à página inicial</a>
+            <a href="../card-desenvolvimento%20de%20software.html" style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim);">&larr; Voltar ao card do projeto</a>
           </p>
           <div class="hero-stats">
-            <div><div class="stat-value">-30%</div><div class="stat-label">desperdício de estoque</div></div>
-            <div><div class="stat-value">100%</div><div class="stat-label">visibilidade das mesas em tempo real</div></div>
-            <div><div class="stat-value">1</div><div class="stat-label">painel para toda a operação</div></div>
+            <div><div class="stat-value">100%</div><div class="stat-label">projeto exclusivo, zero template</div></div>
+            <div><div class="stat-value">1:1</div><div class="stat-label">time dedicado à sua ideia</div></div>
+            <div><div class="stat-value">24h</div><div class="stat-label">retorno inicial de contato</div></div>
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- ================= BENEFÍCIOS ================= -->
     <section class="benefits-section" id="beneficios">
       <div class="section-inner">
         <div class="section-head">
           <span class="eyebrow">Desejo e dor</span>
-          <h2>O impacto real no seu faturamento</h2>
-          <p>Um restaurante sem sistema de gestão trabalha no escuro — sem saber o que vende, o que sobra e o que falta. Veja o que muda de um lado e do outro dessa decisão.</p>
+          <h2>O que acontece quando o sistema não é seu</h2>
+          <p>Usar uma ferramenta genérica para um processo único do seu negócio cria atrito todos os dias. Veja a diferença entre se adaptar a um sistema e ter um sistema que se adapta a você.</p>
         </div>
 
         <div class="benefits-audience">
-          <span class="audience-pill">🍽️ Para restaurantes</span>
-          <span class="audience-pill">🍕 Para pizzarias e lanchonetes</span>
-          <span class="audience-pill">☕ Para bares e cafeterias</span>
+          <span class="audience-pill">🏢 Para empresas</span>
+          <span class="audience-pill">⚙️ Para operações complexas</span>
+          <span class="audience-pill">💡 Para ideias fora da caixa</span>
         </div>
 
         <div class="pros-cons-grid">
 
           <div class="impact-card card-risk">
-            <span class="impact-badge badge-risk">A operação no escuro</span>
-            <h3>Sem um sistema estruturado</h3>
+            <span class="impact-badge badge-risk">O molde apertado</span>
+            <h3>Com um sistema genérico</h3>
             <p class="impact-meta">O que isso custa para você, hoje</p>
             <ul class="impact-list">
               <li>
                 <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-                <span><strong>Comandas de papel:</strong> pedidos anotados à mão se perdem, atrasam e geram erros na cozinha e na conta do cliente.</span>
+                <span><strong>Processo forçado:</strong> sua operação precisa se adaptar às regras do software, em vez do software seguir a forma como você trabalha.</span>
               </li>
               <li>
                 <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-                <span><strong>Estoque sem controle:</strong> sem saber o que tem no estoque, você compra a mais, deixa faltar insumo ou descobre a perda depois que ela já aconteceu.</span>
+                <span><strong>Funções que você não usa:</strong> mensalidade cara por um pacote cheio de recursos genéricos, enquanto falta exatamente o que resolveria seu problema.</span>
               </li>
               <li>
                 <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-                <span><strong>Mesas sem visão geral:</strong> ninguém sabe de cabeça quais mesas estão livres, ocupadas ou aguardando a conta — o salão perde tempo e o cliente espera.</span>
+                <span><strong>Sem dono do código:</strong> você não pode pedir uma alteração pontual — só o que o fornecedor decidir lançar, quando decidir lançar.</span>
               </li>
               <li>
                 <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-                <span><strong>Sem relatórios reais:</strong> sem dados, você não sabe qual prato mais vende, qual dia é mais fraco ou qual horário precisa de reforço na equipe.</span>
+                <span><strong>Gambiarras acumuladas:</strong> planilhas paralelas, grupos de WhatsApp e processos manuais só existem porque o sistema principal não cobre o que você precisa.</span>
               </li>
               <li>
                 <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-                <span><strong>Fechamento de caixa manual:</strong> conferir vendas do dia na calculadora, no papel, é lento e abre espaço para erro e quebra de caixa.</span>
+                <span><strong>Sem exclusividade:</strong> o mesmo sistema padrão que você usa é usado por dezenas de concorrentes, sem nenhuma vantagem competitiva.</span>
               </li>
               <li>
                 <span class="impact-icon icon-cross"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-                <span><strong>Decisão no achismo:</strong> sem números, cada decisão de cardápio, preço ou compra é feita no "eu acho que", não no que os dados mostram.</span>
+                <span><strong>Crescimento travado:</strong> quando o negócio escala, o sistema pronto não acompanha e vira o próprio gargalo da operação.</span>
               </li>
             </ul>
           </div>
 
           <div class="impact-card card-gain">
-            <span class="impact-badge badge-gain">A operação sob controle</span>
-            <h3>Com o sistema Zyntek</h3>
-            <p class="impact-meta">Gestão com dados, não com achismo</p>
+            <span class="impact-badge badge-gain">A estrutura sob medida</span>
+            <h3>Com um sistema Zyntek</h3>
+            <p class="impact-meta">Feito em volta da sua ideia</p>
             <ul class="impact-list">
               <li>
                 <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <span><strong>Comandas digitais:</strong> pedido lançado no sistema vai direto para a cozinha, sem papel, sem erro de leitura, sem ida e volta.</span>
+                <span><strong>Regras do seu jeito:</strong> o sistema é desenhado a partir do seu fluxo de trabalho real, não o contrário.</span>
               </li>
               <li>
                 <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <span><strong>Controle de estoque:</strong> cada venda baixa o insumo automaticamente — você vê o que está acabando antes de faltar.</span>
+                <span><strong>Só o que você precisa:</strong> nenhuma função supérflua — cada tela existe porque resolve um problema específico do seu negócio.</span>
               </li>
               <li>
                 <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <span><strong>Mapa de mesas em tempo real:</strong> veja de relance quais mesas estão livres, ocupadas ou com conta pedida, direto no painel.</span>
+                <span><strong>Código é seu:</strong> propriedade total sobre o que é construído, com liberdade para evoluir o sistema quando e como quiser.</span>
               </li>
               <li>
                 <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <span><strong>Relatórios completos:</strong> vendas por prato, por horário, por dia da semana — dados prontos para decisões melhores.</span>
+                <span><strong>Um só lugar:</strong> substitui planilhas, grupos e processos manuais por um fluxo único, organizado e rastreável.</span>
               </li>
               <li>
                 <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <span><strong>Fechamento de caixa automático:</strong> o sistema soma tudo sozinho, reduzindo erro e economizando tempo no fim do expediente.</span>
+                <span><strong>Vantagem competitiva:</strong> uma ferramenta que só o seu negócio tem é um diferencial que concorrente nenhum consegue copiar da noite para o dia.</span>
               </li>
               <li>
                 <span class="impact-icon icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <span><strong>Dashboard centralizado:</strong> cozinha, salão, estoque e financeiro numa única tela, acessível de qualquer dispositivo.</span>
+                <span><strong>Cresce com você:</strong> arquitetura pensada para receber novos módulos conforme a operação evolui, sem precisar trocar de sistema no meio do caminho.</span>
               </li>
             </ul>
           </div>
 
         </div>
 
-        <p class="benefits-footnote">Faz diferença tanto para <strong>restaurantes à la carte</strong> quanto para <strong>lanchonetes e bares</strong> que precisam de agilidade no salão e controle no estoque.</p>
+        <p class="benefits-footnote">Ideal tanto para <strong>empresas</strong> com processos únicos quanto para <strong>empreendedores</strong> com uma ideia que ainda não existe no mercado.</p>
       </div>
     </section>
 
+    <!-- ================= COMO FUNCIONA / TIPOS ================= -->
     <section class="formats-section" id="formatos">
       <div class="section-inner">
         <div class="section-head">
-          <span class="eyebrow">Módulos do sistema</span>
-          <h2>Tudo que o seu restaurante precisa, integrado</h2>
-          <p>O sistema Zyntek para restaurantes é dividido em módulos que conversam entre si — do pedido na mesa ao relatório de fechamento do mês.</p>
+          <span class="eyebrow">Do papel ao código</span>
+          <h2>Tem uma ideia? Nosso time está pronto</h2>
+          <p>Não importa o quão específica ou fora do comum seja sua ideia — nosso time analisa, estrutura e transforma em um sistema funcional, do zero.</p>
         </div>
 
         <div class="formats-grid">
 
           <div class="format-card">
             <div class="format-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
             </div>
-            <h3>Dashboard</h3>
-            <p>Painel central com faturamento do dia, mesas ativas, pedidos em andamento e alertas de estoque — <strong style="color:var(--text)">visão geral do restaurante</strong> em um único olhar.</p>
+            <h3>Análise da ideia</h3>
+            <p>Você conta como funciona (ou deveria funcionar) o seu processo. Nosso time ouve, faz as perguntas certas e mapeia <strong style="color:var(--text)">exatamente o que precisa ser construído</strong> — sem termos técnicos, só entendimento real do seu negócio.</p>
             <div class="format-audience">
-              <div class="format-audience-row"><span class="format-tag tag-empresa">Gestor</span><span>Acompanha a operação inteira em tempo real, mesmo estando fora do restaurante.</span></div>
-              <div class="format-audience-row"><span class="format-tag tag-pessoa">Equipe</span><span>Enxerga rapidamente quais mesas precisam de atenção e o status de cada pedido.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Levantamento do fluxo operacional atual, gargalos e o que a equipe precisa no dia a dia.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Ideia nova</span><span>Estruturação de uma ideia que ainda está só na cabeça, ou em anotações soltas, até virar um plano concreto.</span></div>
             </div>
           </div>
 
           <div class="format-card">
             <div class="format-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8 13 13.7l-4-4L3 16"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </div>
-            <h3>Relatórios</h3>
-            <p>Vendas por prato, horário de pico, ticket médio e comparativo entre períodos — <strong style="color:var(--text)">dados prontos</strong> para decidir cardápio, preço e escala de equipe.</p>
+            <h3>Arquitetura sob medida</h3>
+            <p>Definimos as telas, os fluxos e as regras do sistema junto com você, montando um projeto claro <strong style="color:var(--text)">antes de escrever a primeira linha de código</strong>, para evitar retrabalho e surpresas.</p>
             <div class="format-audience">
-              <div class="format-audience-row"><span class="format-tag tag-empresa">Gestor</span><span>Identifica os pratos mais lucrativos e os horários que precisam de reforço na equipe.</span></div>
-              <div class="format-audience-row"><span class="format-tag tag-pessoa">Financeiro</span><span>Fechamento de caixa automático, sem planilha manual no fim do dia.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Desenho de painéis administrativos, permissões de equipe e integrações com o que já é usado hoje.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Ideia nova</span><span>Prototipagem das telas principais para validar a experiência antes da construção final.</span></div>
             </div>
           </div>
 
           <div class="format-card">
             <div class="format-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-            <h3>Mesas & Comandas</h3>
-            <p>Mapa visual do salão com status de cada mesa e comanda digital que vai direto para a cozinha — <strong style="color:var(--text)">sem papel, sem erro</strong> de pedido.</p>
+            <h3>Construção e entrega</h3>
+            <p>Codificação real, testes e ajustes até o sistema funcionar exatamente como foi combinado — com acompanhamento próximo em cada etapa, <strong style="color:var(--text)">sem caixa-preta</strong>.</p>
             <div class="format-audience">
-              <div class="format-audience-row"><span class="format-tag tag-empresa">Salão</span><span>Sabe em segundos quais mesas estão livres, ocupadas ou aguardando a conta.</span></div>
-              <div class="format-audience-row"><span class="format-tag tag-pessoa">Cozinha</span><span>Recebe o pedido na hora, sem depender de alguém levar a comanda até a cozinha.</span></div>
-            </div>
-          </div>
-
-          <div class="format-card">
-            <div class="format-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.91 8.84 8.56 21.18a2 2 0 0 1-2.83 0L1.5 17.4a2 2 0 0 1 0-2.83L13.85 2.22a2 2 0 0 1 1.42-.59H21a1 1 0 0 1 1 1v5.73a2 2 0 0 1-.59 1.42Z"/></svg>
-            </div>
-            <h3>Estoque</h3>
-            <p>Cada venda baixa o insumo automaticamente do estoque, com alertas de reposição — <strong style="color:var(--text)">reduza desperdício</strong> e nunca mais seja pego de surpresa por falta de ingrediente.</p>
-            <div class="format-audience">
-              <div class="format-audience-row"><span class="format-tag tag-empresa">Gestor</span><span>Vê exatamente o que precisa comprar antes que o insumo acabe no meio do serviço.</span></div>
-              <div class="format-audience-row"><span class="format-tag tag-pessoa">Cozinha</span><span>Controle de validade e ficha técnica de cada prato, evitando perdas por vencimento.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-empresa">Empresa</span><span>Sistemas de gestão, dashboards, plataformas internas e automações conectadas ao seu processo.</span></div>
+              <div class="format-audience-row"><span class="format-tag tag-pessoa">Ideia nova</span><span>Aplicativos, plataformas e produtos digitais que ainda não existem prontos no mercado.</span></div>
             </div>
           </div>
 
         </div>
+
+        <div class="custom-cases">
+          <div class="custom-case">
+            <span class="custom-case-icon">📊</span>
+            <h4>Painéis de gestão</h4>
+            <p>Controle de estoque, financeiro, equipe ou clientes num painel único, feito para a rotina do seu negócio.</p>
+          </div>
+          <div class="custom-case">
+            <span class="custom-case-icon">🔗</span>
+            <h4>Automações e integrações</h4>
+            <p>Sistemas que conversam entre si — conectando planilhas, formulários, WhatsApp e outras ferramentas.</p>
+          </div>
+          <div class="custom-case">
+            <span class="custom-case-icon">🧩</span>
+            <h4>Plataformas exclusivas</h4>
+            <p>Produtos digitais próprios, do zero, para ideias que não encontram solução pronta no mercado.</p>
+          </div>
+          <div class="custom-case">
+            <span class="custom-case-icon">🛠️</span>
+            <h4>Evolução contínua</h4>
+            <p>Seu sistema não para no lançamento — seguimos disponíveis para novas etapas e melhorias.</p>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- ================= CONTATO ================= -->
     <section class="contact-section" id="contato">
       <div class="section-inner">
         <div class="section-head">
           <span class="eyebrow">Contato</span>
-          <h2>Vamos estruturar a gestão do seu restaurante</h2>
-          <p>Detalhe como funciona sua operação hoje e nossa equipe retorna com uma proposta clara, sem enrolação.</p>
+          <h2>Vamos estruturar o seu próximo projeto</h2>
+          <p>Detalhe sua ideia e nossa equipe retorna com uma proposta clara, sem enrolação.</p>
         </div>
 
         <div class="contact-container">
 
           <div class="contact-card form-card">
             <div class="card-header">
-              <h3><span aria-hidden="true">&lt;/&gt;</span> Dê vida ao seu sistema de gestão</h3>
+              <h3><span aria-hidden="true">&lt;/&gt;</span> Dê vida à sua ideia</h3>
               <p>Preencha os campos abaixo para receber um retorno inicial da nossa equipe.</p>
             </div>
 
@@ -302,10 +320,10 @@
               </div>
 
               <div class="input-group">
-                <label for="empresa">Nome do restaurante</label>
+                <label for="empresa">Nome da empresa</label>
                 <div class="input-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/></svg>
-                  <input type="text" id="empresa" name="empresa" placeholder="Nome do restaurante (opcional)" autocomplete="organization">
+                  <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa (opcional)" autocomplete="organization">
                 </div>
               </div>
 
@@ -318,10 +336,10 @@
               </div>
 
               <div class="input-group">
-                <label for="mensagem">Descrição da sua operação <abbr title="obrigatório">*</abbr></label>
+                <label for="mensagem">Descrição da ideia do projeto <abbr title="obrigatório">*</abbr></label>
                 <div class="input-wrapper textarea-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .34 2.02 1.5 3.5.76.75 1.23 1.51 1.41 2.5"/></svg>
-                  <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva quantas mesas, o tamanho da equipe e como funciona o controle de estoque hoje..." required></textarea>
+                  <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o desafio do seu negócio ou a solução que deseja desenvolver..." required></textarea>
                 </div>
               </div>
 
@@ -329,12 +347,12 @@
                 <label id="tipoSolicitacaoLabel">Tipo de solicitação <abbr title="obrigatório">*</abbr></label>
                 <div class="urgency-group" role="radiogroup" aria-labelledby="tipoSolicitacaoLabel">
                   <label class="urgency-option">
-                    <input type="radio" name="tipo_solicitacao" value="Orçamento de novo sistema para restaurante" required>
+                    <input type="radio" name="tipo_solicitacao" value="Orçamento de novo projeto" required>
                     <span class="urgency-pill"><span class="urgency-dot dot-orcamento"></span>Orçamento</span>
                   </label>
                   <label class="urgency-option">
-                    <input type="radio" name="tipo_solicitacao" value="Ajuste em sistema já existente" required>
-                    <span class="urgency-pill"><span class="urgency-dot dot-reajuste"></span>Ajuste no sistema</span>
+                    <input type="radio" name="tipo_solicitacao" value="Reajuste em site já existente" required>
+                    <span class="urgency-pill"><span class="urgency-dot dot-reajuste"></span>Reajuste no site</span>
                   </label>
                   <label class="urgency-option">
                     <input type="radio" name="tipo_solicitacao" value="Urgente / Prioridade alta" required>
@@ -377,7 +395,7 @@
             </div>
 
             <div class="hub-footer">
-              <p>Consultoria estratégica em Sistemas para Restaurantes, Agendamento e soluções digitais de alto impacto.</p>
+              <p>Consultoria estratégica em Landing Pages, Catálogos, Portfólios e soluções digitais de alto impacto.</p>
               <a href="https://wa.me/554488317870?text=Gostaria%20de%20conhecer%20melhor%20sobre%20o%20servi%C3%A7o%20da%20Zyntek" class="btn-submit outline" target="_blank" rel="noopener noreferrer">
                 <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
               </a>
@@ -404,6 +422,7 @@
     </section>
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="main-footer" role="contentinfo">
     <div class="footer-container">
 
@@ -430,7 +449,7 @@
         <ul>
           <li><a href="#home">Início</a></li>
           <li><a href="#beneficios">Benefícios</a></li>
-          <li><a href="#formatos">Módulos</a></li>
+          <li><a href="#formatos">Formatos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
@@ -438,20 +457,20 @@
       <div class="footer-col">
         <h4>Soluções</h4>
         <ul>
-          <li><a href="#">Para restaurantes</a></li>
-          <li><a href="#">Para pizzarias e lanchonetes</a></li>
-          <li><a href="#">Para bares e cafeterias</a></li>
+          <li><a href="#">Para empresas</a></li>
+          <li><a href="#">Para autônomos</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>O que desenvolvemos</h4>
         <ul>
-          <li><a href="#formatos">Sistema para Restaurantes</a></li>
-          <li><a href="projeto-agendamento.html">Plataforma de Agendamento</a></li>
-          <li><a href="../projeto-lp.html">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="#">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="#">Plataforma de Agendamento</a></li>
+          <li><a href="#">Sistemas para Restaurantes</a></li>
           <li><a href="#">Lojas Virtuais Completas</a></li>
           <li><a href="#">Chatbot de Fluxo Inteligente</a></li>
+          <li><a href="#formatos">Sistemas Sob Medida</a></li>
         </ul>
       </div>
 
@@ -459,8 +478,8 @@
         <h4>Informações</h4>
         <ul>
           <li><a href="../precos.html">Preços</a></li>
-          <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="../faq.html">FAQ</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">FAQ</a></li>
           <li><a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20integrar%20a%20equipe%20Zyntek." target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a></li>
         </ul>
       </div>
@@ -473,6 +492,6 @@
     </div>
   </footer>
 
-  <script src="../../javascript/projeto.restaurante.js"></script>
+  <script src="../../javascript/projeto.sistemasobmedida.js"></script>
 </body>
 </html>
