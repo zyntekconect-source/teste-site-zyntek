@@ -92,97 +92,80 @@ body.light-mode {
 /* ==============================================================
    2. BACKGROUND ANIMATIONS (preservado do sistema original)
    ============================================================== */
-.zyntek-bg-animation {
+.bg-system {
   position: fixed;
   inset: 0;
-  height: 100vh;
+  z-index: -10;
   overflow: hidden;
-  z-index: -1;
-  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(124, 58, 237, 0.45), transparent 24%),
+    radial-gradient(circle at 75% 12%, rgba(147, 51, 234, 0.36), transparent 28%),
+    radial-gradient(circle at 50% 60%, rgba(79, 70, 229, 0.28), transparent 32%),
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(76, 29, 149, 0.5), transparent 50%),
+    var(--bg-deep);
+  background-blend-mode: screen;
+  transition: background 0.4s ease;
 }
 
-.zyntek-floating-cubes {
+.bg-grid {
   position: absolute;
-  inset: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  inset: -2px;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.12) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 30%, transparent 85%);
+  opacity: 0.55;
 }
+[data-theme="light"] .bg-grid { opacity: 0.35; }
 
-.zyntek-floating-cubes li {
-  position: absolute;
-  display: block;
-  bottom: -150px;
-  background: var(--cube-bg);
-  border: 1px solid var(--cube-border);
-  box-shadow:
-    0 0 12px var(--cube-glow),
-    inset 0 0 8px rgba(109, 40, 217, 0.06);
-  border-radius: 4px;
-  animation: floatUpAndRotate infinite linear;
-  will-change: transform, opacity;
-}
-
-/* Ring shape */
-.zyntek-floating-cubes li[data-shape="ring"] {
-  background: transparent !important;
-  border-radius: 50%;
-  border: 1.5px solid var(--cube-border);
-  box-shadow: 0 0 14px var(--cube-glow), 0 0 28px rgba(109,40,217,0.07);
-}
-
-/* Cross shape */
-.zyntek-floating-cubes li[data-shape="cross"] {
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0;
-}
-
-/* Triangle shape */
-.zyntek-floating-cubes li[data-shape="triangle"] {
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0;
-  box-shadow: none !important;
-}
-
-/* Diamond shape */
-.zyntek-floating-cubes li[data-shape="diamond"] {
-  border-radius: 2px;
-  box-shadow: 0 0 18px var(--cube-glow), 0 0 4px rgba(109,40,217,0.18);
-}
-
-@keyframes floatUpAndRotate {
-  0%   { transform: translateY(0) rotate(0deg);   opacity: 0; }
-  8%   { opacity: 1; }
-  88%  { opacity: 0.85; }
-  100% { transform: translateY(-118vh) rotate(420deg); opacity: 0; }
-}
-
-/* Canvas do mesh gradient / partículas */
-#zyntek-bg-root {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-}
-
-#zyntek-mesh-canvas,
-#zyntek-particles-canvas {
+/* Canvas com a rede de pontos conectados por linhas */
+#bg-particles {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.55;
+}
+[data-theme="light"] #bg-particles { opacity: 0.35; }
+
+/* Formas geométricas (quadrado, retângulo, círculo) subindo pela tela */
+.bg-shapes { position: absolute; inset: 0; overflow: hidden; }
+
+.bg-shape {
+  position: absolute;
+  bottom: -12%;
+  border: 1.5px solid rgba(192, 132, 252, 0.45);
+  opacity: 0;
+  animation-name: rise-up;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.shape-square { width: 46px; height: 46px; border-radius: 8px; transform: rotate(15deg); }
+.shape-rect   { width: 70px; height: 40px; border-radius: 6px; transform: rotate(-8deg); }
+.shape-circle { width: 54px; height: 54px; border-radius: 50%; }
+
+.bg-shape:nth-child(1) { left: 8%;  animation-duration: 26s; animation-delay: 0s; }
+.bg-shape:nth-child(2) { left: 22%; animation-duration: 34s; animation-delay: 4s; }
+.bg-shape:nth-child(3) { left: 38%; animation-duration: 22s; animation-delay: 9s; }
+.bg-shape:nth-child(4) { left: 55%; animation-duration: 30s; animation-delay: 2s; }
+.bg-shape:nth-child(5) { left: 70%; animation-duration: 25s; animation-delay: 12s; }
+.bg-shape:nth-child(6) { left: 84%; animation-duration: 32s; animation-delay: 6s; }
+.bg-shape:nth-child(7) { left: 15%; animation-duration: 28s; animation-delay: 16s; }
+.bg-shape:nth-child(8) { left: 63%; animation-duration: 24s; animation-delay: 19s; }
+
+@keyframes rise-up {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.5; }
+  85%  { opacity: 0.35; }
+  100% { transform: translateY(-118vh) rotate(35deg); opacity: 0; }
 }
 
-#zyntek-vignette {
+.bg-noise {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at top left,    transparent 75%, var(--bg-deep) 100%),
-    radial-gradient(ellipse at bottom right, transparent 75%, var(--bg-deep) 100%);
-  pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ==============================================================
@@ -498,7 +481,7 @@ body.light-mode .lang-btn:hover { background: rgba(0,0,0,0.05); color: #111827; 
   gap: 7px;
   padding: 9px 18px;
   border: 1px solid var(--border-medium);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--text-primary);
   font-size: 0.88rem;
@@ -841,6 +824,7 @@ body.light-mode .cta-btn.sidebar-cta { background: var(--primary); border-color:
 .hero-frame-header {
   top: 0;
   background: linear-gradient(180deg, rgba(9, 9, 11, 0.7) 0%, rgba(9, 9, 11, 0) 100%);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.35);
 }
 
 .hero-frame-footer {
@@ -1003,7 +987,7 @@ body.light-mode .cta-btn.sidebar-cta { background: var(--primary); border-color:
   color: #ffffff;
   border: none;
   padding: 0.9rem 1.9rem;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -1743,7 +1727,7 @@ body.light-mode .service-card { background: rgba(255,255,255,0.85); border-color
   color: var(--text-primary);
   border: 1px solid rgba(139, 92, 246, 0.4);
   padding: 0.9rem 1.6rem;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
@@ -1951,7 +1935,7 @@ body.light-mode .cta-container { background: rgba(255,255,255,0.85); border-colo
   background: var(--primary);
   color: #ffffff;
   padding: 0.9rem 1.75rem;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -2167,7 +2151,7 @@ body.light-mode .input-wrapper svg { color: #A1A1AA; }
   border: 1px solid var(--border-medium);
   color: var(--text-primary);
   padding: 0.95rem;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -2797,4 +2781,63 @@ body.light-mode ::-webkit-scrollbar-thumb {
 .text-purple {
   color: #a855f7; /* Substitua pelo código hexadecimal exato do roxo do seu site */
   font-weight: 600; /* Dá um leve destaque na espessura da letra também */
+}
+
+/* ==========================================================================
+   BOTÃO FLUTUANTE WHATSAPP (ATUALIZADO)
+   ========================================================================== */
+.btn-whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 90; /* Z-index reduzido para ficar atrás do menu lateral */
+    background-color: #6d28d9; 
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 24px;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: 600;
+    font-family: sans-serif;
+    box-shadow: 0 8px 24px rgba(109, 40, 217, 0.4);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Estilização do ícone SVG */
+.btn-whatsapp-float .wa-icon {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff; /* Garante que o ícone fique branco */
+    flex-shrink: 0;
+}
+
+.btn-whatsapp-float:hover {
+    background-color: #7c3aed; 
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(109, 40, 217, 0.6);
+}
+
+/* VERSÃO MOBILE */
+@media (max-width: 768px) {
+    .btn-whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        padding: 0;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%; 
+    }
+
+    .btn-whatsapp-float .btn-text {
+        display: none;
+    }
+
+    .btn-whatsapp-float .wa-icon {
+        width: 26px;
+        height: 26px;
+    }
 }

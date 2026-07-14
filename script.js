@@ -652,77 +652,76 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================
-   11. INJEÇÃO DE CUBOS FLUTUANTES (BACKGROUND DECORATIVO)
+   11. BACKGROUND — REDE DE PONTOS CONECTADOS
 ========================================================== */
 
-// Inicializa o fundo animado sem alterar o HTML estrutural
-document.addEventListener("DOMContentLoaded", () => {
-    const body = document.body;
+function initHomeBackgroundParticles() {
+    const canvas = document.getElementById('bg-particles');
+    if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    // Cria o container principal do fundo
-    const cubeWrapper = document.createElement("div");
-    cubeWrapper.className = "zyntek-bg-animation";
-    cubeWrapper.setAttribute("aria-hidden", "true");
+    const ctx = canvas.getContext('2d');
+    let width, height, points;
+    const DENSITY = 14000;   // px² por ponto — maior = menos pontos
+    const LINK_DIST = 150;   // distância máxima para desenhar uma linha
+    const SPEED = 0.18;
 
-    // Cria a lista que conterá os cubos/partículas
-    const cubeList = document.createElement("ul");
-    cubeList.className = "zyntek-floating-cubes";
-
-    // Define a quantidade de shapes tecnológicos flutuantes
-    const totalCubes = 28;
-
-    // Tipos de shape: cube, diamond, ring, cross, triangle
-    const shapeTypes = ['cube', 'diamond', 'ring', 'cross', 'triangle'];
-
-    for (let i = 0; i < totalCubes; i++) {
-        const li = document.createElement("li");
-
-        const size     = Math.floor(Math.random() * 55) + 14; // 14px → 69px
-        const left     = Math.random() * 100;
-        const delay    = Math.random() * 8;                   // delay máx 8s (era 15s)
-        const duration = Math.floor(Math.random() * 10) + 7;  // 7s → 17s (era 15-35s)
-        const shape    = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-
-        li.style.width           = `${size}px`;
-        li.style.height          = `${size}px`;
-        li.style.left            = `${left}%`;
-        li.style.animationDelay  = `${delay}s`;
-        li.style.animationDuration = `${duration}s`;
-        li.dataset.shape         = shape;
-
-        // Estilos por tipo de shape
-        if (shape === 'diamond') {
-            li.style.borderRadius = '0';
-            li.style.transform    = 'rotate(45deg)';
-        } else if (shape === 'ring') {
-            li.style.background   = 'transparent';
-            li.style.borderWidth  = '2px';
-            li.style.borderRadius = '50%';
-        } else if (shape === 'cross') {
-            li.style.background   = 'transparent';
-            li.style.border       = 'none';
-            li.style.width        = `${size * 0.18}px`;
-            li.style.height       = `${size}px`;
-            li.style.boxShadow    = `${size * 0.41}px 0 0 ${size * 0.18}px var(--cube-border)`;
-        } else if (shape === 'triangle') {
-            li.style.background   = 'transparent';
-            li.style.border       = 'none';
-            li.style.width        = '0';
-            li.style.height       = '0';
-            const half = Math.floor(size / 2);
-            li.style.borderLeft   = `${half}px solid transparent`;
-            li.style.borderRight  = `${half}px solid transparent`;
-            li.style.borderBottom = `${size}px solid rgba(109,40,217,0.18)`;
-            li.style.boxShadow    = 'none';
-        }
-        // 'cube' usa os estilos padrão do CSS (.zyntek-floating-cubes li)
-
-        cubeList.appendChild(li);
+    function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+        const total = Math.max(24, Math.min(90, Math.round((width * height) / DENSITY)));
+        points = Array.from({ length: total }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * SPEED,
+            vy: (Math.random() - 0.5) * SPEED,
+        }));
     }
 
-    cubeWrapper.appendChild(cubeList);
-    body.appendChild(cubeWrapper);
-});
+    function step() {
+        ctx.clearRect(0, 0, width, height);
+
+        points.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+        });
+
+        for (let i = 0; i < points.length; i++) {
+            for (let j = i + 1; j < points.length; j++) {
+                const dx = points[i].x - points[j].x;
+                const dy = points[i].y - points[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < LINK_DIST) {
+                    ctx.strokeStyle = `rgba(124, 58, 237, ${1 - dist / LINK_DIST})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(points[i].x, points[i].y);
+                    ctx.lineTo(points[j].x, points[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        points.forEach((p) => {
+            ctx.fillStyle = 'rgba(196, 181, 253, 0.85)';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        requestAnimationFrame(step);
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resize, 200);
+    });
+
+    resize();
+    requestAnimationFrame(step);
+}
 
 /* ==========================================================
    12. UTILITÁRIOS (SISTEMA DE FUNDO — MESH/PARTÍCULAS)
@@ -734,314 +733,6 @@ const lerp = (a, b, t)  => a + (b - a) * t;
 /* ==========================================================
    13. MESH GRADIENT — AURORA + DOT-GRID SYSTEM
 ========================================================== */
-
-function initMeshGradient() {
-    const canvas = document.getElementById('zyntek-mesh-canvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let W, H, rafId, t = 0;
-
-    const isLight = () => document.body.classList.contains('light-mode');
-
-    /* ── Configuração das auroras (glows suaves, sem blobs pesados) ── */
-    const AURORAS = [
-        /* cx_frac, cy_frac, rx_frac, ry_frac, hue, orbitX, orbitY, speed, phase */
-        { cx: 0.75, cy: 0.18, rx: 0.55, ry: 0.35, hue: 258, ox: 0.04, oy: 0.03, spd: 0.00018, ph: 0.00 },
-        { cx: 0.15, cy: 0.70, rx: 0.50, ry: 0.38, hue: 278, ox: 0.03, oy: 0.04, spd: 0.00022, ph: 2.10 },
-        { cx: 0.85, cy: 0.80, rx: 0.38, ry: 0.30, hue: 240, ox: 0.025, oy: 0.03, spd: 0.00015, ph: 1.05 },
-    ];
-
-    /* ── Configuração da grade de circuito (circuit board) ── */
-    const CIRCUIT_GAP  = 52;   /* espaçamento entre nós em px */
-    const NODE_R       = 1.6;  /* raio base do nó */
-
-    /* Semente de segmentos de linha — gerada uma vez no resize */
-    let circuitLines = [];
-
-    function buildCircuit() {
-        circuitLines = [];
-        const cols = Math.ceil(W / CIRCUIT_GAP) + 2;
-        const rows = Math.ceil(H / CIRCUIT_GAP) + 2;
-        const offX = (W % CIRCUIT_GAP) / 2;
-        const offY = (H % CIRCUIT_GAP) / 2;
-
-        for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-                const x = offX + c * CIRCUIT_GAP;
-                const y = offY + r * CIRCUIT_GAP;
-
-                /* Cada nó tem ~45% de chance de gerar um segmento para direita e/ou baixo */
-                if (Math.random() < 0.45 && c < cols - 1) {
-                    circuitLines.push({ x1: x, y1: y, x2: x + CIRCUIT_GAP, y2: y });
-                }
-                if (Math.random() < 0.45 && r < rows - 1) {
-                    circuitLines.push({ x1: x, y1: y, x2: x, y2: y + CIRCUIT_GAP });
-                }
-            }
-        }
-    }
-
-    function drawCircuit() {
-        const light      = isLight();
-        const lineAlpha  = light ? 0.055 : 0.10;
-        const nodeAlpha  = light ? 0.10  : 0.20;
-        const glowAlpha  = light ? 0.04  : 0.10;
-
-        /* Centro do glow principal */
-        const gcx = W * 0.72;
-        const gcy = H * 0.22;
-
-        const breathe = Math.sin(t * 0.0004) * 0.3 + 0.7;
-
-        /* Desenha linhas do circuito */
-        circuitLines.forEach(seg => {
-            const mx   = (seg.x1 + seg.x2) / 2;
-            const my   = (seg.y1 + seg.y2) / 2;
-            const dist = Math.hypot(mx - gcx, my - gcy);
-            const prox = Math.max(0, 1 - dist / 420);
-            const a    = lineAlpha + prox * glowAlpha * breathe;
-            if (a < 0.005) return;
-
-            const hue = 262 + prox * 20;
-            const sat = 15  + prox * 65;
-            const lig = light ? 35 : 72;
-
-            ctx.beginPath();
-            ctx.moveTo(seg.x1, seg.y1);
-            ctx.lineTo(seg.x2, seg.y2);
-            ctx.strokeStyle = `hsla(${hue}, ${sat}%, ${lig}%, ${a})`;
-            ctx.lineWidth   = 0.8 + prox * 0.6;
-            ctx.stroke();
-        });
-
-        /* Desenha nós nos cruzamentos */
-        const cols = Math.ceil(W / CIRCUIT_GAP) + 2;
-        const rows = Math.ceil(H / CIRCUIT_GAP) + 2;
-        const offX = (W % CIRCUIT_GAP) / 2;
-        const offY = (H % CIRCUIT_GAP) / 2;
-
-        for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-                const x    = offX + c * CIRCUIT_GAP;
-                const y    = offY + r * CIRCUIT_GAP;
-                const dist = Math.hypot(x - gcx, y - gcy);
-                const prox = Math.max(0, 1 - dist / 420);
-                const a    = nodeAlpha + prox * glowAlpha * breathe;
-                if (a < 0.01) continue;
-
-                const radius = NODE_R + prox * 1.6 * breathe;
-                const hue    = 262 + prox * 20;
-                const sat    = 20  + prox * 70;
-                const lig    = light ? 35 : 70;
-
-                /* Nós próximos ao glow ganham um anel extra */
-                if (prox > 0.45) {
-                    ctx.beginPath();
-                    ctx.arc(x, y, radius * 2.2, 0, Math.PI * 2);
-                    ctx.strokeStyle = `hsla(${hue}, 80%, 65%, ${a * 0.35})`;
-                    ctx.lineWidth   = 0.6;
-                    ctx.stroke();
-                }
-
-                ctx.beginPath();
-                ctx.arc(x, y, radius, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${hue}, ${sat}%, ${lig}%, ${a})`;
-                ctx.fill();
-            }
-        }
-    }
-
-    function resize() {
-        W = canvas.width  = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-        buildCircuit(); /* reconstrói o grafo ao redimensionar */
-    }
-
-    function drawAuroras() {
-        const alpha = isLight() ? 0.13 : 0.28;
-
-        ctx.globalCompositeOperation = 'screen';
-
-        AURORAS.forEach(a => {
-            const cx = (a.cx + Math.sin(t * a.spd * 1000 + a.ph) * a.ox) * W;
-            const cy = (a.cy + Math.cos(t * a.spd * 1000 * 0.8 + a.ph) * a.oy) * H;
-            const rx = a.rx * W;
-            const ry = a.ry * H;
-
-            /* Elipse via transformação do ctx */
-            ctx.save();
-            ctx.scale(1, ry / rx);
-            const grad = ctx.createRadialGradient(cx, cy * (rx / ry), 0, cx, cy * (rx / ry), rx);
-            const hue = a.hue + Math.sin(t * 0.0003) * 10;
-            grad.addColorStop(0,    `hsla(${hue}, 85%, 62%, ${alpha})`);
-            grad.addColorStop(0.45, `hsla(${hue}, 75%, 50%, ${alpha * 0.25})`);
-            grad.addColorStop(1,    `hsla(${hue}, 70%, 40%, 0)`);
-            ctx.fillStyle = grad;
-            ctx.beginPath();
-            ctx.arc(cx, cy * (rx / ry), rx, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-        });
-
-        ctx.globalCompositeOperation = 'source-over';
-    }
-
-    function drawDotGrid() {
-        const light     = isLight();
-        const dotAlpha  = light ? 0.12 : 0.18;
-        const glowAlpha = light ? 0.07 : 0.14;
-
-        /* Centro do glow (canto superior direito — composição hero) */
-        const gcx = W * 0.72;
-        const gcy = H * 0.22;
-
-        /* Offset de tempo muito suave para os pontos "respira" ligeiramente */
-        const breathe = Math.sin(t * 0.0004) * 0.3 + 0.7; /* 0.4 → 1.0 */
-
-        const cols = Math.ceil(W / DOT_GAP) + 2;
-        const rows = Math.ceil(H / DOT_GAP) + 2;
-        const offX = (W % DOT_GAP) / 2;
-        const offY = (H % DOT_GAP) / 2;
-
-        for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-                const x = offX + c * DOT_GAP;
-                const y = offY + r * DOT_GAP;
-
-                /* Distância ao centro do glow */
-                const dist = Math.hypot(x - gcx, y - gcy);
-                const proximity = Math.max(0, 1 - dist / DOT_PROX); /* 0 → 1 */
-
-                /* Tamanho e opacidade variam com proximidade */
-                const radius  = DOT_R + proximity * 1.2 * breathe;
-                const opacity = dotAlpha + proximity * glowAlpha * breathe;
-
-                if (opacity < 0.01) continue;
-
-                /* Cor: roxo próximo ao centro, neutro longe */
-                const hue = 262 + proximity * 20;
-                const sat = 20  + proximity * 70;
-                const lig = light ? 35 : 70;
-
-                ctx.beginPath();
-                ctx.arc(x, y, radius, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${hue}, ${sat}%, ${lig}%, ${opacity})`;
-                ctx.fill();
-            }
-        }
-    }
-
-    function draw(ts = 0) {
-        t = ts;
-        rafId = requestAnimationFrame(draw);
-        ctx.clearRect(0, 0, W, H);
-
-        drawCircuit();
-        drawAuroras();
-    }
-
-    window.addEventListener('resize', () => {
-        cancelAnimationFrame(rafId);
-        resize();
-        rafId = requestAnimationFrame(draw);
-    }, { passive: true });
-
-    resize();
-    rafId = requestAnimationFrame(draw);
-}
-
-/* ==========================================================
-   14. PARTÍCULAS SUTIS
-========================================================== */
-
-function initParticles() {
-    const canvas = document.getElementById('zyntek-particles-canvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let W, H, particles, rafId;
-
-    const COUNT = window.innerWidth < 600 ? 22 : 40;
-    const isLight = () => document.body.classList.contains('light-mode');
-
-    class Dot {
-        constructor() { this.reset(true); }
-
-        reset(initial = false) {
-            this.x     = rand(0, W);
-            this.y     = initial ? rand(0, H) : H + rand(10, 40);
-            this.r     = rand(0.8, 1.8);
-            this.speed = rand(0.12, 0.35);
-            this.drift = rand(-0.06, 0.06);
-            this.alpha = rand(0.04, 0.18);
-            this.hue   = rand(255, 285);
-        }
-
-        update() {
-            this.y -= this.speed;
-            this.x += this.drift;
-            if (this.y < -10 || this.x < -20 || this.x > W + 20) this.reset();
-        }
-
-        draw() {
-            const a = isLight() ? this.alpha * 0.45 : this.alpha;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${this.hue}, 75%, ${isLight() ? 40 : 75}%, ${a})`;
-            ctx.fill();
-        }
-    }
-
-    function resize() {
-        W = canvas.width  = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-        if (!particles || particles.length !== COUNT) {
-            particles = Array.from({ length: COUNT }, () => new Dot());
-        }
-    }
-
-    function draw() {
-        rafId = requestAnimationFrame(draw);
-        ctx.clearRect(0, 0, W, H);
-        particles.forEach(p => { p.update(); p.draw(); });
-    }
-
-    window.addEventListener('resize', () => {
-        cancelAnimationFrame(rafId);
-        resize();
-        draw();
-    }, { passive: true });
-
-    resize();
-    draw();
-}
-
-/* ==========================================================
-   15. INJEÇÃO DO HTML ESTRUTURAL DO FUNDO
-========================================================== */
-
-function injectBackgroundDOM() {
-    /* Evita duplicação se chamar 2x */
-    if (document.getElementById('zyntek-bg-root')) return;
-
-    const root = document.createElement('div');
-    root.id = 'zyntek-bg-root';
-    root.setAttribute('aria-hidden', 'true');
-    root.innerHTML = `
-        <!-- Canvas do Mesh Gradient (camada inferior) -->
-        <canvas id="zyntek-mesh-canvas"></canvas>
-
-        <!-- Canvas das partículas flutuantes (camada superior) -->
-        <canvas id="zyntek-particles-canvas"></canvas>
-
-        <!-- Vinheta suave nas bordas -->
-        <div id="zyntek-vignette"></div>
-    `;
-
-    /* Insere como primeiro filho do body */
-    document.body.insertBefore(root, document.body.firstChild);
-}
 
 /* ==========================================================
    16. NAV: ENTRADA PROFISSIONAL ESCALONADA
@@ -1468,9 +1159,7 @@ function initContactForm() {
 ========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    injectBackgroundDOM();
-    initMeshGradient();
-    initParticles();
+    initHomeBackgroundParticles();
     initNavEntrance();
     watchThemeChanges();
     respectReducedMotion();

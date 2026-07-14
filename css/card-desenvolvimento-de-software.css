@@ -1,0 +1,339 @@
+/* ==============================================================
+   ZYNTEK — card-desenvolvimento de software.css
+   Herda tokens, header, footer, hero-frame, contact-section e
+   pros-cons-grid de projeto-lp.css. Aqui ficam só os blocos
+   exclusivos desta página: fundamentos, processo, operação,
+   estatísticas e o mockup do "sistema sob medida".
+   ============================================================== */
+
+/* ---------- Voltar ---------- */
+.back-link-row { margin-bottom: 1.8rem; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+.back-link:hover { color: var(--accent-soft); gap: 10px; }
+
+/* ---------- Mini índice de navegação da página ---------- */
+.page-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin: -1.6rem 0 3.5rem;
+}
+.page-toc a {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--panel-alt);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.page-toc a:hover,
+.page-toc a.is-active {
+  border-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* --------------------------------------------------------------
+   FUNDAMENTOS — "O que é, na prática, um sistema sob medida?"
+   -------------------------------------------------------------- */
+.fundamentos-section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+
+.fundamentos-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.fundamentos-text .eyebrow { display: inline-flex; }
+.fundamentos-text h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  line-height: 1.2;
+}
+.fundamentos-text > p {
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 1.1rem;
+}
+.fundamentos-text > p:last-of-type { margin-bottom: 0; }
+.fundamentos-text strong { color: var(--text); }
+
+.usecase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+}
+.usecase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  background: var(--accent-dim);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+.usecase-tag:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  transform: translateY(-2px);
+}
+.usecase-tag svg { width: 14px; height: 14px; color: var(--accent-soft); flex-shrink: 0; }
+
+/* Mockup de "sistema" dentro da moldura zynk-frame */
+.sw-dashboard {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  min-height: 300px;
+  background: linear-gradient(160deg, #171025, #0b0814);
+}
+.sw-dashboard-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.2rem 0;
+  border-right: 1px solid var(--border);
+}
+.sw-dashboard-rail span {
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--text-dim);
+}
+.sw-dashboard-rail span svg { width: 14px; height: 14px; }
+.sw-dashboard-rail span.is-active {
+  background: var(--accent-dim);
+  border-color: rgba(124,58,237,0.5);
+  color: var(--accent-soft);
+}
+
+.sw-dashboard-main { padding: 1.2rem 1.3rem 1.4rem; }
+.sw-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  margin-bottom: 1.1rem;
+}
+.sw-dashboard-cards div {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+}
+.sw-card-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+.sw-card-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.sw-card-value.up { color: var(--success); }
+
+.sw-dashboard-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 96px;
+  padding: 0.9rem 0.9rem 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.sw-dashboard-chart i {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--accent-soft), var(--accent));
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------
+   PROCESSO — "Como construímos o seu sistema"
+   -------------------------------------------------------------- */
+.processo-section { padding: clamp(2rem, 6vw, 4rem) 0 clamp(3rem, 7vw, 6rem); }
+
+.process-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  margin-top: 1rem;
+  counter-reset: process-step;
+  position: relative;
+}
+.process-track::before {
+  content: "";
+  position: absolute;
+  top: 27px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4) 15%, rgba(124,58,237,0.4) 85%, transparent);
+  z-index: 0;
+}
+.process-step { position: relative; z-index: 1; counter-increment: process-step; }
+.process-step-number {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--panel-solid);
+  border: 1px solid rgba(124,58,237,0.4);
+  color: var(--accent-soft);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 20px rgba(124,58,237,0.2);
+}
+.process-step-number::before { content: counter(process-step, decimal-leading-zero); }
+.process-step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; }
+.process-step p { font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); }
+
+/* --------------------------------------------------------------
+   OPERAÇÃO & CRESCIMENTO
+   -------------------------------------------------------------- */
+.operacao-section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+
+.growth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+.growth-layout.reverse .growth-media { order: 2; }
+.growth-layout.reverse .growth-text { order: 1; }
+
+.growth-text h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  margin-bottom: 1.1rem;
+  line-height: 1.2;
+}
+.growth-text > p {
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+.growth-list { display: flex; flex-direction: column; gap: 1.1rem; }
+.growth-list li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.growth-list li svg {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  color: var(--accent-soft);
+  margin-top: 2px;
+}
+.growth-list li strong { color: var(--text); }
+
+/* Estatísticas — "Software próprio é o que sustenta seu crescimento" */
+.stats-band {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.stats-band .section-head { margin-bottom: 2.6rem; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.stat-block { background: var(--panel); padding: 2rem 1.25rem; }
+.stat-block .stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--accent-soft);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+.stat-block .stat-caption {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------
+   COMPARATIVO — reaproveita .pros-cons-grid / .impact-card
+   -------------------------------------------------------------- */
+.comparativo-section { padding: clamp(2rem, 6vw, 4rem) 0 clamp(3rem, 7vw, 6rem); }
+
+/* --------------------------------------------------------------
+   RESPONSIVO
+   -------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .fundamentos-layout,
+  .growth-layout,
+  .growth-layout.reverse .growth-media,
+  .growth-layout.reverse .growth-text { grid-template-columns: 1fr; order: unset; }
+  .fundamentos-layout, .growth-layout { grid-template-columns: 1fr; }
+  .fundamentos-media { order: -1; }
+
+  .process-track { grid-template-columns: repeat(2, 1fr); row-gap: 2.4rem; }
+  .process-track::before { display: none; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-toc { margin-top: -0.5rem; }
+}
+
+@media (max-width: 768px) {
+  .process-track { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .sw-dashboard { grid-template-columns: 1fr; }
+  .sw-dashboard-rail { flex-direction: row; justify-content: center; border-right: none; border-bottom: 1px solid var(--border); }
+  .sw-dashboard-cards { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .page-toc { display: none; }
+}
