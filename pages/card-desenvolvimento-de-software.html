@@ -100,13 +100,13 @@
               <span class="hero-frame-title">ZYNTEK_SISTEMA_DEMO.mp4</span>
             </div>
             <div class="hero-video-box">
-              <!-- Substituir pelos assets reais quando disponíveis -->
-              <video autoplay muted loop playsinline poster="../assets/icones/hero-poster-software.jpg">
+              <!-- Substituir pelos assets reais quando disponíveis.
+                   O box aceita vídeo OU foto: se o vídeo não existir/carregar,
+                   a imagem abaixo assume o lugar automaticamente (ver JS). -->
+              <video autoplay muted loop playsinline poster="../assets/icones/hero-poster-software.jpg" data-hero-video>
                 <source src="../assets/videos/sistema-sob-medida-demo.mp4" type="video/mp4">
               </video>
-              <div class="video-placeholder-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-              </div>
+              <img src="../assets/icones/hero-poster-software.jpg" alt="Sistema sob medida — visualização" class="hero-video-fallback" data-hero-fallback-img>
             </div>
             <div class="hero-frame-footer" aria-hidden="true">
               <span class="zynk-frame-status"></span>
@@ -142,15 +142,6 @@
     <!-- ================= FUNDAMENTOS ================= -->
     <section class="fundamentos-section" id="fundamentos">
       <div class="section-inner">
-
-        <nav class="page-toc" aria-label="Navegação rápida da página">
-          <a href="#fundamentos">Fundamentos</a>
-          <a href="#processo">Como construímos</a>
-          <a href="#operacao">Impacto na operação</a>
-          <a href="#exemplos">Projetos</a>
-          <a href="#comparativo">Comparativo</a>
-          <a href="#contato">Contato</a>
-        </nav>
 
         <div class="fundamentos-layout">
 
@@ -478,7 +469,7 @@
     <div class="footer-container">
 
       <div class="footer-col">
-        <img src="assets/icones/logo z .png" alt="Logotipo Zyntek" class="footer-logo" width="120" height="40">
+        <img src="../assets/icones/logo z .png" alt="Logotipo Zyntek" class="footer-logo" width="120" height="40">
         <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
         <div class="footer-social">
           <h4>Nos acompanhe</h4>
@@ -509,43 +500,43 @@
       <div class="footer-col">
         <h4>Explore</h4>
         <ul role="list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#sobre">Sobre a Zyntek</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#equipe">Equipe</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#contatos">Contato</a></li>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#sobre">Sobre a Zyntek</a></li>
+          <li><a href="../index.html#servicos">Serviços</a></li>
+          <li><a href="../index.html#equipe">Equipe</a></li>
+          <li><a href="../index.html#projetos">Projetos</a></li>
+          <li><a href="../index.html#contatos">Contato</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Soluções</h4>
         <ul role="list">
-          <li><a href="pages/paraempresas.html">Para Empresas</a></li>
-          <li><a href="pages/paraautonomos.html">Para Autônomos</a></li>
+          <li><a href="paraempresas.html">Para Empresas</a></li>
+          <li><a href="paraautonomos.html">Para Autônomos</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>O que desenvolvemos</h4>
         <ul role="list">
-          <li><a href="pages/projetos/projeto-lp.html">Landing Pages, Catálogos & Portfólios</a></li>
-          <li><a href="pages/projetos/projeto-agendamento.html">Plataforma de Agendamento</a></li>
-          <li><a href="pages/projetos/projeto-restaurante.html">Sistemas para Restaurantes</a></li>
-          <li><a href="pages/projetos/projeto-barbearia.html">Sistemas para Barbearias</a></li>
-          <li><a href="pages/projetos/projeto-lojavirtual.html">Lojas Virtuais Completas</a></li>
-          <li><a href="pages/projetos/projeto-chatbotfluxo.html">Chatbot de Fluxo Inteligente</a></li>
-          <li><a href="pages/projetos/projeto-assistenteia.html">Agente de IA com Personalidade</a></li>
-          <li><a href="pages/projetos/projeto-sistemaacademia.html">Sistemas para Academias</a></li>
-          <li><a href="pages/projetos//projeto-sistemasobmedida.html">Sistemas Sob Medida</a></li>
+          <li><a href="projetos/projeto-lp.html">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="projetos/projeto-agendamento.html">Plataforma de Agendamento</a></li>
+          <li><a href="projetos/projeto-restaurante.html">Sistemas para Restaurantes</a></li>
+          <li><a href="projetos/projeto-barbearia.html">Sistemas para Barbearias</a></li>
+          <li><a href="projetos/projeto-lojavirtual.html">Lojas Virtuais Completas</a></li>
+          <li><a href="projetos/projeto-chatbotfluxo.html">Chatbot de Fluxo Inteligente</a></li>
+          <li><a href="projetos/projeto-assistenteia.html">Agente de IA com Personalidade</a></li>
+          <li><a href="projetos/projeto-sistemaacademia.html">Sistemas para Academias</a></li>
+          <li><a href="projetos/projeto-sistemasobmedida.html">Sistemas Sob Medida</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Informações</h4>
         <ul role="list">
-          <li><a href="pages/politica-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="pages/faq.html">FAQ</a></li>
+          <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li>
           <a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Zyntek%20e%20tenho%20muito%20interesse%20em%20conhecer%20as%20oportunidades%20para%20integrar%20a%20equipe.%20Gostaria%20de%20apresentar%20meu%20perfil%20profissional." target="_blank" rel="noopener noreferrer">
             Trabalhe Conosco

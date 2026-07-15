@@ -6,6 +6,182 @@
    estatísticas e o mockup do "sistema sob medida".
    ============================================================== */
 
+/* --------------------------------------------------------------
+   FUNDO ANIMADO — grade, partículas conectadas e formas flutuantes
+   (mesmo sistema visual da página inicial, replicado aqui para
+   garantir que esta página tenha o fundo idêntico independente
+   do que projeto-lp.css definir)
+   -------------------------------------------------------------- */
+.bg-system {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(124, 58, 237, 0.45), transparent 24%),
+    radial-gradient(circle at 75% 12%, rgba(147, 51, 234, 0.36), transparent 28%),
+    radial-gradient(circle at 50% 60%, rgba(79, 70, 229, 0.28), transparent 32%),
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(76, 29, 149, 0.5), transparent 50%),
+    #09090B;
+  background-blend-mode: screen;
+  transition: background 0.4s ease;
+}
+[data-theme="light"] .bg-system {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(124, 58, 237, 0.16), transparent 24%),
+    radial-gradient(circle at 75% 12%, rgba(147, 51, 234, 0.12), transparent 28%),
+    radial-gradient(circle at 50% 60%, rgba(79, 70, 229, 0.10), transparent 32%),
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(76, 29, 149, 0.14), transparent 50%),
+    #FAFAFA;
+  background-blend-mode: normal;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: -2px;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.12) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 30%, transparent 85%);
+  opacity: 0.55;
+}
+[data-theme="light"] .bg-grid { opacity: 0.35; }
+
+/* Canvas com a rede de pontos conectados por linhas */
+#bg-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+[data-theme="light"] #bg-particles { opacity: 0.35; }
+
+/* Formas geométricas (quadrado, retângulo, círculo) subindo pela tela */
+.bg-shapes { position: absolute; inset: 0; overflow: hidden; }
+
+.bg-shape {
+  position: absolute;
+  bottom: -12%;
+  border: 1.5px solid rgba(192, 132, 252, 0.45);
+  opacity: 0;
+  animation-name: rise-up;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.shape-square { width: 46px; height: 46px; border-radius: 8px; transform: rotate(15deg); }
+.shape-rect   { width: 70px; height: 40px; border-radius: 6px; transform: rotate(-8deg); }
+.shape-circle { width: 54px; height: 54px; border-radius: 50%; }
+
+.bg-shape:nth-child(1) { left: 8%;  animation-duration: 26s; animation-delay: 0s; }
+.bg-shape:nth-child(2) { left: 22%; animation-duration: 34s; animation-delay: 4s; }
+.bg-shape:nth-child(3) { left: 38%; animation-duration: 22s; animation-delay: 9s; }
+.bg-shape:nth-child(4) { left: 55%; animation-duration: 30s; animation-delay: 2s; }
+.bg-shape:nth-child(5) { left: 70%; animation-duration: 25s; animation-delay: 12s; }
+.bg-shape:nth-child(6) { left: 84%; animation-duration: 32s; animation-delay: 6s; }
+.bg-shape:nth-child(7) { left: 15%; animation-duration: 28s; animation-delay: 16s; }
+.bg-shape:nth-child(8) { left: 63%; animation-duration: 24s; animation-delay: 19s; }
+
+@keyframes rise-up {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.5; }
+  85%  { opacity: 0.35; }
+  100% { transform: translateY(-118vh) rotate(35deg); opacity: 0; }
+}
+
+.bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------
+   HERO — box de demonstração compatível com vídeo OU foto
+   Vídeo e imagem ocupam exatamente o mesmo espaço (object-fit:
+   cover), então o JS pode alternar entre os dois sem quebrar o
+   layout, dependendo se o vídeo carrega ou não.
+   -------------------------------------------------------------- */
+.hero-video-box { position: relative; overflow: hidden; }
+
+.hero-video-box video,
+.hero-video-box .hero-video-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-video-box .hero-video-fallback {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Modo foto: some o vídeo e mostra a imagem no lugar */
+.hero-video-box.is-photo-mode video { opacity: 0; }
+.hero-video-box.is-photo-mode .hero-video-fallback { opacity: 1; pointer-events: auto; }
+
+/* --------------------------------------------------------------
+   PADRONIZAÇÃO DE MOLDURAS — bordas finas e proporções iguais
+   às da página inicial (.zynk-frame), aplicadas também ao hero-frame.
+   -------------------------------------------------------------- */
+.hero-frame,
+.zynk-frame {
+  position: relative !important;
+  border: 1px solid rgba(139, 92, 246, 0.45) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 0 24px rgba(109, 40, 217, 0.25) !important;
+  background: rgba(20, 10, 35, 0.55);
+  overflow: hidden;
+}
+.hero-frame::before, .hero-frame::after,
+.zynk-frame::before, .zynk-frame::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(139, 92, 246, 0.8);
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-frame::before, .zynk-frame::before { top: 6px; left: 6px; border-top: 2px solid; border-left: 2px solid; }
+.hero-frame::after,  .zynk-frame::after  { bottom: 6px; right: 6px; border-bottom: 2px solid; border-right: 2px solid; }
+
+.hero-frame-header, .zynk-frame-header {
+  padding: 0.55rem 0.8rem !important;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.3) !important;
+}
+.hero-frame-footer, .zynk-frame-footer {
+  padding: 0.5rem 0.8rem !important;
+  border-top: 1px solid rgba(139, 92, 246, 0.3) !important;
+  font-size: 0.6rem !important;
+}
+.hero-frame-title, .zynk-frame-title {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- Modo claro: sombras e fundo ajustados ---------- */
+[data-theme="light"] .hero-frame,
+[data-theme="light"] .zynk-frame {
+  background: rgba(245, 240, 255, 0.7) !important;
+  box-shadow: 0 4px 18px rgba(109, 40, 217, 0.12) !important;
+  border-color: rgba(124, 58, 237, 0.3) !important;
+}
+[data-theme="light"] .sw-dashboard { background: linear-gradient(160deg, #f4effc, #ece3fb); }
+[data-theme="light"] .sw-dashboard-cards div,
+[data-theme="light"] .sw-dashboard-chart { background: rgba(124,58,237,0.05); border-color: rgba(124,58,237,0.15); }
+[data-theme="light"] .sw-dashboard-rail { border-right-color: rgba(124,58,237,0.15); }
+[data-theme="light"] .process-step-number { box-shadow: 0 0 10px rgba(124,58,237,0.12); }
+[data-theme="light"] .stat-block { box-shadow: none; }
+[data-theme="light"] .usecase-tag { box-shadow: none; }
+
 /* ---------- Voltar ---------- */
 .back-link-row { margin-bottom: 1.8rem; }
 .back-link {
