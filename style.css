@@ -2841,3 +2841,13 @@ body.light-mode ::-webkit-scrollbar-thumb {
         height: 26px;
     }
 }
+/* =============================================
+   FIX: ícone do GitHub some no modo claro
+   O ícone usa filter:invert(1) inline (fica branco,
+   ok no modo escuro). No modo claro revertemos o
+   filtro para o ícone voltar a ficar visível (escuro).
+   ============================================= */
+body.light-mode .sidebar-social-icons a[aria-label="GitHub"] img,
+body.light-mode .social-grid a[aria-label="GitHub da Zyntek"] img {
+    filter: invert(0) !important;
+}
