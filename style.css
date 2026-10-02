@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    ZYNTEK — style.css (v3.0 — Premium Refactor)
    Paleta: Preto profundo · Grafite · Cinza · Branco · Roxo accent
    ============================================================ */
@@ -2851,3 +2851,320 @@ body.light-mode .sidebar-social-icons a[aria-label="GitHub"] img,
 body.light-mode .social-grid a[aria-label="GitHub da Zyntek"] img {
     filter: invert(0) !important;
 }
+/* ==========================================================
+   AJUSTES v4 — navbar, sobre, serviços, fundadores, calculadora, CTA, footer
+========================================================== */
+.tech-font{font-family:'Space Grotesk',var(--font-main);letter-spacing:-.02em}
+
+/* ---- NAVBAR: dock de vidro, texto que rola, progresso de leitura ---- */
+.main-nav ul{padding:5px;border-radius:var(--radius-pill);background:rgba(255,255,255,.04);border:1px solid var(--border-medium);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-indicator{background:linear-gradient(120deg,rgba(109,40,217,.55),rgba(139,92,246,.25),rgba(109,40,217,.55));background-size:200% 100%;animation:navFlow 3s linear infinite;border:1px solid rgba(167,139,250,.55);box-shadow:0 0 22px rgba(139,92,246,.45),0 0 2px #a78bfa;transition:left .5s cubic-bezier(.68,-.35,.27,1.35),top .5s cubic-bezier(.68,-.35,.27,1.35),width .5s cubic-bezier(.68,-.35,.27,1.35),height .5s cubic-bezier(.68,-.35,.27,1.35)}
+@keyframes navFlow{to{background-position:200% 0}}
+.nl{display:block;overflow:hidden;height:1.25em;line-height:1.25em}
+.nl>span{display:block;position:relative;transition:transform .35s var(--ease-out)}
+.nl>span::after{content:attr(data-t);position:absolute;left:0;top:100%;color:#fff}
+.nav-link:hover .nl>span,.nav-link:focus-visible .nl>span{transform:translateY(-100%)}
+.nav-link.active::after{display:block!important;content:""!important;position:absolute;bottom:3px;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#c4b5fd;box-shadow:0 0 8px #a78bfa}
+.nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:linear-gradient(90deg,#6D28D9,#a78bfa,#22d3ee);box-shadow:0 0 12px rgba(139,92,246,.7)}
+.cta-btn .code-symbol{display:inline-block;transition:transform .5s var(--ease-out)}
+.cta-btn:hover .code-symbol{transform:rotate(360deg) scale(1.15)}
+
+/* ---- Cards de vidro compartilhados ---- */
+.glass-card{background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--border-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+[data-theme="light"] .glass-card{background:rgba(255,255,255,.72);border-color:rgba(109,40,217,.18)}
+.glass-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(139,92,246,.22),transparent 60%);opacity:0;transition:opacity .3s;z-index:0}
+.glass-card:hover::before,.glass-card:focus-visible::before{opacity:1}
+.glass-card>*{position:relative;z-index:1}
+
+/* ---- SOBRE: cards que expandem ---- */
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.about-card{padding:28px;border-radius:var(--radius-xl);cursor:pointer;outline:none;transition:transform .45s var(--ease-out),border-color .3s,box-shadow .45s}
+.about-card:hover,.about-card:focus-visible,.about-card.open{transform:translateY(-6px);border-color:var(--primary-50);box-shadow:var(--shadow-card-hover),var(--shadow-glow)}
+.about-card h3{margin:14px 0 8px;font-family:'Space Grotesk',var(--font-main)}
+.about-card>p{color:var(--text-muted);line-height:1.6;font-size:.95rem;padding-right:28px}
+.about-plus{position:absolute!important;top:26px;right:26px;width:18px;height:18px;transition:transform .45s var(--ease-out)}
+.about-plus::before,.about-plus::after{content:"";position:absolute;left:0;top:8px;width:18px;height:2px;border-radius:2px;background:var(--primary-light)}
+.about-plus::after{transform:rotate(90deg)}
+.about-card:hover .about-plus,.about-card:focus-visible .about-plus,.about-card.open .about-plus{transform:rotate(135deg)}
+.about-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease-out)}
+.about-more>div{overflow:hidden}
+.about-more p{margin:16px 0 0;padding-top:16px;border-top:1px solid var(--border-medium);color:var(--text-muted);line-height:1.7;font-size:.93rem;opacity:0;transform:translateY(8px);transition:opacity .4s .12s,transform .4s .12s}
+.about-card:hover .about-more,.about-card:focus-visible .about-more,.about-card.open .about-more{grid-template-rows:1fr}
+.about-card:hover .about-more p,.about-card:focus-visible .about-more p,.about-card.open .about-more p{opacity:1;transform:none}
+
+/* ---- SERVIÇOS: só cards de vidro ---- */
+.service-card.glass-card{border-radius:var(--radius-xl);transition:transform .4s var(--ease-out),border-color .3s,box-shadow .4s}
+.service-card.glass-card:hover{transform:translateY(-6px);border-color:var(--primary-50)}
+
+/* ---- FUNDADORES ---- */
+.founders-wrap{display:block!important;max-width:1100px;margin:0 auto}
+.founders-intro{text-align:center;max-width:680px;margin:0 auto 48px}
+.founders-title{font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.1;margin:0 0 16px;background:linear-gradient(100deg,#fff 20%,#c4b5fd 60%,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
+[data-theme="light"] .founders-title{background:linear-gradient(100deg,#18181b,#6D28D9);-webkit-background-clip:text;background-clip:text}
+.founders-intro p{color:var(--text-muted);line-height:1.7}
+.founders-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.founder-card{position:relative;height:600px;border-radius:24px;overflow:hidden;cursor:pointer;outline:none;border:1px solid var(--border-strong);background:#0b0b12;box-shadow:var(--shadow-card);transition:transform .5s var(--ease-out),border-color .3s,box-shadow .5s}
+.founder-card:hover,.founder-card:focus-visible,.founder-card.open{transform:translateY(-8px);border-color:var(--primary-50);box-shadow:0 28px 60px rgba(0,0,0,.55),0 0 40px rgba(109,40,217,.25)}
+.founder-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .8s var(--ease-out),filter .5s}
+.founder-card:hover .founder-photo,.founder-card:focus-visible .founder-photo,.founder-card.open .founder-photo{transform:scale(1.07) translateY(-4%);filter:brightness(.55) saturate(1.1)}
+.founder-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(9,9,11,.92) 85%)}
+.founder-info{position:absolute;left:0;right:0;bottom:0;padding:26px 28px;color:#fafafa}
+.founder-status{display:inline-block;width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:fPulse 2s infinite;margin-bottom:10px}
+@keyframes fPulse{70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.founder-info h3{font-family:'Space Grotesk',var(--font-main);font-size:1.9rem;margin:0 0 4px}
+.founder-role{display:block;font-size:.85rem;color:#c4b5fd}
+.founder-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease-out)}
+.founder-more>div{overflow:hidden;opacity:0;transition:opacity .4s .1s}
+.founder-card:hover .founder-more,.founder-card:focus-within .founder-more,.founder-card.open .founder-more{grid-template-rows:1fr}
+.founder-card:hover .founder-more>div,.founder-card:focus-within .founder-more>div,.founder-card.open .founder-more>div{opacity:1}
+.founder-more p{margin:16px 0 14px;line-height:1.65;font-size:.93rem;color:#d4d4d8}
+.founder-more .skills-tags{margin-bottom:16px}
+
+/* ---- CALCULADORA ---- */
+.calc-section{padding:90px 24px;position:relative}
+.calc-wrap{max-width:1100px;margin:0 auto}
+.calc-intro{text-align:center;max-width:640px;margin:0 auto 36px}
+.calc-intro h2{font-size:clamp(1.8rem,4vw,2.8rem);margin:0 0 12px}
+.calc-intro p{color:var(--text-muted);line-height:1.7}
+.calc-card{display:grid;grid-template-columns:1.25fr 1fr;gap:0;border-radius:24px}
+.calc-controls{padding:32px;display:flex;flex-direction:column;gap:24px;border-right:1px solid var(--border-medium)}
+.calc-controls fieldset{border:0;margin:0;padding:0}
+.calc-controls legend,.calc-range label{font-weight:600;margin-bottom:12px;display:block;font-size:.95rem}
+.chip-group{display:flex;flex-wrap:wrap;gap:8px}
+.chip{cursor:pointer}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:8px 14px;border-radius:var(--radius-pill);border:1px solid var(--border-strong);font-size:.85rem;color:var(--text-muted);transition:all .25s}
+.chip:hover span{border-color:var(--primary-50);color:var(--text-primary)}
+.chip input:checked+span{background:var(--primary-30);border-color:var(--primary-light);color:#fff;box-shadow:0 0 16px rgba(139,92,246,.35)}
+.chip input:focus-visible+span{outline:2px solid var(--primary-light);outline-offset:2px}
+#calc-pages{width:100%;accent-color:#8b5cf6}
+.calc-result{padding:32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.ring{position:relative;width:150px;height:150px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8;stroke-linecap:round}
+.ring-bg{stroke:var(--border-strong)}
+.ring-fg{stroke:url(#g) #8b5cf6;stroke:#8b5cf6;stroke-dasharray:326.7;stroke-dashoffset:326.7;transition:stroke-dashoffset .8s var(--ease-out);filter:drop-shadow(0 0 6px rgba(139,92,246,.7))}
+.ring-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-in strong{font-family:'Space Grotesk',var(--font-main);font-size:2.6rem;line-height:1}
+.ring-in small{color:var(--text-muted);font-size:.75rem}
+#calc-level{margin:4px 0 0;font-size:1.3rem}
+#calc-range-txt{margin:0;color:var(--text-muted);font-size:.9rem}
+.calc-result .skills-tags{justify-content:center}
+.calc-note{color:var(--text-subtle);font-size:.75rem}
+
+/* ---- CTA vivo ---- */
+.cta-live{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:var(--radius-pill);border:1px solid var(--border-strong);background:rgba(255,255,255,.04);font-size:.85rem;margin-bottom:16px}
+.cta-live i{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:fPulse 2s infinite}
+.btn-primary-large.js-magnetic{position:relative;overflow:hidden;transition:transform .25s var(--ease-out),box-shadow .3s;background-image:radial-gradient(180px circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.35),transparent 60%)}
+.cta-container{position:relative}
+.cta-container::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;background:conic-gradient(from var(--ang,0deg),transparent 0 70%,#a78bfa 85%,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:ctaSpin 6s linear infinite}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes ctaSpin{to{--ang:360deg}}
+
+/* ---- FOOTER animado ---- */
+.main-footer{position:relative;overflow:hidden}
+#footer-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.6}
+.main-footer .footer-container,.main-footer .footer-bottom{position:relative;z-index:1}
+
+@media (max-width:900px){
+  .about-grid,.founders-grid,.calc-card{grid-template-columns:1fr}
+  .calc-controls{border-right:0;border-bottom:1px solid var(--border-medium)}
+  .founder-card{height:640px}
+}
+@media (prefers-reduced-motion:reduce){.nav-indicator,.cta-container::after,.founder-status,.cta-live i{animation:none}}
+
+/* ==========================================================
+   v5 — cards translúcidos, fundadores, projetos horizontais, ROI
+========================================================== */
+body{overflow-x:clip} /* html já corta o overflow; body em "hidden" quebraria o sticky */
+
+/* Cards transparentes: o fundo animado aparece por trás */
+.glass-card{background:rgba(255,255,255,.035);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);border-color:rgba(255,255,255,.14)}
+[data-theme="light"] .glass-card,body.light-mode .glass-card{background:rgba(255,255,255,.5)}
+
+/* Missão / Visão / Valores: mesma altura, mesmo respiro */
+.about-grid{align-items:stretch}
+.about-card{display:flex;flex-direction:column;min-height:250px;padding:30px 28px}
+.about-card .step-icon{height:56px;display:flex;align-items:center}
+.about-card .step-icon img{max-height:56px;width:auto}
+.about-card>p{flex:0 0 auto}
+
+/* Faixas de cor diferentes por seção */
+.team-section{background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(109,40,217,.22),transparent 70%)}
+.projects-section{padding-bottom:0;background:linear-gradient(180deg,transparent,rgba(76,29,149,.30) 15%,rgba(8,51,68,.34) 85%,transparent)}
+.calc-section{background:radial-gradient(ellipse 80% 70% at 50% 30%,rgba(34,211,238,.13),transparent 70%)}
+
+/* Equipe: foto | texto | foto */
+.founders-wrap{max-width:1180px}
+.founders-stage{display:grid;grid-template-columns:230px minmax(0,1fr) 230px;gap:28px;align-items:center}
+.fpick{position:relative;aspect-ratio:3/4;padding:0;border-radius:20px;overflow:hidden;cursor:pointer;border:1px solid var(--border-strong);background:#0b0b12;color:#fff;transition:transform .45s var(--ease-out),border-color .3s,box-shadow .45s}
+.fpick img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(.45) brightness(.8);transition:filter .45s,transform .6s var(--ease-out)}
+.fpick::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(9,9,11,.92))}
+.fpick-label{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px;text-align:left}
+.fpick-label b{display:block;font-family:'Space Grotesk',var(--font-main);font-size:1.05rem}
+.fpick-label small{color:#c4b5fd;font-size:.8rem}
+.fpick:hover{transform:translateY(-4px)}
+.fpick:hover img{filter:none;transform:scale(1.05)}
+.fpick:focus-visible{outline:2px solid var(--primary-light);outline-offset:3px}
+.fpick[aria-pressed="true"]{border-color:var(--primary-light);transform:translateY(-8px) scale(1.03);box-shadow:0 0 0 1px var(--primary-light),0 24px 50px rgba(109,40,217,.4)}
+.fpick[aria-pressed="true"] img{filter:none}
+.fcenter{border-radius:24px;padding:40px 44px;min-height:440px;display:flex;align-items:center}
+.fpanel{display:none;width:100%}
+.fpanel.active{display:block;animation:fSwap .5s var(--ease-out)}
+@keyframes fSwap{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.fpanel h3{font-family:'Space Grotesk',var(--font-main);font-size:1.9rem;margin:0 0 6px}
+.fpanel-role{display:block;color:#c4b5fd;font-size:.9rem;margin-bottom:18px}
+.fpanel p{color:var(--text-muted);line-height:1.75;margin:0 0 14px}
+.fpanel .skills-tags{margin:18px 0 22px}
+.fhint{font-size:.85rem;color:var(--text-subtle)!important}
+
+/* Projetos: cards grandes, scroll vertical vira movimento lateral */
+.projects-pin{position:relative}
+.projects-grid{display:flex;gap:28px;overflow-x:auto;padding:8px max(24px,calc((100vw - min(1000px,82vw))/2)) 24px;scroll-snap-type:x mandatory}
+.project-card{flex:0 0 min(1000px,82vw);height:min(62vh,520px);display:flex;flex-direction:row;scroll-snap-align:center;background:rgba(255,255,255,.04);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);border-radius:24px}
+.project-image{flex:1.3 1 0;height:100%;border-bottom:0;border-right:1px solid var(--border-subtle)}
+.project-image video,.project-image img{width:100%;height:100%;object-fit:cover}
+.project-info{flex:1 1 0;padding:38px 36px;justify-content:center}
+.project-info h3{font-size:clamp(1.3rem,2vw,1.75rem)}
+.project-info p{flex-grow:0;font-size:.97rem;line-height:1.65}
+.proj-prog{display:none}
+.projects-pin.is-scroll{height:calc(var(--n,6)*70vh + 100vh)}
+.projects-pin.is-scroll .projects-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:22px;padding-top:70px}
+.projects-pin.is-scroll .projects-grid{overflow:visible;scroll-snap-type:none;will-change:transform;width:max-content}
+.projects-pin.is-scroll .proj-prog{display:flex;align-items:center;gap:16px;width:min(1000px,82vw);margin:0 auto}
+.proj-count{font-family:'Space Grotesk',var(--font-main);color:var(--text-muted);font-size:.9rem;min-width:48px}
+.proj-bar{flex:1;height:3px;border-radius:3px;background:var(--border-strong);overflow:hidden}
+.proj-bar b{display:block;height:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,#6D28D9,#22d3ee)}
+@media (max-width:800px){
+  .founders-stage{grid-template-columns:1fr 1fr;gap:14px}
+  .fcenter{grid-column:1/-1;order:3;padding:28px 22px;min-height:0}
+  .project-card{flex-direction:column;height:min(74vh,580px)}
+  .project-image{flex:1 1 42%;border-right:0;border-bottom:1px solid var(--border-subtle)}
+  .project-info{padding:22px}
+}
+
+/* ==========================================================
+   AJUSTES v5 — scroll dos projetos, equipe, calculadora
+========================================================== */
+/* CAUSA DO BUG: overflow-x:hidden na <main> cria um contêiner de rolagem e quebra o position:sticky */
+main{overflow-x:clip!important;overflow-y:visible!important}
+.projects-section,.projects-container,.projects-pin{overflow:visible!important}
+.projects-pin.is-scroll .projects-sticky{height:100vh;box-sizing:border-box;padding:84px 0 28px}
+.project-card{transition:opacity .3s,scale .3s,border-color .4s,box-shadow .4s}
+.project-card:hover{transform:none}
+.project-info h3{font-size:clamp(1.5rem,2.4vw,2.2rem)}
+.project-info p{font-size:1.08rem;line-height:1.7}
+.project-info .btn-learn-more,.project-card:hover .project-info .btn-learn-more{align-self:flex-start;margin-top:12px;padding:15px 30px;font-size:1.15rem;font-weight:700;color:#fff;background:linear-gradient(135deg,#6D28D9,#8B5CF6);border-radius:999px;box-shadow:0 10px 30px rgba(109,40,217,.45);transition:transform .3s var(--ease-out),box-shadow .3s}
+.project-info .btn-learn-more:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 40px rgba(139,92,246,.6)}
+.project-info .btn-learn-more svg{width:20px;height:20px}
+
+/* Equipe: molduras grandes, texto solto */
+.founders-wrap{max-width:1360px}
+.founders-stage{grid-template-columns:minmax(260px,380px) minmax(0,1fr) minmax(260px,380px);gap:48px;align-items:center}
+.fpick.zynk-frame{width:100%;aspect-ratio:auto;padding:0;display:flex;flex-direction:column;border-radius:var(--radius-lg);animation:fFloat 6s ease-in-out infinite}
+.fpick.zynk-frame:nth-of-type(2){animation-delay:-3s}
+@keyframes fFloat{50%{transform:translateY(-8px)}}
+.fpick-photo{position:relative;display:block;aspect-ratio:3/4;overflow:hidden}
+.fpick-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(.4) brightness(.85);transition:filter .45s,transform .7s var(--ease-out)}
+.fpick-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(9,9,11,.9));pointer-events:none}
+.fpick-label{z-index:1;padding:18px 20px}
+.fpick-label b{font-size:1.25rem}
+.fpick:hover,.fpick[aria-pressed="true"]{animation-play-state:paused;transform:translateY(-6px)}
+.fpick:hover img,.fpick[aria-pressed="true"] img{filter:none;transform:scale(1.05)}
+.fpick[aria-pressed="true"]{transform:translateY(-10px);box-shadow:0 0 0 1px var(--primary-light),0 28px 60px rgba(109,40,217,.5)}
+.fcenter{background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;border-radius:0;padding:0 8px;min-height:0}
+.fcenter::before{display:none}
+.fpanel h3{font-size:clamp(2rem,3vw,2.8rem);line-height:1.1}
+.fpanel p{font-size:1.08rem}
+.fpanel.active{animation:fSwap .6s var(--ease-out)}
+@media (max-width:980px){
+  .founders-stage{grid-template-columns:1fr 1fr;gap:16px}
+  .fcenter{grid-column:1/-1;order:3;padding:12px 4px}
+  .fpick.zynk-frame{animation:none}
+}
+
+/* Calculadora interativa */
+.calc-card{grid-template-columns:1.3fr 1fr}
+.calc-controls{gap:28px}
+.calc-step-h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.calc-step-h h3{margin:0;font-size:1.05rem;font-weight:600}
+.calc-step-h small{color:var(--text-subtle);font-weight:400;font-size:.8rem}
+.calc-num{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 .9rem 'Space Grotesk',var(--font-main);background:linear-gradient(135deg,#6D28D9,#22d3ee);color:#fff}
+.tile-group{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{cursor:pointer;display:block}
+.tile input{position:absolute;opacity:0;pointer-events:none}
+.tile-in{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:16px 10px;height:100%;box-sizing:border-box;border-radius:16px;border:1px solid var(--border-strong);background:rgba(255,255,255,.03);color:var(--text-muted);font-size:.82rem;line-height:1.3;transition:transform .3s var(--ease-spring),border-color .25s,background .25s,box-shadow .3s,color .25s}
+.tile-ico{font-size:1.9rem;line-height:1;transition:transform .35s var(--ease-spring)}
+.tile:hover .tile-in{transform:translateY(-4px);border-color:var(--primary-light);color:var(--text-primary)}
+.tile:hover .tile-ico{transform:scale(1.2) rotate(-6deg)}
+.tile input:checked+.tile-in{background:linear-gradient(145deg,rgba(109,40,217,.45),rgba(34,211,238,.14));border-color:var(--primary-light);color:#fff;box-shadow:0 0 24px rgba(139,92,246,.4)}
+.tile-ck{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:.7rem;background:#8b5cf6;color:#fff;transform:scale(0);transition:transform .3s var(--ease-spring)}
+.tile input:checked+.tile-in .tile-ck{transform:scale(1)}
+.tile input:focus-visible+.tile-in{outline:2px solid var(--primary-light);outline-offset:2px}
+.tile-small{grid-template-columns:repeat(3,1fr)}
+.tile-small .tile-in{flex-direction:row;justify-content:flex-start;text-align:left;padding:10px 12px;gap:8px}
+.tile-small .tile-ico{font-size:1.2rem}
+.calc-money{font:700 2.2rem 'Space Grotesk',var(--font-main);background:linear-gradient(100deg,#fff,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px}
+[data-theme="light"] .calc-money{background:linear-gradient(100deg,#18181b,#6D28D9);-webkit-background-clip:text;background-clip:text}
+#calc-pages{-webkit-appearance:none;appearance:none;height:8px;border-radius:8px;outline:none;background:linear-gradient(90deg,#8b5cf6 var(--fill,10%),var(--border-strong) var(--fill,10%))}
+#calc-pages::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:4px solid #8b5cf6;box-shadow:0 0 16px rgba(139,92,246,.8);cursor:grab}
+#calc-pages::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid #8b5cf6;cursor:grab}
+.calc-presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.calc-presets button{cursor:pointer;padding:6px 14px;border-radius:999px;border:1px solid var(--border-strong);background:transparent;color:var(--text-muted);font:inherit;font-size:.8rem;transition:all .25s}
+.calc-presets button:hover,.calc-presets button.on{border-color:var(--primary-light);color:#fff;background:var(--primary-30)}
+.calc-result{gap:14px;background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.18),transparent 65%)}
+.calc-badge{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#c4b5fd}
+.calc-pick{display:flex;align-items:center;gap:10px}
+.calc-pick-ico{font-size:2rem}
+.calc-pick strong{font-size:1.2rem}
+.calc-pick.pop{animation:cPop .5s var(--ease-spring)}
+@keyframes cPop{0%{transform:scale(.85);opacity:.4}100%{transform:none;opacity:1}}
+.calc-bars{width:100%;display:grid;gap:8px}
+.cbar{display:grid;grid-template-columns:86px 1fr auto;align-items:center;gap:10px;font-size:.75rem;color:var(--text-muted);text-align:left}
+.cbar i{height:10px;border-radius:10px;background:var(--border-strong);overflow:hidden}
+.cbar b{display:block;height:100%;border-radius:10px;background:#52525b;transition:width .8s var(--ease-out)}
+.cbar-new b{background:linear-gradient(90deg,#6D28D9,#22d3ee);box-shadow:0 0 12px rgba(34,211,238,.5)}
+.cbar em{font-style:normal;font-weight:600;color:var(--text-primary);min-width:76px;text-align:right}
+@media (max-width:980px){.tile-group,.tile-small{grid-template-columns:repeat(2,1fr)}}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.revealed{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.fpick.zynk-frame{animation:none}}
+
+/* ==========================================================
+   AJUSTES v6 — equipe, molduras de projetos, calculadora, contato em vidro
+========================================================== */
+.lang-code{display:inline-block;min-width:28px;margin-right:6px;font-weight:700;letter-spacing:.06em;color:var(--primary-light)}
+
+/* Equipe: o card não escolhido escurece e recua; o escolhido mantém o tamanho */
+.fcenter,.fpanel{overflow:visible;min-width:0}
+.founders-stage .fpick{transition:transform .5s var(--ease-out),opacity .45s,filter .45s,box-shadow .45s,border-color .3s}
+.founders-stage .fpick[aria-pressed="true"]{animation:none;transform:none;opacity:1;filter:none;border-color:var(--primary-light);box-shadow:0 0 0 1px var(--primary-light),0 24px 56px rgba(109,40,217,.5)}
+.founders-stage .fpick[aria-pressed="true"] img{filter:none;transform:none}
+.founders-stage.has-active .fpick.is-dim{animation:none;transform:scale(.86);opacity:.5;filter:grayscale(1) brightness(.6);box-shadow:none}
+.founders-stage.has-active .fpick.is-dim:hover{opacity:.75}
+.founders-stage.has-active .fpick.is-dim img{filter:grayscale(1) brightness(.7);transform:none}
+
+/* Projetos: moldura estilo .zynk-frame */
+.project-card.zynk-frame{width:auto;flex-direction:column;border:1px solid rgba(139,92,246,.45);box-shadow:0 0 24px rgba(109,40,217,.25)}
+.project-card.zynk-frame::after{inset:auto;bottom:6px;right:6px;width:14px;height:14px;background:none;opacity:1;border-radius:0}
+.project-card .zynk-frame-header,.project-card .zynk-frame-footer{flex:none;background:rgba(20,10,35,.5)}
+.project-card .project-body{flex:1;min-height:0;display:flex;flex-direction:row}
+.project-card .project-body .project-image{height:auto;align-self:stretch}
+@media (max-width:800px){.project-card .project-body{flex-direction:column}}
+body.light-mode .project-card .zynk-frame-header,body.light-mode .project-card .zynk-frame-footer{background:rgba(245,240,255,.7)}
+
+/* Calculadora: ícones em SVG */
+.tile-ico{display:grid;place-items:center;color:#c4b5fd}
+.tile-ico svg{width:30px;height:30px}
+.tile-small .tile-ico svg{width:20px;height:20px}
+.tile input:checked+.tile-in .tile-ico{color:#fff}
+.calc-pick-ico{display:grid;place-items:center;color:#c4b5fd}
+.calc-pick-ico svg{width:32px;height:32px}
+.tile-tx{overflow-wrap:anywhere}
+
+/* Contato: cards de vidro */
+.contact-card.glass-card{border-radius:var(--radius-xl)}
+.social-btn{background:rgba(255,255,255,.04);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-color:rgba(255,255,255,.14)}
+body.light-mode .social-btn,[data-theme="light"] .social-btn{background:rgba(255,255,255,.55);border-color:rgba(109,40,217,.18)}
