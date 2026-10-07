@@ -1,0 +1,1163 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zyntek — Software House especializada em IA, Automações e SaaS. Transformamos tecnologia em lucro para empresas.">
+  <meta name="theme-color" content="#6D28D9">
+
+  <title>Zyntek | Construindo o Futuro Digital</title>
+  <link rel="icon" type="image/png" href="assets/icones/logo z .png">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Zyntek">
+  <meta property="og:title"       content="Zyntek | Construindo o Futuro Digital">
+  <meta property="og:description" content="IA, Automações e SaaS para escalar o seu negócio.">
+  <meta property="og:url"         content="https://www.zyntekconnect.com.br/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zyntek Connect",
+    "url": "https://www.zyntekconnect.com.br",
+    "sameAs": [
+      "https://www.instagram.com/zyntek.conect/",
+      "https://www.linkedin.com/in/zyntek-conect-b50616412"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =============================================
+       BACKGROUND SYSTEM
+       ============================================= -->
+  <div class="bg-system" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <canvas id="bg-particles"></canvas>
+    <div class="bg-shapes">
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+      <span class="bg-shape shape-rect"></span>
+      <span class="bg-shape shape-circle"></span>
+      <span class="bg-shape shape-square"></span>
+    </div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- =============================================
+       HEADER
+       ============================================= -->
+  <header class="zyntek-header" id="header" role="banner">
+
+    <a href="#home" class="logo-container" aria-label="Zyntek — Ir para o início">
+      <img src="assets/icones/logo z .png" alt="Logo Zyntek" class="logo-image">
+      <span class="logo-text">Zyntek</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul role="list">
+        <div class="nav-indicator"></div>
+        <li><a href="#home"     class="nav-link active" aria-current="page"><span class="nl"><span data-t="Home">Home</span></span></a></li>
+        <li><a href="#sobre"    class="nav-link"><span class="nl"><span data-t="Sobre">Sobre</span></span></a></li>
+        <li><a href="#servicos" class="nav-link"><span class="nl"><span data-t="Serviços">Serviços</span></span></a></li>
+        <li><a href="#equipe"   class="nav-link"><span class="nl"><span data-t="Equipe">Equipe</span></span></a></li>
+        <li><a href="#projetos" class="nav-link"><span class="nl"><span data-t="Projetos">Projetos</span></span></a></li>
+        <li><a href="#contatos" class="nav-link"><span class="nl"><span data-t="Contato">Contato</span></span></a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <!-- Alternador de Tema -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar para modo claro" aria-pressed="false">
+        <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+          <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+
+      <!-- Hamburger mobile -->
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação"
+              aria-controls="sidebar-lateral" aria-expanded="false" type="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <!-- CTA Desktop -->
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Estava%20conhecendo%20o%20site%20de%20voc%C3%AAs%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20ou%20conhecer%20melhor%20os%20projetos%20que%20j%C3%A1%20desenvolveram.%20Podemos%20conversar%3F" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        <span class="code-symbol" aria-hidden="true">&lt;/&gt;</span>
+        Fale Conosco
+      </a>
+
+    </div>
+    <div class="nav-progress" aria-hidden="true"></div>
+  </header>
+
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <!-- =============================================
+       SIDEBAR OVERLAY
+       ============================================= -->
+  <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+  <aside id="sidebar-lateral" class="sidebar-lateral" role="dialog" aria-modal="true"
+         aria-label="Menu lateral da Zyntek" aria-hidden="true">
+    <div class="sidebar-lateral-header">
+      <div>
+        <span class="sidebar-lateral-eyebrow">Navegação</span>
+        <h3>Zyntek</h3>
+      </div>
+      <button id="close-sidebar" class="close-sidebar" aria-label="Fechar menu lateral" type="button">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <nav class="sidebar-lateral-nav" aria-label="Menu lateral">
+      <ul class="sidebar-links">
+        <li><a href="#home"     class="sidebar-lateral-link">Home</a></li>
+        <li><a href="#sobre"    class="sidebar-lateral-link">Sobre</a></li>
+        <li><a href="#servicos" class="sidebar-lateral-link">Serviços</a></li>
+        <li><a href="#equipe"   class="sidebar-lateral-link">Equipe</a></li>
+        <li><a href="#projetos" class="sidebar-lateral-link">Projetos</a></li>
+        <li><a href="#contatos" class="sidebar-lateral-link">Contato</a></li>
+      </ul>
+
+      <span class="sidebar-lateral-divider-label">Idioma</span>
+      <ul id="lang-menu-mobile" class="sidebar-lang-group" aria-label="Selecionar idioma">
+        <li><a href="#" data-lang="PT" class="sidebar-lang-btn"><span class="lang-code">PT</span>Português</a></li>
+        <li><a href="#" data-lang="EN" class="sidebar-lang-btn"><span class="lang-code">EN</span>English</a></li>
+        <li><a href="#" data-lang="ES" class="sidebar-lang-btn"><span class="lang-code">ES</span>Español</a></li>
+      </ul>
+
+      <span class="sidebar-lateral-divider-label">Institucional</span>
+      <ul class="sidebar-links">
+        <li><a href="pages/precos.html" class="sidebar-lateral-link">Planos</a></li>
+        <li><a href="pages/politica-privacidade.html" class="sidebar-lateral-link">Política de Privacidade</a></li>
+        <li><a href="pages/faq.html" class="sidebar-lateral-link">FAQ</a></li>
+      </ul>
+
+      <span class="sidebar-lateral-divider-label">Fundadores</span>
+      <ul class="sidebar-links">
+        <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer" class="sidebar-lateral-link">Levy Andrade</a></li>
+        <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="sidebar-lateral-link">Henrique Soares</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-lateral-divider" aria-hidden="true"></div>
+
+    <div class="sidebar-lateral-footer">
+      <p>Redes Sociais</p>
+      <div class="sidebar-social-icons">
+        <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" aria-hidden="true" width="20" height="20">
+        </a>
+        <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Estava%20conhecendo%20o%20site%20de%20voc%C3%AAs%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20ou%20conhecer%20melhor%20os%20projetos%20que%20j%C3%A1%20desenvolveram.%20Podemos%20conversar%3F" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" aria-hidden="true" width="20" height="20">
+        </a>
+        <a href="https://www.instagram.com/zyntek.conect/" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="" aria-hidden="true" width="20" height="20">
+        </a>
+        <a href="https://github.com/zyntekconect-source/zyntekconect-source" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" aria-hidden="true" width="20" height="20" style="filter:invert(1)">
+        </a>
+      </div>
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Estava%20conhecendo%20o%20site%20de%20voc%C3%AAs%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20ou%20conhecer%20melhor%20os%20projetos%20que%20j%C3%A1%20desenvolveram.%20Podemos%20conversar%3F" target="_blank" rel="noopener noreferrer" class="cta-btn sidebar-cta">Fale Conosco</a>
+    </div>
+  </aside>
+
+  <!-- =============================================
+       HERO
+       ============================================= -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section id="home" class="hero-section" aria-label="Hero principal">
+      <div class="hero-rectangle hero-frame">
+
+        <div class="hero-frame-header" aria-hidden="true">
+          <span class="hero-frame-title">ZYNTEK_HOME.exe — ONLINE</span>
+        </div>
+
+        <video id="hero-video" class="hero-video" autoplay loop muted playsinline
+               aria-hidden="true" preload="metadata">
+          <source src="assets/videos//video-capa-hero.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-overlay" aria-hidden="true"></div>
+
+        <div class="hero-frame-footer" aria-hidden="true">
+          <span class="zynk-frame-status"></span>
+          <span class="hero-frame-status-text">Sistema ativo</span>
+          <button id="pause-video-btn" class="pause-btn" aria-label="Pausar vídeo" title="Pausar/Reproduzir vídeo de fundo">
+            <svg id="pause-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6"  y="4" width="4" height="16"/>
+              <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+            <svg id="play-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="hero-content hero-text-block">
+
+          <p class="hero-subtitle mini-title" id="hero-mini-title" aria-live="polite"></p>
+
+          <h1 class="hero-title">
+            <span class="title-white title-line-1" aria-hidden="true">Construindo o</span>
+            <span class="code-line glitch-text purple-neon" id="hero-typing" aria-live="polite" aria-atomic="true"></span><span class="typing-cursor" aria-hidden="true"></span>
+            <span class="title-white title-line-3" aria-hidden="true">das empresas</span>
+          </h1>
+
+          <p class="hero-description">
+            Desenvolvemos soluções modernas, interfaces futuristas e
+            experiências digitais de alto impacto.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contatos" class="cta-btn-large btn-cta btn-primary js-cta">
+              <span class="btn-code-tag" aria-hidden="true">&lt;/&gt;</span>
+              <span class="btn-label">Solicitar Projeto</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+ <!--  ==========================================================
+   SOBRE
+========================================================== -->
+    <section id="sobre" class="process-section" aria-labelledby="sobre-heading">
+      <div class="process-container">
+
+        <div class="code-watermark" aria-hidden="true">
+          <pre>
+const ZyntekAI = () => {
+  const [system, setSystem] = useState(null);
+  useEffect(() => {
+    async function init() {
+      const core = await loadAIModel({
+        type: 'deep_learning',
+        modules: ['nlp', 'automation']
+      });
+      setSystem(core.deploy());
+    }
+    init();
+  }, []);
+  return &lt;System ready={!!system} /&gt;;
+};
+          </pre>
+        </div>
+
+<div class="process-header">
+          <span class="eyebrow">COMO ESTRUTURAMOS SUA SOLUÇÃO</span>
+          <h2 id="sobre-heading">A Engenharia por trás do Crescimento da sua Empresa</h2>
+          <p>
+            Ideias não mudam o mercado; 
+            <span class="text-purple">plataformas robustas</span> e 
+            <span class="text-purple">processos inteligentes</span> sim. 
+            Desenvolvemos <span class="text-purple">produtos digitais escaláveis</span> e 
+            integrações de <span class="text-purple">Inteligência Artificial</span> sob medida, focando sempre no que mais importa: 
+            <span class="text-purple">o seu resultado financeiro</span>.
+          </p>
+
+          <p>
+            A Zyntek é um estúdio de software enxuto: poucas pessoas, muita responsabilidade e contato direto com quem decide. Cada projeto passa pelas mesmas mãos do briefing ao deploy, e é isso que mantém o prazo curto e a qualidade alta. Nosso trabalho se apoia em três pilares. Passe o mouse (ou toque) para abrir cada um:
+          </p>
+        </div>
+
+        <div class="cards-wrapper about-grid">
+          <article class="about-card glass-card" tabindex="0" aria-expanded="false">
+            <div class="step-icon" aria-hidden="true"><img src="assets/icones/foguete.png" alt="" onerror="this.style.display='none'"></div>
+            <h3>Missão</h3>
+            <p>Criar sistemas e automações que aceleram o faturamento de pequenas e grandes empresas.</p>
+            <span class="about-plus" aria-hidden="true"></span>
+            <div class="about-more"><div><p>Transformamos tecnologia complexa em resultado prático: <span class="text-purple">sistemas de alta performance</span>, automações que eliminam tarefa repetitiva e plataformas pensadas para vender mais. Todo projeto começa pela pergunta "o que isso muda no caixa do cliente?".</p></div></div>
+          </article>
+          <article class="about-card glass-card" tabindex="0" aria-expanded="false">
+            <div class="step-icon" aria-hidden="true"><img src="assets/icones/binoculos.png" alt="" onerror="this.style.display='none'"></div>
+            <h3>Visão</h3>
+            <p>Ser referência em tecnologia e IA para negócios que querem crescer de verdade.</p>
+            <span class="about-plus" aria-hidden="true"></span>
+            <div class="about-more"><div><p>Queremos ser a <span class="text-purple">autoridade em disrupção tecnológica e IA</span> do nosso mercado. Cada deploy é guiado por dados reais, e o software evolui continuamente depois da entrega, não só até o dia do lançamento.</p></div></div>
+          </article>
+          <article class="about-card glass-card" tabindex="0" aria-expanded="false">
+            <div class="step-icon" aria-hidden="true"><img src="assets/icones/diamante.png" alt="" onerror="this.style.display='none'"></div>
+            <h3>Valores</h3>
+            <p>Engenharia de elite, transparência e evolução contínua em cada entrega.</p>
+            <span class="about-plus" aria-hidden="true"></span>
+            <div class="about-more"><div><p><span class="text-purple">Código limpo</span>, testes rigorosos e conversa franca sobre prazo e escopo. Entregamos plataformas rápidas, seguras e estáveis, e assumimos o que construímos: se algo quebrar, a gente resolve.</p></div></div>
+          </article>
+        </div>
+
+      </div>
+
+ <!--  ==========================================================
+   FAIXA DE SKILLS
+========================================================== -->
+      <div class="tech-section" aria-label="Tecnologias dominadas pela Zyntek">
+        <span class="tech-title" aria-hidden="true">+ DE 50 TECNOLOGIAS DOMINADAS PELA ZYNTEK</span>
+        <div class="tech-marquee" role="marquee" aria-label="Tecnologias em destaque">
+          <div class="tech-marquee-content" aria-hidden="true">
+            <i class="devicon-html5-plain tech-icon"        title="HTML5"></i>       <span>•</span>
+            <i class="devicon-css3-plain tech-icon"         title="CSS3"></i>        <span>•</span>
+            <i class="devicon-javascript-plain tech-icon"   title="JavaScript"></i>  <span>•</span>
+            <i class="devicon-react-original tech-icon"     title="React"></i>       <span>•</span>
+            <i class="devicon-figma-plain tech-icon"        title="Figma"></i>       <span>•</span>
+            <i class="devicon-nodejs-plain tech-icon"       title="Node.js"></i>     <span>•</span>
+            <i class="devicon-typescript-plain tech-icon"   title="TypeScript"></i>  <span>•</span>
+            <i class="devicon-linux-plain tech-icon"        title="Linux"></i>       <span>•</span>
+            <i class="devicon-csharp-plain tech-icon"       title="C#"></i>          <span>•</span>
+            <i class="devicon-cplusplus-plain tech-icon"    title="C++"></i>         <span>•</span>
+            <i class="devicon-php-plain tech-icon"          title="PHP"></i>         <span>•</span>
+            <i class="devicon-mysql-plain tech-icon"        title="MySQL"></i>       <span>•</span>
+            <i class="devicon-python-plain tech-icon"       title="Python"></i>      <span>•</span>
+            <i class="devicon-spring-original tech-icon"    title="Spring Boot"></i> <span>•</span>
+            <i class="devicon-java-plain tech-icon"         title="Java"></i>        <span>•</span>
+            <i class="devicon-go-plain tech-icon"           title="Go"></i>          <span>•</span>
+            <i class="devicon-docker-plain tech-icon"       title="Docker"></i>      <span>•</span>
+            <i class="devicon-postgresql-plain tech-icon"   title="PostgreSQL"></i>  <span>•</span>
+            <i class="devicon-angular-plain tech-icon"      title="Angular"></i>     <span>•</span>
+            <i class="devicon-tailwindcss-plain tech-icon"  title="Tailwind"></i>    <span>•</span>
+            <i class="devicon-rust-original tech-icon"      title="Rust"></i>        <span>•</span>
+            <i class="devicon-ruby-plain tech-icon"         title="Ruby"></i>        <span>•</span>
+            <!-- Cópia para loop contínuo -->
+            <i class="devicon-html5-plain tech-icon"        title="HTML5"></i>       <span>•</span>
+            <i class="devicon-css3-plain tech-icon"         title="CSS3"></i>        <span>•</span>
+            <i class="devicon-javascript-plain tech-icon"   title="JavaScript"></i>  <span>•</span>
+            <i class="devicon-react-original tech-icon"     title="React"></i>       <span>•</span>
+            <i class="devicon-figma-plain tech-icon"        title="Figma"></i>       <span>•</span>
+            <i class="devicon-nodejs-plain tech-icon"       title="Node.js"></i>     <span>•</span>
+            <i class="devicon-typescript-plain tech-icon"   title="TypeScript"></i>  <span>•</span>
+            <i class="devicon-linux-plain tech-icon"        title="Linux"></i>       <span>•</span>
+            <i class="devicon-csharp-plain tech-icon"       title="C#"></i>          <span>•</span>
+            <i class="devicon-cplusplus-plain tech-icon"    title="C++"></i>         <span>•</span>
+            <i class="devicon-php-plain tech-icon"          title="PHP"></i>         <span>•</span>
+            <i class="devicon-mysql-plain tech-icon"        title="MySQL"></i>       <span>•</span>
+            <i class="devicon-python-plain tech-icon"       title="Python"></i>      <span>•</span>
+            <i class="devicon-spring-original tech-icon"    title="Spring Boot"></i> <span>•</span>
+            <i class="devicon-java-plain tech-icon"         title="Java"></i>        <span>•</span>
+            <i class="devicon-go-plain tech-icon"           title="Go"></i>          <span>•</span>
+            <i class="devicon-docker-plain tech-icon"       title="Docker"></i>      <span>•</span>
+            <i class="devicon-postgresql-plain tech-icon"   title="PostgreSQL"></i>  <span>•</span>
+            <i class="devicon-angular-plain tech-icon"      title="Angular"></i>     <span>•</span>
+            <i class="devicon-tailwindcss-plain tech-icon"  title="Tailwind"></i>    <span>•</span>
+            <i class="devicon-rust-original tech-icon"      title="Rust"></i>        <span>•</span>
+            <i class="devicon-ruby-plain tech-icon"         title="Ruby"></i>        <span>•</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <!--  ==========================================================
+   SERVIÇOS
+========================================================== -->
+    <section id="servicos" class="services-section" aria-labelledby="servicos-heading">
+      <div class="services-container">
+
+        <div class="services-intro">
+          <div class="services-image-wrapper zynk-frame" aria-hidden="true">
+            <div class="zynk-frame-header">
+              <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+              <span class="zynk-frame-title">ZYNTEK_SERVICES.exe</span>
+            </div>
+            <div class="zynnk-placeholder">
+              <video class="services-video" autoplay muted loop playsinline preload="metadata"
+                     poster="assets/videos/Video Project 3.mp4">
+                <source src="assets/videos/Video Project 3.mp4" type="video/mp4">
+                <span>[ Vídeo dos serviços aqui ]</span>
+              </video>
+            </div>
+            <div class="zynk-frame-footer">
+              <span class="zynk-frame-status"></span> STATUS: EXECUÇÃO COMPLETA // SISTEMA ONLINE
+            </div>
+          </div>
+          <div class="services-content">
+            <span class="eyebrow">NOSSOS SERVIÇOS</span>
+            <h2 id="servicos-heading">Soluções digitais para empresas modernas</h2>
+            <p>
+              Não criamos apenas sistemas, desenvolvemos <span class="text-purple">ecossistemas tecnológicos sob medida</span> e integrações de elite para redefinir o seu negócio. Projetamos <span class="text-purple">experiências digitais de altíssimo impacto</span> focadas em performance extrema, segurança e lucratividade real.
+            </p>
+          </div>
+        </div>
+
+        <div class="services-grid" role="list">
+
+          <article class="service-card glass-card" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <img src="assets/icones/sistema.png" alt=""
+                   onerror="this.style.display='none'">
+            </div>
+            <h3>Desenvolvimento de Software</h3>
+            <p>Construção de <span class="text-purple">plataformas exclusivas</span>, sistemas SaaS e ERPs com arquiteturas robustas. Garantimos APIs seguras e <span class="text-purple">escalabilidade absoluta</span> desde o primeiro dia de produção.</p>
+          </article>
+
+          <article class="service-card glass-card" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <img src="assets/icones/automaçao.png" alt=""
+                   onerror="this.style.display='none'">
+            </div>
+            <h3>Inteligência Artificial &amp; Automações</h3>
+            <p>Desenvolvimento de <span class="text-purple">chatbots avançados</span> e fluxos autônomos. Integramos agentes de IA para eliminar tarefas manuais repetitivas, otimizar operações e <span class="text-purple">reduzir custos drasticamente</span>.</p>
+          </article>
+
+          <article class="service-card glass-card" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <img src="assets/icones/desenvolvimento.png" alt=""
+                   onerror="this.style.display='none'">
+            </div>
+            <h3>Landing Pages &amp; UI/UX</h3>
+            <p>Criação de <span class="text-purple">landing pages de alta conversão</span> e e-commerces de elite. Desenvolvemos interfaces estrategicamente desenhadas para atrair, reter e <span class="text-purple">converter visitantes em clientes fiéis</span>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+ <!--  ==========================================================
+  EQUIPE/FUNDAODRES
+========================================================== -->
+    <section id="equipe" class="team-section" aria-labelledby="equipe-heading">
+      <div class="team-container founders-wrap">
+        <div class="founders-intro">
+          <h2 id="equipe-heading" class="tech-font founders-title">Dois fundadores. Zero intermediários.</h2>
+          <p>Quem fecha o projeto com você é quem desenha, programa e coloca no ar. Clique em uma foto para conhecer cada um.</p>
+        </div>
+        <div class="founders-stage">
+          <button type="button" class="fpick zynk-frame" data-who="henrique" aria-pressed="false" aria-controls="fpanel-henrique"><span class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">HENRIQUE_CTO.exe</span></span><span class="fpick-photo"><img src="assets/fotos/HENRIQUE SOARES.png" alt="Foto de Henrique Soares" onerror="this.style.opacity=.15"><span class="fpick-label"><b>Henrique Soares</b><small>CTO</small></span></span><span class="zynk-frame-footer"><span class="zynk-frame-status"></span> TECNOLOGIA // ONLINE</span></button>
+          <div class="fcenter" aria-live="polite">
+            <div class="fpanel active" id="fpanel-story"><h3>Como a Zyntek nasceu</h3><p>A Zyntek nasceu da parceria entre Levy e Henrique para ajudar empresas a vender mais com tecnologia, sem a burocracia de uma agência grande. Um veio do design e da engenharia de produto; o outro, da infraestrutura, do back-end e dos dados.</p><p>Juntos montaram um estúdio enxuto, com <span class="text-purple">contato direto com quem decide</span>: o mesmo time cuida do briefing ao deploy e continua com o projeto depois da entrega.</p><p class="fhint">Clique em um dos fundadores para ver quem faz o quê.</p></div>
+            <div class="fpanel" id="fpanel-henrique"><h3>Henrique Soares</h3><span class="fpanel-role">CTO · Tecnologia e Infraestrutura</span><p>Cuido da espinha dorsal das aplicações: <span class="text-purple">arquitetura de sistemas</span>, servidores de alta performance, DNS e redes, além das tags de rastreamento e analytics.</p><div class="skills-tags"><span>Arquitetura Back-end</span><span>Infraestrutura de Redes</span><span>Performance de Servidores</span><span>Data Analytics &amp; Tags</span><span>QA</span></div><div class="member-panel-actions"><a href="https://wa.me/5544991768313?text=Ol%C3%A1%2C%20Henrique!%20Vim%20pelo%20site%20da%20Zyntek%20e%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto%20para%20a%20minha%20empresa." class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">Falar com Henrique</a><a href="https://portif-lio-sable-xi.vercel.app/" class="btn-cta btn-outline" target="_blank" rel="noopener noreferrer">Acessar Portfólio</a></div></div>
+            <div class="fpanel" id="fpanel-levy"><h3>Levy Andrade</h3><span class="fpanel-role">COO &amp; CDO · Operações, Design e Engenharia de Software</span><p>Lidero a operação da Zyntek de ponta a ponta. Atuo na <span class="text-purple">arquitetura de software e engenharia Full-Stack</span>, da experiência do usuário (UI/UX) até a gestão do projeto e a garantia de qualidade.</p><div class="skills-tags"><span>Arquitetura de Software</span><span>Engenharia Full-Stack</span><span>Gestão (COO)</span><span>Design &amp; UI/UX</span><span>QA</span></div><div class="member-panel-actions"><a href="https://wa.me/5544984271446?text=Ol%C3%A1%2C%20Levy!%20Vim%20pelo%20site%20da%20Zyntek%20e%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto%20para%20a%20minha%20empresa." class="btn-cta btn-primary" target="_blank" rel="noopener noreferrer">Falar com Levy</a><a href="https://portif-lio-levy-andrade.vercel.app/" class="btn-cta btn-outline" target="_blank" rel="noopener noreferrer">Acessar Portfólio</a></div></div>
+          </div>
+          <button type="button" class="fpick zynk-frame" data-who="levy" aria-pressed="false" aria-controls="fpanel-levy"><span class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">LEVY_COO.exe</span></span><span class="fpick-photo"><img src="assets/fotos/foto v2.png" alt="Foto de Levy Andrade" onerror="this.style.opacity=.15"><span class="fpick-label"><b>Levy Andrade</b><small>COO &amp; CDO</small></span></span><span class="zynk-frame-footer"><span class="zynk-frame-status"></span> OPERAÇÕES // ONLINE</span></button>
+        </div>
+      </div>
+    </section>
+
+ <!-- ==========================================================
+   PROJETOS
+========================================================== -->
+    <section id="projetos" class="projects-section" aria-labelledby="projetos-heading">
+      <div class="projects-container">
+
+        <div class="projects-intro">
+          <div class="projects-image-wrapper zynk-frame" aria-hidden="true">
+            <div class="zynk-frame-header">
+              <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+              <span class="zynk-frame-title">ZYNTEK_PROJETOS.exe</span>
+            </div>
+            <div class="zynnk-placeholder">
+              <video class="services-video" autoplay muted loop playsinline preload="metadata">
+                <source src="assets/videos/kling_20260621_VIDEO_The_purple_576_0.mp4" type="video/mp4">
+                <span>[ Vídeo do portfólio aqui ]</span>
+              </video>
+            </div>
+            <div class="zynk-frame-footer">
+              <span class="zynk-frame-status"></span> PRONTO PARA RECEBER VÍDEO
+            </div>
+          </div>
+          <div class="projects-content">
+            <span class="eyebrow">NOSSO PORTFÓLIO</span>
+            <h2 id="projetos-heading">Transformando ideias em ativos digitais de alto lucro.</h2>
+            <p>De sistemas de gestão robustos a plataformas de inteligência artificial, nosso núcleo de engenharia desenvolve ecossistemas completos projetados para escalar o seu negócio e dominar o seu nicho de mercado.</p>
+          </div>
+        </div>
+
+        <!--
+          Cada .project-image aceita <img> OU <video> no lugar da imagem,
+          o CSS já trata os dois igual (mesmo recorte, mesmo hover-zoom).
+          Para usar vídeo em algum card, troque o <img> por:
+          <video autoplay muted loop playsinline preload="metadata" poster="capa-projeto.jpg">
+            <source src="assets/videos/nome-do-video.mp4" type="video/mp4">
+          </video>
+        -->
+        </div>
+      <div class="projects-pin">
+        <div class="projects-sticky">
+        <div class="projects-grid" role="list">
+
+          <article class="project-card zynk-frame" role="listitem">
+<div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">LANDING_PAGES.exe</span></div>
+<div class="project-body">
+
+            <div class="project-image">
+
+              <video 
+
+                src="assets/videos/landing page.mp4" 
+
+                autoplay 
+
+                muted 
+
+                loop 
+
+                playsinline
+
+                poster="assets/videos/landing page.mp4"
+
+                preload="metadata"
+
+                aria-label="Vídeo demonstrando a Interface de Landing Page, catálogo digital e portfólio desenvolvidos pela Zyntek">
+
+                Seu navegador não suporta a reprodução de vídeos.
+
+              </video>
+
+            </div>
+
+            <div class="project-info">
+
+              <h3>Landing Pages, Catálogos & Portfólios</h3>
+
+              <p>Páginas de alta conversão, catálogos digitais interativos e portfólios profissionais com UI/UX premium para capturar leads, apresentar produtos e maximizar o ROI das suas campanhas.</p>
+
+              <a href="pages/projetos/projeto-lp.html" class="btn-learn-more" aria-label="Ver detalhes: Landing Pages, Catálogos & Portfólios">
+
+                Veja exemplo
+
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+              </a>
+
+            </div>
+
+          </div>
+<div class="zynk-frame-footer"><span class="zynk-frame-status"></span> PROJETO 01 // ONLINE</div>
+</article>
+
+          
+
+          <article class="project-card zynk-frame" role="listitem">
+<div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">SISTEMA_RESTAURANTE.exe</span></div>
+<div class="project-body">
+
+            <div class="project-image">
+
+              <video 
+
+                src="assets/videos/sistema restaurante.mp4" 
+
+                autoplay 
+
+                muted 
+
+                loop 
+
+                playsinline
+
+                poster="assets/videos/sistema restaurante.mp4"
+
+                preload="metadata"
+
+                aria-label="Vídeo demonstrando os Sistemas para Restaurantes desenvolvidos pela Zyntek">
+
+                Seu navegador não suporta a reprodução de vídeos.
+
+              </video>
+
+            </div>
+
+            <div class="project-info">
+
+              <h3>Sistemas para Restaurantes e Lanchonetes</h3>
+
+              <p>Plataformas completas para restaurantes e lanchonetes: pedidos, mesas, balcão e cardápio digital para elevar a experiência gastronômica e operacional do seu restaurante.</p>
+
+              <a href="pages/projetos/projeto-restaurante.html" class="btn-learn-more" aria-label="Ver detalhes: Sistemas para Restaurantes">
+
+                Veja exemplo
+
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+              </a>
+
+            </div>
+
+          </div>
+<div class="zynk-frame-footer"><span class="zynk-frame-status"></span> PROJETO 02 // ONLINE</div>
+</article>
+
+          <article class="project-card zynk-frame" role="listitem">
+<div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">SISTEMA_BARBEARIA.exe</span></div>
+<div class="project-body">
+
+            <div class="project-image">
+
+              <video 
+
+                src="assets/videos/sistema de barbearia.mp4" 
+
+                autoplay 
+
+                muted 
+
+                loop 
+
+                playsinline
+
+                poster="assets/videos/sistema de barbearia.mp4"
+
+                preload="metadata"
+
+                aria-label="Vídeo demonstrando os Sistemas para Barbearias desenvolvidos pela Zyntek">
+
+                Seu navegador não suporta a reprodução de vídeos.
+
+              </video>
+
+            </div>
+
+            <div class="project-info">
+
+              <h3>Sistemas para Barbearias</h3>
+
+              <p>Agendamento inteligente, fidelização de clientes e controle financeiro em uma plataforma feita para o segmento de barbearia moderno.</p>
+
+              <a href="pages/projetos/projeto-barbearia.html" class="btn-learn-more" aria-label="Ver detalhes: Sistemas para Barbearias">
+
+                Veja exemplo
+
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+              </a>
+
+            </div>
+
+          </div>
+<div class="zynk-frame-footer"><span class="zynk-frame-status"></span> PROJETO 03 // ONLINE</div>
+</article>
+
+          <article class="project-card zynk-frame" role="listitem">
+<div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">LOJA_VIRTUAL.exe</span></div>
+<div class="project-body">
+
+          <div class="project-image">
+
+            <video 
+
+              src="assets/videos/ecommerce.mp4" 
+
+              autoplay 
+
+              muted 
+
+              loop 
+
+              playsinline
+
+              poster="assets/videos/ecommerce.mp4"
+
+              preload="metadata"
+
+              aria-label="Vídeo demonstrando a Loja virtual desenvolvida pela Zyntek">
+
+              Seu navegador não suporta a reprodução de vídeos.
+
+            </video>
+
+          </div>
+
+          <div class="project-info">
+
+            <h3>Lojas Virtuais Completas</h3>
+
+            <p>E-commerces de alto desempenho com gestão de estoque, pagamentos integrados e experiência de compra que converte visitantes em clientes.</p>
+
+            <a href="pages/projetos/projeto-lojavirtual.html" class="btn-learn-more" aria-label="Ver detalhes: Lojas Virtuais Completas">
+
+              Veja exemplo
+
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+            </a>
+
+          </div>
+
+        </div>
+<div class="zynk-frame-footer"><span class="zynk-frame-status"></span> PROJETO 04 // ONLINE</div>
+</article>
+
+        <article class="project-card zynk-frame" role="listitem">
+<div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">CHATBOT_FLUXO.exe</span></div>
+<div class="project-body">
+
+          <div class="project-image">
+
+            <video 
+
+              src="assets/videos/chatbot.mp4" 
+
+              autoplay 
+
+              muted 
+
+              loop 
+
+              playsinline
+
+              poster="assets/videos/chatbot.mp4"
+
+              preload="metadata"
+
+              aria-label="Vídeo demonstrando o Chatbot com fluxo de perguntas e respostas desenvolvido pela Zyntek">
+
+              Seu navegador não suporta a reprodução de vídeos.
+
+            </video>
+
+          </div>
+
+          <div class="project-info">
+
+            <h3>Chatbot de Fluxo Inteligente</h3>
+
+            <p>Atendimento automático por fluxos de perguntas e respostas pré-programados, ideal para triagem rápida, dúvidas frequentes e captura de leads 24 horas por dia com baixo custo.</p>
+
+            <a href="pages/projetos/projeto-chatbotfluxo.html" class="btn-learn-more" aria-label="Ver detalhes: Chatbot de Fluxo Inteligente">
+
+              Veja exemplo
+
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+            </a>
+
+          </div>
+
+        </div>
+<div class="zynk-frame-footer"><span class="zynk-frame-status"></span> PROJETO 05 // ONLINE</div>
+</article>
+
+        
+
+        <article class="project-card zynk-frame" role="listitem">
+<div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">SISTEMA_ACADEMIA.exe</span></div>
+<div class="project-body">
+
+          <div class="project-image">
+
+            <video 
+
+              src="assets/videos/academia.mp4" 
+
+              autoplay 
+
+              muted 
+
+              loop 
+
+              playsinline
+
+              poster="assets/videos/academia.mp4"
+
+              preload="metadata"
+
+              aria-label="Vídeo demonstrando o Sistema de gestão para academias desenvolvido pela Zyntek">
+
+              Seu navegador não suporta a reprodução de vídeos.
+
+            </video>
+
+          </div>
+
+          <div class="project-info">
+
+            <h3>Sistemas para Academias</h3>
+
+            <p>Gestão de planos, catracas e controle de treinos focados em performance, trazendo mais retenção de alunos para o seu centro de treinamento.</p>
+
+            <a href="pages/projetos/projeto-sistemaacademia.html" class="btn-learn-more" aria-label="Ver detalhes: Sistemas para Academias">
+
+              Veja exemplo
+
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+
+            </a>
+
+          </div>
+
+        </div>
+<div class="zynk-frame-footer"><span class="zynk-frame-status"></span> PROJETO 06 // ONLINE</div>
+</article>
+
+        </div>
+        <div class="proj-prog" aria-hidden="true"><span class="proj-count">1 / 6</span><i class="proj-bar"><b></b></i></div>
+        </div>
+      </div>
+    </section>
+
+ <!--  ==========================================================
+   CTA
+========================================================== -->
+    <section id="calculadora" class="calc-section" aria-labelledby="calc-heading">
+      <div class="calc-wrap">
+        <div class="calc-intro">
+          <h2 id="calc-heading" class="tech-font">Qual projeto o seu negócio precisa?</h2>
+          <p>Conte qual dor o seu negócio enfrenta hoje, veja qual projeto indicamos e quanto o seu lucro pode crescer.</p>
+        </div>
+        <div class="calc-card glass-card">
+          <div class="calc-controls">
+            <div class="calc-step"><div class="calc-step-h"><span class="calc-num">1</span><h3>Qual dificuldade o seu negócio enfrenta hoje?</h3></div><div class="tile-group" id="calc-type" role="radiogroup" aria-label="Dificuldade do negócio"></div></div>
+            <div class="calc-step"><div class="calc-step-h"><span class="calc-num">2</span><h3>O que mais ajudaria? <small>(escolha quantos quiser)</small></h3></div><div class="tile-group tile-small" id="calc-feats"></div></div>
+          </div>
+          <div class="calc-result" aria-live="polite">
+            <span class="calc-badge">Projeto ideal para você</span>
+            <div class="calc-pick"><span class="calc-pick-ico" id="calc-pick-icon"></span><strong id="calc-pick-name" class="tech-font"></strong></div>
+            <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" id="calc-ring" cx="60" cy="60" r="52"/></svg>
+              <div class="ring-in"><strong id="calc-days">0</strong><small>a mais de lucro</small></div></div>
+            <h3 id="calc-level" class="tech-font"></h3>
+            <p id="calc-range-txt"></p>
+            <div class="calc-bars" aria-hidden="true">
+              <div class="cbar"><span>Lucro hoje</span><i><b id="calc-bar-now"></b></i><em id="calc-now-val"></em></div>
+              <div class="cbar cbar-new"><span>Com a Zyntek</span><i><b id="calc-bar-new"></b></i><em id="calc-new-val"></em></div>
+            </div>
+            <div class="skills-tags" id="calc-stack"></div>
+            <a id="calc-cta" class="btn-cta btn-primary" href="#" target="_blank" rel="noopener noreferrer">Quero esse resultado</a>
+            <small class="calc-note">Simulação ilustrativa, não é promessa de resultado. O resultado real depende do seu negócio e sai de uma conversa sobre o seu caso.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-container">
+        <div class="cta-content">
+          <span class="cta-live"><i></i><b id="cta-live-text">Agenda aberta para novos projetos</b></span>
+          <h2 id="cta-heading">Pronto para escalar seu negócio para o próximo nível?</h2>
+          <p>Nossa equipe de engenheiros e estrategistas está pronta para analisar os gargalos da sua operação e propor a solução tecnológica ideal para maximizar seus lucros.</p>
+          <a href="https://wa.me/554488317870?text=Gostaria%20de%20falar%20com%20um%20especialista" class="btn-primary-large js-magnetic" target="_blank">
+            Falar com um Especialista
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+        <div class="cta-video-wrapper zynk-frame">
+          <div class="zynk-frame-header">
+            <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+            <span class="zynk-frame-title">ZYNTEK_CTA.exe — ONLINE</span>
+          </div>
+          <div class="cta-video-stage">
+            <video autoplay loop muted playsinline class="cta-video cta-holo-video" aria-hidden="true" preload="metadata">
+              <source src="assets/videos/cta-hologram.mp4" type="video/mp4">
+            </video>
+            <div class="video-glow" aria-hidden="true"></div>
+          </div>
+          <div class="zynk-frame-footer">
+            <span class="zynk-frame-status"></span> SISTEMA ATIVO
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <!--  ==========================================================
+   CONTATOS
+========================================================== -->
+    <section id="contatos" class="contact-section" aria-labelledby="contatos-heading">
+      <div class="contact-header">
+        <span class="eyebrow">— CONTATO —</span>
+        <h2 id="contatos-heading">Vamos estruturar o futuro do seu negócio</h2>
+        <p>Agende uma consultoria <span class="highlight">estratégica</span> e descubra como a tecnologia pode acelerar seu crescimento.</p>
+      </div>
+
+      <div class="contact-container">
+
+        <div class="contact-card form-card glass-card">
+          <div class="card-header">
+            <h3><span aria-hidden="true">&lt;/&gt;</span> Vamos dar vida à sua ideia</h3>
+            <p>Detalhe suas necessidades e nossa equipe entrará em contato para uma consultoria inicial.</p>
+          </div>
+
+          <form id="zyntekForm" novalidate aria-label="Formulário de contato Zyntek">
+            <div class="input-group">
+              <label for="nome">Nome Completo <abbr title="obrigatório">*</abbr></label>
+              <div class="input-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="empresa">Nome da Empresa</label>
+              <div class="input-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa (opcional)" autocomplete="organization">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório">*</abbr></label>
+              <div class="input-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="mensagem">Descrição da Ideia do Projeto <abbr title="obrigatório">*</abbr></label>
+              <div class="input-wrapper textarea-wrapper">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .34 2.02 1.5 3.5.76.75 1.23 1.51 1.41 2.5"/></svg>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o desafio do seu negócio ou a solução que deseja desenvolver..." required></textarea>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label id="tipoSolicitacaoLabel">Tipo de Solicitação <abbr title="obrigatório">*</abbr></label>
+              <div class="urgency-group" id="tipoSolicitacaoGroup" role="radiogroup" aria-labelledby="tipoSolicitacaoLabel">
+
+                <label class="urgency-option">
+                  <input type="radio" name="tipo_solicitacao" value="Orçamento de novo projeto" required>
+                  <span class="urgency-pill">
+                    <span class="urgency-dot dot-orcamento" aria-hidden="true"></span>
+                    Orçamento
+                  </span>
+                </label>
+
+                <label class="urgency-option">
+                  <input type="radio" name="tipo_solicitacao" value="Reajuste em site já existente" required>
+                  <span class="urgency-pill">
+                    <span class="urgency-dot dot-reajuste" aria-hidden="true"></span>
+                    Reajuste no Site
+                  </span>
+                </label>
+
+                <label class="urgency-option">
+                  <input type="radio" name="tipo_solicitacao" value="Urgente / Prioridade Alta" required>
+                  <span class="urgency-pill urgency-pill-urgent">
+                    <span class="urgency-dot dot-urgente" aria-hidden="true"></span>
+                    Urgente
+                  </span>
+                </label>
+
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <span aria-hidden="true">&lt;/&gt;</span> Inicie seu Projeto
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-card hub-card glass-card">
+          <div class="card-header center">
+            <h3>
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5"  r="3"/>
+                <circle cx="6"  cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Hub Digital
+            </h3>
+          </div>
+
+          <nav class="social-grid" aria-label="Redes sociais da Zyntek">
+          <a href="https://wa.me/554488317870" class="social-btn" aria-label="WhatsApp da Zyntek" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="" aria-hidden="true" width="22" height="22">
+            WhatsApp
+          </a>
+          <a href="https://www.instagram.com/zyntek.conect/" class="social-btn" aria-label="Instagram da Zyntek" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="" aria-hidden="true" width="22" height="22">
+            Instagram
+          </a>
+          <a href="https://github.com/zyntekconect-source/zyntekconect-source" class="social-btn" aria-label="GitHub da Zyntek" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" aria-hidden="true" width="22" height="22" style="filter:invert(1)">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" class="social-btn" aria-label="LinkedIn da Zyntek" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" aria-hidden="true" width="22" height="22">
+            LinkedIn
+          </a>
+          <a href="mailto:zyntek.conect@gmail.com" class="social-btn" aria-label="E-mail da Zyntek">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" aria-hidden="true" width="22" height="22">
+            E-mail
+          </a>
+          </nav>
+
+          <div class="hub-footer">
+            <p>Consultoria estratégica em sistemas, automações e soluções digitais de alto impacto.</p>
+            <a href="https://wa.me/554488317870?text=Gostaria%20de%20conhecer%20melhor%20sobre%20o%20servi%C3%A7o%20da%20Zyntek" class="btn-submit outline" target="_blank">
+              <span aria-hidden="true">&lt;/&gt;</span> Conhecer a Zyntek
+            </a>
+          </div>
+
+          <!--
+            Espaço para uma imagem/mascote da Zyntek (ex: o robô "Zynk" das artes do site).
+            Troque o src abaixo pela imagem que quiser usar.
+          -->
+          <div class="hub-zynk-image">
+            <div class="zynk-frame">
+              <div class="zynk-frame-header">
+                <span class="zynk-frame-dots"><i></i><i></i><i></i></span>
+                <span class="zynk-frame-title">ZYNK_CORE.exe — ONLINE</span>
+              </div>
+              <video class="hub-zynk-video" autoplay muted loop playsinline preload="metadata">
+                <source src="assets/videos/zynk linha.mp4" type="video/mp4">
+                <span>[ Vídeo do Zynk aqui ]</span>
+              </video>
+              <div class="zynk-frame-footer">
+                <span class="zynk-frame-status"></span> SISTEMA ATIVO
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+ <!--  ==========================================================
+   FOOTER
+========================================================== -->
+
+  <footer class="main-footer" role="contentinfo">
+    <canvas id="footer-canvas" aria-hidden="true"></canvas>
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <img src="assets/icones/logo z .png" alt="Logotipo Zyntek" class="footer-logo" width="120" height="40">
+        <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+        <div class="footer-social">
+          <h4>Nos acompanhe</h4>
+          <nav class="social-icons" aria-label="Redes sociais no rodapé">
+          <a href="https://www.instagram.com/zyntek.conect/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+
+          <a href="https://github.com/zyntekconect-source/zyntekconect-source" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+
+          <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+
+          <a href="https://wa.me/554488317870" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+
+          <a href="mailto:zyntek.conect@gmail.com" aria-label="E-mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul role="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre a Zyntek</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contatos">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <ul role="list">
+          <li><a href="pages/paraempresas.html">Para Empresas</a></li>
+          <li><a href="pages/paraautonomos.html">Para Autônomos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>O que desenvolvemos</h4>
+        <ul role="list">
+          <li><a href="pages/projetos/projeto-lp.html">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="pages/projetos/projeto-restaurante.html">Sistemas para Restaurantes e Lanchonetes</a></li>
+          <li><a href="pages/projetos/projeto-barbearia.html">Sistemas para Barbearias</a></li>
+          <li><a href="pages/projetos/projeto-lojavirtual.html">Lojas Virtuais Completas</a></li>
+          <li><a href="pages/projetos/projeto-chatbotfluxo.html">Chatbot de Fluxo Inteligente</a></li>
+          <li><a href="pages/projetos/projeto-sistemaacademia.html">Sistemas para Academias</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <ul role="list">
+          <li><a href="pages/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="pages/faq.html">FAQ</a></li>
+          <li>
+          <a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Zyntek%20e%20tenho%20muito%20interesse%20em%20conhecer%20as%20oportunidades%20para%20integrar%20a%20equipe.%20Gostaria%20de%20apresentar%20meu%20perfil%20profissional." target="_blank" rel="noopener noreferrer">
+            Trabalhe Conosco
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Conheci%20a%20Zyntek%20atrav%C3%A9s%20do%20site%20e%20enxergo%20um%20forte%20potencial%20nas%20solu%C3%A7%C3%B5es%20da%20empresa.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20oportunidades%20de%20parceria%20estrat%C3%A9gica%20e%20investimentos." target="_blank" rel="noopener noreferrer">
+            Seja Parceiro
+          </a>
+        </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Fundadores</h4>
+        <ul role="list" class="founders-list">
+          <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer">Levy Andrade</a></li>
+          <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Soares</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+      <p>Desenvolvido por Zyntek</p>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante WhatsApp Zyntek -->
+<a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20um%20projeto." 
+   class="btn-whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="Fale conosco no WhatsApp">
+  
+  <!-- Ícone SVG nativo do WhatsApp -->
+  <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+
+  <span class="btn-text">Vamos construir sua ideia &lt;/&gt;</span>
+</a>
+  <script src="script.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
