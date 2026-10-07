@@ -1,0 +1,74 @@
+/* ============================================================
+   ZYNTEK — Landing Pages, Catálogos & Portfólios
+   Base visual: ../../style.css (nav, tema, fundo, vidro, molduras,
+   footer e animações). Aqui ficam só os blocos exclusivos da página.
+   ============================================================ */
+
+.pj-page { scroll-padding-top: 90px; }
+.pj-page .hero-section { min-height: 640px; }
+.pj-page .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+/* Ícone em caixa de vidro */
+.pj-ico { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; color: var(--primary-light); background: var(--primary-10); border: 1px solid var(--primary-30); box-shadow: 0 0 22px rgba(139,92,246,.18); }
+.pj-ico svg { display: block; }
+
+/* Processo em moldura */
+.pj-flow { margin-top: 2.5rem; border-radius: var(--radius-xl); }
+.pj-steps { list-style: none; margin: 0; padding: 1.75rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; counter-reset: s; }
+.pj-steps li { position: relative; display: flex; flex-direction: column; gap: .8rem; padding: 1.1rem; border-radius: 14px; background: rgba(255,255,255,.04); border: 1px solid var(--border-medium); color: var(--text-muted); line-height: 1.5; font-size: .95rem; transition: transform .35s var(--ease-out), border-color .3s; }
+.pj-steps li:hover { transform: translateY(-4px); border-color: var(--primary-50); }
+.pj-steps li:not(:last-child)::after { content: ""; position: absolute; top: 2.05rem; left: calc(100% + 2px); width: 1rem; height: 2px; background: linear-gradient(90deg, var(--primary-light), transparent); }
+.pj-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-light)); box-shadow: 0 0 16px rgba(139,92,246,.5); }
+
+/* ROI */
+.pj-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 1.5rem; }
+.pj-stat { padding: 1.8rem; border-radius: var(--radius-xl); text-align: center; transition: transform .4s var(--ease-out), border-color .3s; }
+.pj-stat:hover { transform: translateY(-6px); border-color: var(--primary-50); }
+.pj-stat strong { display: block; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; background: linear-gradient(120deg, var(--primary-light), #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pj-stat small { display: block; margin-top: .6rem; color: var(--text-muted); font-size: .9rem; }
+.pj-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+.pj-benefit { padding: 1.9rem; border-radius: var(--radius-xl); }
+.pj-benefit h3 { display: flex; align-items: center; gap: .8rem; margin: 0 0 1.2rem; font-size: 1.2rem; }
+.pj-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
+.pj-list li { display: flex; gap: .7rem; align-items: flex-start; color: var(--text-muted); line-height: 1.5; }
+.pj-list svg { flex: none; margin-top: 2px; color: #22c55e; }
+
+/* Simulador */
+.pj-sim .calc-controls h3 { margin: 0; font-size: 1.25rem; }
+.pj-range input[type=range] { width: 100%; accent-color: #8b5cf6; }
+.pj-range label b { color: var(--primary-light); }
+.pj-bars { width: 100%; display: grid; gap: 10px; margin-top: .3rem; }
+.pj-bar { display: grid; grid-template-columns: 92px 1fr auto; gap: 10px; align-items: center; font-size: .8rem; color: var(--text-muted); text-align: left; }
+.pj-bar i { height: 10px; border-radius: 99px; background: var(--border-medium); overflow: hidden; }
+.pj-bar b { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--text-subtle); transition: width .8s var(--ease-out); }
+.pj-bar-new b { background: linear-gradient(90deg, var(--primary), var(--primary-light), #22d3ee); box-shadow: 0 0 12px rgba(139,92,246,.6); }
+.pj-bar em { font-style: normal; color: var(--text-primary); font-weight: 600; min-width: 84px; text-align: right; }
+.pj-gain { margin: .2rem 0; color: var(--text-muted); }
+.pj-gain strong { color: var(--primary-light); font-family: 'Space Grotesk', var(--font-main); font-size: 1.15rem; }
+
+/* Complementos */
+.pj-filter { margin-bottom: 1.5rem; }
+.pj-feat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
+.pj-feat { padding: 1.5rem; border-radius: var(--radius-xl); transition: transform .4s var(--ease-out), border-color .3s, box-shadow .4s; animation: pjIn .5s var(--ease-out) both; }
+.pj-feat:hover { transform: translateY(-6px); border-color: var(--primary-50); box-shadow: var(--shadow-card-hover); }
+.pj-feat .pj-ico { margin-bottom: 1rem; }
+.pj-feat h3 { margin: 0 0 .4rem; font-family: 'Space Grotesk', var(--font-main); font-size: 1.05rem; }
+.pj-feat p { margin: 0; color: var(--text-muted); font-size: .92rem; line-height: 1.55; }
+.pj-feat.is-hidden { display: none; }
+@keyframes pjIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+.pj-stack, .pj-others { margin-top: 2.5rem; }
+.pj-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.pj-chip { padding: 9px 16px; border-radius: var(--radius-pill); border: 1px solid var(--border-strong); background: rgba(255,255,255,.04); backdrop-filter: blur(10px); color: var(--text-muted); font-size: .88rem; transition: all .25s; }
+.pj-chip:hover, .pj-chip.is-current { color: var(--text-primary); border-color: var(--primary-light); background: var(--primary-20); box-shadow: 0 0 16px rgba(139,92,246,.3); }
+
+@media (max-width: 960px) {
+  .pj-steps { grid-template-columns: repeat(2, 1fr); }
+  .pj-steps li:not(:last-child)::after { display: none; }
+  .pj-stats, .pj-benefits { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .pj-steps { grid-template-columns: 1fr; padding: 1.1rem; }
+  .pj-bar { grid-template-columns: 76px 1fr auto; }
+  .pj-page .hero-buttons .btn-cta { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) { .pj-feat { animation: none; } }

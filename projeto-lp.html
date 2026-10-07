@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing pages de alta conversão, catálogos digitais interativos e portfólios profissionais com UI/UX premium.">
+  <meta name="theme-color" content="#6D28D9">
+  <title>Landing Pages, Catálogos &amp; Portfólios | Zyntek</title>
+  <link rel="icon" type="image/png" href="../../logo z .png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="projeto-lp.css">
+</head>
+<body class="pj-page" data-project="lp">
+
+  <div class="bg-system" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <canvas id="bg-particles"></canvas>
+    <div class="bg-shapes"><span class="bg-shape shape-square"></span><span class="bg-shape shape-circle"></span><span class="bg-shape shape-rect"></span><span class="bg-shape shape-square"></span><span class="bg-shape shape-circle"></span><span class="bg-shape shape-rect"></span><span class="bg-shape shape-circle"></span><span class="bg-shape shape-square"></span></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <header class="zyntek-header" id="header" role="banner">
+
+    <a href="../../index.html" class="logo-container" aria-label="Zyntek — Ir para o início">
+      <img src="../../logo z .png" alt="Logo Zyntek" class="logo-image">
+      <span class="logo-text">Zyntek</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul role="list">
+        <div class="nav-indicator"></div>
+        <li><a href="../../index.html" class="nav-link"><span class="nl"><span data-t="Home">Home</span></span></a></li>
+        <li><a href="#sobre" class="nav-link active" aria-current="page"><span class="nl"><span data-t="Sobre">Sobre</span></span></a></li>
+        <li><a href="#roi" class="nav-link"><span class="nl"><span data-t="ROI">ROI</span></span></a></li>
+        <li><a href="#complementos" class="nav-link"><span class="nl"><span data-t="Complementos">Complementos</span></span></a></li>
+        <li><a href="../../index.html#contatos" class="nav-link"><span class="nl"><span data-t="Contato">Contato</span></span></a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <!-- Alternador de Tema -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar para modo claro" aria-pressed="false">
+        <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+          <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+
+      <!-- Hamburger mobile -->
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação"
+              aria-controls="sidebar-lateral" aria-expanded="false" type="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <!-- CTA Desktop -->
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Vi%20a%20p%C3%A1gina%20de%20Landing%20Pages%2C%20Cat%C3%A1logos%20%26%20Portf%C3%B3lios%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento.%20Podemos%20conversar%3F" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        <span class="code-symbol" aria-hidden="true">&lt;/&gt;</span>
+        Fale Conosco
+      </a>
+
+    </div>
+    <div class="nav-progress" aria-hidden="true"></div>
+  </header>
+
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <!-- =============================================
+       SIDEBAR OVERLAY
+       ============================================= -->
+  <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+  <aside id="sidebar-lateral" class="sidebar-lateral" role="dialog" aria-modal="true"
+         aria-label="Menu lateral da Zyntek" aria-hidden="true">
+    <div class="sidebar-lateral-header">
+      <div>
+        <span class="sidebar-lateral-eyebrow">Navegação</span>
+        <h3>Zyntek</h3>
+      </div>
+      <button id="close-sidebar" class="close-sidebar" aria-label="Fechar menu lateral" type="button">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <nav class="sidebar-lateral-nav" aria-label="Menu lateral">
+      <ul class="sidebar-links">
+        <li><a href="../../index.html" class="sidebar-lateral-link">Home</a></li>
+        <li><a href="#sobre" class="sidebar-lateral-link">Sobre</a></li>
+        <li><a href="#roi" class="sidebar-lateral-link">ROI</a></li>
+        <li><a href="#complementos" class="sidebar-lateral-link">Complementos</a></li>
+        <li><a href="../../index.html#contatos" class="sidebar-lateral-link">Contato</a></li>
+      </ul>
+
+      <span class="sidebar-lateral-divider-label">Idioma</span>
+      <ul id="lang-menu-mobile" class="sidebar-lang-group" aria-label="Selecionar idioma">
+        <li><a href="#" data-lang="PT" class="sidebar-lang-btn"><span class="lang-code">PT</span>Português</a></li>
+        <li><a href="#" data-lang="EN" class="sidebar-lang-btn"><span class="lang-code">EN</span>English</a></li>
+        <li><a href="#" data-lang="ES" class="sidebar-lang-btn"><span class="lang-code">ES</span>Español</a></li>
+      </ul>
+
+      <span class="sidebar-lateral-divider-label">Institucional</span>
+      <ul class="sidebar-links">
+        <li><a href="../precos.html" class="sidebar-lateral-link">Planos</a></li>
+        <li><a href="../politica-privacidade.html" class="sidebar-lateral-link">Política de Privacidade</a></li>
+        <li><a href="../faq.html" class="sidebar-lateral-link">FAQ</a></li>
+      </ul>
+
+      <span class="sidebar-lateral-divider-label">Fundadores</span>
+      <ul class="sidebar-links">
+        <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer" class="sidebar-lateral-link">Levy Andrade</a></li>
+        <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="sidebar-lateral-link">Henrique Soares</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-lateral-divider" aria-hidden="true"></div>
+
+    <div class="sidebar-lateral-footer">
+      <p>Redes Sociais</p>
+      <div class="sidebar-social-icons">
+        <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="" aria-hidden="true" width="20" height="20">
+        </a>
+        <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Vi%20a%20p%C3%A1gina%20de%20Landing%20Pages%2C%20Cat%C3%A1logos%20%26%20Portf%C3%B3lios%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento.%20Podemos%20conversar%3F" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" aria-hidden="true" width="20" height="20">
+        </a>
+        <a href="https://www.instagram.com/zyntek.conect/" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="" aria-hidden="true" width="20" height="20">
+        </a>
+        <a href="https://github.com/zyntekconect-source/zyntekconect-source" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" aria-hidden="true" width="20" height="20" style="filter:invert(1)">
+        </a>
+      </div>
+      <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Vi%20a%20p%C3%A1gina%20de%20Landing%20Pages%2C%20Cat%C3%A1logos%20%26%20Portf%C3%B3lios%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento.%20Podemos%20conversar%3F" target="_blank" rel="noopener noreferrer" class="cta-btn sidebar-cta">Fale Conosco</a>
+    </div>
+  </aside>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section id="topo" class="hero-section" aria-label="Apresentação">
+      <div class="hero-rectangle hero-frame">
+        <div class="hero-frame-header" aria-hidden="true"><span class="hero-frame-title">LANDING_PAGES.exe — ONLINE</span></div>
+        <video id="hero-video" class="hero-video" autoplay loop muted playsinline aria-hidden="true" preload="metadata">
+          <source src="../../landing%20page.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay" aria-hidden="true"></div>
+        <div class="hero-frame-footer" aria-hidden="true">
+          <span class="zynk-frame-status"></span>
+          <span class="hero-frame-status-text">Sistema ativo</span>
+          <button id="pause-video-btn" class="pause-btn" aria-label="Pausar vídeo" title="Pausar/Reproduzir vídeo de fundo">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+        </div>
+        <div class="hero-content hero-text-block">
+          <p class="hero-subtitle mini-title" id="hero-mini-title" aria-live="polite"></p>
+          <h1 class="hero-title">
+            <span class="title-white title-line-1">Páginas que</span>
+            <span class="code-line glitch-text purple-neon" id="hero-typing" aria-live="polite" aria-atomic="true"></span><span class="typing-cursor" aria-hidden="true"></span>
+            <span class="title-white title-line-3">por você, 24h por dia</span>
+          </h1>
+          <p class="hero-description">Landing pages de alta conversão, catálogos digitais interativos e portfólios profissionais com UI/UX premium.</p>
+          <div class="hero-buttons">
+            <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Vi%20a%20p%C3%A1gina%20de%20Landing%20Pages%2C%20Cat%C3%A1logos%20%26%20Portf%C3%B3lios%20no%20site%20e%20quero%20saber%20mais%20sobre%20esse%20projeto." target="_blank" rel="noopener noreferrer" class="cta-btn-large btn-cta btn-primary js-cta"><span class="btn-code-tag" aria-hidden="true">&lt;/&gt;</span><span class="btn-label">Solicitar este projeto</span></a>
+            <a href="#sobre" class="btn-cta btn-outline">Entender como funciona</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="process-section" aria-labelledby="sobre-heading">
+      <div class="process-container">
+        <div class="code-watermark" aria-hidden="true"><pre>const landing = new Page({
+  hero: &#x27;oferta clara&#x27;,
+  prova: [&#x27;cases&#x27;,&#x27;depoimentos&#x27;],
+  cta: &#x27;WhatsApp&#x27;,
+  tracking: [&#x27;pixel&#x27;,&#x27;analytics&#x27;]
+});
+landing.publish();</pre></div>
+        <div class="process-header">
+          <span class="eyebrow">O QUE É UMA LANDING PAGE</span>
+          <h2 id="sobre-heading">Uma página feita com um único objetivo: gerar cliente</h2>
+          <p>Landing page é uma página enxuta, desenhada para levar o visitante a uma única ação: pedir orçamento, chamar no WhatsApp, comprar ou se cadastrar. Sem menus que distraem, com oferta clara e prova social.</p>
+          <p>O catálogo digital apresenta seus produtos e serviços com fotos, preços e botão de pedido direto, e o portfólio mostra seu trabalho de forma profissional. Passe o mouse (ou toque) para abrir cada conceito:</p>
+        </div>
+        <div class="cards-wrapper about-grid">
+          <article class="about-card glass-card" tabindex="0" aria-expanded="false">
+            <div class="step-icon pj-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <h3>Landing Page</h3>
+            <p>Uma página, um objetivo, uma ação.</p>
+            <span class="about-plus" aria-hidden="true"></span>
+            <div class="about-more"><div><p>Estrutura de conversão: título que prende, benefícios, prova social, perguntas frequentes e botão de ação sempre à vista, no celular e no computador.</p></div></div>
+          </article>
+          <article class="about-card glass-card" tabindex="0" aria-expanded="false">
+            <div class="step-icon pj-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg></div>
+            <h3>Catálogo Digital</h3>
+            <p>Seus produtos num link só.</p>
+            <span class="about-plus" aria-hidden="true"></span>
+            <div class="about-more"><div><p>Vitrine online com categorias, busca e botão "pedir no WhatsApp". Você atualiza preços e fotos sem depender de gráfica nem de PDF.</p></div></div>
+          </article>
+          <article class="about-card glass-card" tabindex="0" aria-expanded="false">
+            <div class="step-icon pj-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <h3>Portfólio Profissional</h3>
+            <p>Mostre o seu trabalho com autoridade.</p>
+            <span class="about-plus" aria-hidden="true"></span>
+            <div class="about-more"><div><p>Galeria de projetos, depoimentos e contato rápido. Ideal para autônomos, estúdios e prestadores que precisam passar confiança antes da conversa.</p></div></div>
+          </article>
+        </div>
+        <div class="pj-flow zynk-frame reveal">
+          <div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">COMO_FUNCIONA.exe</span></div>
+          <ol class="pj-steps"><li><span class="pj-num">1</span><span>Briefing e definição da oferta</span></li><li><span class="pj-num">2</span><span>Design da página e textos de conversão</span></li><li><span class="pj-num">3</span><span>Desenvolvimento rápido e otimizado</span></li><li><span class="pj-num">4</span><span>Publicação, domínio e rastreamento</span></li></ol>
+          <div class="zynk-frame-footer"><span class="zynk-frame-status"></span> PROCESSO // DO BRIEFING AO DEPLOY</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI -->
+    <section id="roi" class="process-section" aria-labelledby="roi-heading">
+      <div class="process-container">
+        <div class="process-header">
+          <span class="eyebrow">RETORNO SOBRE O INVESTIMENTO</span>
+          <h2 id="roi-heading">Cada visita vira uma chance real de faturar</h2>
+          <p>Uma página bem construída trabalha o dia inteiro sem pedir salário. Veja o que ela traz para o cliente final e para a gestão do negócio.</p>
+        </div>
+        <div class="pj-stats"><div class="pj-stat glass-card reveal"><strong class="tech-font"><span class="js-count" data-to="3">0</span>x</strong><small>mais contatos qualificados*</small></div><div class="pj-stat glass-card reveal"><strong class="tech-font"><span class="js-count" data-to="24">0</span>h</strong><small>vendendo todos os dias</small></div><div class="pj-stat glass-card reveal"><strong class="tech-font"><span class="js-count" data-to="60">0</span>%</strong><small>menos custo por lead*</small></div></div>
+        <div class="pj-benefits">
+          <article class="glass-card pj-benefit reveal"><h3 class="tech-font"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span> Para o cliente final</h3><ul class="pj-list"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Entende a oferta em segundos</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Chama no WhatsApp com um toque</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Navega bem em qualquer celular</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Encontra preços e provas de confiança</span></li></ul></article>
+          <article class="glass-card pj-benefit reveal"><h3 class="tech-font"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span> Para a empresa e a gestão</h3><ul class="pj-list"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Leads organizados e mensuráveis</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Campanhas pagas com melhor retorno</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Autoridade e imagem profissional</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Atualização rápida de ofertas</span></li></ul></article>
+        </div>
+
+        <div class="calc-card glass-card pj-sim reveal" id="pj-sim">
+          <div class="calc-controls">
+            <h3 class="tech-font">Simule o retorno do seu negócio</h3>
+            <div class="calc-range pj-range"><label for="sim-a">Clientes fechados por mês: <b id="sim-a-val"></b></label><input type="range" id="sim-a" min="5" max="300" step="5" value="30"></div>
+            <div class="calc-range pj-range"><label for="sim-b">Valor médio por cliente (R$): <b id="sim-b-val"></b></label><input type="range" id="sim-b" min="50" max="5000" step="50" value="500"></div>
+            <fieldset><legend>O que você quer ativar?</legend><div class="chip-group" id="sim-chips"><label class="chip"><input type="checkbox" data-g="6" checked><span>Botão WhatsApp</span></label><label class="chip"><input type="checkbox" data-g="8" checked><span>SEO e velocidade</span></label><label class="chip"><input type="checkbox" data-g="6"><span>Pixel e analytics</span></label><label class="chip"><input type="checkbox" data-g="5"><span>Depoimentos e provas</span></label></div></fieldset>
+          </div>
+          <div class="calc-result" aria-live="polite">
+            <span class="calc-badge">Crescimento estimado</span>
+            <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" id="sim-ring" cx="60" cy="60" r="52"/></svg>
+              <div class="ring-in"><strong id="sim-pct">0%</strong><small>de receita a mais</small></div></div>
+            <div class="pj-bars" aria-hidden="true">
+              <div class="pj-bar"><span>Hoje</span><i><b id="sim-bar-now"></b></i><em id="sim-now"></em></div>
+              <div class="pj-bar pj-bar-new"><span>Com a Zyntek</span><i><b id="sim-bar-new"></b></i><em id="sim-new"></em></div>
+            </div>
+            <p class="pj-gain">Ganho estimado: <strong id="sim-gain"></strong> por mês</p>
+            <a class="btn-cta btn-primary" href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Vi%20a%20p%C3%A1gina%20de%20Landing%20Pages%2C%20Cat%C3%A1logos%20%26%20Portf%C3%B3lios%20no%20site%20e%20quero%20saber%20mais%20sobre%20esse%20projeto." target="_blank" rel="noopener noreferrer">Quero esse resultado</a>
+            <small class="calc-note">*Simulação ilustrativa, não é promessa de resultado. O retorno real depende do seu negócio e sai de uma conversa sobre o seu caso.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPLEMENTOS -->
+    <section id="complementos" class="process-section" aria-labelledby="comp-heading">
+      <div class="process-container">
+        <div class="process-header">
+          <span class="eyebrow">COMPLEMENTOS</span>
+          <h2 id="comp-heading">Tudo isso já vem incluso nas páginas</h2>
+          <p>Recursos que já fazem parte dos nossos projetos. Filtre por categoria para ver o que entra em cada etapa.</p>
+        </div>
+        <div class="chip-group pj-filter" id="pj-filter" role="radiogroup" aria-label="Filtrar complementos"><label class="chip"><input type="radio" name="cat" value="Todos" checked><span>Todos</span></label><label class="chip"><input type="radio" name="cat" value="Essencial"><span>Essencial</span></label><label class="chip"><input type="radio" name="cat" value="Gestão"><span>Gestão</span></label><label class="chip"><input type="radio" name="cat" value="Extras"><span>Extras</span></label></div>
+        <div class="pj-feat-grid" id="pj-feats"><article class="pj-feat glass-card" data-cat="Essencial"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><h3>Carregamento ultrarrápido</h3><p>Páginas leves, que não perdem visitante pela demora.</p></article><article class="pj-feat glass-card" data-cat="Essencial"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><h3>100% responsivo</h3><p>Perfeito no celular, tablet e desktop.</p></article><article class="pj-feat glass-card" data-cat="Essencial"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3>Botão de WhatsApp</h3><p>Mensagem pronta com o interesse do cliente.</p></article><article class="pj-feat glass-card" data-cat="Gestão"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span><h3>SEO técnico</h3><p>Estrutura pensada para ser achado no Google.</p></article><article class="pj-feat glass-card" data-cat="Gestão"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span><h3>Analytics e pixel</h3><p>Saiba de onde vêm os clientes e quanto custam.</p></article><article class="pj-feat glass-card" data-cat="Extras"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg></span><h3>Catálogo com categorias</h3><p>Produtos, fotos e preços organizados.</p></article><article class="pj-feat glass-card" data-cat="Extras"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg></span><h3>Domínio e hospedagem</h3><p>Seu endereço profissional no ar.</p></article><article class="pj-feat glass-card" data-cat="Extras"><span class="pj-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><h3>Galeria e depoimentos</h3><p>Prova social que aumenta a confiança.</p></article></div>
+        <div class="pj-stack"><span class="eyebrow">TECNOLOGIAS DO PROJETO</span><div class="skills-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>SEO</span><span>Analytics</span><span>WhatsApp API</span></div></div>
+        <div class="pj-others"><span class="eyebrow">VEJA OUTROS PROJETOS</span><div class="pj-chips"><a href="projeto-lp.html" class="pj-chip is-current">Landing Pages</a><a href="projeto-restaurante.html" class="pj-chip">Restaurantes</a><a href="projeto-barbearia.html" class="pj-chip">Barbearias</a><a href="projeto-lojavirtual.html" class="pj-chip">Lojas Virtuais</a><a href="projeto-chatbotfluxo.html" class="pj-chip">Chatbot</a><a href="projeto-sistemaacademia.html" class="pj-chip">Academias</a></div></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contato" class="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-container">
+        <div class="cta-content">
+          <span class="cta-live"><i></i><b id="cta-live-text">Agenda aberta para novos projetos</b></span>
+          <h2 id="cta-heading">Quer landing pages assim no seu negócio?</h2>
+          <p>Conte o seu cenário e a nossa equipe propõe a solução ideal, com prazo e valor claros, direto no WhatsApp.</p>
+          <a href="https://wa.me/554488317870?text=Ol%C3%A1%2C%20equipe%20Zyntek%21%20Vi%20a%20p%C3%A1gina%20de%20Landing%20Pages%2C%20Cat%C3%A1logos%20%26%20Portf%C3%B3lios%20no%20site%20e%20quero%20saber%20mais%20sobre%20esse%20projeto." class="btn-primary-large js-magnetic" target="_blank" rel="noopener noreferrer">Falar com um Especialista
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="cta-video-wrapper zynk-frame">
+          <div class="zynk-frame-header"><span class="zynk-frame-dots"><i></i><i></i><i></i></span><span class="zynk-frame-title">ZYNTEK_CTA.exe — ONLINE</span></div>
+          <div class="cta-video-stage">
+            <video autoplay loop muted playsinline class="cta-video cta-holo-video" aria-hidden="true" preload="metadata"><source src="../../cta-hologram.mp4" type="video/mp4"></video>
+            <div class="video-glow" aria-hidden="true"></div>
+          </div>
+          <div class="zynk-frame-footer"><span class="zynk-frame-status"></span> SISTEMA ATIVO</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer" role="contentinfo">
+    <canvas id="footer-canvas" aria-hidden="true"></canvas>
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <img src="../../logo z .png" alt="Logotipo Zyntek" class="footer-logo" width="120" height="40">
+        <p class="footer-description">Tecnologia que conecta o futuro dos negócios ao presente digital.</p>
+        <div class="footer-social">
+          <h4>Nos acompanhe</h4>
+          <nav class="social-icons" aria-label="Redes sociais no rodapé">
+          <a href="https://www.instagram.com/zyntek.conect/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+
+          <a href="https://github.com/zyntekconect-source/zyntekconect-source" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+
+          <a href="https://www.linkedin.com/in/zyntek-conect-b50616412/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+
+          <a href="https://wa.me/554488317870" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+
+          <a href="mailto:zyntek.conect@gmail.com" aria-label="E-mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul role="list">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#sobre">Sobre a Zyntek</a></li>
+          <li><a href="../../index.html#servicos">Serviços</a></li>
+          <li><a href="../../index.html#equipe">Equipe</a></li>
+          <li><a href="../../index.html#projetos">Projetos</a></li>
+          <li><a href="../../index.html#contatos">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <ul role="list">
+          <li><a href="../paraempresas.html">Para Empresas</a></li>
+          <li><a href="../paraautonomos.html">Para Autônomos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>O que desenvolvemos</h4>
+        <ul role="list">
+          <li><a href="projeto-lp.html">Landing Pages, Catálogos & Portfólios</a></li>
+          <li><a href="projeto-restaurante.html">Sistemas para Restaurantes e Lanchonetes</a></li>
+          <li><a href="projeto-barbearia.html">Sistemas para Barbearias</a></li>
+          <li><a href="projeto-lojavirtual.html">Lojas Virtuais Completas</a></li>
+          <li><a href="projeto-chatbotfluxo.html">Chatbot de Fluxo Inteligente</a></li>
+          <li><a href="projeto-sistemaacademia.html">Sistemas para Academias</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <ul role="list">
+          <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li>
+          <a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Acessei%20o%20site%20da%20Zyntek%20e%20tenho%20muito%20interesse%20em%20conhecer%20as%20oportunidades%20para%20integrar%20a%20equipe.%20Gostaria%20de%20apresentar%20meu%20perfil%20profissional." target="_blank" rel="noopener noreferrer">
+            Trabalhe Conosco
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Conheci%20a%20Zyntek%20atrav%C3%A9s%20do%20site%20e%20enxergo%20um%20forte%20potencial%20nas%20solu%C3%A7%C3%B5es%20da%20empresa.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20oportunidades%20de%20parceria%20estrat%C3%A9gica%20e%20investimentos." target="_blank" rel="noopener noreferrer">
+            Seja Parceiro
+          </a>
+        </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Fundadores</h4>
+        <ul role="list" class="founders-list">
+          <li><a href="https://portif-lio-levy-andrade.vercel.app/" target="_blank" rel="noopener noreferrer">Levy Andrade</a></li>
+          <li><a href="https://portif-lio-sable-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Henrique Soares</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Zyntek Conect — Todos os direitos reservados.</p>
+      <p>Desenvolvido por Zyntek</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/554488317870?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20um%20projeto." 
+   class="btn-whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="Fale conosco no WhatsApp">
+  
+  <!-- Ícone SVG nativo do WhatsApp -->
+  <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+
+  <span class="btn-text">Vamos construir sua ideia &lt;/&gt;</span>
+</a>
+  <script src="projeto-lp.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
